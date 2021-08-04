@@ -1,0 +1,18 @@
+{
+  "address": {
+    "ropsten": "",
+    "mainnet": ""
+  },
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "rate",
+      "outputs": [{ "name": "", "type": "uint256" }],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x2c4e722e"
+    }
+  ]
+}

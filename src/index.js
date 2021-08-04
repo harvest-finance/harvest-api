@@ -1,0 +1,1 @@
+require('./runtime/app.js')()

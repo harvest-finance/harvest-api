@@ -1,0 +1,60 @@
+{
+  "name": "harvest-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "./run-standalone.sh",
+    "dev": "nodemon src/index.js",
+    "test": "PORT=3030 MONGODB_DB_NAME=harvest-test-local ACTIVE_ENDPOINTS=all mocha ./test/integration/*  --timeout 600000",
+    "debug-web3": "DEBUG_MODE=true yarn start",
+    "print-vault": "node ./test/cli/print-vault",
+    "lint": "eslint ./",
+    "lint-fix": "eslint --fix ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harvest-finance/harvest-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harvest-finance/harvest-api/issues"
+  },
+  "homepage": "https://github.com/harvest-finance/harvest-api#readme",
+  "dependencies": {
+    "@uniswap/sdk-core": "3.0.0",
+    "@uniswap/v3-sdk": "3.0.0",
+    "axios": "0.21.1",
+    "axios-cache-adapter": "2.7.3",
+    "axios-rate-limit": "1.3.0",
+    "axios-retry": "3.1.9",
+    "bignumber.js": "9.0.1",
+    "cors": "2.8.5",
+    "date-fns": "2.19.0",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "lodash": "4.17.21",
+    "mongoose": "5.12.8",
+    "node-cache": "5.1.2",
+    "nodemon": "2.0.7",
+    "promised-loops": "1.1.1",
+    "web3": "1.3.4",
+    "web3-utils": "1.3.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "chai": "4.3.4",
+    "eslint": "7.21.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-prettier": "3.3.1",
+    "mocha": "9.0.3",
+    "prettier": "2.2.1",
+    "supertest": "6.1.4"
+  }
+}

@@ -1,0 +1,30 @@
+# harvest-api
+
+This repository contains implementation and documentation of the API used by [Harvest.finance](https://harvest.finance).
+
+## Documentation
+
+- See [API Documentation](./docs/api.md) for supported routes
+- See [Developer Documentation](./docs/developer.md) for developer info
+- Miscellaneous
+  * [Some info on APR and APYs](./docs/apr-and-apy.md)
+
+## Minimal recommended setup
+
+1. `npm install`
+2. Install and start MongoDB (for local cache). [Instructions for Mac](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+3. `export INFURA_KEY=<infuraKey>`
+4. `export ACTIVE_ENDPOINTS=internal` (recommended for a quicker load)
+5. `export MATIC_INFURA_KEY=<infuraKey that has Polygon/Matic enabled>`. If omitted, will still work for BSC and Mainnet Ethereum.
+6. `npm start`. It takes a few minutes to start fresh. Then, can query:
+    1. Vaults: `http://localhost:3000/vaults?key=harvest-key`
+    2. Pools: `http://localhost:3000/pools?key=harvest-key`
+    3. General data (staked amount, monthly profits, etc.): `http://localhost:3000/token-stats?key=harvest-key`
+
+## Debugging a specific vault/pool
+
+* `npm run print-vault -- WETH` will output vault and pool information. IDs should match a vault in https://harvest.finance/data/tokens.json and/or a pool in https://harvest.finance/data/pools.json
+
+## Running tests
+
+* `npm t`. However, the test suite is incomplete
