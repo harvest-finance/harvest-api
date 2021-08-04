@@ -2,7 +2,7 @@
 
 One way to build an integration is using [tokens.json](https://harvest.finance/data/tokens.json) and [pools.json](https://harvest.finance/data/pools.json) that contain up-to-date vault and pool information presented in the UI.
 
-Our [API](./docs/developer.md) currently uses the JSON files as sources of data and APY computation formulas.
+Our [API](./developer.md) currently uses the JSON files as sources of data and APY computation formulas.
 
 ## Front-end's tokens.json and pools.json
 

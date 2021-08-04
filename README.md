@@ -11,11 +11,10 @@ This repository contains implementation and documentation of the API used by [Ha
 
 ## Minimal recommended setup
 
-1. `npm install`
+1. `yarn`
 2. Install and start MongoDB (for local cache). [Instructions for Mac](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 3. `export INFURA_KEY=<infuraKey>`
-4. `export ACTIVE_ENDPOINTS=internal` (recommended for a quicker load)
-5. `export MATIC_INFURA_KEY=<infuraKey that has Polygon/Matic enabled>`. If omitted, will still work for BSC and Mainnet Ethereum.
+5. `export MATIC_INFURA_KEY=<infuraKey that has Polygon/Matic enabled>`. If omitted, will still work for BSC and Ethereum Mainnet (but tests will fail).
 6. `npm start`. It takes a few minutes to start fresh. Then, can query:
     1. Vaults: `http://localhost:3000/vaults?key=harvest-key`
     2. Pools: `http://localhost:3000/pools?key=harvest-key`
@@ -27,4 +26,10 @@ This repository contains implementation and documentation of the API used by [Ha
 
 ## Running tests
 
-* `npm t`. However, the test suite is incomplete
+* `npm t`. However, the test suite could use more assertions
+
+## Areas of improvements
+
+* Implementing trading APYs for Polygon/Matic
+* Caching the results of external APIs permanently (these APIs are sometimes unavailable which could lead to issues)
+* Adding more assertions for the tests

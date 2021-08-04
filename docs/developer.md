@@ -15,7 +15,7 @@ The API is currently deployed in two separate instances sharing the same code ba
 1. https://api-ui.harvest.finance/ - exposes functions originally intended for use by `https://harvest.finance` exclusively
 2. https://api.harvest.finance/ - exposes data originally intended for public use (CoinMarketCap, third parties, etc.)
 
-Both endpoints are public, but the format of https://api-ui.harvest.finance/ is subject to change at any point while the intention for https://api.harvest.finance/ is keeping the format relatively stable.
+Both endpoints are public, but the format of https://api-ui.harvest.finance/ is subject to change at any point while the intention for https://api.harvest.finance/ is  relatively stable.
 
 When run locally, all paths are active by default.
 
@@ -26,7 +26,7 @@ The API is public, and the authentication key is publicly available as well sinc
 ## What API does
 
 The API, on the hourly basis, does the following:
-1. Fetches the JSON definition files https://harvest.finance/data/tokens.json and https://harvest.finance/data/pools.json (See [Integrations](./docs/integration.md)) to capture the latest list of vaults (and related tokens), pools, APY formula types and parameters
+1. Fetches the JSON definition files https://harvest.finance/data/tokens.json and https://harvest.finance/data/pools.json (See [Integrations](./integration.md)) to capture the latest list of vaults (and related tokens), pools, APY formula types and parameters
 2. Runs the necessary computations in formulas by querying third-party APIs, including `Coingecko` (for prices data), `Infura` (for computations using on-chain data), and APIs exposed by farming opportunities (such as, `apy.vision`, `Convex`, `curve.fi`, `Idle.finance`)
 3. Caches the individual terms as well as the results of the computation in memory and in the database.
 
@@ -62,11 +62,10 @@ INFURA_KEY | Infura access key |
 API_KEY | The authentication token that needs to be appended to all queries on this API | 'harvest-key'
 UPDATE_LOOP_INTERVAL_MS | Interval for polling to update the data (refresh caches) | Default: 1 Hour
 UI_DATA_CHECK_INTERVAL_MS | How often check for a fresher JSON | Default: 5 Minutes
-ACTIVE_ENDPOINTS | Selecting which routes to make active (`api.harvest.finance` and `api-ui.harvest.finance` exposing different set of routes) |  Default: `ENDPOINT_TYPES.ALL`
+ACTIVE_ENDPOINTS | Selecting which routes to make active (`api.harvest.finance` and `api-ui.harvest.finance` exposing different set of routes) |  Default: `ENDPOINT_TYPES.INTERNAL`
 CG_CACHE_TTL | caching TTL for Coingecko requests | Default: 10 Min
 GENERAL_CACHE_TTL | caching TTL for general responses  | Default: 10 Min
 UI_DATA_CACHE_TTL | caching TTL for UI data response (related to `UI_DATA_CHECK_INTERVAL_MS`) | 4 Hours
-PRICES_POLLING_DURATION | Polling interval for token prices | Default: 59 Min
 BSC_RPC_URL | Blockchain node endpoint for Binance Smart Chain | `'https://bsc-dataseed2.binance.org/'`
 MATIC_RPC_URL | Blockchain node endpoint for Polygon (Matic) | `https://polygon-mainnet.infura.io/v3/${MATIC_INFURA_KEY}`
 MATIC_INFURA_KEY | Infura key used in case of default MATIC_RPC_URL |
@@ -80,4 +79,4 @@ MONGODB_DB_NAME  | MongoDB database name | `harvest-local`
 1. Fork the repository, make a change and test locally
 2. Open a pull request with a detailed description of the purpose of the PR
 3. Wait for the CI to finish and fix any issues
-4. If the change is deemed as necessary by the team, it will be merged and promoted.
+4. If the change is deemed as necessary/useful by the team, it will be merged and promoted.

@@ -35,7 +35,7 @@ const loadData = async (dbSchema, type) => {
   const result = get(dbResponse, 'data', null)
 
   if (!result) {
-    console.error(`Could not fetch ${dbSchema}:${type}. Check for errors.`)
+    console.error(`Could not fetch ${type}. Check for errors.`)
     return null
   }
 

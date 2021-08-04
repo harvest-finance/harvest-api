@@ -92,7 +92,7 @@ const CORS_SETTINGS = {
 const UPDATE_LOOP_INTERVAL_MS = parseInt(process.env.UPDATE_LOOP_INTERVAL_MS, 10) || 3600000 // Default: 1 Hour
 const UI_DATA_CHECK_INTERVAL_MS = parseInt(process.env.UI_DATA_CHECK_INTERVAL_MS, 10) || 300000 // Default: 5 Minutes
 
-const ACTIVE_ENDPOINTS = (process.env.ACTIVE_ENDPOINTS || ENDPOINT_TYPES.ALL).toLowerCase() // Default: ENDPOINT_TYPES.ALL
+const ACTIVE_ENDPOINTS = (process.env.ACTIVE_ENDPOINTS || ENDPOINT_TYPES.INTERNAL).toLowerCase() // Default: ENDPOINT_TYPES.ALL
 
 const CG_CACHE_TTL = parseInt(process.env.CG_CACHE_TTL, 10) || 600000 // Default: 10 Mins in ms
 
