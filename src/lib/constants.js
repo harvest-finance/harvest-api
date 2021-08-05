@@ -170,8 +170,12 @@ const DEBUG_MODE = process.env.DEBUG_MODE
 const WEB3_CALL_COUNT_STATS_KEY = 'web3CallCountStats'
 const WEB3_CALL_COUNT_KEY = 'web3CallCount'
 
-const GET_POOL_DATA_BATCH_SIZE = DEBUG_MODE ? 1 : 15
-const GET_VAULT_DATA_BATCH_SIZE = DEBUG_MODE ? 1 : 15
+const GET_POOL_DATA_BATCH_SIZE = DEBUG_MODE
+  ? 1
+  : parseInt(process.env.GET_POOL_DATA_BATCH_SIZE || '15', 10)
+const GET_VAULT_DATA_BATCH_SIZE = DEBUG_MODE
+  ? 1
+  : parseInt(process.env.GET_VAULT_DATA_BATCH_SIZE || '15', 10)
 
 const DB_CACHE_IDS = {
   VAULTS: 0,
