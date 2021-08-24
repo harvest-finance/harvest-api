@@ -1,12 +1,12 @@
 const BigNumber = require('bignumber.js')
-const axios = require('axios')
 const { get } = require('lodash')
+const { cachedAxios } = require('../../../lib/db/models/cache')
 
 const getApy = async (poolId, profitSharingFactor) => {
   let apy
 
   try {
-    const response = await axios.get('https://s.belt.fi/info/all.json')
+    const response = await cachedAxios.get('https://s.belt.fi/info/all.json')
 
     const beltApy = get(
       get(response, `data.info.BSC.vaultPools`, []).find(pool => pool.pid === poolId),

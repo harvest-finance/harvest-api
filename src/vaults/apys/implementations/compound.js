@@ -1,12 +1,12 @@
 const BigNumber = require('bignumber.js')
-const axios = require('axios')
 const { COMPOUND_CTOKEN_API_URL } = require('../../../lib/constants')
 const { getDailyCompound } = require('../../../lib/utils')
 const { get } = require('lodash')
+const { cachedAxios } = require('../../../lib/db/models/cache')
 
 const getApy = async (tokenAddress, subtractProfitShare = true) => {
   try {
-    const apiResponse = await axios.get(COMPOUND_CTOKEN_API_URL, {
+    const apiResponse = await cachedAxios.get(COMPOUND_CTOKEN_API_URL, {
       params: { addresses: [tokenAddress] },
     })
 

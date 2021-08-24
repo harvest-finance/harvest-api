@@ -1,12 +1,13 @@
 const BigNumber = require('bignumber.js')
-const ellipsisApi = require('../../../lib/third-party/ellipsis')
 const { get } = require('lodash')
+const { ELLIPSIS_API_URL } = require('../../../lib/constants')
+const { cachedAxios } = require('../../../lib/db/models/cache')
 
 const getApy = async (poolId, profitSharingFactor) => {
   let apy
 
   try {
-    const response = await ellipsisApi.get('getPoolData')
+    const response = await cachedAxios.get(`${ELLIPSIS_API_URL}/getPoolData`)
     const poolApy = get(response, `data.data.pools[${poolId}].apy`, 0)
 
     apy = new BigNumber(poolApy).div(100).dividedBy(2).times(profitSharingFactor)

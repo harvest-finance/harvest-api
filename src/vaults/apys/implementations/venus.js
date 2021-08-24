@@ -1,11 +1,11 @@
 const BigNumber = require('bignumber.js')
-const axios = require('axios')
 const { get, find } = require('lodash')
 
 const { VENUS_API_URL } = require('../../../lib/constants')
+const { cachedAxios } = require('../../../lib/db/models/cache')
 
 const getApy = async (marketSymbol, profitSharingFactor) => {
-  const response = await axios.get(VENUS_API_URL)
+  const response = await cachedAxios.get(VENUS_API_URL)
 
   const { supplyApy, supplyVenusApy } = find(
     get(response, 'data.data.markets', []),

@@ -30,6 +30,4 @@ This repository contains implementation and documentation of the API used by [Ha
 
 ## Areas of improvements
 
-* Implementing trading APYs for Polygon/Matic
-* Caching the results of external APIs permanently (these APIs are sometimes unavailable which could lead to issues)
 * Adding more assertions for the tests

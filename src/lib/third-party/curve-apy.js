@@ -1,9 +1,9 @@
-const axios = require('axios')
 const { get } = require('lodash')
 const { cache } = require('../cache')
+const { cachedAxios } = require('../db/models/cache')
 
 const getApyFromCurveApi = poolId =>
-  axios
+  cachedAxios
     .get('https://stats.curve.fi/raw-stats/apys.json')
     .then(res => get(res, `data.apy.day[${poolId}]`, 0))
     .catch(err => {
@@ -12,7 +12,7 @@ const getApyFromCurveApi = poolId =>
     })
 
 const getApyFromCurvePushService = (poolId, params) =>
-  axios
+  cachedAxios
     .get(`http://pushservice.curve.fi/apys/${poolId}`)
     .then(async res => {
       const desiredItem = res.data.lendRates

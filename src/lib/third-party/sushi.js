@@ -1,10 +1,10 @@
-const axios = require('axios')
 const { get } = require('lodash')
 const { startOfMinute, subDays } = require('date-fns')
 const { SUSHI_GRAPHQL_ENDPOINTS, SUSHI_GRAPHQL_ENDPOINTS_TYPES } = require('../constants')
+const { cachedAxios } = require('../db/models/cache')
 
 const executeSushiCall = (type, query, variables) =>
-  axios
+  cachedAxios
     .post(SUSHI_GRAPHQL_ENDPOINTS[type], JSON.stringify({ query, variables }))
     .then(response => {
       const data = get(response, 'data.data')

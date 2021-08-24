@@ -183,6 +183,7 @@ const DB_CACHE_IDS = {
   STATS: 2,
   CMC: 3,
   UI_DATA: 4,
+  EXTERNAL_API: 5,
 }
 
 const PROFIT_SHARING_POOL_ID = 'profit-sharing-farm'

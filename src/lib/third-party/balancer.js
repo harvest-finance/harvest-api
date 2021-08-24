@@ -1,11 +1,11 @@
-const axios = require('axios')
 const { get } = require('lodash')
+const { cachedAxios } = require('../db/models/cache')
 
 const BALANCER_SUBGRAPH_MAINNET =
   'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2'
 
 const executeBalancerCall = (type, query) =>
-  axios
+  cachedAxios
     .post(BALANCER_SUBGRAPH_MAINNET, JSON.stringify({ query }))
     .then(response => {
       const data = get(response, `data.data.${type}`)

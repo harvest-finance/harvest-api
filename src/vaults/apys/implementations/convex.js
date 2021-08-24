@@ -1,13 +1,13 @@
 const BigNumber = require('bignumber.js')
-const axios = require('axios')
 const { get } = require('lodash')
 const { convexAPR } = require('./convex.utils.js')
+const { cachedAxios } = require('../../../lib/db/models/cache.js')
 
 const getApy = async (poolId, profitSharingFactor) => {
   let apy
 
   try {
-    const response = await axios.get('https://www.convexfinance.com/api/curve-apys')
+    const response = await cachedAxios.get('https://www.convexfinance.com/api/curve-apys')
 
     const convexAPY = await convexAPR(poolId)
     const baseAPY = get(response, `data.apys[${poolId}].baseApy`, 0)

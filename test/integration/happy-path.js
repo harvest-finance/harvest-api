@@ -1,8 +1,9 @@
 const request = require('supertest')
 const assert = require('chai').assert
 const axios = require('axios')
-const { get } = require('lodash')
+const { get, isArray } = require('lodash')
 
+const addresses = require('../../src/lib/data/addresses.json')
 const { UI_URL } = require('../../src/lib/constants')
 const initDb = require('../../src/lib/db')
 const { Cache, clearAllDataTestOnly } = require('../../src/lib/db/models/cache')
@@ -27,7 +28,15 @@ describe('Happy Paths', function () {
       .filter(token => tokensJson[token].vaultAddress || tokensJson[token].fakeVault)
       .map(token => tokensJson[token])
 
-    activeVaultsJsonArray = allVaultsJsonArray.filter(item => !item.inactive && !item.fakeVault)
+    activeVaultsJsonArray = allVaultsJsonArray.filter(
+      item =>
+        !item.inactive &&
+        !item.fakeVault &&
+        !(
+          !isArray(item.tokenAddress) &&
+          item.tokenAddress.toLowerCase() === addresses.iFARM.toLowerCase()
+        ),
+    )
 
     appServer = app(testPort)
 
