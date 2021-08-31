@@ -1,0 +1,70 @@
+{
+  "address": {
+    "ropsten": "",
+    "mainnet": ""
+  },
+  "abi": [
+  	{
+  		"anonymous": false,
+  		"inputs": [
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "oldPrice",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "newPrice",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "previousTimestamp",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "newTimestamp",
+  				"type": "uint256"
+  			}
+  		],
+  		"name": "SharePriceChangeLiquidation",
+  		"type": "event"
+  	},
+  	{
+  		"anonymous": false,
+  		"inputs": [
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "oldPrice",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "newPrice",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "previousTimestamp",
+  				"type": "uint256"
+  			},
+  			{
+  				"indexed": false,
+  				"internalType": "uint256",
+  				"name": "newTimestamp",
+  				"type": "uint256"
+  			}
+  		],
+  		"name": "SharePriceChangeTrading",
+  		"type": "event"
+  	}
+  ]
+}
