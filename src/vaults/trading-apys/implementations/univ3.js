@@ -29,7 +29,7 @@ const getTradingApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'late
     latestHarvestsToAverageOverForVault =
       vaultEvents.length >= latestHarvestsToAverageOver ? latestHarvestsToAverageOver : dataSize
 
-    for (let i = 0; i < latestHarvestsToAverageOverForVault - 1; i++) {
+    for (let i = 0; i < latestHarvestsToAverageOverForVault; i++) {
       let timestamp1 = vaultEvents[dataSize - 2 - i].returnValues.timestamp,
         sharePrice1 = vaultEvents[dataSize - 2 - i].returnValues.newSharePrice,
         timestamp2 = vaultEvents[dataSize - 1 - i].returnValues.timestamp,
