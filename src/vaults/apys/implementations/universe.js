@@ -1,7 +1,6 @@
 const BigNumber = require('bignumber.js')
 const { web3 } = require('../../../lib/web3')
 const tokenAddresses = require('../../../lib/data/addresses.json')
-const { token: tokenContractData } = require('../../../lib/web3/contracts')
 const universeStakingContract = require('../../../lib/web3/contracts/universe-staking/contract.json')
 const {
   getEpochPoolSize,
@@ -13,15 +12,18 @@ const getLPTokenPrice = require('../../../prices/implementations/lp-token.js').g
 const getApy = async (tokenAddress, weeklyXYZ, reduction, firstToken, secondToken) => {
   const { abi: universeStakingAbi, address: universeStakingAddress } = universeStakingContract
 
-  const universeStakingInstance = new web3.eth.Contract(universeStakingAbi, universeStakingAddress.mainnet)
+  const universeStakingInstance = new web3.eth.Contract(
+    universeStakingAbi,
+    universeStakingAddress.mainnet,
+  )
   const currentEpoch = await getCurrentEpoch(universeStakingInstance)
   const currentPoolSize = new BigNumber(
-    await getEpochPoolSize(tokenAddress, currentEpoch, universeStakingInstance)).div(
-      new BigNumber(10).pow(18),
-    )
+    await getEpochPoolSize(tokenAddress, currentEpoch, universeStakingInstance),
+  ).div(new BigNumber(10).pow(18))
 
   const xyzPrice = await getTokenPrice(tokenAddresses.XYZ)
-  let tokenPrice;
+  let tokenPrice,
+    apy = new BigNumber(weeklyXYZ).times(xyzPrice).times(52).div(totalSupplyInUSD)
 
   if (firstToken && secondToken) {
     tokenPrice = await getLPTokenPrice(tokenAddress, firstToken, secondToken)
@@ -30,8 +32,6 @@ const getApy = async (tokenAddress, weeklyXYZ, reduction, firstToken, secondToke
   }
 
   const totalSupplyInUSD = currentPoolSize.multipliedBy(tokenPrice)
-
-  let apy = new BigNumber(weeklyXYZ).times(xyzPrice).times(52).div(totalSupplyInUSD)
 
   if (reduction) {
     apy = apy.times(reduction)
