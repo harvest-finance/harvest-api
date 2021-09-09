@@ -6,7 +6,6 @@ const getEpochPoolSize = (tokenAddress, epochId, instance) =>
 const getCurrentEpoch = instance => countFunctionCall(instance.methods.getCurrentEpoch().call())
 
 module.exports = {
-  getBalance,
   getEpochPoolSize,
   getCurrentEpoch,
 }
