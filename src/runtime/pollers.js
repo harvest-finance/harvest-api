@@ -54,7 +54,7 @@ const getVaults = async () => {
     fetchedVaults,
     hasErrors = false
 
-  const tokensWithVault = pickBy(tokens, token => token.vaultAddress || token.fakeVault)
+  const tokensWithVault = pickBy(tokens, token => token.vaultAddress)
 
   const ethVaultsBatches = chunk(
     Object.keys(tokensWithVault).filter(tokenId => tokens[tokenId].chain === CHAIN_TYPES.ETH),
@@ -298,9 +298,10 @@ const getTotalGmv = async () => {
   for (let networkId in vaults) {
     for (let symbol in vaults[networkId]) {
       const vault = vaults[networkId][symbol]
-      if (vault.fakeVault || vault.inactive) {
+      if (vault.inactive) {
         continue
       }
+
       try {
         console.log('Got GMV for:', vault.id, ':', vault.totalValueLocked)
         gmvList[symbol] = vault.totalValueLocked
@@ -363,7 +364,7 @@ const getTotalRevenue = async () => {
       const vault = vaults[networkId][symbol]
       let revenue = 0,
         revenueMonthly = 0
-      if (!vault.inactive && !vault.fakeVault) {
+      if (!vault.inactive) {
         const tokenGmv = vault.totalValueLocked
         const estimatedApy = vault.estimatedApy
 
@@ -483,8 +484,7 @@ const getCmc = async () => {
             !isArray(vault.tokenAddress) &&
             vault.tokenAddress.toLowerCase() === addresses.iFARM.toLowerCase()
           ) &&
-          !vault.inactive &&
-          !vault.fakeVault
+          !vault.inactive
         ) {
           console.log('Getting CMC data for: ', symbol)
 

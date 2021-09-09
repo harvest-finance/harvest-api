@@ -4,12 +4,9 @@ const { cache } = require('../lib/cache')
 const addresses = require('../lib/data/addresses.json')
 const { vault: vaultContractData } = require('../lib/web3/contracts')
 const { executeEstimateApyFunctions } = require('./apys')
-
 const { getTokenPrice } = require('../prices')
-
 const { getPosId } = require('../prices/implementations/uniswap-v3.js')
-
-const { omit, get, find } = require('lodash')
+const { omit, get, find, isArray, toString } = require('lodash')
 const { getTotalSupply } = require('../lib/web3/contracts/vault/methods')
 const {
   DB_CACHE_IDS,
@@ -21,6 +18,7 @@ const {
 } = require('../lib/constants')
 const { Cache } = require('../lib/db/models/cache')
 const { getUIData } = require('../lib/data')
+const { forEach } = require('promised-loops')
 
 const fetchAndExpandVault = async symbol => {
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
@@ -42,26 +40,11 @@ const fetchAndExpandVault = async symbol => {
     usdPrice = null,
     totalSupply = null,
     uniswapV3PositionId = null,
+    uniswapV3UnderlyingTokenPrices = [],
     totalValueLocked = null
 
   const vaultData = tokens[symbol]
   vaultData.id = symbol
-
-  if (vaultData.fakeVault) {
-    const usdPrice = (await getTokenPrice(vaultData.tokenAddress)).toString()
-
-    return {
-      ...omit(vaultData, ['priceFunction']),
-      pricePerFullShare,
-      estimatedApy: '0',
-      estimatedApyBreakdown: ['0'],
-      boostedEstimatedAPY: null,
-      underlyingBalanceWithInvestment,
-      usdPrice,
-      totalSupply,
-      uniswapV3PositionId,
-    }
-  }
 
   const vaultInstance = new web3Instance.eth.Contract(abi, vaultData.vaultAddress)
 
@@ -127,6 +110,13 @@ const fetchAndExpandVault = async symbol => {
     .dividedBy(new BigNumber(10).exponentiatedBy(Number(vaultData.decimals)))
     .toString()
 
+  if (isArray(vaultData.tokenAddress)) {
+    await forEach(vaultData.tokenAddress, async tokenAddress => {
+      const tokenPrice = await getTokenPrice(tokenAddress)
+      uniswapV3UnderlyingTokenPrices.push(toString(tokenPrice))
+    })
+  }
+
   return {
     ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
     pricePerFullShare,
@@ -138,6 +128,8 @@ const fetchAndExpandVault = async symbol => {
     totalSupply,
     totalValueLocked,
     uniswapV3PositionId,
+    uniswapV3UnderlyingTokenPrices,
+    rewardPool: vaultPool ? vaultPool.contractAddress : null,
   }
 }
 

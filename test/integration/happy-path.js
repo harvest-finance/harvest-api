@@ -25,13 +25,12 @@ describe('Happy Paths', function () {
     poolsJson = get(await uiUrl.get(`/data/pools.json`), 'data.data')
 
     allVaultsJsonArray = Object.keys(tokensJson)
-      .filter(token => tokensJson[token].vaultAddress || tokensJson[token].fakeVault)
+      .filter(token => tokensJson[token].vaultAddress)
       .map(token => tokensJson[token])
 
     activeVaultsJsonArray = allVaultsJsonArray.filter(
       item =>
         !item.inactive &&
-        !item.fakeVault &&
         !(
           !isArray(item.tokenAddress) &&
           item.tokenAddress.toLowerCase() === addresses.iFARM.toLowerCase()
