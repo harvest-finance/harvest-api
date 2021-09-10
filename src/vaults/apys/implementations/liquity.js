@@ -5,14 +5,15 @@ const { getTokenPrice } = require('../../../prices')
 
 const getApy = async (timeLookback, reduction) => {
   let blockTime = 14,
-    dailyAPRTotal = 0
-
-  let currentBlock = await web3Socket.eth.getBlockNumber()
-  let fromBlock = currentBlock - Math.floor(timeLookback/blockTime)
+    currentBlock = await web3Socket.eth.getBlockNumber(),
+    fromBlock = currentBlock - Math.floor(timeLookback / blockTime)
 
   const { abi: liquityStakingAbi, address: liquityStakingAddress } = liquityStakingContract
 
-  const liquityStakingInstance = new web3Socket.eth.Contract(liquityStakingAbi, liquityStakingAddress.mainnet)
+  const liquityStakingInstance = new web3Socket.eth.Contract(
+    liquityStakingAbi,
+    liquityStakingAddress.mainnet,
+  )
   const lusdUpdateEvents = (
     await liquityStakingInstance.getPastEvents('F_LUSDUpdated', {
       fromBlock,
@@ -36,42 +37,58 @@ const getApy = async (timeLookback, reduction) => {
   const lusdDataSize = lusdUpdateEvents.length
   let lusdPerSharePerYear = new BigNumber(0)
   if (lusdDataSize > 1) {
-    let startTx = await web3Socket.eth.getTransaction(lusdUpdateEvents[0].tx)
-    let finishTx = await web3Socket.eth.getTransaction(lusdUpdateEvents[lusdDataSize-1].tx)
-    let startBlock = await web3Socket.eth.getBlock(startTx.blockNumber)
-    let finishBlock = await web3Socket.eth.getBlock(finishTx.blockNumber)
-    let startTime = new BigNumber(startBlock.timestamp)
-    let finishTime = new BigNumber(finishBlock.timestamp)
-    let startValue = new BigNumber(lusdUpdateEvents[0].returnValues._F_LUSD).div(new BigNumber(10).pow(18))
-    let finishValue = new BigNumber(lusdUpdateEvents[lusdDataSize-1].returnValues._F_LUSD).div(new BigNumber(10).pow(18))
-    lusdPerSharePerYear = finishValue.minus(startValue).div(finishTime.minus(startTime)).times(24*3600*365)
+    let startTx = await web3Socket.eth.getTransaction(lusdUpdateEvents[0].tx),
+      finishTx = await web3Socket.eth.getTransaction(lusdUpdateEvents[lusdDataSize - 1].tx),
+      startBlock = await web3Socket.eth.getBlock(startTx.blockNumber),
+      finishBlock = await web3Socket.eth.getBlock(finishTx.blockNumber),
+      startTime = new BigNumber(startBlock.timestamp),
+      finishTime = new BigNumber(finishBlock.timestamp),
+      startValue = new BigNumber(lusdUpdateEvents[0].returnValues._F_LUSD).div(
+        new BigNumber(10).pow(18),
+      ),
+      finishValue = new BigNumber(lusdUpdateEvents[lusdDataSize - 1].returnValues._F_LUSD).div(
+        new BigNumber(10).pow(18),
+      )
+    lusdPerSharePerYear = finishValue
+      .minus(startValue)
+      .div(finishTime.minus(startTime))
+      .times(24 * 3600 * 365)
   }
 
   const ethDataSize = ethUpdateEvents.length
   let ethPerSharePerYear = new BigNumber(0)
   if (ethDataSize > 1) {
-    let startTx = await web3Socket.eth.getTransaction(ethUpdateEvents[0].tx)
-    let finishTx = await web3Socket.eth.getTransaction(ethUpdateEvents[ethDataSize-1].tx)
-    let startBlock = await web3Socket.eth.getBlock(startTx.blockNumber)
-    let finishBlock = await web3Socket.eth.getBlock(finishTx.blockNumber)
-    let startTime = new BigNumber(startBlock.timestamp)
-    let finishTime = new BigNumber(finishBlock.timestamp)
-    let startValue = new BigNumber(ethUpdateEvents[0].returnValues._F_ETH).div(new BigNumber(10).pow(18))
-    let finishValue = new BigNumber(ethUpdateEvents[ethDataSize-1].returnValues._F_ETH).div(new BigNumber(10).pow(18))
-    ethPerSharePerYear = finishValue.minus(startValue).div(finishTime.minus(startTime)).times(24*3600*365)
+    let startTx = await web3Socket.eth.getTransaction(ethUpdateEvents[0].tx),
+      finishTx = await web3Socket.eth.getTransaction(ethUpdateEvents[ethDataSize - 1].tx),
+      startBlock = await web3Socket.eth.getBlock(startTx.blockNumber),
+      finishBlock = await web3Socket.eth.getBlock(finishTx.blockNumber),
+      startTime = new BigNumber(startBlock.timestamp),
+      finishTime = new BigNumber(finishBlock.timestamp),
+      startValue = new BigNumber(ethUpdateEvents[0].returnValues._F_ETH).div(
+        new BigNumber(10).pow(18),
+      ),
+      finishValue = new BigNumber(ethUpdateEvents[ethDataSize - 1].returnValues._F_ETH).div(
+        new BigNumber(10).pow(18),
+      )
+    ethPerSharePerYear = finishValue
+      .minus(startValue)
+      .div(finishTime.minus(startTime))
+      .times(24 * 3600 * 365)
   }
 
-  let lusdPrice = await getTokenPrice('0x5f98805A4E8be255a32880FDeC7F6728C6568bA0')
-  let ethPrice = await getTokenPrice('WETH')
-  let lqtyPrice = await getTokenPrice('LQTY')
-
-  let apr = lusdPerSharePerYear.times(lusdPrice).plus(ethPerSharePerYear.times(ethPrice)).div(lqtyPrice)
+  let lusdPrice = await getTokenPrice('0x5f98805A4E8be255a32880FDeC7F6728C6568bA0'),
+    ethPrice = await getTokenPrice('WETH'),
+    lqtyPrice = await getTokenPrice('LQTY'),
+    apr = lusdPerSharePerYear
+      .times(lusdPrice)
+      .plus(ethPerSharePerYear.times(ethPrice))
+      .div(lqtyPrice)
 
   if (reduction) {
     apr = apr.times(reduction)
   }
 
-  return apr.times(100).toFixed(2,1)
+  return apr.times(100).toFixed(2, 1)
 }
 
 module.exports = {
