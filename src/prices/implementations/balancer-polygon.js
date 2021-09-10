@@ -21,16 +21,16 @@ const getPrice = async (contractAddress, poolId) => {
     balancerVaultAbi,
     balancerVaultAddress.mainnet,
   )
-  let result = await getPoolTokens(poolId, balancerVaultInstance)
-  let tokens = result.tokens
-  let balances = result.balances
-  let totalLiquidity = new BigNumber(0)
-  for (let i=0; i<tokens.length; i++) {
-    let token = tokens[i]
-    let tokenInstance = new web3MATIC.eth.Contract(abi, token)
-    let decimals = await getDecimals(tokenInstance)
-    let balance = new BigNumber(balances[i]).div(new BigNumber(10).pow(decimals))
-    let tokenPrice = await getTokenPrice(token, CHAIN_TYPES.MATIC)
+  let result = await getPoolTokens(poolId, balancerVaultInstance),
+    tokens = result.tokens,
+    balances = result.balances,
+    totalLiquidity = new BigNumber(0)
+  for (let i = 0; i < tokens.length; i++) {
+    let token = tokens[i],
+      tokenInstance = new web3MATIC.eth.Contract(abi, token),
+      decimals = await getDecimals(tokenInstance),
+      balance = new BigNumber(balances[i]).div(new BigNumber(10).pow(decimals)),
+      tokenPrice = await getTokenPrice(token, CHAIN_TYPES.MATIC)
     totalLiquidity = totalLiquidity.plus(balance.times(tokenPrice))
   }
   const lpTokenInstance = new web3MATIC.eth.Contract(abi, contractAddress)

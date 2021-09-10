@@ -2,11 +2,19 @@ const BigNumber = require('bignumber.js')
 const { web3MATIC } = require('../../../lib/web3')
 const tokenAddresses = require('../../../lib/data/addresses.json')
 const { token: tokenContractData } = require('../../../lib/web3/contracts')
-const getBalancerTokenPrice = require('../../../prices/implementations/balancer-polygon.js').getPrice
+const getBalancerTokenPrice = require('../../../prices/implementations/balancer-polygon.js')
+  .getPrice
 const { getTokenPrice } = require('../../../prices')
 const { CHAIN_TYPES } = require('../../../lib/constants')
 
-const getApy = async (tokenAddress, poolId, weeklyBAL, reduction, extraReward, weeklyExtraAmount) => {
+const getApy = async (
+  tokenAddress,
+  poolId,
+  weeklyBAL,
+  reduction,
+  extraReward,
+  weeklyExtraAmount,
+) => {
   const {
     methods: { getTotalSupply },
     contract: { abi },
@@ -25,10 +33,13 @@ const getApy = async (tokenAddress, poolId, weeklyBAL, reduction, extraReward, w
 
   const totalSupplyInUSD = totalSupply.multipliedBy(lpPrice)
 
-  let balApy = new BigNumber(weeklyBAL).times(balPrice).times(52).dividedBy(totalSupplyInUSD)
-  let extraApy = 0
-  if (extraPrice>0 && weeklyExtraAmount>0) {
-    extraApy = new BigNumber(weeklyExtraAmount).times(extraPrice).times(52).dividedBy(totalSupplyInUSD)
+  let balApy = new BigNumber(weeklyBAL).times(balPrice).times(52).dividedBy(totalSupplyInUSD),
+    extraApy = 0
+  if (extraPrice > 0 && weeklyExtraAmount > 0) {
+    extraApy = new BigNumber(weeklyExtraAmount)
+      .times(extraPrice)
+      .times(52)
+      .dividedBy(totalSupplyInUSD)
   }
   let apy = balApy.plus(extraApy)
 
