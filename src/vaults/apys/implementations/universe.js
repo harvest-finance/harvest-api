@@ -22,8 +22,7 @@ const getApy = async (tokenAddress, weeklyXYZ, reduction, firstToken, secondToke
   ).div(new BigNumber(10).pow(18))
 
   const xyzPrice = await getTokenPrice(tokenAddresses.XYZ)
-  let tokenPrice,
-    apy = new BigNumber(weeklyXYZ).times(xyzPrice).times(52).div(totalSupplyInUSD)
+  let tokenPrice
 
   if (firstToken && secondToken) {
     tokenPrice = await getLPTokenPrice(tokenAddress, firstToken, secondToken)
@@ -32,6 +31,8 @@ const getApy = async (tokenAddress, weeklyXYZ, reduction, firstToken, secondToke
   }
 
   const totalSupplyInUSD = currentPoolSize.multipliedBy(tokenPrice)
+
+  let apy = new BigNumber(weeklyXYZ).times(xyzPrice).times(52).div(totalSupplyInUSD)
 
   if (reduction) {
     apy = apy.times(reduction)
