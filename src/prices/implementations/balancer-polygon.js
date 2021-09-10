@@ -1,5 +1,4 @@
 const BigNumber = require('bignumber.js')
-const { get } = require('lodash')
 
 const { web3MATIC } = require('../../lib/web3')
 const { getPoolTokens } = require('../../lib/web3/contracts/balancer-vault/methods.js')
