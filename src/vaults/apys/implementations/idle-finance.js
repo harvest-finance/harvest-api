@@ -10,7 +10,6 @@ const uniswapContract = require('../../../lib/web3/contracts/uniswap/contract.js
 const uniswapMethods = require('../../../lib/web3/contracts/uniswap/methods')
 
 const { idleLendingToken, idleController } = require('../../../lib/web3/contracts')
-const { getApy: getCompoundAPY } = require('./compound.js')
 const { getTokenPrice } = require('../../../prices')
 
 const getIDLEPriceFromUniswapInWethWeis = async () => {
@@ -30,13 +29,7 @@ const getIDLEPriceFromUniswapInWethWeis = async () => {
   return price.toString()
 }
 
-const getApy = async (
-  tokenSymbol,
-  idleLendingTokenAddress,
-  isBtcLike,
-  factor,
-  lendApyOverride,
-) => {
+const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, lendApyOverride) => {
   const cachedApy = cache.get(`idleApy${tokenSymbol}`)
 
   if (cachedApy) {
@@ -92,18 +85,18 @@ const getApy = async (
   if (isBtcLike) {
     basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WBTC))
   }
-  console.log("Basic apy:", basicApy.toFixed());
+  console.log('Basic apy:', basicApy.toFixed())
 
   const lendApy = lendApyOverride
     ? lendApyOverride
     : new BigNumber(await getAvgAPR(idleLendingTokenInstance)).div(1e18)
 
-  console.log("Lend apy:", lendApy.toFixed());
+  console.log('Lend apy:', lendApy.toFixed())
 
   const result = basicApy.multipliedBy(factor).plus(lendApy).toString()
 
   cache.set(`idleApy${tokenSymbol}`, result)
-  console.log("Total apy:", result);
+  console.log('Total apy:', result)
   return result
 }
 
