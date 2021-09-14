@@ -85,18 +85,14 @@ const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, l
   if (isBtcLike) {
     basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WBTC))
   }
-  console.log('Basic apy:', basicApy.toFixed())
 
   const lendApy = lendApyOverride
     ? lendApyOverride
     : new BigNumber(await getAvgAPR(idleLendingTokenInstance)).div(1e18)
 
-  console.log('Lend apy:', lendApy.toFixed())
-
   const result = basicApy.multipliedBy(factor).plus(lendApy).toString()
 
   cache.set(`idleApy${tokenSymbol}`, result)
-  console.log('Total apy:', result)
   return result
 }
 
