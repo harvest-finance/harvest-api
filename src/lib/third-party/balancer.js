@@ -1,15 +1,18 @@
 const { get } = require('lodash')
 const { cachedAxios } = require('../db/models/cache')
+const { CHAIN_TYPES, BALANCER_SUBGRAPH_URLS } = require('../constants')
 
-const BALANCER_SUBGRAPH_MAINNET =
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2'
-
-const executeBalancerCall = (type, query) =>
-  cachedAxios
-    .post(BALANCER_SUBGRAPH_MAINNET, JSON.stringify({ query }))
+const executeBalancerCall = (type, query, networkId) => {
+  let subgraphURL
+  if (networkId == CHAIN_TYPES.ETH) {
+    subgraphURL = BALANCER_SUBGRAPH_URLS.ETH
+  } else if (networkId == CHAIN_TYPES.MATIC) {
+    subgraphURL = BALANCER_SUBGRAPH_URLS.MATIC
+  }
+  return cachedAxios
+    .post(subgraphURL, JSON.stringify({ query }))
     .then(response => {
       const data = get(response, `data.data.${type}`)
-
       if (data) {
         return data
       } else {
@@ -21,19 +24,21 @@ const executeBalancerCall = (type, query) =>
       console.error(`Balancer subgraph (${query}) failed:`, error)
       return null
     })
+}
 
-const getPoolInfo = poolAddress => {
+const getPoolInfo = (poolAddress, networkId) => {
   const query = `query {
     pools (where: {id: "${poolAddress}"}) { swapFee totalLiquidity }
   }`
-
-  return executeBalancerCall('pools[0]', query)
+  let result = executeBalancerCall('pools[0]', query, networkId)
+  return result
 }
 
-const getPoolSnapshot = (poolId, timestamp) => {
+const getPoolSnapshot = (poolId, timestamp, networkId) => {
   const query = `query { poolSnapshots(where: { timestamp: ${timestamp}, pool: "${poolId}" } ) { swapFees } }`
 
-  return executeBalancerCall('poolSnapshots[0]', query)
+  let result = executeBalancerCall('poolSnapshots[0]', query, networkId)
+  return result
 }
 
 module.exports = {

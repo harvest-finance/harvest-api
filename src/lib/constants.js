@@ -165,6 +165,11 @@ const BDO_API_URL = 'https://api.bdollar.fi/api/bdollar/'
 const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
 
+const BALANCER_SUBGRAPH_URLS = {
+  ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
+  MATIC: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2',
+}
+
 const DEBUG_MODE = process.env.DEBUG_MODE
 
 const WEB3_CALL_COUNT_STATS_KEY = 'web3CallCountStats'
@@ -244,4 +249,5 @@ module.exports = {
   MATIC_RPC_URL,
   TRADING_APY_TYPES,
   UI_DATA_CHECK_INTERVAL_MS,
+  BALANCER_SUBGRAPH_URLS,
 }
