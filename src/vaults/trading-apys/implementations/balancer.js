@@ -2,16 +2,16 @@ const BigNumber = require('bignumber.js')
 const { getPoolSnapshot, getPoolInfo } = require('../../../lib/third-party/balancer')
 const { get } = require('lodash')
 
-const getTradingApy = async poolId => {
+const getTradingApy = async (poolId, networkId) => {
   const DAY = 60 * 60 * 24
   const currentTimestamp = Math.ceil(Date.now() / 1000)
   const todayTimestamp = currentTimestamp - (currentTimestamp % DAY) - DAY
   const yesterdayTimestamp = todayTimestamp - DAY
 
-  const todaySnapshot = await getPoolSnapshot(poolId, todayTimestamp)
-  const yesterdaySnapshot = await getPoolSnapshot(poolId, yesterdayTimestamp)
+  const todaySnapshot = await getPoolSnapshot(poolId, todayTimestamp, networkId)
+  const yesterdaySnapshot = await getPoolSnapshot(poolId, yesterdayTimestamp, networkId)
 
-  const poolInfo = await getPoolInfo(poolId)
+  const poolInfo = await getPoolInfo(poolId, networkId)
 
   if (
     !get(poolInfo, 'totalLiquidity') ||
