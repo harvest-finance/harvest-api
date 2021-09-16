@@ -1,5 +1,5 @@
-const { getTokenPrice } = require('..')
+const { getTokenPriceByAddress } = require('../coingecko.js')
 
 module.exports = {
-  getPrice: getTokenPrice,
+  getPrice: getTokenPriceByAddress,
 }
