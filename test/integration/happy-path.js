@@ -1,28 +1,23 @@
 const request = require('supertest')
 const assert = require('chai').assert
 const axios = require('axios')
-const { get, isArray } = require('lodash')
+const { isArray } = require('lodash')
 
 const addresses = require('../../src/lib/data/addresses.json')
-const { UI_URL } = require('../../src/lib/constants')
 const initDb = require('../../src/lib/db')
 const { Cache, clearAllDataTestOnly } = require('../../src/lib/db/models/cache')
-
-const uiUrl = axios.create({ baseURL: UI_URL })
 
 const app = require('../../src/runtime/app')
 const { sleep, assertValidPositiveNumber, assertArraySize } = require('./utils')
 const harvestKey = 'harvest-key'
 const testPort = 3030
+const { tokens: tokensJson, pools: poolsJson } = require('../../data/index.js')
 
 describe('Happy Paths', function () {
-  let appServer, poolsJson, tokensJson, allVaultsJsonArray, activeVaultsJsonArray
+  let appServer, allVaultsJsonArray, activeVaultsJsonArray
   before(async function () {
     await initDb()
     await clearAllDataTestOnly(Cache)
-
-    tokensJson = get(await uiUrl.get(`/data/tokens.json`), 'data.data')
-    poolsJson = get(await uiUrl.get(`/data/pools.json`), 'data.data')
 
     allVaultsJsonArray = Object.keys(tokensJson)
       .filter(token => tokensJson[token].vaultAddress)

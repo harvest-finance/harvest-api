@@ -22,7 +22,7 @@ This repository contains implementation and documentation of the API used by [Ha
 
 ## Debugging a specific vault/pool
 
-* `npm run print-vault -- WETH` will output vault and pool information. IDs should match a vault in https://harvest.finance/data/tokens.json and/or a pool in https://harvest.finance/data/pools.json
+* `npm run print-vault -- WETH` will output vault and pool information. IDs should match a vault in [tokens](./data/mainnet/tokens.js) and/or a pool in [pools](./data/mainnet/pools.js)
 
 ## Running tests
 

@@ -26,22 +26,18 @@ The API is public, and the authentication key is publicly available as well sinc
 ## What API does
 
 The API, on the hourly basis, does the following:
-1. Fetches the JSON definition files https://harvest.finance/data/tokens.json and https://harvest.finance/data/pools.json (See [Integrations](./integration.md)) to capture the latest list of vaults (and related tokens), pools, APY formula types and parameters
-2. Runs the necessary computations in formulas by querying third-party APIs, including `Coingecko` (for prices data), `Infura` (for computations using on-chain data), and APIs exposed by farming opportunities (such as, `apy.vision`, `Convex`, `curve.fi`, `Idle.finance`)
-3. Caches the individual terms as well as the results of the computation in memory and in the database.
+1. Runs the necessary computations in formulas by querying third-party APIs, including `Coingecko` (for prices data), `Infura` (for computations using on-chain data), and APIs exposed by farming opportunities (such as, `apy.vision`, `Convex`, `curve.fi`, `Idle.finance`)
+2. Caches the individual terms as well as the results of the computation in memory and in the database.
 
 ## Is there database?
 
 The MongoDB-compatible database is purely used for caching. It can be cleared and re-created at any time.
 
-## Design notes
-
-At glance, the connection between the API and UI may seem like a circular dependency: API fetches JSONs from the UI, while the UI fetches the values from the API. However, in practice, this does not create an issue because of the caching. But, it allows to keep all vault and pool definitions in the same place as the front-end code in order to streamline development.
-
 ## Code overview
 
 All source is located in the `src` folder.
 * `src/lib/*`: Shared supplementary methods, constants, and db/cache management
+* `src/data/*`: All the information about vaults, pools, and associated contract addresses consumed by the UI
 * `src/lib/data/addresses.json`: Ethereum addresses of general frequently-used smart contracts. It intends to not duplicate or hard-code any data already contained in front-end's `tokens.json` or `pools.json`.
 * `src/lib/constants.js`: Some constants and declarations.
 * `src/prices/*`: Encapsulates formulas for price computations
@@ -61,16 +57,13 @@ PORT | The port on which to run the API  | 3000
 INFURA_KEY | Infura access key |
 API_KEY | The authentication token that needs to be appended to all queries on this API | 'harvest-key'
 UPDATE_LOOP_INTERVAL_MS | Interval for polling to update the data (refresh caches) | Default: 1 Hour
-UI_DATA_CHECK_INTERVAL_MS | How often check for a fresher JSON | Default: 5 Minutes
 ACTIVE_ENDPOINTS | Selecting which routes to make active (`api.harvest.finance` and `api-ui.harvest.finance` exposing different set of routes) |  Default: `ENDPOINT_TYPES.INTERNAL`
 CG_CACHE_TTL | caching TTL for Coingecko requests | Default: 10 Min
 GENERAL_CACHE_TTL | caching TTL for general responses  | Default: 10 Min
-UI_DATA_CACHE_TTL | caching TTL for UI data response (related to `UI_DATA_CHECK_INTERVAL_MS`) | 4 Hours
 BSC_RPC_URL | Blockchain node endpoint for Binance Smart Chain | `'https://bsc-dataseed2.binance.org/'`
 MATIC_RPC_URL | Blockchain node endpoint for Polygon (Matic) | `https://polygon-mainnet.infura.io/v3/${MATIC_INFURA_KEY}`
 MATIC_INFURA_KEY | Infura key used in case of default MATIC_RPC_URL |
 DEBUG_MODE | Computes and exposes some debug-only information | `false`
-UI_URL   | The front-end URL (where to pull the JSONs from)  |   `'https://harvest.finance'`
 MONGODB_URI  | MongoDB connection string | `mongodb://127.0.0.1:27017`
 MONGODB_DB_NAME  | MongoDB database name | `harvest-local`
 

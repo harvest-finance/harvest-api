@@ -27,11 +27,10 @@ const {
   DEBUG_MODE,
   DB_CACHE_IDS,
   UI_DATA_FILES,
-  UI_DATA_CHECK_INTERVAL_MS,
 } = require('../lib/constants')
 const { Cache } = require('../lib/db/models/cache')
 const { storeData, loadData } = require('../lib/db/models/cache')
-const { storeUIData, getUIData, checkForUIDataUpdate } = require('../lib/data')
+const { getUIData } = require('../lib/data')
 const addresses = require('../lib/data/addresses.json')
 
 const getProfitSharingFactor = chain => {
@@ -695,29 +694,14 @@ const runUpdateLoop = async () => {
 }
 
 const startPollers = async () => {
-  await storeUIData(UI_DATA_FILES.POOLS)
-  await storeUIData(UI_DATA_FILES.TOKENS)
-
   await runUpdateLoop()
 
   setInterval(async () => {
     await runUpdateLoop()
   }, UPDATE_LOOP_INTERVAL_MS)
-
-  setInterval(async () => {
-    const hasUpdatedPools = await checkForUIDataUpdate(UI_DATA_FILES.POOLS)
-    const hasUpdatedTokens = await checkForUIDataUpdate(UI_DATA_FILES.TOKENS)
-
-    if (hasUpdatedTokens || hasUpdatedPools) {
-      console.log('New UI data available!')
-      process.exit(1)
-    }
-  }, UI_DATA_CHECK_INTERVAL_MS)
 }
 
 const cliPreload = async () => {
-  await storeUIData(UI_DATA_FILES.POOLS)
-  await storeUIData(UI_DATA_FILES.TOKENS)
   await preLoadCoingeckoPrices()
   await getTokenStats()
 }

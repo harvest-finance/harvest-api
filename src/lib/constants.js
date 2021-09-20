@@ -90,7 +90,6 @@ const CORS_SETTINGS = {
 }
 
 const UPDATE_LOOP_INTERVAL_MS = parseInt(process.env.UPDATE_LOOP_INTERVAL_MS, 10) || 3600000 // Default: 1 Hour
-const UI_DATA_CHECK_INTERVAL_MS = parseInt(process.env.UI_DATA_CHECK_INTERVAL_MS, 10) || 300000 // Default: 5 Minutes
 
 const ACTIVE_ENDPOINTS = (process.env.ACTIVE_ENDPOINTS || ENDPOINT_TYPES.INTERNAL).toLowerCase() // Default: ENDPOINT_TYPES.ALL
 
@@ -194,8 +193,6 @@ const DB_CACHE_IDS = {
 const PROFIT_SHARING_POOL_ID = 'profit-sharing-farm'
 const UNIV3_DAI_USDC_ID = 'UniV3_DAI_USDC'
 
-const UI_URL = process.env.UI_URL || 'https://harvest.finance'
-
 const UI_DATA_FILES = {
   POOLS: 'pools',
   TOKENS: 'tokens',
@@ -243,11 +240,9 @@ module.exports = {
   PROFIT_SHARING_POOL_ID,
   UNIV3_DAI_USDC_ID,
   MONTHLY_PROFITS_ENDPOINT,
-  UI_URL,
   UI_DATA_FILES,
   UI_DATA_CACHE_TTL,
   MATIC_RPC_URL,
   TRADING_APY_TYPES,
-  UI_DATA_CHECK_INTERVAL_MS,
   BALANCER_SUBGRAPH_URLS,
 }
