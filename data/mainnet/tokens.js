@@ -903,6 +903,12 @@ module.exports = {
         params: ['0.00'],
       },
     ],
+    migrationInfo: {
+      lpTokenAddress: '0xAE461cA67B15dc8dc81CE7615e0320dA1A9aB8D5',
+      lpTokenName: 'USDC-DAI',
+      lpTokenDecimals: '18',
+    },
+    zapFrontrunProtection: true,
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'USDC'],
   },
   UniV3_UNI_ETH: {
