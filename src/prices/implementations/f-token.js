@@ -27,7 +27,10 @@ const getPrice = async (tokenAddress, tokenDecimals) => {
   const web3Instance = getWeb3(chain)
   const fTokenVaultInstance = new web3Instance.eth.Contract(vaultAbi, tokenAddress)
 
-  const tokenSymbol = Object.keys(tokens).find(token => tokens[token].vaultAddress === tokenAddress)
+  let tokenSymbol = Object.keys(tokens).find(token => tokens[token].vaultAddress === tokenAddress)
+  if (tokenSymbol == 'IFARM') {
+    tokenSymbol = 'FARM'
+  }
 
   const underlyingTokenPrice = new BigNumber(await getTokenPrice(tokenSymbol))
 
