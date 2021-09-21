@@ -4441,6 +4441,10 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.V2.sushi_YEL_ETH.Underlying],
+    },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'sushi_YEL_ETH',
     type: POOL_TYPES.INCENTIVE,

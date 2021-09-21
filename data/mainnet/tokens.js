@@ -262,7 +262,7 @@ module.exports = {
     tokenAddress: addresses.MATIC.miFARM,
     displayName: 'miFARM',
     vaultAddress: null,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.FARM] },
+    priceFunction: { type: GET_PRICE_TYPES.F_TOKEN, params: [addresses.iFARM, '18'] },
   },
   QUICK: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -2388,8 +2388,8 @@ module.exports = {
     decimals: '18',
     vaultAddress: addresses.iFARM,
     priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
-      params: [addresses.iFARM],
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.iFARM, '18'],
     },
     estimateApyFunctions: [
       {
