@@ -267,6 +267,7 @@ module.exports = {
   WMATIC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     decimals: '18',
+    logoUrl: './icons/matic.png',
     tokenAddress: addresses.MATIC.WMATIC,
     displayName: 'WMATIC',
     vaultAddress: null,
