@@ -264,6 +264,17 @@ module.exports = {
     vaultAddress: null,
     priceFunction: { type: GET_PRICE_TYPES.F_TOKEN, params: [addresses.iFARM, '18'] },
   },
+  WMATIC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    decimals: '18',
+    tokenAddress: addresses.MATIC.WMATIC,
+    displayName: 'WMATIC',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
+      params: [addresses.MATIC.WMATIC, CHAINS_ID.MATIC_MAINNET],
+    },
+  },
   QUICK: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/quick.png',
