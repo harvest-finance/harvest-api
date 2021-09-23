@@ -958,6 +958,20 @@
       "NewVault": "0xDB94C2817f405b4a01dDb324F8aBB4d7D3705dAD",
       "NewPool": "0x56dB0FbAEA64d776B64A4a5824e47f6465A5433c",
       "PoolId": "0"
+    },
+    "convex_MIM": {
+      "Underlying": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+      "NewVault": "0x604925aD5B715F32F6ed4b3EdC8dE89d764dc583",
+      "StrategyContract": "ConvexStrategyMIMMainnet",
+      "NewStrategy": "0x596355E19910dd683C294906Df14ed212f76411C",
+      "NewPool": "0x0b44335aA5B0D5e4DF85d4aBF81683F892310a5c"
+    },
+    "convex_EURT": {
+      "Underlying": "0xFD5dB7463a3aB53fD211b4af195c5BCCC1A03890",
+      "NewVault": "0xB59EdCB651EF54b9e960f8CA35c36EF7904459dB",
+      "StrategyContract": "ConvexStrategyEURTMainnet",
+      "NewStrategy": "0x56CfC57bC1C5b40Dc739B88fBEbCc96B05056BB6",
+      "NewPool": "0x199eFfC20793197d6c5100B32aAae880d1061004"
     }
   },
   "BSC": {
