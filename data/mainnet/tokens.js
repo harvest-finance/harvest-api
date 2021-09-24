@@ -525,7 +525,7 @@ module.exports = {
         params: [
           addresses.V2.bal_BAL_WETH.Underlying,
           addresses.V2.bal_BAL_WETH.PoolId,
-          '32000',
+          '30000',
           strat30PercentFactor,
           CHAINS_ID.ETH_MAINNET,
         ],
@@ -591,7 +591,7 @@ module.exports = {
         params: [
           addresses.V2.bal_USDC_WETH.Underlying,
           addresses.V2.bal_USDC_WETH.PoolId,
-          '5000',
+          '1100',
           strat30PercentFactor,
           CHAINS_ID.ETH_MAINNET,
         ],
@@ -624,7 +624,7 @@ module.exports = {
         params: [
           addresses.V2.bal_USDT_WETH.Underlying,
           addresses.V2.bal_USDT_WETH.PoolId,
-          '5000',
+          '120',
           strat30PercentFactor,
           CHAINS_ID.ETH_MAINNET,
         ],
