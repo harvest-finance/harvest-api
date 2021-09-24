@@ -1344,7 +1344,7 @@ module.exports = {
   WBTC: {
     chain: CHAINS_ID.ETH_MAINNET,
     displayName: 'WBTC',
-    category: VAULT_CATEGORIES_IDS.BTC,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     logoUrl: './icons/wbtc.png',
     apyIconUrls: ['./icons/comp.png', './icons/idle.png'],
     apyTokenSymbols: ['COMP', 'IDLE'],
@@ -2062,7 +2062,7 @@ module.exports = {
   YCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
     displayName: 'YCRV',
-    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
     apyTokenSymbols: ['CRV', 'CVX'],
     logoUrl: './icons/ycrv.png',
@@ -2379,7 +2379,7 @@ module.exports = {
   },
   crvUST: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     displayName: 'CRV:UST',
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
     apyTokenSymbols: ['CRV', 'CVX'],
