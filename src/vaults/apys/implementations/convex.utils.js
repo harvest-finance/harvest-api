@@ -695,6 +695,33 @@ const pools = [
     coinDecimals: [6, 8, 18],
     id: 38,
   },
+  {
+    lptoken: '0xFD5dB7463a3aB53fD211b4af195c5BCCC1A03890',
+    token: '0x2b2175AC371Ec2900AC39fb87452340F65CC9895',
+    gauge: '0xe8060Ad8971450E624d5289A10017dD30F5dA85F',
+    crvRewards: '0xD814BFC091111E1417a669672144aFFAA081c3CE',
+    swap: '0xFD5dB7463a3aB53fD211b4af195c5BCCC1A03890',
+    currency: 'USD',
+    name: 'eurt',
+    id: 39,
+  },
+  {
+    lptoken: '0x5a6A4D54456819380173272A5E8E9B9904BdF41B',
+    token: '0xabB54222c2b77158CC975a2b715a3d703c256F05',
+    gauge: '0xd8b712d29381748dB89c36BCa0138d7c75866ddF',
+    crvRewards: '0xFd5AbF66b003881b88567EB9Ed9c651F14Dc4771',
+    swap: '0x5a6A4D54456819380173272A5E8E9B9904BdF41B',
+    currency: 'USD',
+    extras: [
+      {
+        contract: '0x69a92f1656cd2e193797546cFe2EaF32EACcf6f7',
+        token: '0x090185f2135308BaD17527004364eBcC2D37e5F6',
+        name: 'SPELL',
+      },
+    ],
+    name: 'mim',
+    id: 40,
+  },
 ]
 
 module.exports = { convexAPR }

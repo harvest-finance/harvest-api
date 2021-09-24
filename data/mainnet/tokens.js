@@ -44,6 +44,46 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  crvMIM: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    displayName: 'CRV:MIM',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/spell.png'],
+    apyTokenSymbols: ['CRV', 'CVX', 'SPELL'],
+    logoUrl: './icons/curve-mim.png',
+    tokenAddress: addresses.V2.convex_MIM.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.convex_MIM.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.MIM] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['mim', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'CVX', 'SPELL', 'CRV'],
+  },
+  crvEURT: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    displayName: 'CRV:EURT',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
+    apyTokenSymbols: ['CRV', 'CVX'],
+    logoUrl: './icons/curve-eurt.png',
+    tokenAddress: addresses.V2.convex_EURT.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.convex_EURT.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.EURT] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['eurt', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'CVX', 'CRV'],
+  },
   YEL: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/yel.png',
@@ -440,7 +480,7 @@ module.exports = {
   },
   Uni_FOX_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
+    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
     displayName: 'Shapeshift: FOX-WETH',
     fullBuyback: true,
     apyIconUrls: ['./icons/fox.png'],
@@ -1344,7 +1384,7 @@ module.exports = {
   WBTC: {
     chain: CHAINS_ID.ETH_MAINNET,
     displayName: 'WBTC',
-    category: VAULT_CATEGORIES_IDS.BTC,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     logoUrl: './icons/wbtc.png',
     apyIconUrls: ['./icons/comp.png', './icons/idle.png'],
     apyTokenSymbols: ['COMP', 'IDLE'],
@@ -2062,7 +2102,7 @@ module.exports = {
   YCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
     displayName: 'YCRV',
-    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
     apyTokenSymbols: ['CRV', 'CVX'],
     logoUrl: './icons/ycrv.png',
@@ -2379,7 +2419,7 @@ module.exports = {
   },
   crvUST: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     displayName: 'CRV:UST',
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
     apyTokenSymbols: ['CRV', 'CVX'],
