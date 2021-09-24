@@ -143,7 +143,7 @@ module.exports = {
   UniV3_ETH_sETH2: {
     subLabel: 'StakeWise',
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.ETH20],
     displayName: 'Uniswap V3: ETH-sETH2',
     apyIconUrls: ['./icons/univ3.png', './icons/reth2.png', './icons/swise.png'],
     apyTokenSymbols: ['UNI', 'rETH2', 'SWISE'],
@@ -478,7 +478,7 @@ module.exports = {
   },
   Uni_FOX_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
+    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
     displayName: 'Shapeshift: FOX-WETH',
     fullBuyback: true,
     apyIconUrls: ['./icons/fox.png'],
@@ -792,7 +792,7 @@ module.exports = {
   },
   Univ3_BUSD_USDC: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.STABLECOINS],
     displayName: 'Uniswap V3: BUSD-USDC',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
@@ -819,7 +819,7 @@ module.exports = {
   },
   Univ3_renBTC_wBTC: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.BTC],
     displayName: 'Uniswap V3: RENBTC-WBTC',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
@@ -846,7 +846,7 @@ module.exports = {
   },
   UniV3_UST_USDT: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.STABLECOINS],
     displayName: 'Uniswap V3: UST-USDT',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
@@ -874,7 +874,7 @@ module.exports = {
   UniV3_USDC_USDT: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.STABLECOINS],
     displayName: 'Uniswap V3: USDC-USDT',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
@@ -930,7 +930,7 @@ module.exports = {
   UniV3_DAI_USDC: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.UNIV3,
+    category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.STABLECOINS],
     displayName: 'Uniswap V3: DAI-USDC',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
