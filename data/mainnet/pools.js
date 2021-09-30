@@ -9,7 +9,7 @@ module.exports = [
       type: TRADING_APY_TYPES.UNIV3,
       params: [addresses.V2.uni_v3_DON_WETH_full_range.NewVault],
     },
-    type: POOL_TYPES.UNIV3,
+    type: POOL_TYPES.DON,
     contractAddress: addresses.V2.uni_v3_DON_WETH_full_range.NewPool,
     collateralAddress: addresses.V2.uni_v3_DON_WETH_full_range.NewVault,
     rewardAPY: [],
@@ -4578,5 +4578,5 @@ module.exports = [
         </ol>
       </div>
    `,
-  },
+  }
 ]
