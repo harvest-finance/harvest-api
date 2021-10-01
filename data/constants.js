@@ -119,7 +119,6 @@ const POOL_TYPES = {
   INCENTIVE_BUYBACK: 'INCENTIVE_BUYBACK',
   INACTIVE: 'INACTIVE',
   UNIV3: 'UNIV3',
-  DON: 'DON',
 }
 
 module.exports = {
