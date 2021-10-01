@@ -3785,8 +3785,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_ZUSD_ETH.NewPool,
     collateralAddress: addresses.V2.UniV3_ZUSD_ETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.zUSD, addresses.REI],
-    rewardTokenSymbols: ['iFARM', 'zUSD', 'REI'],
+    rewardTokens: [addresses.iFARM, addresses.REI],
+    rewardTokenSymbols: ['iFARM', 'REI'],
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
