@@ -6,7 +6,7 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_DON_WETH_full_range',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
+      type: 'UNIV3_V2',
       params: [addresses.V2.uni_v3_DON_WETH_full_range.NewVault],
     },
     type: POOL_TYPES.UNIV3,
@@ -3797,7 +3797,7 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_zUSD_USDC_full_range',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
+      type: 'UNIV3_V2',
       params: [addresses.V2.UniV3_zUSD_USDC_full_range.NewVault],
     },
     type: POOL_TYPES.UNIV3,
@@ -4394,7 +4394,7 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_REI_ETH_full_range',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
+      type: 'UNIV3_V2',
       params: [addresses.V2.UniV3_REI_ETH_full_range.NewVault],
     },
     type: POOL_TYPES.UNIV3,
