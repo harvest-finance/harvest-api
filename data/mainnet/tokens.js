@@ -88,20 +88,20 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
     displayName: 'CRV:ibEUR',
-    apyIconUrls: ['./icons/curve-ibeur.png', './icons/cvx.png', './icons/spell.png'], // what is spell? 
-    apyTokenSymbols: ['CRV', 'CVX', 'SPELL'], // what is spell? 
+    apyIconUrls: ['./icons/curve-ibeur.png', './icons/cvx.png', './icons/rKP3R.png'],
+    apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
     logoUrl: './icons/curve-ibeur.png',
     tokenAddress: addresses.V2.convex_ibEUR.Underlying,
     decimals: '18',
     vaultAddress: addresses.V2.convex_ibEUR.NewVault,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.ibEUR] }, // how can I find out the type?
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.ibEUR] },
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
         params: ['ibEUR', convexProfitSharingFactor], // how can I find out params?
       },
     ],
-    cmcRewardTokenSymbols: ['FARM', 'CVX', 'SPELL', 'CRV'], // what is cmc?
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'], // what is cmc?
   },
   crvMIM: {
     isNew: true,
