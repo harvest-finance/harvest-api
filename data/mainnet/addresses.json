@@ -1104,8 +1104,7 @@
       "NewVault": "0x394E653bbFC9A3497A0487Abee153CA6498F053D",
       "NewPool": "0xb3b56c7BDc87F9DeB7972cD8b5c09329ce421F89",
       "StrategyContract": "VenusFoldStrategyMainnet_BETH",
-      "NewStrategy": "0xB7506271FE72FE2cdC3a7ee6Ead8749AD54df8C2",
-      "doHardwork": false
+      "NewStrategy": "0xB7506271FE72FE2cdC3a7ee6Ead8749AD54df8C2"
     },
     "venus_BTCB": {
       "Underlying": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
@@ -1154,8 +1153,7 @@
       "PoolId": 0,
       "NewVault": "0x3D5B0a8CD80e2A87953525fC136c33112E4b885a",
       "NewStrategy": "0x66B7611F35e48e311929e25D73428410C2335c34",
-      "NewPool": "0x78963b538c4835E00648DF764029196700ea8eE9",
-      "doHardwork": false
+      "NewPool": "0x78963b538c4835E00648DF764029196700ea8eE9"
     },
     "pancake_CAKE_BNB": {
       "Underlying": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
@@ -1211,7 +1209,8 @@
       "NewPool": "0xfc8c1f0E25d91cB10db243acBcA5ac3c422A6277",
       "StrategyContract": "GooseStrategyMainnet_EGG",
       "NewStrategy": "0xc11f5f4CdAEBAb98CaB29501466ba05d41675A3E",
-      "PoolId": 12
+      "PoolId": 12,
+      "doHardwork": false
     },
     "venus_DAI": {
       "Underlying": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
@@ -1247,7 +1246,8 @@
       "NewPool": "0xE9E03506A088eaCDfa1A690cD3019ac105D7B871",
       "RewardPool": "0xCB06dF7F0Be5B8Bb261d294Cf87C794EB9Da85b1",
       "StrategyContract": "OneInchStrategyMainnet_1INCH_renBTC",
-      "NewStrategy": "0x4909BfaFaA4D166F09e428Dd96C7f481a18d42ad"
+      "NewStrategy": "0x4909BfaFaA4D166F09e428Dd96C7f481a18d42ad",
+      "doHardwork": false
     },
     "oneInch_1INCH_BNB": {
       "Underlying": "0xdaF66c0B7e8E2FC76B15B07AD25eE58E04a66796",
@@ -1255,28 +1255,32 @@
       "NewPool": "0x57C30567e0dbd1c308FD2c5665c4084F368560a2",
       "RewardPool": "0x5D0EC1F843c1233D304B96DbDE0CAB9Ec04D71EF",
       "StrategyContract": "OneInchStrategyMainnet_1INCH_BNB",
-      "NewStrategy": "0x5fD7a4D33f23967E890Ae77DD4E065bC01db343B"
+      "NewStrategy": "0x5fD7a4D33f23967E890Ae77DD4E065bC01db343B",
+      "doHardwork": false
     },
     "bdo_BDO_BNB": {
       "Underlying": "0x74690f829fec83ea424ee1F1654041b2491A7bE9",
       "NewVault": "0xE604Fd5b1317BABd0cF2c72F7F5f2AD8c00Adbe1",
       "NewPool": "0xdEb314a2222884B6c1e848BfFcf68dcfBc5c1406",
       "poolId": "CakeLPsBDOBNB",
-      "NewStrategy": "0x927c074361B79713f1d7b96C18E5dE105B136b19"
+      "NewStrategy": "0x927c074361B79713f1d7b96C18E5dE105B136b19",
+      "doHardwork": false
     },
     "bdo_BDO_BUSD": {
       "Underlying": "0xc5b0d73A7c0E4eaF66baBf7eE16A2096447f7aD6",
       "NewVault": "0x84646F736795a8bC22Ab34E05c8982CD058328C7",
       "NewPool": "0x03b58CE34E9Cb6a908b019228778CBB9f3A1A2Ba",
       "poolId": "CakeLPBDOBUSD",
-      "NewStrategy": "0xD70E3826927BA72bc5C01014a2C447a918e54919"
+      "NewStrategy": "0xD70E3826927BA72bc5C01014a2C447a918e54919",
+      "doHardwork": false
     },
     "bdo_SBDO_BUSD": {
       "Underlying": "0xA0718093baa3E7AAE054eED71F303A4ebc1C076f",
       "NewVault": "0xC97DDAa8091aBaF79A4910b094830CCE5cDd78f4",
       "NewPool": "0x9178f402453b118b6B897Ff520256Ed63b2d9998",
       "poolId": "CakeLPsBDOBUSD",
-      "NewStrategy": "0xD77E6BDe0270B18bc1aBc964557E025023D2a989"
+      "NewStrategy": "0xD77E6BDe0270B18bc1aBc964557E025023D2a989",
+      "doHardwork": false
     },
     "ellipsis_3pool": {
       "Underlying": "0xaF4dE8E872131AE328Ce21D909C74705d3Aaf452",
@@ -1324,7 +1328,8 @@
       "StrategyContract": "BeltVenusStrategyMainnet",
       "NewStrategy": "0x3736F98190383Bb0490D0099cBedd4175f89653a",
       "NewPool": "0x5c6Fe09FcEfeaCa84DC18018cF8aCf7476B2498F",
-      "PoolId": "0"
+      "PoolId": "0",
+      "doHardwork": false
     },
     "belt_BELT_BNB": {
       "Underlying": "0xF3Bc6FC080ffCC30d93dF48BFA2aA14b869554bb",
@@ -1340,7 +1345,8 @@
       "NewStrategy": "0x4eE876B94BB00E1792cC25D290C7FCa820a4CEd2",
       "NewPool": "0xEa2c3C25985fBB5418c61451C2cbD1311e0EbE9e",
       "RewardPool": "0x9FC04657C1178F857d36D8a6B028C732D78F60E0",
-      "PoolId": "stakingPool"
+      "PoolId": "stakingPool",
+      "doHardwork": false
     },
     "space_SPACE_BNB": {
       "Underlying": "0x78D9a0c50F6484291b4122f61888Bb9EE71879Ff",
@@ -1387,7 +1393,8 @@
       "StrategyContract": "PopsicleStrategtMainnet_ICE",
       "NewStrategy": "0xD7338145D79771D0D6926dB134aC040ABb48E835",
       "NewPool": "0x1Bb6fDaf6258071F4d2E96d70ffEB8AD392f299B",
-      "PoolId": "0"
+      "PoolId": "0",
+      "doHardwork": false
     },
     "AmpliFARM": {
       "tokenAddress": "0x8cf3F692CAd5Bfa94817Fb425a2871bA11FE883d",
