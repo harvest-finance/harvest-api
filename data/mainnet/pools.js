@@ -15,6 +15,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM, addresses.DON],
     rewardTokenSymbols: ['iFARM', 'DON'],
+    vestingDescriptionOverride: {
+      iFARM: '',
+      DON: '2/3rds of <b>DON</b> rewards are vested for 6 months',
+    },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -267,6 +271,7 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3801,6 +3806,7 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM, addresses.REI],
     rewardTokenSymbols: ['iFARM', 'REI'],
+    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4382,6 +4388,7 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM, addresses.zUSD],
     rewardTokenSymbols: ['iFARM', 'zUSD'],
+    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
