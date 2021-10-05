@@ -2564,8 +2564,8 @@ module.exports = [
     collateralAddress: addresses.BSC.venus_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2641,8 +2641,8 @@ module.exports = [
     collateralAddress: addresses.BSC.venus_WBNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
   },
   {
     tradingApyFunction: {
@@ -2727,8 +2727,8 @@ module.exports = [
     collateralAddress: addresses.BSC.pancake_CAKE_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2802,8 +2802,8 @@ module.exports = [
     collateralAddress: addresses.BSC.pancake_USDT_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2873,8 +2873,8 @@ module.exports = [
     collateralAddress: addresses.BSC.goose_EGG_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2906,8 +2906,8 @@ module.exports = [
     collateralAddress: addresses.BSC.goose_EGG_BUSD.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3328,8 +3328,8 @@ module.exports = [
     contractAddress: addresses.BSC.ellipsis_EPS_BNB.NewPool,
     collateralAddress: addresses.BSC.ellipsis_EPS_BNB.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3504,8 +3504,8 @@ module.exports = [
     contractAddress: addresses.BSC.belt_Venus.NewPool,
     collateralAddress: addresses.BSC.belt_Venus.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
-    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
+    rewardTokens: [addresses.BSC.bFARM],
+    rewardTokenSymbols: ['bFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3657,8 +3657,8 @@ module.exports = [
     collateralAddress: addresses.BSC.popsicle_ICE.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
-    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
+    rewardTokens: [addresses.BSC.bFARM],
+    rewardTokenSymbols: ['bFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3689,8 +3689,8 @@ module.exports = [
     contractAddress: addresses.BSC.ellipsis_FUSDT.NewPool,
     collateralAddress: addresses.BSC.ellipsis_FUSDT.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
-    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
+    rewardTokens: [addresses.BSC.bFARM],
+    rewardTokenSymbols: ['bFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
