@@ -729,6 +729,13 @@ const pools = [
     crvRewards: '0xCd0559ADb6fAa2fc83aB21Cf4497c3b9b45bB29f',
     swap: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
     currency: 'USD',
+    extras: [
+      {
+        contract: '0x21034ccc4f8D07d0cF8998Fdd4c45e426540dEc1',
+        token: '0xEdB67Ee1B171c4eC66E6c10EC43EDBbA20FaE8e9',
+        name: 'rKP3R',
+      },
+    ],
     name: 'f-ibeur',
     id: 41,
   },
