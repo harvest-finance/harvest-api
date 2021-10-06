@@ -4402,7 +4402,7 @@ module.exports = {
         params: [
           addresses.MATIC.balancer_POLYBASE.Underlying,
           addresses.MATIC.balancer_POLYBASE.PoolId,
-          '7500',
+          '6500',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
         ],
@@ -4436,7 +4436,7 @@ module.exports = {
         params: [
           addresses.MATIC.balancer_TRICRYPTO.Underlying,
           addresses.MATIC.balancer_TRICRYPTO.PoolId,
-          '2500',
+          '2250',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
         ],
