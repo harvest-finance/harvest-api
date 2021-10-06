@@ -88,7 +88,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
     displayName: 'CRV:ibEUR',
-    apyIconUrls: ['./icons/curve-ibeur.png', './icons/cvx.png', './icons/rKP3R.png'],
+    apyIconUrls: ['./icons/ycrv.png', './icons/curve-ibeur.png', './icons/cvx.png', './icons/rKP3R.png'],
     apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
     logoUrl: './icons/curve-ibeur.png',
     tokenAddress: addresses.V2.convex_ibEUR.Underlying,
