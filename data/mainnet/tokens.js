@@ -98,10 +98,10 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['ibEUR', convexProfitSharingFactor], // how can I find out params?
+        params: ['f-ibeur', convexProfitSharingFactor],
       },
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'], // what is cmc?
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'],
   },
   crvMIM: {
     isNew: true,

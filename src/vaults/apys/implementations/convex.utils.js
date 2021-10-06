@@ -722,6 +722,16 @@ const pools = [
     name: 'mim',
     id: 40,
   },
+  {
+    lptoken: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
+    token: '0x864510e93c38c771adc1b67308ce0b7c4aa1aa9e',
+    gauge: '',
+    crvRewards: '0xCd0559ADb6fAa2fc83aB21Cf4497c3b9b45bB29f',
+    swap: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
+    currency: 'USD',
+    name: 'f-ibeur',
+    id: 41,
+  },
 ]
 
 module.exports = { convexAPR }
