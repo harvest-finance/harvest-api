@@ -88,7 +88,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
     displayName: 'CRV:ibEUR',
-    apyIconUrls: ['./icons/ycrv.png', './icons/curve-ibeur.png', './icons/cvx.png', './icons/rKP3R.png'],
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/rKP3R.png'],
     apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
     logoUrl: './icons/curve-ibeur.png',
     tokenAddress: addresses.V2.convex_ibEUR.Underlying,
@@ -121,7 +121,7 @@ module.exports = {
         params: ['mim', convexProfitSharingFactor],
       },
     ],
-    cmcRewardTokenSymbols: ['FARM', 'CVX', 'SPELL', 'CRV'],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'SPELL', 'CRV'],
   },
   crvEURT: {
     isNew: true,
@@ -141,7 +141,7 @@ module.exports = {
         params: ['eurt', convexProfitSharingFactor],
       },
     ],
-    cmcRewardTokenSymbols: ['FARM', 'CVX', 'CRV'],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
   },
   YEL: {
     chain: CHAINS_ID.ETH_MAINNET,
