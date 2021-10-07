@@ -647,7 +647,7 @@ module.exports = {
   },
   bal_USDC_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.BALANCER,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     displayName: 'Balancer: USDC-WETH',
     subLabel: '50%/50%',
@@ -681,7 +681,7 @@ module.exports = {
   },
   bal_USDT_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.BALANCER,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     displayName: 'Balancer: USDT-WETH',
     subLabel: '50%/50%',
@@ -1515,7 +1515,7 @@ module.exports = {
   },
   'ETH-MVI': {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/eth-mvi.png',
     apyIconUrls: ['./icons/index.png'],
@@ -1547,7 +1547,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
     fullBuyback: true,
-    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     displayName: 'KXUSD-DAI',
     logoUrl: './icons/klon-kxusd-dai.png',
@@ -1644,7 +1644,7 @@ module.exports = {
   },
   'SUSHI-SUSHI-ETH': {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.SUSHI,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/sushi-eth.png',
     apyIconUrls: ['./icons/sushi.png'],
@@ -1777,7 +1777,7 @@ module.exports = {
   },
   'SUSHI-ETH-UST': {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.SUSHI,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/sushi-ust.png',
     apyIconUrls: ['./icons/sushi.png'],
@@ -3257,7 +3257,7 @@ module.exports = {
   'BAC-DAI': {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.SEIGNIORAGE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/bac-dai.png',
     displayName: 'DAI-BAC',
@@ -3289,7 +3289,7 @@ module.exports = {
   'DAI-BAS': {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.SEIGNIORAGE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/dai-basv2.png',
     displayName: 'DAI-BASv2',
@@ -3359,7 +3359,7 @@ module.exports = {
   },
   space_SPACE_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.SPACE,
+    category: VAULT_CATEGORIES_IDS.INACIVE,
     inactive: true,
     displayName: 'SPACE-BNB',
     apyIconUrls: ['./icons/space.png'],
@@ -3381,7 +3381,7 @@ module.exports = {
   },
   space_SPACE_BUSD: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.SPACE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     displayName: 'SPACE-BUSD',
     apyIconUrls: ['./icons/space.png'],
