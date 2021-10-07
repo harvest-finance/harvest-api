@@ -59,7 +59,7 @@ const cachedAxios = {
       await storeData(mongoose.model('cache', CacheSchema), DB_CACHE_IDS.EXTERNAL_API, {
         [cacheKey]: {
           data: JSON.stringify(response.data),
-          updatedAt: new Date(),
+          updatedAeat: new Date(),
         },
       })
 

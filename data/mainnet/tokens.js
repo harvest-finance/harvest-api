@@ -91,7 +91,7 @@ module.exports = {
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
-      params: ['0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44'],
+      params: [addresses.KP3R],
     },
   },
   crvIbEUR: {

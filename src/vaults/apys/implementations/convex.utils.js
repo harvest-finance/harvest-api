@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js')
 const { token, crvYPool, pool } = require('../../../lib/web3/contracts')
 const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
 const { web3 } = require('../../../lib/web3')
+const addresses = require('../../../../data/mainnet/addresses.json')
 
 //// ----------- APRs ----------- ///
 
@@ -51,7 +52,13 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
       const exrate = await rewardRate(ex.contract)
       const perUnderlying = exrate / supply
       const perYear = perUnderlying * 86400 * 365
-      const price = await getPrice(ex.token, pool.currency)
+      if (ex.token.toLowerCase() === addresses.rKP3R.toLowerCase()) {
+        ex.token = addresses.KP3R
+      }
+      let price = await getPrice(ex.token, pool.currency)
+      if (ex.token.toLowerCase() === addresses.KP3R.toLowerCase()) {
+        price = price / 2
+      }
       apr += perYear * price
     }
   }
