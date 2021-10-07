@@ -83,17 +83,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'DON', 'WETH'],
     disableAutoSwap: true,
   },
-  rKP3R: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: './icons/rKP3R.png',
-    tokenAddress: addresses.rKP3R,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
-      params: [addresses.KP3R],
-    },
-  },
   crvIbEUR: {
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
