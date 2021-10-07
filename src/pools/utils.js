@@ -139,36 +139,13 @@ const getPoolStatsPerType = async (pool, poolContractData, lpTokenData, weeklyRe
           size(pool.rewardTokens) >= 2,
         )
 
-        if (rewardTokenAddress === addresses.iFARM) {
+        if (rewardTokenAddress === addresses.iFARM || rewardTokenAddress === addresses.DON) {
           poolStats.apr = new BigNumber(poolStats.apr).times(3).toFixed()
         }
-        if (pool.chain === CHAIN_TYPES.ETH) {
+        if (pool.chain === CHAIN_TYPES.ETH && rewardTokenAddress === addresses.iFARM) {
           poolStats.apy = getWeeklyCompound(poolStats.apr)
         } else {
-          poolStats.apy = poolStats.apr.toFixed(2)
-        }
-        break
-      case POOL_TYPES.DON:
-        poolStats = await getIncentivePoolStats(
-          pool,
-          poolContractData,
-          lpTokenData,
-          undefined,
-          undefined,
-          rewardTokenAddress,
-          size(pool.rewardTokens) >= 2,
-        )
-        if (rewardTokenAddress === addresses.DON) {
-          poolStats.apr = new BigNumber(poolStats.apr).times(3).toFixed(2)
-        }
-        if (pool.chain === CHAIN_TYPES.ETH) {
-          if (rewardTokenAddress === addresses.DON) {
-            poolStats.apy = poolStats.apr
-          } else {
-            poolStats.apy = getWeeklyCompound(poolStats.apr)
-          }
-        } else {
-          poolStats.apy = poolStats.apr.toFixed(2)
+          poolStats.apy = new BigNumber(poolStats.apr).toFixed(2)
         }
         break
       case POOL_TYPES.PROFIT_SHARING:
