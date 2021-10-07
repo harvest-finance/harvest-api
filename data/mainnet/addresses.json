@@ -1353,7 +1353,8 @@
       "NewVault": "0x14CB410659b4a4a7CCEa99E6F6C9eac8718160dF",
       "NewStrategy": "0xE8E10677ed1F9409424Ea10ee4477B5C4CadCC53",
       "NewPool": "0xC2A1fa5753B7c3272F32aBec19140658D539E61C",
-      "PoolId": "0"
+      "PoolId": "0",
+      "doHardwork": "false"
     },
     "space_SPACE_BUSD": {
       "Underlying": "0x6B936c5C1FD7De08E03684b0588A87DBD8ce6b63",
@@ -1361,7 +1362,8 @@
       "StrategyContract": "SpaceStrategy_SPACE_BUSD",
       "NewStrategy": "0x381b02359beBe2566c7c08Fd7d0B078269BCFF9f",
       "NewPool": "0x03292bdfE36591F70575C77847d7f004FFd0966A",
-      "PoolId": "1"
+      "PoolId": "1",
+      "doHardwork": "false"
     },
     "ellipsis_FUSDT": {
       "Underlying": "0x373410A99B64B089DFE16F1088526D399252dacE",

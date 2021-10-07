@@ -648,6 +648,7 @@ module.exports = {
   bal_USDC_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.BALANCER,
+    inactive: true,
     displayName: 'Balancer: USDC-WETH',
     subLabel: '50%/50%',
     apyIconUrls: ['./icons/balancer.png'],
@@ -681,6 +682,7 @@ module.exports = {
   bal_USDT_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.BALANCER,
+    inactive: true,
     displayName: 'Balancer: USDT-WETH',
     subLabel: '50%/50%',
     apyIconUrls: ['./icons/balancer.png'],
@@ -1514,6 +1516,7 @@ module.exports = {
   'ETH-MVI': {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    inactive: true,
     logoUrl: './icons/eth-mvi.png',
     apyIconUrls: ['./icons/index.png'],
     displayName: 'ETH-MVI',
@@ -1545,6 +1548,7 @@ module.exports = {
     isDegen: true,
     fullBuyback: true,
     category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    inactive: true,
     displayName: 'KXUSD-DAI',
     logoUrl: './icons/klon-kxusd-dai.png',
     apyIconUrls: ['./icons/klon.png'],
@@ -1641,6 +1645,7 @@ module.exports = {
   'SUSHI-SUSHI-ETH': {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.SUSHI,
+    inactive: true,
     logoUrl: './icons/sushi-eth.png',
     apyIconUrls: ['./icons/sushi.png'],
     apyTokenSymbols: ['SUSHI'],
@@ -1773,6 +1778,7 @@ module.exports = {
   'SUSHI-ETH-UST': {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.SUSHI,
+    inactive: true,
     logoUrl: './icons/sushi-ust.png',
     apyIconUrls: ['./icons/sushi.png'],
     apyTokenSymbols: ['SUSHI'],
@@ -3252,6 +3258,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
     category: VAULT_CATEGORIES_IDS.SEIGNIORAGE,
+    inactive: true,
     logoUrl: './icons/bac-dai.png',
     displayName: 'DAI-BAC',
     apyIconUrls: ['./icons/basv2.png'],
@@ -3283,6 +3290,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
     category: VAULT_CATEGORIES_IDS.SEIGNIORAGE,
+    inactive: true,
     logoUrl: './icons/dai-basv2.png',
     displayName: 'DAI-BASv2',
     apyIconUrls: ['./icons/basv2.png'],
@@ -3352,6 +3360,7 @@ module.exports = {
   space_SPACE_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
     category: VAULT_CATEGORIES_IDS.SPACE,
+    inactive: true,
     displayName: 'SPACE-BNB',
     apyIconUrls: ['./icons/space.png'],
     apyTokenSymbols: ['SPACE'],
@@ -3373,6 +3382,7 @@ module.exports = {
   space_SPACE_BUSD: {
     chain: CHAINS_ID.BSC_MAINNET,
     category: VAULT_CATEGORIES_IDS.SPACE,
+    inactive: true,
     displayName: 'SPACE-BUSD',
     apyIconUrls: ['./icons/space.png'],
     apyTokenSymbols: ['SPACE'],
