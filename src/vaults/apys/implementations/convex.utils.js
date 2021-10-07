@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js')
 const { token, crvYPool, pool } = require('../../../lib/web3/contracts')
 const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
 const { web3 } = require('../../../lib/web3')
-const addresses = require('../../../../data/mainnet/addresses.json')
+const addresses = require('../../../lib/data/addresses.json')
 
 //// ----------- APRs ----------- ///
 
@@ -744,7 +744,7 @@ const pools = [
       },
     ],
     name: 'f-ibeur',
-    id: 41,
+    id: 45,
   },
 ]
 
