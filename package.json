@@ -9,7 +9,7 @@
   "scripts": {
     "start": "./run-standalone.sh",
     "dev": "nodemon src/index.js",
-    "test": "PORT=3030 MONGODB_DB_NAME=harvest-test-local ACTIVE_ENDPOINTS=all mocha ./test/integration/*  --timeout 600000",
+    "test": "mocha ./test/integration/*  --timeout 600000",
     "debug-web3": "DEBUG_MODE=true yarn start",
     "print-vault": "node ./test/cli/print-vault",
     "lint": "eslint ./",

@@ -3108,7 +3108,8 @@ module.exports = {
   mirrorAAPL: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     logoUrl: './icons/mirror-aapl.png',
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
@@ -3133,8 +3134,8 @@ module.exports = {
   mirrorAMZN: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
-    logoUrl: './icons/mirror-amzn.png',
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
     displayName: 'MAMZN-UST',
@@ -3158,7 +3159,7 @@ module.exports = {
   mirrorGOOG: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
+    category: VAULT_CATEGORIES_IDS.MStoTONKS,
     logoUrl: './icons/mirror-goog.png',
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
@@ -3183,7 +3184,8 @@ module.exports = {
   mirrorTSLA: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     logoUrl: './icons/mirror-tsla.png',
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
@@ -3208,7 +3210,8 @@ module.exports = {
   mirrorNFLX: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     logoUrl: './icons/mirror-nflx.png',
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
@@ -3233,7 +3236,8 @@ module.exports = {
   mirrorTWTR: {
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
-    category: VAULT_CATEGORIES_IDS.MSTONKS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     logoUrl: './icons/mirror-twtr.png',
     apyIconUrls: ['./icons/mir.png'],
     apyTokenSymbols: ['MIR'],
