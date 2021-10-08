@@ -90,7 +90,7 @@ module.exports = {
     displayName: 'CRV:ibEUR',
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/rKP3R.png'],
     apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
-    logoUrl: './icons/curve-ibeur.png',
+    logoUrl: './icons/ibeur.png',
     tokenAddress: addresses.V2.convex_ibEUR.Underlying,
     decimals: '18',
     vaultAddress: addresses.V2.convex_ibEUR.NewVault,
