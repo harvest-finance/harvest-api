@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js')
 const { token, crvYPool, pool } = require('../../../lib/web3/contracts')
 const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
 const { web3 } = require('../../../lib/web3')
+const addresses = require('../../../lib/data/addresses.json')
 
 //// ----------- APRs ----------- ///
 
@@ -51,7 +52,13 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
       const exrate = await rewardRate(ex.contract)
       const perUnderlying = exrate / supply
       const perYear = perUnderlying * 86400 * 365
-      const price = await getPrice(ex.token, pool.currency)
+      if (ex.token.toLowerCase() === addresses.rKP3R.toLowerCase()) {
+        ex.token = addresses.KP3R
+      }
+      let price = await getPrice(ex.token, pool.currency)
+      if (ex.token.toLowerCase() === addresses.KP3R.toLowerCase()) {
+        price = price / 2
+      }
       apr += perYear * price
     }
   }
@@ -721,6 +728,23 @@ const pools = [
     ],
     name: 'mim',
     id: 40,
+  },
+  {
+    lptoken: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
+    token: '0x864510e93c38c771adc1b67308ce0b7c4aa1aa9e',
+    gauge: '0x99fb76F75501039089AAC8f20f487bf84E51d76F',
+    crvRewards: '0xCd0559ADb6fAa2fc83aB21Cf4497c3b9b45bB29f',
+    swap: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
+    currency: 'USD',
+    extras: [
+      {
+        contract: '0x21034ccc4f8D07d0cF8998Fdd4c45e426540dEc1',
+        token: '0xEdB67Ee1B171c4eC66E6c10EC43EDBbA20FaE8e9',
+        name: 'rKP3R',
+      },
+    ],
+    name: 'f-ibeur',
+    id: 45,
   },
 ]
 

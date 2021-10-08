@@ -4,6 +4,34 @@ const addresses = require('./addresses.json')
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'farm_curve_ibEUR+sEUR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_ibEUR.NewPool,
+    collateralAddress: addresses.V2.convex_ibEUR.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://curve.fi/factory/3/deposit">
+              curve.fi
+            </a>
+            and deposit <b>EUR stablecoins</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+    </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_DON_WETH_full_range',
     tradingApyFunction: {
       type: 'UNIV3_V2',
@@ -45,7 +73,7 @@ module.exports = [
             &quot;Stake for rewards&quot; checked for staking
           </li>
         </ol>
-      </div>
+    </div>
    `,
   },
   {

@@ -83,6 +83,26 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'DON', 'WETH'],
     disableAutoSwap: true,
   },
+  crvIbEUR: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    displayName: 'CRV:ibEUR',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/rKP3R.png'],
+    apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
+    logoUrl: './icons/curve-ibeur.png',
+    tokenAddress: addresses.V2.convex_ibEUR.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.convex_ibEUR.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.ibEUR] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['f-ibeur', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'],
+  },
   crvMIM: {
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
@@ -101,7 +121,7 @@ module.exports = {
         params: ['mim', convexProfitSharingFactor],
       },
     ],
-    cmcRewardTokenSymbols: ['FARM', 'CVX', 'SPELL', 'CRV'],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'SPELL', 'CRV'],
   },
   crvEURT: {
     isNew: true,
@@ -121,7 +141,7 @@ module.exports = {
         params: ['eurt', convexProfitSharingFactor],
       },
     ],
-    cmcRewardTokenSymbols: ['FARM', 'CVX', 'CRV'],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
   },
   YEL: {
     chain: CHAINS_ID.ETH_MAINNET,
