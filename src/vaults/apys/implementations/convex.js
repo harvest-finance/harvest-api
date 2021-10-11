@@ -1,18 +1,11 @@
 const BigNumber = require('bignumber.js')
-const { get } = require('lodash')
 const { convexAPR } = require('./convex.utils.js')
-const { cachedAxios } = require('../../../lib/db/models/cache.js')
 
 const getApy = async (poolId, profitSharingFactor) => {
   let apy
 
   try {
-    const response = await cachedAxios.get('https://www.convexfinance.com/api/curve-apys')
-
-    const convexAPY = await convexAPR(poolId)
-    const baseAPY = get(response, `data.apys[${poolId}].baseApy`, 0)
-
-    apy = new BigNumber(convexAPY).plus(baseAPY).times(profitSharingFactor)
+    apy = new BigNumber(await convexAPR(poolId)).times(profitSharingFactor)
   } catch (err) {
     console.error('convex API error: ', err)
     apy = new BigNumber(0)
