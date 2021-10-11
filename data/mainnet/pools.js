@@ -11,6 +11,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['f-ibeur'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -57,6 +61,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['mim'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -85,6 +93,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['eurt'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -405,6 +417,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['3pool'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -435,6 +451,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['hbtc'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -464,6 +484,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['husd'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -493,6 +517,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['compound'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -526,6 +554,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['busd'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -555,6 +587,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['usdn'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -630,6 +666,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['obtc'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -658,6 +698,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['tbtc'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -687,6 +731,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['ren'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -1606,6 +1654,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['eurs'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -1662,6 +1714,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['ust'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2002,6 +2058,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['steth'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2139,6 +2199,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['link'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2348,6 +2412,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['usdp'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -4055,6 +4123,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['tricrypto2'],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
