@@ -4432,7 +4432,7 @@ module.exports = {
         params: [
           addresses.MATIC.balancer_POLYBASE.Underlying,
           addresses.MATIC.balancer_POLYBASE.PoolId,
-          '6500',
+          '6000',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
         ],
