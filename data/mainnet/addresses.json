@@ -546,28 +546,32 @@
       "RewardPool": "0x735659C8576d88A2Eb5C810415Ea51cB06931696",
       "NewVault": "0x11804D69AcaC6Ae9466798325fA7DE023f63Ab53",
       "NewStrategy": "0xA5a091fd156FF5e44f22Bef544923CDc850d9D46",
-      "NewPool": "0xc02d1Da469d68Adc651Dd135d1A7f6b42F4d1A57"
+      "NewPool": "0xc02d1Da469d68Adc651Dd135d1A7f6b42F4d1A57",
+      "doHardwork": "onlyProfit"
     },
     "mirrorAMZN": {
       "Underlying": "0x0Ae8cB1f57e3b1b7f4f5048743710084AA69E796",
       "RewardPool": "0x1fABef2C2DAB77f01053E9600F70bE1F3F657F51",
       "NewVault": "0x8334A61012A779169725FcC43ADcff1F581350B7",
       "NewStrategy": "0x0c3d0B5910b0603d68be29a647c0F6187A8c3D36",
-      "NewPool": "0x8Dc427Cbcc75cAe58dD4f386979Eba6662f5C158"
+      "NewPool": "0x8Dc427Cbcc75cAe58dD4f386979Eba6662f5C158",
+      "doHardwork": "onlyProfit"
     },
     "mirrorGOOG": {
       "Underlying": "0x4b70ccD1Cf9905BE1FaEd025EADbD3Ab124efe9a",
       "RewardPool": "0x5b64BB4f69c8C03250Ac560AaC4C7401d78A1c32",
       "NewVault": "0x07DBe6aA35EF70DaD124f4e2b748fFA6C9E1963a",
       "NewStrategy": "0x0a6ADe7348598E42Da381B03C1c40c9bA1c7747D",
-      "NewPool": "0xfE83a00DF3A98dE218c08719FAF7e3741b220D0D"
+      "NewPool": "0xfE83a00DF3A98dE218c08719FAF7e3741b220D0D",
+      "doHardwork": "onlyProfit"
     },
     "mirrorTSLA": {
       "Underlying": "0x5233349957586A8207c52693A959483F9aeAA50C",
       "RewardPool": "0x43DFb87a26BA812b0988eBdf44e3e341144722Ab",
       "NewVault": "0xC800982d906671637E23E031e907d2e3487291Bc",
       "NewStrategy": "0xb5480a276C49B5e3a1bC13659030b4E94018a817",
-      "NewPool": "0x40C34B0E1bb6984810E17474c6B0Bcc6A6B46614"
+      "NewPool": "0x40C34B0E1bb6984810E17474c6B0Bcc6A6B46614",
+      "doHardwork": "onlyProfit"
     },
     "crvSTETH": {
       "Underlying": "0x06325440D014e39736583c165C2963BA99fAf14E",
@@ -609,14 +613,16 @@
       "RewardPool": "0x29cF719d134c1C18daB61C2F4c0529C4895eCF44",
       "NewVault": "0x99C2564C9D4767C13E13F38aB073D4758af396Ae",
       "NewStrategy": "0x97487C1F352a8076A738fbDcd316A10F01046567",
-      "NewPool": "0x937D4b84f139bec548b825FdCE33B172C5Bf755a"
+      "NewPool": "0x937D4b84f139bec548b825FdCE33B172C5Bf755a",
+      "doHardwork": "onlyProfit"
     },
     "mirrorTWTR": {
       "Underlying": "0x34856be886A2dBa5F7c38c4df7FD86869aB08040",
       "RewardPool": "0x99d737ab0df10cdC99c6f64D0384ACd5C03AEF7F",
       "NewVault": "0xb37c79f954E3e1A4ACCC14A5CCa3E46F226038b7",
       "NewStrategy": "0x18fbE81e56133118669660A46d050546045aB9B3",
-      "NewPool": "0x677AD66025063bE55B070685E618a84FF3dd62be"
+      "NewPool": "0x677AD66025063bE55B070685E618a84FF3dd62be",
+      "doHardwork": "onlyProfit"
     },
     "sushi_UST_WETH": {
       "Underlying": "0x8B00eE8606CC70c2dce68dea0CEfe632CCA0fB7b",
