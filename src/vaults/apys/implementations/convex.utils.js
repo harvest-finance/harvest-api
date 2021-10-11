@@ -548,6 +548,13 @@ const pools = [
     swap: '0x42d7025938bEc20B69cBae5A77421082407f053A',
     currency: 'USD',
     name: 'usdp',
+    extras: [
+      {
+        contract: '0x5f91615268be6b4add646b2560785b8f17dccbb4',
+        token: '0x92e187a03b6cd19cb6af293ba17f2745fd2357d5',
+        name: 'DUCK',
+      },
+    ],
     id: 28,
   },
   {
