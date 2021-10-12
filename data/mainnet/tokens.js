@@ -3385,7 +3385,7 @@ module.exports = {
   },
   space_SPACE_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'SPACE-BNB',
     apyIconUrls: [],
@@ -3407,7 +3407,7 @@ module.exports = {
   },
   space_SPACE_BUSD: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'SPACE-BUSD',
     apyIconUrls: [],
