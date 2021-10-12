@@ -5,15 +5,22 @@ const { VENUS_API_URL } = require('../../../lib/constants')
 const { cachedAxios } = require('../../../lib/db/models/cache')
 
 const getApy = async (marketSymbol, profitSharingFactor) => {
-  const response = await cachedAxios.get(VENUS_API_URL)
+  let apy
 
-  const { supplyApy, supplyVenusApy } = find(
-    get(response, 'data.data.markets', []),
-    market => market.symbol === marketSymbol,
-    { supplyApy: 0, supplyVenusApy: 0 },
-  )
+  try {
+    const response = await cachedAxios.get(VENUS_API_URL)
 
-  const apy = new BigNumber(supplyApy).plus(supplyVenusApy).times(profitSharingFactor).toFixed()
+    const { supplyApy, supplyVenusApy } = find(
+      get(response, 'data.data.markets', []),
+      market => market.symbol === marketSymbol,
+      { supplyApy: 0, supplyVenusApy: 0 },
+    )
+
+    apy = new BigNumber(supplyApy).plus(supplyVenusApy).times(profitSharingFactor).toFixed()
+  } catch (err) {
+    console.error('Venus API error: ', err)
+    apy = new BigNumber(0)
+  }
 
   return apy
 }
