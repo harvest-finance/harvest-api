@@ -87,7 +87,7 @@ module.exports = {
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
-    displayName: 'CRV:ibEUR',
+    displayName: 'CRV:Fixed Forex EUR',
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/rKP3R.png'],
     apyTokenSymbols: ['CRV', 'CVX', 'rKP3R'],
     logoUrl: './icons/ibeur.png',
