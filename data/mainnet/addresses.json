@@ -1083,6 +1083,19 @@
       "StrategyContract": "ConvexStrategyIbEURMainnet",
       "NewStrategy": "0x01579527d5734C03b8220E96dd5754346BfdFD63",
       "NewPool": "0xa6f85bB21Ff71ac0A5890F76fD2514D76e0035EF"
+    },
+    "uni_v3_USDC_ETH_3000_4500": {
+      "NewVault": "0x3b2ED6013f961404AbA5a030e20A2AceB486832d",
+      "DataContract": "0x7D2574BD588F24E554321d7edf4BbE8FB9057Df1",
+      "PotPool": "0x7931D6263798f99A082Caf1416b2457605628e2D",
+      "FeeAmount": "3000",
+      "PosId": [
+        139984
+      ],
+      "Underlying": [
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      ]
     }
   },
   "BSC": {

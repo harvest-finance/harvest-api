@@ -4610,4 +4610,33 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
+  uni_v3_USDC_ETH_3000_4500: {
+    isSingleAssetWithdrawalAllowed: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: USDC-ETH',
+    subLabel: 'ETH Range: 3K⟷4.5K',
+    apyIconUrls: ['./icons/univ3.png'],
+    apyTokenSymbols: ['UNI'],
+    logoUrl: './icons/univ3-usdc-eth.png',
+    tokenAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault,
+    pricesInfo: {
+      USDC: ['Min price: 3053 USDC per ETH', 'Max price: 4509 USDC per ETH'],
+      ETH: ['Min price: 0.00022175 ETH per USDC', 'Max price: 0.00032751 ETH per USDC'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault, 'USDC', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
+  },
 }
