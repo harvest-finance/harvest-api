@@ -4616,6 +4616,7 @@ module.exports = {
   },
   uni_v3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: USDC-ETH',
@@ -4645,6 +4646,7 @@ module.exports = {
   },
   uni_v3_DAI_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: DAI-ETH',
@@ -4674,6 +4676,7 @@ module.exports = {
   },
   uni_v3_USDT_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: USDT-ETH',
