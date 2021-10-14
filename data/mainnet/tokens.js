@@ -4696,5 +4696,5 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'USDT', 'WETH'],
-  }  
+  },
 }
