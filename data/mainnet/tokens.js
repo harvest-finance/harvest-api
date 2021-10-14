@@ -170,7 +170,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
     logoUrl: './icons/yel-eth.png',
-    apyIconUrls: ['./icons/yel.png'],
+    apyIconUrls: [],
     apyTokenSymbols: ['YEL'],
     displayName: 'YEL-ETH (SUSHI)',
     tokenAddress: addresses.V2.sushi_YEL_ETH.Underlying,
