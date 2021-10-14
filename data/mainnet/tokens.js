@@ -171,7 +171,7 @@ module.exports = {
     isNew: true,
     logoUrl: './icons/yel-eth.png',
     apyIconUrls: [],
-    apyTokenSymbols: ['YEL'],
+    apyTokenSymbols: [],
     displayName: 'YEL-ETH (SUSHI)',
     tokenAddress: addresses.V2.sushi_YEL_ETH.Underlying,
     decimals: '18',
@@ -182,9 +182,9 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: 'YEL',
-        params: [addresses.V2.sushi_YEL_ETH.PoolId, '0.7', '0', '0.7'],
         extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'YEL', 'ETH'],
