@@ -154,6 +154,17 @@ module.exports = {
       params: [addresses.YEL],
     },
   },
+  fYEL: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/yel.png',
+    tokenAddress: addresses.V2.yelhold_YEL.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.V2.yelhold_YEL.NewVault, '18'],
+    },
+  },
   sushi_YEL_ETH: {
     category: VAULT_CATEGORIES_IDS.GENERAL,
     chain: CHAINS_ID.ETH_MAINNET,

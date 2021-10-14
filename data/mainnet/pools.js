@@ -4629,7 +4629,7 @@ module.exports = [
     collateralAddress: addresses.V2.sushi_YEL_ETH.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.iFARM, addresses.V2.yelhold_YEL.NewVault],
-    rewardTokenSymbols: ['iFARM', 'YEL'],
+    rewardTokenSymbols: ['iFARM', 'fYEL'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
