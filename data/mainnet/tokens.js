@@ -4693,7 +4693,7 @@ module.exports = {
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault, 'USDT', 'WETH'],
+      params: [addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault, 'WETH', 'USDT'],
     },
     estimateApyFunctions: [
       {
