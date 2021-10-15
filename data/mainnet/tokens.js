@@ -345,8 +345,8 @@ module.exports = {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.QUICKSWAP,
     displayName: 'Quickswap: IFARM-QUICK',
-    apyIconUrls: ['./icons/quick.png'],
-    apyTokenSymbols: ['QUICK'],
+    apyIconUrls: [],
+    apyTokenSymbols: [],
     logoUrl: './icons/quickswap-ifarm-quick.png',
     tokenAddress: addresses.MATIC.quickswap_IFARM_QUICK.Underlying,
     decimals: '18',
@@ -357,23 +357,19 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.SNX,
-        params: [
-          addresses.MATIC.quickswap_IFARM_QUICK.RewardPool,
-          'QUICK',
-          'quick_IFARM_QUICK',
-          profitSharingCut8Percent,
-        ],
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
-    cmcRewardTokenSymbols: ['miFARM', 'QUICK'],
+    cmcRewardTokenSymbols: ['miFARM'],
   },
   quick_ETH_USDT: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.QUICKSWAP,
     displayName: 'Quickswap: ETH-USDT',
     apyIconUrls: ['./icons/quick.png'],
-    apyTokenSymbols: ['QUICK'],
+    apyTokenSymbols: ['dQUICK'],
     logoUrl: './icons/quickswap-eth-usdt.png',
     tokenAddress: addresses.MATIC.quickswap_ETH_USDT.Underlying,
     decimals: '18',
@@ -387,7 +383,7 @@ module.exports = {
         type: ESTIMATED_APY_TYPES.SNX,
         params: [
           addresses.MATIC.quickswap_ETH_USDT.RewardPool,
-          'QUICK',
+          'dQUICK',
           'quick_ETH_USDT',
           profitSharingCut8Percent,
         ],
@@ -485,6 +481,17 @@ module.exports = {
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_ID,
       params: ['quick'],
+    },
+  },
+  dQUICK: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/quick.png',
+    tokenAddress: addresses.MATIC.dQUICK,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['dragons-quick'],
     },
   },
   LUNA: {

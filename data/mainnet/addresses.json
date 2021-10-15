@@ -1453,7 +1453,8 @@
   },
   "MATIC": {
     "miFARM": "0xab0b2ddB9C7e440fAc8E140A89c0dbCBf2d7Bbff",
-    "QUICK": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+    "dQUICK": "0xf28164a485b0b2c90639e47b0f377b4a438a16b1",
+    "QUICK": "0x831753dd7087cac61ab5644b308642cc1c33dc13",    
     "pUSDT": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
     "pWETH": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
     "pUSDC": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
@@ -1464,7 +1465,7 @@
       "NewVault": "0x3D5B0a8CD80e2A87953525fC136c33112E4b885a",
       "StrategyContract": "QuickStrategyMainnet_ETH_USDT",
       "NewStrategy": "0xfFBD102fAFbd9e15C9122d9C62aB299AFD4D3E4F",
-      "RewardPool": "0xB26bfcD52D997211C13aE4C35E82ced65AF32A02",
+      "RewardPool": "0x45a5CB25F3E3bFEe615F6da0731740093F59b768",
       "NewPool": "0xE1f9A3EE001a2EcC906E8de637DBf20BB2d44633"
     },
     "quickswap_IFARM_QUICK": {
