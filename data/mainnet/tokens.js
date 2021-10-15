@@ -14,6 +14,48 @@ const profitSharingCut8Percent = '0.92'
 const convexProfitSharingFactor = '0.63'
 
 module.exports = {
+  FARM: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.GENERAL,
+    logoUrl: './icons/farm.png',
+    tokenAddress: addresses.FARM,
+    displayName: 'FARM',
+    decimals: '18',
+    vaultAddress: null,
+    newDetails: true,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.FARM] },
+  },
+  WETH: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/eth.png',
+    apyIconUrls: ['./icons/comp.png'],
+    apyTokenSymbols: ['COMP'],
+    displayName: 'WETH',
+    tokenAddress: addresses.WETH,
+    decimals: '18',
+    vaultAddress: addresses.V2.WETH.NewVault,
+    category: VAULT_CATEGORIES_IDS.GENERAL,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WETH] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.COMPOUND,
+        params: [addresses.CETH],
+        extraDailyCompound: false,
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'WETH'],
+  },
+  DON: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/don.png',
+    tokenAddress: addresses.DON,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['donkey-token'],
+    },
+  },
   uni_v3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
@@ -103,48 +145,6 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'USDT', 'WETH'],
-  },
-  FARM: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
-    logoUrl: './icons/farm.png',
-    tokenAddress: addresses.FARM,
-    displayName: 'FARM',
-    decimals: '18',
-    vaultAddress: null,
-    newDetails: true,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.FARM] },
-  },
-  WETH: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: './icons/eth.png',
-    apyIconUrls: ['./icons/comp.png'],
-    apyTokenSymbols: ['COMP'],
-    displayName: 'WETH',
-    tokenAddress: addresses.WETH,
-    decimals: '18',
-    vaultAddress: addresses.V2.WETH.NewVault,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WETH] },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.COMPOUND,
-        params: [addresses.CETH],
-        extraDailyCompound: false,
-      },
-    ],
-    cmcRewardTokenSymbols: ['FARM', 'WETH'],
-  },
-  DON: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: './icons/don.png',
-    tokenAddress: addresses.DON,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_ID,
-      params: ['donkey-token'],
-    },
   },
   UniV3_DON_WETH_full_range: {
     subLabel: 'Donkey',
