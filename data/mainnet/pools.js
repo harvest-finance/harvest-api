@@ -4,6 +4,48 @@ const addresses = require('./addresses.json')
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'uni_v3_USDC_ETH_3000_4500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V2,
+      params: [addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewPool,
+    collateralAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'uni_v3_DAI_ETH_3000_4500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V2,
+      params: [addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.NewPool,
+    collateralAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'uni_v3_USDT_ETH_3000_4500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V2,
+      params: [addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.NewPool,
+    collateralAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'farm_curve_ibEUR+sEUR',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.convex_ibEUR.NewPool,
@@ -4685,47 +4727,5 @@ module.exports = [
         </ol>
       </div>
    `,
-  },
-  {
-    chain: CHAINS_ID.ETH_MAINNET,
-    id: 'uni_v3_USDC_ETH_3000_4500',
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault],
-    },
-    type: POOL_TYPES.UNIV3,
-    contractAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewPool,
-    collateralAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault,
-    rewardAPY: [],
-    rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM'],
-  },
-  {
-    chain: CHAINS_ID.ETH_MAINNET,
-    id: 'uni_v3_DAI_ETH_3000_4500',
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault],
-    },
-    type: POOL_TYPES.UNIV3,
-    contractAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.NewPool,
-    collateralAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault,
-    rewardAPY: [],
-    rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM'],
-  },
-  {
-    chain: CHAINS_ID.ETH_MAINNET,
-    id: 'uni_v3_USDT_ETH_3000_4500',
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault],
-    },
-    type: POOL_TYPES.UNIV3,
-    contractAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.NewPool,
-    collateralAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault,
-    rewardAPY: [],
-    rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM'],
   },
 ]
