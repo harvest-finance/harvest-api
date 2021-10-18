@@ -2682,6 +2682,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vXVS'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2693,6 +2697,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vDAI'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2704,6 +2712,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vUSDC'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2715,6 +2727,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vUSDT'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2726,6 +2742,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vBUSD'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2748,6 +2768,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vETH'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2759,6 +2783,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vBETH'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2770,6 +2798,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vBTC'],
+    },
   },
   {
     chain: CHAINS_ID.BSC_MAINNET,
@@ -2781,6 +2813,10 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.VENUS,
+      params: ['vBNB'],
+    },
   },
   {
     tradingApyFunction: {
