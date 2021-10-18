@@ -3673,6 +3673,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BELT,
+      params: [addresses.BSC.belt_BNB.PoolId],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3702,6 +3706,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BELT,
+      params: [addresses.BSC.belt_ETH.PoolId],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3731,6 +3739,10 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.BSC.bFARM],
     rewardTokenSymbols: ['bFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BELT,
+      params: [addresses.BSC.belt_BTCB.PoolId],
+    },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>

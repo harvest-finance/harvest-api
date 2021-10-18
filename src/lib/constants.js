@@ -40,6 +40,7 @@ const ESTIMATED_APY_TYPES = {
   COMPOUND: 'COMPOUND',
   SUSHI: 'SUSHI',
   IDLE_FINANCE: 'IDLE_FINANCE',
+  NARWHALE: 'NARWHALE',
   BASIS: 'BASIS',
   NATIVE_SUSHI: 'NATIVE_SUSHI',
   SUSHI_PLUS_NATIVE: 'SUSHI_PLUS_NATIVE',
@@ -58,12 +59,17 @@ const ESTIMATED_APY_TYPES = {
   COMPFI: 'COMPFI',
   CONVEX: 'CONVEX',
   BALANCER: 'BALANCER',
+  BALANCER_POLYGON: 'BALANCER_POLYGON',
 }
 
 const TRADING_APY_TYPES = {
   LP: 'LP',
   BALANCER: 'BALANCER',
   UNIV3: 'UNIV3',
+  UNIV3_V2: 'UNIV3_V2',
+  RARI_FARMSTEAD_USDC: 'RARI_FARMSTEAD_USDC',
+  CONVEX: 'CONVEX',
+  BELT: 'BELT',
 }
 
 const COLLATERAL_TYPE = {
@@ -163,6 +169,7 @@ const VENUS_API_URL = 'https://api.venus.io/api/governance/venus'
 const BDO_API_URL = 'https://api.bdollar.fi/api/bdollar/'
 const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
+const BELT_API_URL = 'https://s.belt.fi/info/all.json'
 
 const BALANCER_SUBGRAPH_URLS = {
   ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
@@ -235,6 +242,7 @@ module.exports = {
   BDO_API_URL,
   ELLIPSIS_API_URL,
   SWIRL_API_URL,
+  BELT_API_URL,
   DEBUG_MODE,
   DB_CACHE_IDS,
   PROFIT_SHARING_POOL_ID,
