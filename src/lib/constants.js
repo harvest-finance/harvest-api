@@ -71,6 +71,7 @@ const TRADING_APY_TYPES = {
   UNIV3_V2: 'UNIV3_V2',
   RARI_FARMSTEAD_USDC: 'RARI_FARMSTEAD_USDC',
   CONVEX: 'CONVEX',
+  BELT: 'BELT',
   VENUS: 'VENUS',
 }
 
@@ -171,6 +172,7 @@ const VENUS_API_URL = 'https://api.venus.io/api/governance/venus'
 const BDO_API_URL = 'https://api.bdollar.fi/api/bdollar/'
 const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
+const BELT_API_URL = 'https://s.belt.fi/info/all.json'
 
 const BALANCER_SUBGRAPH_URLS = {
   ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
@@ -243,6 +245,7 @@ module.exports = {
   BDO_API_URL,
   ELLIPSIS_API_URL,
   SWIRL_API_URL,
+  BELT_API_URL,
   DEBUG_MODE,
   DB_CACHE_IDS,
   PROFIT_SHARING_POOL_ID,

@@ -3,7 +3,7 @@ const { get } = require('lodash')
 const { cachedAxios } = require('../../../lib/db/models/cache')
 const { BELT_API_URL } = require('../../../lib/constants')
 
-const getApy = async (poolId, profitSharingFactor) => {
+const getTradingApy = async poolId => {
   let apy
 
   try {
@@ -11,11 +11,11 @@ const getApy = async (poolId, profitSharingFactor) => {
 
     const beltApy = get(
       get(response, `data.info.BSC.vaultPools`, []).find(pool => pool.pid === poolId),
-      'rewardAPR',
+      'baseAPR',
       0,
     )
 
-    apy = new BigNumber(beltApy).times(profitSharingFactor)
+    apy = new BigNumber(beltApy)
   } catch (err) {
     console.error('belt API error: ', err)
     apy = new BigNumber(0)
@@ -25,5 +25,5 @@ const getApy = async (poolId, profitSharingFactor) => {
 }
 
 module.exports = {
-  getApy,
+  getTradingApy,
 }
