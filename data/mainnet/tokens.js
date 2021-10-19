@@ -529,8 +529,6 @@ module.exports = {
   },
   UniV3_zUSD_USDC_full_range: {
     subLabel: 'Zerogoki',
-    isDegen: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -557,8 +555,6 @@ module.exports = {
   },
   UniV3_zUSD_ETH: {
     subLabel: 'Zerogoki',
-    isDegen: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -588,8 +584,6 @@ module.exports = {
     disableAutoSwap: true,
   },
   UniV3_REI_ETH_full_range: {
-    isDegen: true,
-    isNew: true,
     subLabel: 'Zerogoki',
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
@@ -650,11 +644,12 @@ module.exports = {
   },
   Uni_FOX_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     displayName: 'Shapeshift: FOX-WETH',
     fullBuyback: true,
-    apyIconUrls: ['./icons/fox.png'],
-    apyTokenSymbols: ['FOX'],
+    apyIconUrls: [],
+    apyTokenSymbols: [],
     logoUrl: './icons/shapeshift-fox-weth.png',
     tokenAddress: addresses.V2.uni_FOX_WETH.Underlying,
     decimals: '18',
@@ -1676,7 +1671,6 @@ module.exports = {
   },
   KLONDIKE_KXUSD_DAI: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     fullBuyback: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -3219,7 +3213,6 @@ module.exports = {
   },
   mirrorAAPL: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/mirror-aapl.png',
@@ -3245,7 +3238,6 @@ module.exports = {
   },
   mirrorAMZN: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     logoUrl: './icons/mirror-amzn.png',
     inactive: true,
@@ -3271,7 +3263,6 @@ module.exports = {
   },
   mirrorGOOG: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/mirror-goog.png',
@@ -3297,7 +3288,6 @@ module.exports = {
   },
   mirrorTSLA: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/mirror-tsla.png',
@@ -3323,7 +3313,6 @@ module.exports = {
   },
   mirrorNFLX: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/mirror-nflx.png',
@@ -3349,7 +3338,6 @@ module.exports = {
   },
   mirrorTWTR: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/mirror-twtr.png',
@@ -3394,7 +3382,6 @@ module.exports = {
   },
   'BAC-DAI': {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/bac-dai.png',
@@ -4630,7 +4617,6 @@ module.exports = {
   },
   UniV3_REI_ETH: {
     subLabel: 'Zerogoki',
-    isDegen: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -4662,7 +4648,6 @@ module.exports = {
   },
   UniV3_REI_wBTC: {
     subLabel: 'Zerogoki',
-    isDegen: true,
     inactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
