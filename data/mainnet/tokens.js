@@ -1933,8 +1933,8 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.SUSHI_HODL,
     displayName: 'SUSHI HODL',
-    apyIconUrls: ['./icons/universe.png'],
-    apyTokenSymbols: ['Universe'],
+    apyIconUrls: ['./icons/xsushi.svg', './icons/aave.svg'],
+    apyTokenSymbols: ['XSUSHI', 'AAVE'],
     logoUrl: './icons/sushi.png',
     tokenAddress: addresses.V2.SUSHI.Underlying,
     decimals: '18',
@@ -1944,8 +1944,8 @@ module.exports = {
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.SUSHI] },
     estimateApyFunctions: [
       {
-        type: 'UNIVERSE',
-        params: ['0x6B3595068778DD592e39A122f4f5a5cF09C90fE2', 500000, 0.7],
+        type: ESTIMATED_APY_TYPES.NATIVE_SUSHI,
+        params: [],
         extraDailyCompound: false,
       },
     ],
