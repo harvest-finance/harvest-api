@@ -1,7 +1,9 @@
 require('dotenv').config()
 const PORT = process.env.PORT || 3000
-const INFURA_URL = `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
-const INFURA_WS_URL = `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_KEY}`
+const INFURA_URL =
+  process.env.MAINNET_RPC_URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
+const INFURA_WS_URL =
+  process.env.MAINNET_WS_URL || `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_KEY}`
 const COINGECKO_PRICE_API_ENDPOINT_CONTRACT = 'https://api.coingecko.com/api/v3/simple/token_price'
 const COINGECKO_PRICE_API_ENDPOINT_ID = 'https://api.coingecko.com/api/v3/simple/price'
 const API_KEY = process.env.API_KEY || 'harvest-key'
@@ -40,6 +42,7 @@ const ESTIMATED_APY_TYPES = {
   COMPOUND: 'COMPOUND',
   SUSHI: 'SUSHI',
   IDLE_FINANCE: 'IDLE_FINANCE',
+  NARWHALE: 'NARWHALE',
   BASIS: 'BASIS',
   NATIVE_SUSHI: 'NATIVE_SUSHI',
   SUSHI_PLUS_NATIVE: 'SUSHI_PLUS_NATIVE',
@@ -58,12 +61,17 @@ const ESTIMATED_APY_TYPES = {
   COMPFI: 'COMPFI',
   CONVEX: 'CONVEX',
   BALANCER: 'BALANCER',
+  BALANCER_POLYGON: 'BALANCER_POLYGON',
 }
 
 const TRADING_APY_TYPES = {
   LP: 'LP',
   BALANCER: 'BALANCER',
   UNIV3: 'UNIV3',
+  UNIV3_V2: 'UNIV3_V2',
+  RARI_FARMSTEAD_USDC: 'RARI_FARMSTEAD_USDC',
+  CONVEX: 'CONVEX',
+  VENUS: 'VENUS',
 }
 
 const COLLATERAL_TYPE = {
