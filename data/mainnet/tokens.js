@@ -1933,7 +1933,7 @@ module.exports = {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.SUSHI_HODL,
     displayName: 'SUSHI HODL',
-    apyIconUrls: ['./icons/universe.png'],
+    apyIconUrls: ['./icons/xsushi.svg', './icons/aave.svg'],
     apyTokenSymbols: ['XSUSHI', 'AAVE'],
     logoUrl: './icons/sushi.png',
     tokenAddress: addresses.V2.SUSHI.Underlying,
