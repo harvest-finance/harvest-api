@@ -990,7 +990,8 @@
       "Underlying": "0x470e8de2eBaef52014A47Cb5E6aF86884947F08c",
       "NewVault": "0x9AF516e9095069972528eeba8E55275e31fE7734",
       "RewardPool": "0xDd80E21669A664Bce83E3AD9a0d74f8Dad5D9E72",
-      "NewPool": "0x34D358cd25e4BBdcf7D30887c55FE68E0F25dC65"
+      "NewPool": "0x34D358cd25e4BBdcf7D30887c55FE68E0F25dC65",
+      "doHardwork": "onlyProfit"
     },
     "sushi_PHTR_FARM": {
       "Underlying": "0x15D1FEEcc23691E2E5E39490F5fc14413f9d909A",

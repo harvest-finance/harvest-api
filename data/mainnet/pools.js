@@ -809,7 +809,6 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
     id: 'farm-renbtc',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.renBTC.NewPool,
@@ -914,7 +913,6 @@ module.exports = [
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'DAI-BAS',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.UNI_DAI_BAS.NewPool,
@@ -950,7 +948,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'LFBTC-LIFT',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.lfBTC_LIFT.NewPool,
@@ -986,7 +983,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'WBTC-LFBTC',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.wBTC_lfBTC.NewPool,
@@ -1022,7 +1018,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'MIC-USDT',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.UNI_MIC_USDT.NewPool,
@@ -1058,7 +1053,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'MIS-USDT',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.UNI_MIS_USDT.NewPool,
@@ -1582,7 +1576,6 @@ module.exports = [
       params: [addresses.V2.basisGold_DAI_BSG.Underlying],
     },
     id: 'DAI-BSG',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.basisGold_DAI_BSG.NewPool,
     collateralAddress: addresses.V2.basisGold_DAI_BSG.NewVault,
@@ -1617,7 +1610,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'DAI-BSGS',
-    isDegen: true,
     fullBuyback: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
@@ -1674,7 +1666,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
-    isNew: true,
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -1685,7 +1676,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
-    isNew: true,
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -1787,7 +1777,6 @@ module.exports = [
       params: [addresses.V2.mirrorAAPL.Underlying],
     },
     id: 'mirrorAAPL',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.mirrorAAPL.NewPool,
     collateralAddress: addresses.V2.mirrorAAPL.NewVault,
@@ -1839,7 +1828,6 @@ module.exports = [
       params: [addresses.V2.mirrorAMZN.Underlying],
     },
     id: 'mirrorAMZN',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.mirrorAMZN.NewPool,
     collateralAddress: addresses.V2.mirrorAMZN.NewVault,
@@ -1891,7 +1879,6 @@ module.exports = [
       params: [addresses.V2.mirrorGOOG.Underlying],
     },
     id: 'mirrorGOOG',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.mirrorGOOG.NewPool,
     collateralAddress: addresses.V2.mirrorGOOG.NewVault,
@@ -1995,7 +1982,6 @@ module.exports = [
       params: [addresses.V2.mirrorNFLX.Underlying],
     },
     id: 'mirrorNFLX',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.mirrorNFLX.NewPool,
     collateralAddress: addresses.V2.mirrorNFLX.NewVault,
@@ -2047,7 +2033,6 @@ module.exports = [
       params: [addresses.V2.mirrorTWTR.Underlying],
     },
     id: 'mirrorTWTR',
-    isDegen: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.mirrorTWTR.NewPool,
     collateralAddress: addresses.V2.mirrorTWTR.NewVault,
@@ -2198,7 +2183,6 @@ module.exports = [
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'farm-klondike-wbtc-klon',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.klondike_WBTC_KLON.NewPool,
@@ -2596,7 +2580,6 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.V2.nft20_Rope.Underlying],
@@ -3426,7 +3409,6 @@ module.exports = [
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'farm-klondike-kxusd-dai',
-    isDegen: true,
     fullBuyback: true,
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.klondike_KXUSD_DAI.NewPool,
@@ -3976,8 +3958,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_ZUSD_ETH.NewPool,
     collateralAddress: addresses.V2.UniV3_ZUSD_ETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.REI],
-    rewardTokenSymbols: ['iFARM', 'REI'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -3990,8 +3972,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_zUSD_USDC_full_range.NewPool,
     collateralAddress: addresses.V2.UniV3_zUSD_USDC_full_range.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.REI],
-    rewardTokenSymbols: ['iFARM', 'REI'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     vestingDescriptionOverride: { iFARM: '' },
   },
   {
@@ -4133,8 +4115,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_FCASH_USDC.NewPool,
     collateralAddress: addresses.V2.UniV3_FCASH_USDC.NewVault,
     rewardAPY: null,
-    rewardTokens: [addresses.iFARM, addresses.UMA],
-    rewardTokenSymbols: ['iFARM', 'UMA'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -4564,8 +4546,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_REI_ETH.NewPool,
     collateralAddress: addresses.V2.UniV3_REI_ETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.zUSD],
-    rewardTokenSymbols: ['iFARM', 'zUSD'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     vestingDescriptionOverride: { iFARM: '' },
   },
   {
@@ -4579,8 +4561,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_REI_ETH_full_range.NewPool,
     collateralAddress: addresses.V2.UniV3_REI_ETH_full_range.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.REI],
-    rewardTokenSymbols: ['iFARM', 'REI'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4593,8 +4575,8 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_REI_wBTC.NewPool,
     collateralAddress: addresses.V2.UniV3_REI_wBTC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.zUSD],
-    rewardTokenSymbols: ['iFARM', 'zUSD'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
