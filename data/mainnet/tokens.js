@@ -56,7 +56,7 @@ module.exports = {
       params: ['donkey-token'],
     },
   },
-  uni_v3_USDC_ETH_3000_4500: {
+  UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
@@ -66,16 +66,16 @@ module.exports = {
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
     logoUrl: './icons/univ3-usdc-eth.png',
-    tokenAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.Underlying,
+    tokenAddress: addresses.V2.UniV3_USDC_ETH_3000_4500.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault,
+    vaultAddress: addresses.V2.UniV3_USDC_ETH_3000_4500.NewVault,
     pricesInfo: {
       USDC: ['Min price: 3053.4 USDC per ETH', 'Max price: 4509.7 USDC per ETH'],
       ETH: ['Min price: 0.00022175 ETH per USDC', 'Max price: 0.00032751 ETH per USDC'],
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.uni_v3_USDC_ETH_3000_4500.NewVault, 'USDC', 'WETH'],
+      params: [addresses.V2.UniV3_USDC_ETH_3000_4500.NewVault, 'USDC', 'WETH'],
     },
     estimateApyFunctions: [
       {
@@ -86,7 +86,7 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
   },
-  uni_v3_DAI_ETH_3000_4500: {
+  UniV3_DAI_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
@@ -96,16 +96,16 @@ module.exports = {
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
     logoUrl: './icons/univ3-dai-eth.png',
-    tokenAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.Underlying,
+    tokenAddress: addresses.V2.UniV3_DAI_ETH_3000_4500.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault,
+    vaultAddress: addresses.V2.UniV3_DAI_ETH_3000_4500.NewVault,
     pricesInfo: {
       DAI: ['Min price: 3046 DAI per ETH', 'Max price: 4498.9 DAI per ETH'],
       ETH: ['Min price: 0.00022228 ETH per DAI', 'Max price: 0.00032829 ETH per DAI'],
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.uni_v3_DAI_ETH_3000_4500.NewVault, 'DAI', 'WETH'],
+      params: [addresses.V2.UniV3_DAI_ETH_3000_4500.NewVault, 'DAI', 'WETH'],
     },
     estimateApyFunctions: [
       {
@@ -116,7 +116,7 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
-  uni_v3_USDT_ETH_3000_4500: {
+  UniV3_USDT_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
@@ -126,16 +126,16 @@ module.exports = {
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
     logoUrl: './icons/univ3-eth-usdt.png',
-    tokenAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.Underlying,
+    tokenAddress: addresses.V2.UniV3_USDT_ETH_3000_4500.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault,
+    vaultAddress: addresses.V2.UniV3_USDT_ETH_3000_4500.NewVault,
     pricesInfo: {
       USDT: ['Min price: 3053.4 USDT per ETH', 'Max price: 4509.7 USDT per ETH'],
       ETH: ['Min price: 0.00022175 ETH per USDT', 'Max price: 0.00032751 ETH per USDT'],
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.uni_v3_USDT_ETH_3000_4500.NewVault, 'WETH', 'USDT'],
+      params: [addresses.V2.UniV3_USDT_ETH_3000_4500.NewVault, 'WETH', 'USDT'],
     },
     estimateApyFunctions: [
       {
@@ -156,12 +156,12 @@ module.exports = {
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
     logoUrl: './icons/univ3-don-eth.png',
-    tokenAddress: addresses.V2.uni_v3_DON_WETH_full_range.Underlying,
+    tokenAddress: addresses.V2.UniV3_DON_WETH_full_range.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.uni_v3_DON_WETH_full_range.NewVault,
+    vaultAddress: addresses.V2.UniV3_DON_WETH_full_range.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.uni_v3_DON_WETH_full_range.NewVault, 'DON', 'WETH'],
+      params: [addresses.V2.UniV3_DON_WETH_full_range.NewVault, 'DON', 'WETH'],
     },
     estimateApyFunctions: [
       {
