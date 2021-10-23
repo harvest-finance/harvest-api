@@ -1,4 +1,5 @@
 {
+  "CNG": "0x5C1d9aA868a30795F92fAe903eDc9eFF269044bf",
   "ibEUR": "0x96e61422b6a9ba0e068b6c5add4ffabc6a4aae27",
   "DON": "0x4576E6825B462b6916D2a41E187626E9090A92c6",
   "MIM": "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
@@ -1121,6 +1122,19 @@
       "Underlying": [
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
         "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+      ]
+    },
+    "UniV3_CNG_ETH": {
+      "NewVault": "0xc3426599Ec933FbF657ee44b53e7f01d83Be1f63",
+      "DataContract": "0x7a535F44A86D20076dDE031A28E4f3500d00D628",
+      "NewPool": "0x1A0E125Ba607714d83260B8e28A68CAb97Db8E52",
+      "FeeAmount": "10000",
+      "PosId": [
+        144051
+      ],
+      "Underlying": [
+        "0x5C1d9aA868a30795F92fAe903eDc9eFF269044bf",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ]
     }
   },

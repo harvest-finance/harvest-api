@@ -4,6 +4,20 @@ const addresses = require('./addresses.json')
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_CNG_ETH',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V2,
+      params: [addresses.V2.UniV3_CNG_ETH.NewVault],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_CNG_ETH.NewPool,
+    collateralAddress: addresses.V2.UniV3_CNG_ETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM, addresses.CNG],
+    rewardTokenSymbols: ['iFARM', 'ecoCNG'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_USDC_ETH_3000_4500',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.UNIV3_V2,
