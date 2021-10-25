@@ -3413,7 +3413,6 @@ module.exports = {
   },
   'DAI-BAS': {
     chain: CHAINS_ID.ETH_MAINNET,
-    isDegen: true,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
     logoUrl: './icons/dai-basv2.png',
