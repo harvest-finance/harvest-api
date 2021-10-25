@@ -17,6 +17,8 @@ const uniVaultStorageContractData = require('../../lib/web3/contracts/univault-s
 const { getStorage } = require('../../lib/web3/contracts/uniswap-v3/methods')
 const { getPosId: getUniV3PosId } = require('../../lib/web3/contracts/univault-storage/methods')
 
+const { getTokenPrice } = require('..')
+
 const getPrice = async (firstToken, secondToken, fee = 500, chainId = 1) => {
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
   const firstTokenData = tokens[firstToken]
@@ -53,9 +55,16 @@ const getPrice = async (firstToken, secondToken, fee = 500, chainId = 1) => {
     Number(univ3PoolSlotData.tick),
   )
 
-  return new Fraction(priceData.numerator, priceData.denominator)
+  let price = new Fraction(priceData.numerator, priceData.denominator)
     .multiply(priceData.scalar)
     .toFixed(7)
+
+  if (secondToken == 'WETH') {
+    const ethPrice = await getTokenPrice('WETH')
+    price = price * ethPrice
+  }
+
+  return price
 }
 
 const getPosId = async (contractAddress, web3Instance) => {
