@@ -56,8 +56,31 @@ module.exports = {
       params: ['donkey-token'],
     },
   },
+  CNG: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/cng.png',
+    tokenAddress: addresses.CNG,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.UNISWAP_V3,
+      params: ['CNG', 'WETH', 10000],
+    },
+  },
+  ecoCNG: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/cng.png',
+    tokenAddress: addresses.ecoCNG,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.UNISWAP_V3,
+      params: ['ecoCNG', 'WETH', 10000],
+    },
+  },
   UniV3_CNG_ETH: {
-    isSingleAssetWithdrawalAllowed: true,
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
@@ -81,7 +104,9 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CNG', 'WETH'],
+    disableAutoSwap: true
   },
+  
   UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,

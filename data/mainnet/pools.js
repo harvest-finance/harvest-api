@@ -13,7 +13,7 @@ module.exports = [
     contractAddress: addresses.V2.UniV3_CNG_ETH.NewPool,
     collateralAddress: addresses.V2.UniV3_CNG_ETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.CNG],
+    rewardTokens: [addresses.iFARM, addresses.ecoCNG],
     rewardTokenSymbols: ['iFARM', 'ecoCNG'],
   },
   {
