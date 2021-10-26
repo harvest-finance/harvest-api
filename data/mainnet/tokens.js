@@ -56,6 +56,55 @@ module.exports = {
       params: ['donkey-token'],
     },
   },
+  CNG: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/cng.png',
+    tokenAddress: addresses.CNG,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.UNISWAP_V3,
+      params: ['CNG', 'WETH', 10000],
+    },
+  },
+  ecoCNG: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/cng.png',
+    tokenAddress: addresses.ecoCNG,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.UNISWAP_V3,
+      params: ['CNG', 'WETH', 10000],
+    },
+  },
+  UniV3_CNG_ETH: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: CNG-ETH',
+    subLabel: 'Changer',
+    apyIconUrls: ['./icons/univ3.png'],
+    apyTokenSymbols: ['UNI'],
+    logoUrl: './icons/univ3-eth-cng.png',
+    tokenAddress: addresses.V2.UniV3_CNG_ETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_CNG_ETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_CNG_ETH.NewVault, 'CNG', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CNG', 'WETH'],
+    disableAutoSwap: true,
+  },
+
   UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
