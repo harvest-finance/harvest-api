@@ -191,7 +191,7 @@ const fetchLpToken = async (lpAddress, chainId) => {
   const lpTokenInstance = new web3Instance.eth.Contract(tokenContract.contract.abi, lpAddress)
   const lpDecimals = await tokenContract.methods.getDecimals(lpTokenInstance)
   const lpSymbol = await tokenContract.methods.getSymbol(lpTokenInstance)
-  const lpTokenPrice = await getTokenPrice(lpAddress)
+  const lpTokenPrice = await getTokenPrice(lpAddress, chainId)
 
   const result = {
     address: lpAddress,

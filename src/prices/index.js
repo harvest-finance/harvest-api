@@ -74,12 +74,15 @@ const getTokenPrice = async (selectedToken, ourChainId = CHAIN_TYPES.ETH) => {
       !tokens[selectedToken] &&
       toArray(tokens).find(
         token =>
-          token.vaultAddress && token.vaultAddress.toLowerCase() === selectedToken.toLowerCase(),
+          token.chain === ourChainId &&
+          token.vaultAddress &&
+          token.vaultAddress.toLowerCase() === selectedToken.toLowerCase(),
       )
     if (vaultData) {
       result = await executePriceFunction(GET_PRICE_TYPES.F_TOKEN, [
         vaultData.vaultAddress,
         vaultData.decimals,
+        ourChainId,
       ])
     } else {
       // otherwise, just fallback to CoinGecko

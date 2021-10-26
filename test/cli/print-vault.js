@@ -15,6 +15,7 @@ const main = async () => {
   await cliPreload()
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
   const pools = await getUIData(UI_DATA_FILES.POOLS)
+  let vault = null
 
   try {
     console.log('====================')
@@ -22,7 +23,7 @@ const main = async () => {
     if (!tokens[vaultId]) {
       console.log(`Vault: ${vaultId} does not exist. Is casing correct?`)
     } else {
-      const vault = await fetchAndExpandVault(vaultId)
+      vault = await fetchAndExpandVault(vaultId)
       console.log(vault)
     }
   } catch (err) {
@@ -36,6 +37,7 @@ const main = async () => {
         pool.id === vaultId ||
         (pool.collateralAddress &&
           tokens[vaultId] &&
+          (!vault || tokens[vaultId].chain === pool.chain) &&
           tokens[vaultId].vaultAddress &&
           pool.collateralAddress.toLowerCase() === tokens[vaultId].vaultAddress.toLowerCase()),
     )

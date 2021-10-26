@@ -44,7 +44,7 @@ const getIncentivePoolStats = async (
     ? new BigNumber(await rewardRatePerPool(basisPoolId, instance))
     : new BigNumber(await rewardRate(instance))
 
-  const fetchedTokenPrice = await getTokenPrice(rewardTokenAddress)
+  const fetchedTokenPrice = await getTokenPrice(rewardTokenAddress, pool.chain)
   const pricePerToken = new BigNumber(fetchedTokenPrice)
 
   const weeklyRewardRate = !isUndefined(weeklyRewardRateOverride)
@@ -56,7 +56,7 @@ const getIncentivePoolStats = async (
   stakingTokenPrice = lpTokenData.price
 
   if (lpTokenData.price === undefined) {
-    stakingTokenPrice = await getTokenPrice(lpTokenData.address)
+    stakingTokenPrice = await getTokenPrice(lpTokenData.address, pool.chain)
   }
 
   fetchedTotalSupply = new BigNumber(
@@ -87,7 +87,7 @@ const getIncentivePoolStats = async (
   }
 
   return {
-    apr: apr.isNaN() ? '0' : apr.multipliedBy(100).toString(),
+    apr: apr.isNaN() ? '0' : apr.multipliedBy(100).toFixed(),
     totalSupply: fetchedTotalSupply.toFixed(),
     lpTokenPrice: stakingTokenPrice,
     rewardRate: fetchedRewardRate.toFixed(),
