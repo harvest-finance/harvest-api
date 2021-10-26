@@ -4665,7 +4665,7 @@ module.exports = {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
     isNew: true,
-    logoUrl: './icons/chf-usdc.png',
+    logoUrl: './icons/gbp-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
     displayName: 'Jarvis: GBP-USDC',
