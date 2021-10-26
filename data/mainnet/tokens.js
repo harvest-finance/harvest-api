@@ -57,7 +57,6 @@ module.exports = {
     },
   },
   CNG: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/cng.png',
     tokenAddress: addresses.CNG,
@@ -69,7 +68,6 @@ module.exports = {
     },
   },
   ecoCNG: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/cng.png',
     tokenAddress: addresses.ecoCNG,
@@ -77,7 +75,7 @@ module.exports = {
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.UNISWAP_V3,
-      params: ['ecoCNG', 'WETH', 10000],
+      params: ['CNG', 'WETH', 10000],
     },
   },
   UniV3_CNG_ETH: {
