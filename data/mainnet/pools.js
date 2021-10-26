@@ -4609,7 +4609,7 @@ module.exports = [
         <li>
           Go to&nbsp;
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
-            balancer
+            Jarvis Network
           </a>
           and add liquidity for jEUR-USDC
         </li>
@@ -4638,7 +4638,7 @@ module.exports = [
         <li>
           Go to&nbsp;
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
-            balancer
+            Jarvis Network
           </a>
           and add liquidity for jGBP-USDC
         </li>
@@ -4667,7 +4667,7 @@ module.exports = [
         <li>
           Go to&nbsp;
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
-            balancer
+            Jarvis Network
           </a>
           and add liquidity for jCHF-USDC
         </li>
@@ -4696,7 +4696,7 @@ module.exports = [
         <li>
           Go to&nbsp;
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
-            balancer
+            Jarvis Network
           </a>
           and add liquidity for AUR-USDC
         </li>
