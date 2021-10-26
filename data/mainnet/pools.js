@@ -4654,8 +4654,8 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JCHF_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_AUR_USDC.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    contractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
@@ -4669,7 +4669,7 @@ module.exports = [
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
             balancer
           </a>
-          and add liquidity for AUR-USDC
+          and add liquidity for jCHF-USDC
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -4683,11 +4683,11 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_AUR_USDC',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
+    contractAddress: addresses.MATIC.jarvis_AUR_USDC.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
     rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4698,7 +4698,7 @@ module.exports = [
           <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
             balancer
           </a>
-          and add liquidity for jCHF-USDC
+          and add liquidity for AUR-USDC
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
