@@ -4601,7 +4601,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
-    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4630,7 +4630,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
-    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4687,8 +4687,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
-    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
