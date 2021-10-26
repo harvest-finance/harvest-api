@@ -102,9 +102,9 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CNG', 'WETH'],
-    disableAutoSwap: true
+    disableAutoSwap: true,
   },
-  
+
   UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
