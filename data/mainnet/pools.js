@@ -2861,8 +2861,8 @@ module.exports = [
     collateralAddress: addresses.BSC.pancake_CAKE.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2898,8 +2898,8 @@ module.exports = [
     collateralAddress: addresses.BSC.pancake_CAKE_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -2973,8 +2973,8 @@ module.exports = [
     collateralAddress: addresses.BSC.pancake_USDT_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3044,8 +3044,8 @@ module.exports = [
     collateralAddress: addresses.BSC.goose_EGG_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -3903,8 +3903,8 @@ module.exports = [
     contractAddress: addresses.BSC.ellipsis_BTC.NewPool,
     collateralAddress: addresses.BSC.ellipsis_BTC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.bFARM],
-    rewardTokenSymbols: ['bFARM'],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
+    rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
