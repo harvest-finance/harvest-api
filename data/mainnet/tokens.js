@@ -86,7 +86,7 @@ module.exports = {
     subLabel: 'Changer',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
-    // logoUrl: './icons/univ3-usdc-eth.png', // should create logo
+    logoUrl: './icons/univ3-eth-cng.png',
     tokenAddress: addresses.V2.UniV3_CNG_ETH.Underlying,
     decimals: '18',
     vaultAddress: addresses.V2.UniV3_CNG_ETH.NewVault,
