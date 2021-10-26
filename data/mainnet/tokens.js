@@ -516,6 +516,39 @@ module.exports = {
       params: ['uma'],
     },
   },
+  pUMA: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/uma.png',
+    tokenAddress: addresses.MATIC.UMA,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['uma'],
+    },
+  },
+  JRT: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // not used
+    tokenAddress: addresses.MATIC.JRT,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-reward-token'],
+    },
+  },
+  KNC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // not used
+    tokenAddress: addresses.MATIC.KNC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['kyber-network-crystal'],
+    },
+  },
   REI: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/rei.png',
@@ -4511,10 +4544,153 @@ module.exports = {
       params: ['binance-usd'],
     },
   },
+  AUR: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.AUR,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN_THREE_WAY,
+      params: [addresses.MATIC.AUR, 'JRT', 'pUMA', 'KNC', addresses.MATIC.JARVIS_SANCTUARY],
+    },
+  },
+  JEUR: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.JEUR,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-synthetic-euro'],
+    },
+  },
+  JCHF: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.JCHF,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-synthetic-swiss-franc'],
+    },
+  },
+  JGBP: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.JGBP,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-synthetic-british-pound'],
+    },
+  },
+  jarvis_JEUR_USDC_HODL: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
+    logoUrl: './icons/eur-usdc.png',
+    apyIconUrls: ['./icons/aur.png'],
+    apyTokenSymbols: ['AUR'],
+    displayName: 'Jarvis: EUR-USDC',
+    subLabel: 'Rewards are held in AUR-USDC vault',
+    tokenAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying, 'JEUR', 'pUSDC'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+  },
+  jarvis_JGBP_USDC_HODL: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
+    logoUrl: './icons/chf-usdc.png',
+    apyIconUrls: ['./icons/aur.png'],
+    apyTokenSymbols: ['AUR'],
+    displayName: 'Jarvis: GBP-USDC',
+    subLabel: 'Rewards are held in AUR-USDC vault',
+    tokenAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying, 'JGBP', 'pUSDC'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+  },
+  jarvis_JCHF_USDC_HODL: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
+    logoUrl: './icons/chf-usdc.png',
+    apyIconUrls: ['./icons/aur.png'],
+    apyTokenSymbols: ['AUR'],
+    displayName: 'Jarvis: CHF-USDC',
+    subLabel: 'Rewards are held in AUR-USDC vault',
+    tokenAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying, 'JCHF', 'pUSDC'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+  },
+  jarvis_AUR_USDC: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
+    logoUrl: './icons/aur-usdc.png',
+    apyIconUrls: ['./icons/aur.png'],
+    apyTokenSymbols: ['AUR'],
+    displayName: 'Jarvis: AUR-USDC',
+    subLabel: 'Auto-harvesting Aureus',
+    tokenAddress: addresses.MATIC.jarvis_AUR_USDC.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.jarvis_AUR_USDC.Underlying, 'AUR', 'pUSDC'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+  },
   bal_POLYBASE: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/balancer-polybase.png',
     apyIconUrls: ['./icons/balancer.png'],
     apyTokenSymbols: ['BAL'],
@@ -4548,7 +4724,6 @@ module.exports = {
   bal_TRICRYPTO: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/balancer-tricrypto.png',
     apyIconUrls: ['./icons/balancer.png'],
     apyTokenSymbols: ['BAL'],
@@ -4582,7 +4757,6 @@ module.exports = {
   bal_STABLE: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/balancer-stable.png',
     apyIconUrls: ['./icons/balancer.png', './icons/qi.png'],
     apyTokenSymbols: ['BAL', 'QI'],

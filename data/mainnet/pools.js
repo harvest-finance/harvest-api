@@ -4580,6 +4580,122 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JEUR_USDC_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
+    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
+            balancer
+          </a>
+          and add liquidity for jEUR-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JGBP_USDC_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
+    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
+            balancer
+          </a>
+          and add liquidity for jGBP-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JCHF_USDC_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.jarvis_AUR_USDC.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
+            balancer
+          </a>
+          and add liquidity for AUR-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_AUR_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.jarvis_AUR_USDC.NewVault],
+    rewardTokenSymbols: ['miFARM', 'fAUR_USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://yield.jarvis.network/yield">
+            balancer
+          </a>
+          and add liquidity for jCHF-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
     id: 'bal_POLYBASE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
