@@ -28,7 +28,7 @@ const VAULT_CATEGORIES_IDS = {
   QUICKSWAP: 'QUICKSWAP',
 }
 
-export const VAULT_CATEGORIES_NAMES = {
+const VAULT_CATEGORIES_NAMES = {
   INACTIVE: 'Inactive',
   INACTIVE_BSC: 'Inactive',
   LIQUIDITY: 'Uniswap V2',
