@@ -104,7 +104,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'CNG', 'WETH'],
     disableAutoSwap: true,
   },
-
   UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
     isNew: true,
@@ -578,7 +577,7 @@ module.exports = {
   },
   JRT: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '', // not used
+    logoUrl: './icons/jrt.png',
     tokenAddress: addresses.MATIC.JRT,
     decimals: '18',
     vaultAddress: null,
@@ -4605,7 +4604,7 @@ module.exports = {
   },
   JEUR: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '', // unused
+    logoUrl: './icons/jeur.png',
     tokenAddress: addresses.MATIC.JEUR,
     decimals: '18',
     vaultAddress: null,
@@ -4616,7 +4615,7 @@ module.exports = {
   },
   JCHF: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '', // unused
+    logoUrl: './icons/jchf.png',
     tokenAddress: addresses.MATIC.JCHF,
     decimals: '18',
     vaultAddress: null,
@@ -4627,7 +4626,7 @@ module.exports = {
   },
   JGBP: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '', // unused
+    logoUrl: './icons/jgbp.png',
     tokenAddress: addresses.MATIC.JGBP,
     decimals: '18',
     vaultAddress: null,
@@ -4704,8 +4703,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
+        type: 'ESTIMATED_APY_TYPES.MANUAL',
         params: ['0.00'],
       },
     ],
@@ -4729,9 +4727,8 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
+        type: 'JARVIS',
+        params: [3, 'AUR', 'pUSDC', profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR'],
