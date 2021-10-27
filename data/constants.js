@@ -28,6 +28,36 @@ const VAULT_CATEGORIES_IDS = {
   QUICKSWAP: 'QUICKSWAP',
 }
 
+export const VAULT_CATEGORIES_NAMES = {
+  INACTIVE: 'Inactive',
+  INACTIVE_BSC: 'Inactive',
+  LIQUIDITY: 'Uniswap V2',
+  SUSHI: 'Sushiswap',
+  STABLECOINS: 'Stablecoins',
+  BTC: 'BTC',
+  GENERAL: 'General',
+  ONEINCH: '1INCH',
+  SEIGNIORAGE: 'Seigniorage',
+  MSTONKS: 'mSTONKs',
+  ETH20: 'ETH 2.0',
+  SUSHI_HODL: 'Sushi HODL',
+  LINK: 'LINK',
+  VENUS: 'Venus',
+  PANCAKE: 'Pancake',
+  GOOSE: 'Goose',
+  BDOLLAR: 'bDollar',
+  NFT: 'NFT',
+  SPACE: 'SPACE',
+  ELLIPSIS: 'Ellipsis',
+  BELT: 'Belt',
+  UNIV3: 'Uniswap V3',
+  LIFT: 'Lift',
+  BALANCER: 'Balancer',
+  JARVIS: 'Jarvis',
+  AMPLIFARM: 'AmpliFarm',
+  QUICKSWAP: 'Quickswap',
+}
+
 const CHAINS_ID = {
   ETH_MAINNET: '1',
   ETH_ROPSTEN: '3',
@@ -129,6 +159,7 @@ const POOL_TYPES = {
 
 module.exports = {
   VAULT_CATEGORIES_IDS,
+  VAULT_CATEGORIES_NAMES,
   CHAINS_ID,
   GET_PRICE_TYPES,
   ESTIMATED_APY_TYPES,
