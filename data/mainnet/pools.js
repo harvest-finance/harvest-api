@@ -4606,7 +4606,7 @@ module.exports = [
       addresses.MATIC.JEUR,
       addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JEUR', 'JRT'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JEUR', 'JRT', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4640,7 +4640,7 @@ module.exports = [
       addresses.MATIC.JGBP,
       addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JGBP', 'JRT'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JGBP', 'JRT', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4674,7 +4674,7 @@ module.exports = [
       addresses.MATIC.JCHF,
       addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JCHF', 'JRT'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JCHF', 'JRT', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
