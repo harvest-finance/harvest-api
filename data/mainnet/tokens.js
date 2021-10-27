@@ -4591,6 +4591,20 @@ module.exports = {
       params: ['binance-usd'],
     },
   },
+  fAUR_USDC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+  },
+  fSUSHI: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.V2.SUSHI.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+  },
   AUR: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
