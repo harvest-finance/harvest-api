@@ -4604,8 +4604,10 @@ module.exports = [
       addresses.MATIC.miFARM,
       addresses.MATIC.jarvis_AUR_USDC.NewVault,
       addresses.MATIC.WMATIC,
+      addresses.MATIC.JEUR,
+      addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC'],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC', 'JEUR', 'JRT'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4637,8 +4639,10 @@ module.exports = [
       addresses.MATIC.miFARM,
       addresses.MATIC.jarvis_AUR_USDC.NewVault,
       addresses.MATIC.WMATIC,
+      addresses.MATIC.JGBP,
+      addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC'],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC', 'JGBP', 'JRT'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4670,8 +4674,10 @@ module.exports = [
       addresses.MATIC.miFARM,
       addresses.MATIC.jarvis_AUR_USDC.NewVault,
       addresses.MATIC.WMATIC,
+      addresses.MATIC.JCHF,
+      addresses.MATIC.JRT,
     ],
-    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC'],
+    rewardTokenSymbols: ['miFARM', 'fAUR-USDC', 'WMATIC', 'JCHF', 'JRT'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4699,8 +4705,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.JRT],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JRT'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
