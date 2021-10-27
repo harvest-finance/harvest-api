@@ -4653,9 +4653,9 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
+        type: 'JARVIS_HODL',
+        params: [0, 'JEUR', 'pUSDC', profitSharingCut8Percent],
         extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR'],
@@ -4678,9 +4678,9 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
+        type: 'JARVIS_HODL',
+        params: [1, 'JGBP', 'pUSDC', profitSharingCut8Percent],
         extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR'],
@@ -4703,8 +4703,9 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: 'ESTIMATED_APY_TYPES.MANUAL',
-        params: ['0.00'],
+        type: 'JARVIS_HODL',
+        params: [2, 'JCHF', 'pUSDC', profitSharingCut8Percent],
+        extraDailyCompound: false,
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR'],

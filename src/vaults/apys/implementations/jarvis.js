@@ -20,7 +20,8 @@ const getApy = async (poolId, firstToken, secondToken, reduction) => {
   )
 
   const poolInfo = await getPoolInfo(poolId, jarvisInstance)
-  const blocksPerYear = new BigNumber(13720700)
+
+  const blocksPerYear = new BigNumber(13720402.6087)
 
   const tokenInstance = new web3MATIC.eth.Contract(abi, poolInfo.stakeToken)
   const totalSupply = new BigNumber(
@@ -28,16 +29,13 @@ const getApy = async (poolId, firstToken, secondToken, reduction) => {
   ).dividedBy(new BigNumber(10).exponentiatedBy(18))
 
   const aurPriceInUsd = await getTokenPrice(tokenAddresses.AUR)
-
   const aurPerBlock = new BigNumber(poolInfo.rewardPerBlocks[0]).div(1e18)
   const aurPerYear = aurPerBlock.times(blocksPerYear)
 
   const lpTokenPrice = await getLPTokenPrice(poolInfo.stakeToken, firstToken, secondToken)
-
   const totalSupplyInUsd = totalSupply.multipliedBy(lpTokenPrice)
 
   let apy = new BigNumber(aurPriceInUsd).times(aurPerYear).div(totalSupplyInUsd)
-
   if (reduction) {
     apy = apy.multipliedBy(reduction)
   }
