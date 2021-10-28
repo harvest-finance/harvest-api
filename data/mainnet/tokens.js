@@ -4656,6 +4656,9 @@ module.exports = {
     logoUrl: './icons/eur-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
+    apyDescriptionOverride: {
+      AUR: 'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for additional APY',
+    },
     displayName: 'Jarvis: EUR-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying,
@@ -4681,6 +4684,9 @@ module.exports = {
     logoUrl: './icons/gbp-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
+    apyDescriptionOverride: {
+      AUR: 'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for additional APY',
+    },
     displayName: 'Jarvis: GBP-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying,
@@ -4706,6 +4712,9 @@ module.exports = {
     logoUrl: './icons/chf-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
+    apyDescriptionOverride: {
+      AUR: 'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for additional APY',
+    },
     displayName: 'Jarvis: CHF-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying,
