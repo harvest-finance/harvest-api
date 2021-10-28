@@ -4597,6 +4597,10 @@ module.exports = {
     tokenAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
     decimals: '18',
     vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.jarvis_AUR_USDC.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
   },
   fSUSHI: {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4604,6 +4608,7 @@ module.exports = {
     tokenAddress: addresses.V2.SUSHI.NewVault,
     decimals: '18',
     vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.F_TOKEN, params: [addresses.V2.SUSHI.NewVault, '18'] },
   },
   AUR: {
     chain: CHAINS_ID.MATIC_MAINNET,
