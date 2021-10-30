@@ -28,8 +28,8 @@ module.exports = {
   WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/eth.png',
-    apyIconUrls: ['./icons/comp.png'],
-    apyTokenSymbols: ['COMP'],
+    apyIconUrls: ['./icons/comp.png', './icons/idle.png'],
+    apyTokenSymbols: ['COMP', 'IDLE'],
     displayName: 'WETH',
     tokenAddress: addresses.WETH,
     decimals: '18',
@@ -38,7 +38,7 @@ module.exports = {
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WETH] },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.COMPOUND,
+        type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
         params: [addresses.CETH],
         extraDailyCompound: false,
       },
