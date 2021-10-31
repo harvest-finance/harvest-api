@@ -86,6 +86,10 @@ const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, l
     basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WBTC))
   }
 
+  if (idleLendingTokenAddress.toLowerCase() === tokenAddresses.IDLE_WETH_V4.toLowerCase()) {
+    basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WETH))
+  }
+
   const lendApy = lendApyOverride
     ? lendApyOverride
     : new BigNumber(await getAvgAPR(idleLendingTokenInstance)).div(1e18)
