@@ -7,9 +7,8 @@ const {
   SUSHI_POOLS_IDS,
   BASIS_POOL_IDS,
 } = require('../constants')
-const addresses = require('./addresses.json')
 
-const libAddresses = require('../../src/lib/data/addresses.json')
+const addresses = require('./addresses.json')
 
 const strat30PercentFactor = '0.7'
 const profitSharingCut8Percent = '0.92'
@@ -41,7 +40,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['WETH', libAddresses.IDLE_WETH_V4, false, '0.7'],
+        params: ['WETH', addresses.IDLE_WETH_V4, false, '0.7'],
         extraDailyCompound: false,
       },
     ],
