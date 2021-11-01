@@ -4485,8 +4485,8 @@ module.exports = [
     collateralAddress: addresses.V2.sushi_PHTR_FARM.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.iFARM, addresses.PHTR],
-    rewardTokenSymbols: ['iFARM', 'PHTR'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>

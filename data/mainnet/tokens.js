@@ -1801,9 +1801,9 @@ module.exports = {
     },
   },
   'SUSHI-PHTR-FARM': {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.SUSHI,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     logoUrl: './icons/sushi-phtr-farm.png',
     subLabel: 'Phuture Finance',
     apyIconUrls: [],
