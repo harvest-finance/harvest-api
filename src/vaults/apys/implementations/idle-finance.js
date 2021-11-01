@@ -12,7 +12,7 @@ const uniswapMethods = require('../../../lib/web3/contracts/uniswap/methods')
 const { idleLendingToken, idleController } = require('../../../lib/web3/contracts')
 const { getTokenPrice } = require('../../../prices')
 
-const addresses = require('../../../../data/mainnet/addresses.json')
+const IDLE_WETH_V4 = "0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80"
 
 const getIDLEPriceFromUniswapInWethWeis = async () => {
   const uniswapInstance = new web3.eth.Contract(
@@ -88,7 +88,7 @@ const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, l
     basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WBTC))
   }
 
-  if (idleLendingTokenAddress.toLowerCase() === addresses.IDLE_WETH_V4.toLowerCase()) {
+  if (idleLendingTokenAddress.toLowerCase() === IDLE_WETH_V4.toLowerCase()) {
     basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WETH))
   }
 

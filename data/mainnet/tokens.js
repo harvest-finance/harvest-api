@@ -10,6 +10,8 @@ const {
 
 const addresses = require('./addresses.json')
 
+const IDLE_WETH_V4 = "0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80"
+
 const strat30PercentFactor = '0.7'
 const profitSharingCut8Percent = '0.92'
 const convexProfitSharingFactor = '0.63'
@@ -40,7 +42,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['WETH', addresses.IDLE_WETH_V4, false, '0.7'],
+        params: ['WETH', IDLE_WETH_V4, false, '0.7'],
         extraDailyCompound: false,
       },
     ],
