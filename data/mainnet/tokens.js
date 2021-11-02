@@ -10,7 +10,7 @@ const {
 
 const addresses = require('./addresses.json')
 
-const IDLE_WETH_V4 = "0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80"
+const IDLE_WETH_V4 = '0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80'
 
 const strat30PercentFactor = '0.7'
 const profitSharingCut8Percent = '0.92'
