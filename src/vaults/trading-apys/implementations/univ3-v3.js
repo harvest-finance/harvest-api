@@ -73,11 +73,12 @@ const getTradingApy = async (
 
   let yearlyApy = 0,
     dailyAPR = 0
-  const startTimestamp =
-    (lastHarvest && lastHarvest.timestamp) ||
-    (await web3.eth.getBlock(liquidityChangeEvents[0].blockNumber)).timestamp
 
   if (liquidityChangeEvents.length > 0) {
+    const startTimestamp =
+      (lastHarvest && lastHarvest.timestamp) ||
+      (await web3.eth.getBlock(liquidityChangeEvents[0].blockNumber)).timestamp
+
     const lastLiquidityChange = liquidityChangeEvents[liquidityChangeEvents.length - 1]
     const lastLiquidityChangeTimestamp = (await web3.eth.getBlock(lastLiquidityChange.blockNumber))
       .timestamp
