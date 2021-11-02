@@ -17,7 +17,13 @@ const {
 } = vaultContractData
 
 // fromBlock = 12429930: It was the earliest block when Uniswap V3 vaults were deployed
-const getTradingApy = async (vaultAddress, symbol, fromBlock = 12429930, toBlock = 'latest') => {
+const getTradingApy = async (
+  vaultAddress,
+  symbol,
+  stratPercentFactor,
+  fromBlock = 12429930,
+  toBlock = 'latest',
+) => {
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
   const vaultData = tokens[symbol]
   const vaultInstance = new web3Socket.eth.Contract(abi, vaultData.vaultAddress)
@@ -95,16 +101,19 @@ const getTradingApy = async (vaultAddress, symbol, fromBlock = 12429930, toBlock
       .multipliedBy(token1Price)
     const totalRewards = +BigNumber(rewardsToken0).plus(rewardsToken1).decimalPlaces(6)
 
-    dailyAPR = ((3600 * 24 * totalRewards) / totalValueLocked / secondsElapsed) * 100
+    dailyAPR = BigNumber(
+      ((3600 * 24 * totalRewards) / totalValueLocked / secondsElapsed) * 100,
+    ).times(stratPercentFactor)
   } else if (vaultEvents.length > 0) {
     const {
       returnValues: { newPrice, oldPrice, newTimestamp, previousTimestamp },
     } = lastHarvest
-    dailyAPR =
+    dailyAPR = BigNumber(
       ((3600 * 24 * BigNumber(newPrice).minus(oldPrice)) /
         newPrice /
         (newTimestamp - previousTimestamp)) *
-      100
+        100,
+    ).times(stratPercentFactor)
   }
 
   yearlyApy = (Math.pow(1 + dailyAPR / 100, 365) - 1) * 100
