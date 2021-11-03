@@ -725,8 +725,7 @@ module.exports = {
   },
   Uni_FOX_WETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
-    inactive: true,
+    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
     displayName: 'Shapeshift: FOX-WETH',
     fullBuyback: true,
     apyIconUrls: [],
