@@ -1,8 +1,9 @@
 const { UI_DATA_FILES } = require('../../lib/constants')
 const { getUIData } = require('../../lib/data')
 
-const validateAPIKey = key => (req, res, next) => {
-  if (req.query.key !== key) {
+const validateAPIKey = concatenatedKeys => (req, res, next) => {
+  const keys = concatenatedKeys.split(';')
+  if (!keys.find(req.query.key)) {
     res.status(401).json({ error: 'invalid api key' })
   } else {
     next()
