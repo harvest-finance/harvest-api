@@ -1,13 +1,15 @@
 const { CHAINS_ID, TRADING_APY_TYPES, POOL_TYPES } = require('../constants')
 const addresses = require('./addresses.json')
 
+const strat30PercentFactor = '0.7'
+
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_CNG_ETH',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.UniV3_CNG_ETH.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_CNG_ETH.NewVault, 'UniV3_CNG_ETH', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_CNG_ETH.NewPool,
@@ -20,8 +22,12 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_USDC_ETH_3000_4500',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.UniV3_USDC_ETH_3000_4500.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_USDC_ETH_3000_4500.NewVault,
+        'UniV3_USDC_ETH_3000_4500',
+        strat30PercentFactor,
+      ],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_USDC_ETH_3000_4500.NewPool,
@@ -34,8 +40,12 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_DAI_ETH_3000_4500',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.UniV3_DAI_ETH_3000_4500.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_DAI_ETH_3000_4500.NewVault,
+        'UniV3_DAI_ETH_3000_4500',
+        strat30PercentFactor,
+      ],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_DAI_ETH_3000_4500.NewPool,
@@ -48,8 +58,12 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_USDT_ETH_3000_4500',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V2,
-      params: [addresses.V2.UniV3_USDT_ETH_3000_4500.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_USDT_ETH_3000_4500.NewVault,
+        'UniV3_USDT_ETH_3000_4500',
+        strat30PercentFactor,
+      ],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_USDT_ETH_3000_4500.NewPool,
@@ -94,8 +108,12 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_DON_WETH_full_range',
     tradingApyFunction: {
-      type: 'UNIV3_V2',
-      params: [addresses.V2.UniV3_DON_WETH_full_range.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_DON_WETH_full_range.NewVault,
+        'UniV3_DON_WETH_full_range',
+        strat30PercentFactor,
+      ],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_DON_WETH_full_range.NewPool,
@@ -3994,8 +4012,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_ETH_sETH2',
     tradingApyFunction: {
-      type: 'UNIV3_V2',
-      params: [addresses.V2.UniV3_ETH_sETH2.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_ETH_sETH2.NewVault, 'UniV3_ETH_sETH2', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_ETH_sETH2.NewPool,
@@ -4032,8 +4050,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_UST_USDT',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.UniV3_UST_USDT.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_UST_USDT.NewVault, 'UniV3_UST_USDT', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_UST_USDT.NewPool,
@@ -4046,8 +4064,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_USDC_USDT',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.UniV3_USDC_USDT.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_USDC_USDT.NewVault, 'UniV3_USDC_USDT', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_USDC_USDT.NewPool,
@@ -4060,8 +4078,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_WBTC_ETH',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.UniV3_WBTC_ETH.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_WBTC_ETH.NewVault, 'UniV3_WBTC_ETH', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_WBTC_ETH.NewPool,
@@ -4084,8 +4102,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_DAI_USDC',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.UniV3_DAI_USDC.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_DAI_USDC.NewVault, 'UniV3_DAI_USDC', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_DAI_USDC.NewPool,
@@ -4108,8 +4126,8 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_UNI_ETH',
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.UniV3_UNI_ETH.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_UNI_ETH.NewVault, 'UniV3_UNI_ETH', strat30PercentFactor],
     },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_UNI_ETH.NewPool,
@@ -4433,8 +4451,8 @@ module.exports = [
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3,
-      params: [addresses.V2.Univ3_renBTC_wBTC.NewVault],
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.Univ3_renBTC_wBTC.NewVault, 'Univ3_renBTC_wBTC', strat30PercentFactor],
     },
   },
   {
