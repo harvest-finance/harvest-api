@@ -3,7 +3,7 @@ const { getUIData } = require('../../lib/data')
 
 const validateAPIKey = concatenatedKeys => (req, res, next) => {
   const keys = concatenatedKeys.split(';')
-  if (!keys.find(req.query.key)) {
+  if (!keys.find(k => k === req.query.key)) {
     res.status(401).json({ error: 'invalid api key' })
   } else {
     next()
