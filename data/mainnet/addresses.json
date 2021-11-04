@@ -1189,7 +1189,8 @@
       "Underlying": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
       "NewVault": "0xCf5F83F8FE0AB0f9E9C1db07E6606dD598b2bbf5",
       "NewPool": "0x8709B440C0F4F6830a468c6f696D010e85c9510B",
-      "NewStrategy": "0x826a37148978E8b51641C7cC339E41eCa6dDb909"
+      "NewStrategy": "0x826a37148978E8b51641C7cC339E41eCa6dDb909",
+      "doHardwork": false
     },
     "venus_VAI": {
       "Underlying": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
@@ -1236,7 +1237,8 @@
       "PoolId": 261,
       "NewVault": "0xE1f9A3EE001a2EcC906E8de637DBf20BB2d44633",
       "NewStrategy": "0xFbc74EE9D8B55C29a23fc6fBEEF22661f06C2E58",
-      "NewPool": "0x221ED06024Ee4296fB544a44cfEDDf7c9f882cF3"
+      "NewPool": "0x221ED06024Ee4296fB544a44cfEDDf7c9f882cF3",
+      "doHardwork": false
     },
     "pancake_USDT_BNB": {
       "Underlying": "0x16b9a82891338f9bA80E2D6970FddA79D1eb0daE",
