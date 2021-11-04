@@ -109,7 +109,6 @@ module.exports = {
   },
   UniV3_USDC_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: USDC-ETH',
@@ -139,7 +138,6 @@ module.exports = {
   },
   UniV3_DAI_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: DAI-ETH',
@@ -169,7 +167,6 @@ module.exports = {
   },
   UniV3_USDT_ETH_3000_4500: {
     isSingleAssetWithdrawalAllowed: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: USDT-ETH',
@@ -727,12 +724,13 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'LUSD', 'ETH'],
   },
   Uni_FOX_WETH: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.LIQUIDITY,
     displayName: 'Shapeshift: FOX-WETH',
     fullBuyback: true,
-    apyIconUrls: [],
-    apyTokenSymbols: [],
+    apyIconUrls: ['./icons/fox.png'],
+    apyTokenSymbols: ['FOX'],
     logoUrl: './icons/shapeshift-fox-weth.png',
     tokenAddress: addresses.V2.uni_FOX_WETH.Underlying,
     decimals: '18',
@@ -1838,7 +1836,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'PHTR'],
   },
   'SUSHI-PHTR-ETH': {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.SUSHI,
     logoUrl: './icons/sushi-phtr-weth.png',
