@@ -1360,7 +1360,8 @@ module.exports = {
   },
   belt_ETH: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     displayName: 'BELT:ETH',
     apyIconUrls: [],
     apyTokenSymbols: [],
