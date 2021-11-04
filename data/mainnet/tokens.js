@@ -1343,7 +1343,7 @@ module.exports = {
   },
   belt_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BELT:BNB',
     apyIconUrls: [],
@@ -1362,7 +1362,7 @@ module.exports = {
   },
   belt_ETH: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BELT:ETH',
     apyIconUrls: [],
@@ -1381,7 +1381,7 @@ module.exports = {
   },
   belt_BTCB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BELT:BTCB',
     apyIconUrls: [],
@@ -2749,7 +2749,7 @@ module.exports = {
   },
   bUSD: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     logoUrl: './icons/busd.png',
     tokenAddress: addresses.BSC.bUSD,
@@ -2773,7 +2773,7 @@ module.exports = {
   },
   pancake_BUSD_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BUSD-BNB',
     apyIconUrls: [],
@@ -2855,7 +2855,7 @@ module.exports = {
   },
   pancake_XVS_BNB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'XVS-BNB',
     apyIconUrls: [],
@@ -2898,7 +2898,7 @@ module.exports = {
   },
   venusDAI: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'DAI',
     apyIconUrls: [],
@@ -2917,7 +2917,7 @@ module.exports = {
   },
   venusUSDC: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'USDC',
     apyIconUrls: [],
@@ -2936,7 +2936,7 @@ module.exports = {
   },
   venusUSDT: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'USDT',
     apyIconUrls: [],
@@ -2955,7 +2955,7 @@ module.exports = {
   },
   venusBUSD: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BUSD',
     apyIconUrls: [],
@@ -2992,7 +2992,7 @@ module.exports = {
   },
   venusVAI: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'VAI',
     apyIconUrls: [],
@@ -3011,7 +3011,7 @@ module.exports = {
   },
   venusBETH: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BETH',
     apyIconUrls: [],
@@ -3030,7 +3030,7 @@ module.exports = {
   },
   venusETH: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'ETH',
     apyIconUrls: [],
@@ -3049,7 +3049,7 @@ module.exports = {
   },
   venusBTCB: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'BTCB',
     apyIconUrls: [],
@@ -3116,7 +3116,7 @@ module.exports = {
   },
   XVS: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     logoUrl: './icons/xvs.png',
     tokenAddress: addresses.BSC.XVS,
@@ -3552,7 +3552,7 @@ module.exports = {
   },
   ellipsis_3pool: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'EPS:3POOL',
     apyIconUrls: [],
@@ -3636,7 +3636,7 @@ module.exports = {
   },
   ellipsis_FUSDT: {
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     inactive: true,
     displayName: 'EPS:FUSDT',
     apyIconUrls: [],
