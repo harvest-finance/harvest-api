@@ -9,12 +9,14 @@ const { getTokenPrice } = require('../../../prices')
 const { getPosId } = require('../../../prices/implementations/uniswap-v3')
 const { default: BigNumber } = require('bignumber.js')
 const { getUIData } = require('../../../lib/data')
-
+const { getTradingApy: getTradingApyV1 } = require('./univ3')
 const { UI_DATA_FILES } = require('../../../lib/constants')
 const {
   methods: { getUnderlyingBalanceWithInvestment },
   contract: { abi },
 } = vaultContractData
+
+const oldVaultImplementations = ['0x3833b631B454AE659a2Ca11104854823009969D4']
 
 // fromBlock = 12429930: It was the earliest block when Uniswap V3 vaults were deployed
 const getTradingApy = async (
@@ -27,6 +29,12 @@ const getTradingApy = async (
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
   const vaultData = tokens[symbol]
   const vaultInstance = new web3Socket.eth.Contract(abi, vaultData.vaultAddress)
+
+  const vaultImplementation = await vaultInstance.methods.implementation().call()
+  if (oldVaultImplementations.includes(vaultImplementation)) {
+    return getTradingApyV1(vaultAddress, fromBlock, toBlock)
+  }
+
   const underlyingBalanceWithInvestment = await getUnderlyingBalanceWithInvestment(vaultInstance)
   const usdPrice = (await getTokenPrice(symbol)).toString()
   const totalValueLocked = new BigNumber(underlyingBalanceWithInvestment)
