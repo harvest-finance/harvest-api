@@ -6,6 +6,60 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_USDC_ETH_4200_5500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_USDC_ETH_4200_5500.NewVault,
+        'UniV3_USDC_ETH_4200_5500',
+        strat30PercentFactor,
+      ],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_USDC_ETH_4200_5500.NewPool,
+    collateralAddress: addresses.V2.UniV3_USDC_ETH_4200_5500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_DAI_ETH_4200_5500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_DAI_ETH_4200_5500.NewVault,
+        'UniV3_DAI_ETH_4200_5500',
+        strat30PercentFactor,
+      ],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_DAI_ETH_4200_5500.NewPool,
+    collateralAddress: addresses.V2.UniV3_DAI_ETH_4200_5500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_ETH_USDT_4200_5500',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [
+        addresses.V2.UniV3_ETH_USDT_4200_5500.NewVault,
+        'UniV3_ETH_USDT_4200_5500',
+        strat30PercentFactor,
+      ],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_ETH_USDT_4200_5500.NewPool,
+    collateralAddress: addresses.V2.UniV3_ETH_USDT_4200_5500.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_CNG_ETH',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.UNIV3_V3,

@@ -1138,6 +1138,45 @@
         "0x5C1d9aA868a30795F92fAe903eDc9eFF269044bf",
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ]
+    },
+    "UniV3_USDC_ETH_4200_5500": {
+      "NewVault": "0xC74075F5c9aD58C655a6160bA955B4aCD5dE8d0B",
+      "DataContract": "0xC388352C326D6B53a9AC872d6ed54c5c763da504",
+      "FeeAmount": "3000",
+      "PosId": [
+        149295
+      ],
+      "Underlying": [
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      ],
+      "NewPool": "0xe9D5571a741AF8201e6ca11241aF4d2D635D6c85"
+    },
+    "UniV3_DAI_ETH_4200_5500": {
+      "NewVault": "0x8137ac6dF358fe2D0DFbB1b5aA87C110950A16Cd",
+      "DataContract": "0x9221474Ba87867af85681Df08d6aF7f8387E4380",
+      "FeeAmount": "3000",
+      "PosId": [
+        149296
+      ],
+      "Underlying": [
+        "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+      ],
+      "NewPool": "0x35De0D0F9448B35a09e1E884C7d23A00027fbD8f"
+    },
+    "UniV3_ETH_USDT_4200_5500": {
+      "NewVault": "0xEA46CfcB43D5274991344cF6F56765e39A7Eae1a",
+      "DataContract": "0x1073CAb7DAab7a7002a17E5AA43a72BE5f2AbaB8",
+      "FeeAmount": "3000",
+      "PosId": [
+        149297
+      ],
+      "Underlying": [
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+      ],
+      "NewPool": "0xFd1121b2292eBD475791Ee2d646ccC8451c9F7Ae"
     }
   },
   "BSC": {
