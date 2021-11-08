@@ -23,7 +23,7 @@ const getApy = async (poolId, reduction, hodlPoolId, hodlReduction) => {
     let baseApr = await getPoolApy(poolId, reduction)
     let hodlApr = await getPoolApy(hodlPoolId, hodlReduction)
     let hodlApy = ((hodlApr / 100 / 365 + 1) ** 365 - 1) * 100
-    return (baseApr * hodlApy / 2) / (hodlApr / 2)
+    return (baseApr * hodlApy) / 2 / (hodlApr / 2)
   }
 }
 
