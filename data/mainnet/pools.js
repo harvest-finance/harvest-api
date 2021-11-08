@@ -4851,7 +4851,7 @@ module.exports = [
     contractAddress: addresses.V2.sushi_YEL_ETH.NewPool,
     collateralAddress: addresses.V2.sushi_YEL_ETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.iFARM, addresses.V2.yelhold_YEL.NewVault],
+    rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM', 'fYEL'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
