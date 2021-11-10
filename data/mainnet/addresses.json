@@ -1243,7 +1243,8 @@
       "Underlying": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "NewVault": "0x1274B70bF34E1a57E78C2A2f3E28a4E1B66cbE48",
       "NewPool": "0xE83f395B076F9b95200f9bEC40f5E446599F4F06",
-      "NewStrategy": "0x70aec98D696c201dBF7549fd08a47a64A316308E"
+      "NewStrategy": "0x70aec98D696c201dBF7549fd08a47a64A316308E",
+      "doHardwork": false
     },
     "pancake_BUSD_BNB": {
       "Underlying": "0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16",
