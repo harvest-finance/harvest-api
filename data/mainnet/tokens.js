@@ -84,6 +84,7 @@ module.exports = {
   UniV3_USDC_ETH_4200_5500: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: USDC-ETH',
     subLabel: 'ETH Range: 4.2K⟷5.5K',
@@ -113,6 +114,7 @@ module.exports = {
   UniV3_DAI_ETH_4200_5500: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: DAI-ETH',
     subLabel: 'ETH Range: 4.2K⟷5.5K',
@@ -142,6 +144,7 @@ module.exports = {
   UniV3_ETH_USDT_4200_5500: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: ETH-USDT',
     subLabel: 'ETH Range: 4.2K⟷5.5K',
