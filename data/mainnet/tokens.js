@@ -287,7 +287,6 @@ module.exports = {
   UniV3_DON_WETH_full_range: {
     subLabel: 'Donkey',
     isDegen: true,
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: DON-WETH (full-range)',
@@ -312,7 +311,6 @@ module.exports = {
     disableAutoSwap: true,
   },
   crvIbEUR: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
     displayName: 'CRV:Fixed Forex EUR',
@@ -332,7 +330,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'],
   },
   crvMIM: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.STABLECOINS,
     displayName: 'CRV:MIM',
@@ -819,7 +816,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'LUSD', 'ETH'],
   },
   Uni_FOX_WETH: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.LIQUIDITY,
     displayName: 'Shapeshift: FOX-WETH',
