@@ -638,8 +638,7 @@
       "NewVault": "0x24C562E24A4B5D905f16F2391E07213efCFd216E",
       "NewStrategy": "0x3a0073726E60Fd202fD228a9C88288F331977d04",
       "GaugePool": "0xFD4D8a17df4C27c1dD245d153ccf4499e806C87D",
-      "NewPool": "0x9c6FbDBF59808CD920fDb166c25E2E9FcF708dD1",
-      "doHardwork": "onlyProfit"
+      "NewPool": "0x9c6FbDBF59808CD920fDb166c25E2E9FcF708dD1"
     },
     "SUSHI": {
       "Underlying": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
