@@ -951,6 +951,7 @@ module.exports = [
     rewardAPR: null,
     rewardMultiplier: 3,
     rewardTokens: [addresses.FARM],
+    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     rewardTokenSymbols: ['FARM'],
   },
   {
