@@ -19,6 +19,7 @@ This repository contains implementation and documentation of the API used by [Ha
     1. Vaults: `http://localhost:3000/vaults?key=harvest-key`
     2. Pools: `http://localhost:3000/pools?key=harvest-key`
     3. General data (staked amount, monthly profits, etc.): `http://localhost:3000/token-stats?key=harvest-key`
+    4. API originally designed for CoinMarketCap: `http://localhost:3000/cmc?key=harvest-key`
 
 ## Debugging a specific vault/pool
 
