@@ -31,4 +31,4 @@ This repository contains implementation and documentation of the API used by [Ha
 
 ## Areas of improvements
 
-* Adding more assertions for the tests
+* Adding more assertions for the tests and more coverage
