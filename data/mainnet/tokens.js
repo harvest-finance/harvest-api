@@ -408,13 +408,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: 'YEL',
-        params: [
-          addresses.V2.sushi_YEL_ETH.PoolId,
-          strat30PercentFactor,
-          addresses.V2.yelhold_YEL.PoolId,
-          strat30PercentFactor,
-        ],
-        extraDailyCompound: false,
+        params: [addresses.V2.sushi_YEL_ETH.PoolId, strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'YEL', 'ETH'],
@@ -437,7 +431,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: 'YEL',
-        params: [addresses.V2.yelhold_YEL.PoolId, '0.7'],
+        params: [addresses.V2.yelhold_YEL.PoolId, strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'YEL'],
