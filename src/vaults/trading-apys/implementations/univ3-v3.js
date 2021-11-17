@@ -79,8 +79,7 @@ const getTradingApy = async (
     'asc',
   )
 
-  let yearlyApy = 0,
-    dailyAPR = 0
+  let dailyAPR = 0
 
   if (liquidityChangeEvents.length > 0) {
     const startTimestamp =
@@ -92,6 +91,10 @@ const getTradingApy = async (
       .timestamp
     const secondsElapsed = lastLiquidityChangeTimestamp - startTimestamp
 
+    if (secondsElapsed == 0 && !!lastHarvest) {
+      dailyAPR = getAprForLastHarvest(lastHarvest, stratPercentFactor)
+      return getYearlyApy(dailyAPR)
+    }
     const { token0, token1, tokensOwed0, tokensOwed1 } = await getPositions(
       posId,
       nonfungibleContractInstance,
@@ -114,20 +117,29 @@ const getTradingApy = async (
       ((3600 * 24 * totalRewards) / totalValueLocked / secondsElapsed) * 100,
     ).times(stratPercentFactor)
   } else if (vaultEvents.length > 0) {
-    const {
-      returnValues: { newPrice, oldPrice, newTimestamp, previousTimestamp },
-    } = lastHarvest
-    dailyAPR = BigNumber(
-      ((3600 * 24 * BigNumber(newPrice).minus(oldPrice)) /
-        newPrice /
-        (newTimestamp - previousTimestamp)) *
-        100,
-    ).times(stratPercentFactor)
+    dailyAPR = getAprForLastHarvest(lastHarvest)
   }
 
-  yearlyApy = (Math.pow(1 + dailyAPR / 100, 365) - 1) * 100
+  return getYearlyApy(dailyAPR)
+}
+
+const getYearlyApy = dailyAPR => {
+  const yearlyApy = (Math.pow(1 + dailyAPR / 100, 365) - 1) * 100
   return Number.isNaN(yearlyApy) ? '0' : yearlyApy.toString()
 }
+
+const getAprForLastHarvest = (lastHarvest, stratPercentFactor) => {
+  const {
+    returnValues: { newPrice, oldPrice, newTimestamp, previousTimestamp },
+  } = lastHarvest
+  return BigNumber(
+    ((3600 * 24 * BigNumber(newPrice).minus(oldPrice)) /
+      newPrice /
+      (newTimestamp - previousTimestamp)) *
+      100,
+  ).times(stratPercentFactor)
+}
+
 const getDecimals = async tokenAddress => {
   const instance = new web3Socket.eth.Contract(tokenContract.contract.abi, tokenAddress)
   const decimals = await tokenContract.methods.getDecimals(instance)
