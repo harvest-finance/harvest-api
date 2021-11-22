@@ -9,7 +9,7 @@ const getApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'latest') =>
 
   const instance = new web3Socket.eth.Contract(univ3EventsContract.abi, vaultAddress)
   const vaultEvents = (
-    await instance.getPastEvents('SharePriceChangeLiquidation', {
+    await instance.getPastEvents('SharePriceChangeTrading', {
       fromBlock,
       toBlock,
     })
