@@ -458,11 +458,12 @@ module.exports = {
     estimateApyFunctions: [
       {
         extraDailyCompound: false,
-        type: 'UNIV3',
+        type: 'UNIV3_SETH2',
         params: [addresses.V2.UniV3_ETH_sETH2.NewVault],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'WETH', 'sETH2', 'rETH2', 'SWISE'],
+    apyDescriptionOverride: ['The value also includes the trading APY'],
   },
   zUSD: {
     chain: CHAINS_ID.ETH_MAINNET,

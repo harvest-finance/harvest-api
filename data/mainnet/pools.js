@@ -4066,10 +4066,6 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_ETH_sETH2',
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.UNIV3_V3,
-      params: [addresses.V2.UniV3_ETH_sETH2.NewVault, 'UniV3_ETH_sETH2', strat30PercentFactor],
-    },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_ETH_sETH2.NewPool,
     collateralAddress: addresses.V2.UniV3_ETH_sETH2.NewVault,
