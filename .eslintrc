@@ -16,6 +16,7 @@
     ],
     "parser": "babel-eslint",
     "rules": {
+      "linebreak-style": ["error", "unix"],
       "no-await-in-loop": "off",
       "no-restricted-syntax": "off",
       "no-console": "off",
