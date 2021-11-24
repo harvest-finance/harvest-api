@@ -10,8 +10,6 @@ const {
 
 const addresses = require('./addresses.json')
 
-const IDLE_WETH_V4 = '0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80'
-
 const strat30PercentFactor = '0.7'
 const profitSharingCut8Percent = '0.92'
 const convexProfitSharingFactor = '0.63'
@@ -42,7 +40,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['WETH', IDLE_WETH_V4, false, '0.7'],
+        params: ['WETH', '0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80', '0.7'],
         extraDailyCompound: false,
       },
     ],
@@ -555,15 +553,33 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'pUSDC', 'pWETH'],
   },
   pWETH: {
+    category: VAULT_CATEGORIES_IDS.IDLE,
     chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
     logoUrl: './icons/weth.png',
-    tokenAddress: addresses.MATIC.pWETH,
+    apyIconUrls: ['./icons/wmatic.png'],
+    apyTokenSymbols: ['WMATIC'],
+    displayName: 'WETH',
+    subLabel: 'IDLE',
+    tokenAddress: addresses.MATIC.polygon_WETH.Underlying,
     decimals: '18',
-    vaultAddress: null,
+    vaultAddress: addresses.MATIC.polygon_WETH.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
       params: [addresses.WETH],
     },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
+        params: [
+          'pWETH',
+          '0xfdA25D931258Df948ffecb66b5518299Df6527C4',
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'wMATIC'],
   },
   pUSDT: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -577,15 +593,62 @@ module.exports = {
     },
   },
   pUSDC: {
+    category: VAULT_CATEGORIES_IDS.IDLE,
     chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
     logoUrl: './icons/usdc.png',
-    tokenAddress: addresses.MATIC.pUSDC,
+    apyIconUrls: ['./icons/wmatic.png'],
+    apyTokenSymbols: ['WMATIC'],
+    displayName: 'USDC',
+    subLabel: 'IDLE',
+    tokenAddress: addresses.MATIC.polygon_USDC.Underlying,
     decimals: '6',
-    vaultAddress: null,
+    vaultAddress: addresses.MATIC.polygon_USDC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
       params: [addresses.USDC],
     },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
+        params: [
+          'pUSDC',
+          '0x1ee6470CD75D5686d0b2b90C0305Fa46fb0C89A1',
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'wMATIC'],
+  },
+  pDAI: {
+    category: VAULT_CATEGORIES_IDS.IDLE,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
+    logoUrl: './icons/dai.png',
+    apyIconUrls: ['./icons/wmatic.png'],
+    apyTokenSymbols: ['WMATIC'],
+    displayName: 'DAI',
+    subLabel: 'IDLE',
+    tokenAddress: addresses.MATIC.polygon_DAI.Underlying,
+    decimals: '6',
+    vaultAddress: addresses.MATIC.polygon_DAI.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
+      params: [addresses.DAI],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
+        params: [
+          'pDAI',
+          '0x8a999F5A3546F8243205b2c0eCb0627cC10003ab',
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'wMATIC'],
   },
   miFARM: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -1540,7 +1603,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['USDC', '0x5274891bEC421B39D23760c04A6755eCB444797C', false, '0.7'],
+        params: ['USDC', '0x5274891bEC421B39D23760c04A6755eCB444797C', '0.7'],
       },
     ],
   },
@@ -1559,7 +1622,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['DAI', '0x3fe7940616e5bc47b0775a0dccf6237893353bb4', false, '0.7'],
+        params: ['DAI', '0x3fe7940616e5bc47b0775a0dccf6237893353bb4', '0.7'],
       },
     ],
   },
@@ -1578,7 +1641,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['USDT', '0xF34842d05A1c888Ca02769A633DF37177415C2f8', false, '0.7'],
+        params: ['USDT', '0xF34842d05A1c888Ca02769A633DF37177415C2f8', '0.7'],
       },
     ],
   },
@@ -1743,7 +1806,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.IDLE_FINANCE,
-        params: ['WBTC', '0x8C81121B15197fA0eEaEE1DC75533419DcfD3151', true, '0.7'],
+        params: ['WBTC', '0x8C81121B15197fA0eEaEE1DC75533419DcfD3151', '0.7'],
       },
     ],
   },
@@ -4772,7 +4835,6 @@ module.exports = {
   jarvis_JEUR_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/eur-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
@@ -4801,7 +4863,6 @@ module.exports = {
   jarvis_JGBP_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/gbp-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
@@ -4830,7 +4891,6 @@ module.exports = {
   jarvis_JCHF_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/chf-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
@@ -4859,7 +4919,6 @@ module.exports = {
   jarvis_AUR_USDC: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/aur-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
     apyTokenSymbols: ['AUR'],
