@@ -461,7 +461,9 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'WETH', 'sETH2', 'rETH2', 'SWISE'],
-    apyDescriptionOverride: ['The value also includes the trading APY'],
+    apyDescriptionOverride: [
+      'Auto harvested <b>rETH2, SWISE</b>, the value also includes the trading APY',
+    ],
   },
   zUSD: {
     chain: CHAINS_ID.ETH_MAINNET,
