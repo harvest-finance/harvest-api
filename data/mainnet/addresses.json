@@ -1616,6 +1616,27 @@
       "StrategyContract": "JarvisHodlStrategyMainnet_jGBP_USDC",
       "NewStrategy": "0xB60E69F21b469A93aB6e3f4a831E833bcFb7C7dE",
       "NewPool": "0xB91f62A423dE007ce25E5538D747B259fb207938"
+    },
+    "polygon_DAI": {
+    "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    "NewVault": "0x2Fee56e039AcCceFA3cB1f3051aD00fe550a472c",
+    "StrategyContract": "IdleStrategyDAIMainnet",
+    "NewStrategy": "0x3330d534A470BdaBD1105dab6C5Fa61E7789882E",
+    "NewPool": "0x5954F9d5AFb005ebA67813B5Ab82398FAC7F0178"
+    },
+    "polygon_USDC": {
+      "Underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "NewVault": "0xe7c9D242137896741b70CEfef701bBB4DcB158ec",
+      "StrategyContract": "IdleStrategyUSDCMainnet",
+      "NewStrategy": "0x08043b010AD2CD72db75878201FDE4B03e28e069",
+      "NewPool": "0xeA4Eca0FbeB0fcAaE61D2fA2B2877d435FAEee1C"
+    },
+    "polygon_WETH": {
+      "Underlying": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "NewVault": "0x9048A123Ae6C86a2B9fdC3eA28Ed1911DE8363A6",
+      "StrategyContract": "IdleStrategyWETHMainnet",
+      "NewStrategy": "0x7Ad709Df8B897B3b623C5413E92A6F70CA563e1d",
+      "NewPool": "0xEa2c3C25985fBB5418c61451C2cbD1311e0EbE9e"
     }
   }
 }
