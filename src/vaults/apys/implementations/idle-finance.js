@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js')
-const { web3 } = require('../../../lib/web3')
+const { web3, getWeb3 } = require('../../../lib/web3')
 const tokenAddresses = require('../../../lib/data/addresses.json')
 
-const { UI_DATA_FILES } = require('../../../lib/constants')
+const { UI_DATA_FILES, CHAIN_TYPES } = require('../../../lib/constants')
 const { getUIData } = require('../../../lib/data')
 const { cache } = require('../../../lib/cache')
 
@@ -11,8 +11,6 @@ const uniswapMethods = require('../../../lib/web3/contracts/uniswap/methods')
 
 const { idleLendingToken, idleController } = require('../../../lib/web3/contracts')
 const { getTokenPrice } = require('../../../prices')
-
-const IDLE_WETH_V4 = '0xc8e6ca6e96a326dc448307a5fde90a0b21fd7f80'
 
 const getIDLEPriceFromUniswapInWethWeis = async () => {
   const uniswapInstance = new web3.eth.Contract(
@@ -31,7 +29,7 @@ const getIDLEPriceFromUniswapInWethWeis = async () => {
   return price.toString()
 }
 
-const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, lendApyOverride) => {
+const getApy = async (tokenSymbol, idleLendingTokenAddress, factor, network = '1') => {
   const cachedApy = cache.get(`idleApy${tokenSymbol}`)
 
   if (cachedApy) {
@@ -40,39 +38,56 @@ const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, l
 
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
 
-  const {
-    contract: {
-      abi: idleControllerAbi,
-      address: { mainnet: idleControllerAddress },
-    },
-    methods: idleControllerMethods,
-  } = idleController
+  const selectedWeb3 = getWeb3(network)
 
   const {
     methods: { getTotalSupply, getVirtualPrice, getAvgAPR },
     contract: { abi: idleLendingTokenAbi },
   } = idleLendingToken
 
-  const idleLendingTokenInstance = new web3.eth.Contract(
+  const idleLendingTokenInstance = new selectedWeb3.eth.Contract(
     idleLendingTokenAbi,
     idleLendingTokenAddress,
   )
 
-  const idleControllerInstance = new web3.eth.Contract(idleControllerAbi, idleControllerAddress)
+  let currentRate, rewardTokenInUsd
 
-  const currentRate = new BigNumber(
-    await idleControllerMethods.idleSpeeds(idleLendingTokenAddress, idleControllerInstance),
-  )
-    .multipliedBy(2371428) // blocks per year
-    .dividedBy(new BigNumber(10).exponentiatedBy(18))
+  if (network == CHAIN_TYPES.ETH) {
+    const {
+      contract: {
+        abi: idleControllerAbi,
+        address: { mainnet: idleControllerAddress },
+      },
+      methods: idleControllerMethods,
+    } = idleController
 
-  const rewardTokenInUsd = new BigNumber(await getIDLEPriceFromUniswapInWethWeis())
-    .multipliedBy(await getTokenPrice(tokenAddresses.WETH))
-    .dividedBy(new BigNumber(10).exponentiatedBy(18))
+    const idleControllerInstance = new selectedWeb3.eth.Contract(
+      idleControllerAbi,
+      idleControllerAddress,
+    )
+
+    currentRate = new BigNumber(
+      await idleControllerMethods.idleSpeeds(idleLendingTokenAddress, idleControllerInstance),
+    )
+      .multipliedBy(2371428) // blocks per year
+      .dividedBy(new BigNumber(10).exponentiatedBy(18))
+
+    rewardTokenInUsd = new BigNumber(await getIDLEPriceFromUniswapInWethWeis())
+      .multipliedBy(await getTokenPrice(tokenAddresses.WETH))
+      .dividedBy(new BigNumber(10).exponentiatedBy(18))
+  } else if (network == CHAIN_TYPES.MATIC) {
+    //Will add this implemenation later, it represents a tiny part of the APY.
+    currentRate = new BigNumber(0)
+    rewardTokenInUsd = new BigNumber(0)
+  }
 
   const totalSupply = new BigNumber(await getTotalSupply(idleLendingTokenInstance))
 
-  const totalSupplyInUsd = totalSupply.dividedBy(new BigNumber(10).exponentiatedBy(18))
+  const tokenPrice = new BigNumber(await getTokenPrice(tokenSymbol))
+
+  const totalSupplyInUsd = totalSupply
+    .dividedBy(new BigNumber(10).exponentiatedBy(18))
+    .times(tokenPrice)
 
   const virtualPrice = new BigNumber(await getVirtualPrice(idleLendingTokenInstance)).dividedBy(
     new BigNumber(10).exponentiatedBy(tokens[tokenSymbol].decimals),
@@ -84,17 +99,7 @@ const getApy = async (tokenSymbol, idleLendingTokenAddress, isBtcLike, factor, l
     .dividedBy(virtualPrice)
     .multipliedBy(100) // 100%
 
-  if (isBtcLike) {
-    basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WBTC))
-  }
-
-  if (idleLendingTokenAddress.toLowerCase() === IDLE_WETH_V4.toLowerCase()) {
-    basicApy = basicApy.dividedBy(await getTokenPrice(tokenAddresses.WETH))
-  }
-
-  const lendApy = lendApyOverride
-    ? lendApyOverride
-    : new BigNumber(await getAvgAPR(idleLendingTokenInstance)).div(1e18)
+  const lendApy = new BigNumber(await getAvgAPR(idleLendingTokenInstance)).div(1e18)
 
   const result = basicApy.multipliedBy(factor).plus(lendApy).toString()
 

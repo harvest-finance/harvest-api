@@ -26,6 +26,7 @@ const VAULT_CATEGORIES_IDS = {
   JARVIS: 'JARVIS',
   AMPLIFARM: 'AMPLIFARM',
   QUICKSWAP: 'QUICKSWAP',
+  IDLE: 'IDLE',
 }
 
 const VAULT_CATEGORIES_NAMES = {
@@ -56,6 +57,7 @@ const VAULT_CATEGORIES_NAMES = {
   JARVIS: 'Jarvis',
   AMPLIFARM: 'AmpliFarm',
   QUICKSWAP: 'Quickswap',
+  IDLE: 'IDLE',
 }
 
 const CHAINS_ID = {
