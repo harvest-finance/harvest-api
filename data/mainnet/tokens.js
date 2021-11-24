@@ -631,7 +631,7 @@ module.exports = {
     displayName: 'DAI',
     subLabel: 'IDLE',
     tokenAddress: addresses.MATIC.polygon_DAI.Underlying,
-    decimals: '6',
+    decimals: '18',
     vaultAddress: addresses.MATIC.polygon_DAI.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
