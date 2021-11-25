@@ -1,4 +1,5 @@
 {
+  "BABL": "0xF4Dc48D260C93ad6a96c5Ce563E70CA578987c74",
   "ecoCNG": "0x327612aca8e619fe11bfa3dcb0a0c2c8b8688244",
   "CNG": "0x5C1d9aA868a30795F92fAe903eDc9eFF269044bf",
   "ibEUR": "0x96e61422b6a9ba0e068b6c5add4ffabc6a4aae27",
@@ -1176,6 +1177,19 @@
         "0xdAC17F958D2ee523a2206206994597C13D831ec7"
       ],
       "NewPool": "0xFd1121b2292eBD475791Ee2d646ccC8451c9F7Ae"
+    },
+    "UniV3_BABL_ETH": {
+      "Underlying": [
+        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "0xF4Dc48D260C93ad6a96c5Ce563E70CA578987c74"
+      ],
+      "NewVault": "0xadB16dF01b9474347E8fffD6032360D3B54627fB",
+      "NewPool": "0x3e6397E309f68805FA8Ef66A6216bD2010DdAF19",
+      "DataContract": "0xf53BB21400822c929668F36bF952baD6833B158f",
+      "FeeAmount": 3000,
+      "PosId": [
+        158516
+      ]
     }
   },
   "BSC": {
