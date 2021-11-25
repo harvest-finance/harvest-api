@@ -1,8 +1,12 @@
 const BigNumber = require('bignumber.js')
 const { web3MATIC } = require('../../../lib/web3')
 const tokenAddresses = require('../../../lib/data/addresses.json')
-const jarvisRewardContract = require('../../../lib/web3/contracts/jarvis-rewards/contract.json')
-const { getPoolInfo } = require('../../../lib/web3/contracts/jarvis-rewards/methods')
+const jarvisRewardContract = require('../../../lib/web3/contracts/jarvis-rewards-v2/contract.json')
+const {
+  getPoolInfo,
+  rewardPerBlock,
+  totalAllocPoints,
+} = require('../../../lib/web3/contracts/jarvis-rewards-v2/methods')
 
 const { token: tokenContractData } = require('../../../lib/web3/contracts')
 const { getTokenPrice } = require('../../../prices')
@@ -22,19 +26,22 @@ const getApy = async (poolId, underlying, reduction) => {
 
   const blocksPerYear = new BigNumber(13720402.6087)
 
-  const tokenInstance = new web3MATIC.eth.Contract(abi, poolInfo.stakeToken)
+  const tokenInstance = new web3MATIC.eth.Contract(abi, poolInfo.lpToken)
   const totalSupply = new BigNumber(
     await getBalance(jarvisRewardContract.address.mainnet, tokenInstance),
   ).dividedBy(new BigNumber(10).exponentiatedBy(18))
 
-  const aurPriceInUsd = await getTokenPrice(tokenAddresses.AUR)
-  const aurPerBlock = new BigNumber(poolInfo.rewardPerBlocks[0]).div(1e18)
-  const aurPerYear = aurPerBlock.times(blocksPerYear)
+  const denPriceInUsd = await getTokenPrice(tokenAddresses.DEN)
+  const denPerBlock = new BigNumber(await rewardPerBlock(jarvisInstance))
+    .times(poolInfo.allocPoint)
+    .div(await totalAllocPoints(jarvisInstance))
+    .div(1e18)
+  const denPerYear = denPerBlock.times(blocksPerYear)
 
   const lpTokenPrice = await getTokenPrice(underlying)
   const totalSupplyInUsd = totalSupply.multipliedBy(lpTokenPrice)
 
-  let apy = new BigNumber(aurPriceInUsd).times(aurPerYear).div(totalSupplyInUsd)
+  let apy = new BigNumber(denPriceInUsd).times(denPerYear).div(totalSupplyInUsd)
   if (reduction) {
     apy = apy.multipliedBy(reduction)
   }
