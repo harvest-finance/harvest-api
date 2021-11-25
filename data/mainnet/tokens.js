@@ -46,6 +46,47 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  BABL: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/babl.png',
+    tokenAddress: addresses.BABL,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.UNISWAP_V3,
+      params: ['BABL', 'WETH', 3000],
+    },
+  },
+  UniV3_BABL_ETH: {
+    isSingleAssetWithdrawalAllowed: false,
+    chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: BABL-ETH',
+    subLabel: 'Babylon Finance',
+    apyIconUrls: ['./icons/univ3.png', './icons/babl.png'],
+    apyTokenSymbols: ['UNI', 'BABL'],
+    logoUrl: './icons/univ3-babl-eth.png',
+    tokenAddress: addresses.V2.UniV3_BABL_ETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_BABL_ETH.NewVault,
+    pricesInfo: {
+      BABL: ['Min price: 1 BABL per ETH', 'Max price: 997.9 BABL per ETH'],
+      ETH: ['Min price: 0.0010021 ETH per BABL', 'Max price: 1 ETH per BABL'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_BABL_ETH.NewVault, 'BABL', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BABL', 'WETH'],
+  },
   DON: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/don.png',
