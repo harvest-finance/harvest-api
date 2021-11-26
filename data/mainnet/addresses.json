@@ -1576,7 +1576,8 @@
       "NewVault": "0x5C6bC2287C48a2C9fc2f0533De2B2acFe7a9230A",
       "StrategyContract": "BalancerStrategyMainnet_POLYBASE",
       "NewStrategy": "0xF1499aAe3f8f9cf925b663568A964385898b53c2",
-      "NewPool": "0xA89f24D5c195BfD20c091D8D3FbF51fffEA9dE45",
+      "OldPool": "0xA89f24D5c195BfD20c091D8D3FbF51fffEA9dE45",
+      "NewPool": "0xA71136F9B97B995eF77a90EC0878EC9F80Bc4523",
       "PoolId": "0x0297e37f1873d2dab4487aa67cd56b58e2f27875000100000000000000000002"
     },
     "balancer_TRICRYPTO": {
@@ -1584,7 +1585,8 @@
       "NewVault": "0xC426DB5EfcBfc41B9f1ECdbc89C11E154ec2c99C",
       "StrategyContract": "BalancerStrategyMainnet_TRICRYPTO",
       "NewStrategy": "0xB7506271FE72FE2cdC3a7ee6Ead8749AD54df8C2",
-      "NewPool": "0xB99c358d91d57612236C74643306eA035645887E",
+      "OldPool": "0xB99c358d91d57612236C74643306eA035645887E",
+      "NewPool": "0x81aCAee9a3d9b91aC42727DdB1AcADBE4D9F07F7",
       "PoolId": "0x03cd191f589d12b0582a99808cf19851e468e6b500010000000000000000000a"
     },
     "balancer_STABLE": {
@@ -1592,7 +1594,8 @@
       "NewVault": "0x4f60a9471ACb094BA34AEA5EB7D7A4AD32c8890c",
       "StrategyContract": "BalancerStrategyMainnet_STABLE",
       "NewStrategy": "0xa1A9cb6996a5e33Ef742977435E4ED8738F0e37C",
-      "NewPool": "0xE7a6991e2AF7f9a9D36BAfcDe8d0B8a057E4dB8c",
+      "OldPool": "0xE7a6991e2AF7f9a9D36BAfcDe8d0B8a057E4dB8c",
+      "NewPool": "0x17867795cF22Aa5D266A298097Ee3766D8FCA4C6",
       "PoolId": "0x06df3b2bbb68adc8b0e302443692037ed9f91b42000000000000000000000012"
     },
     "jarvis_AUR_USDC": {
@@ -1600,35 +1603,39 @@
       "NewVault": "0xB492fAEdA6c9FFb9B9854a58F28d5333Ff7a11bc",
       "StrategyContract": "JarvisStrategyMainnet_AUR_USDC",
       "NewStrategy": "0x346523a81f16030110e6C858Ee0E11F156840BD1",
-      "NewPool": "0xa8184c85a7C23f0d3A7Ee7591a85195ed740E3A3"
+      "OldPool": "0xa8184c85a7C23f0d3A7Ee7591a85195ed740E3A3",
+      "NewPool": "0x918fA572ff40a2735F53BeAF224f901D6F905bCb"
     },
     "jarvis_JCHF_USDC_HODL": {
       "Underlying": "0x439E6A13a5ce7FdCA2CC03bF31Fb631b3f5EF157",
       "NewVault": "0x7f316D2498a234670554D1a890a364b0bD9d88e2",
       "StrategyContract": "JarvisHodlStrategyMainnet_jCHF_USDC",
       "NewStrategy": "0xd432F8C6861a6Ba344734F364539262AB69d8c07",
-      "NewPool": "0xe7666F2AF0a6F5199281944C112CA8511F27C330"
+      "OldPool": "0xe7666F2AF0a6F5199281944C112CA8511F27C330",
+      "NewPool": "0x24Aa3547962872351c30F1127430172317C05FEC"
     },
     "jarvis_JEUR_USDC_HODL": {
       "Underlying": "0xa1219DBE76eEcBf7571Fed6b020Dd9154396B70e",
       "NewVault": "0xA832926e3F6A3339ae68f70d76860D212959E0E7",
       "StrategyContract": "JarvisHodlStrategyMainnet_jEUR_USDC",
       "NewStrategy": "0x19A9B287272535AF40e087F3Fd32Bd2BA07bF4AB",
-      "NewPool": "0x083830D8d41f21dE5832649db40e9268b027696a"
+      "OldPool": "0x083830D8d41f21dE5832649db40e9268b027696a",
+      "NewPool": "0xf25474FBf9812bE2ef76abf4297A27411C156403"
     },
     "jarvis_JGBP_USDC_HODL": {
       "Underlying": "0xbb2d00675B775E0F8acd590e08DA081B2a36D3a6",
       "NewVault": "0xe94D89243a7Aeaf88857461ce555caEB344765Fc",
       "StrategyContract": "JarvisHodlStrategyMainnet_jGBP_USDC",
       "NewStrategy": "0xB60E69F21b469A93aB6e3f4a831E833bcFb7C7dE",
-      "NewPool": "0xB91f62A423dE007ce25E5538D747B259fb207938"
+      "OldPool": "0xB91f62A423dE007ce25E5538D747B259fb207938",
+      "NewPool": "0x877635e68C1E943D6d6B777C0e847Cd7aE5A01BE"
     },
     "polygon_DAI": {
-    "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-    "NewVault": "0x2Fee56e039AcCceFA3cB1f3051aD00fe550a472c",
-    "StrategyContract": "IdleStrategyDAIMainnet",
-    "NewStrategy": "0x3330d534A470BdaBD1105dab6C5Fa61E7789882E",
-    "NewPool": "0x5954F9d5AFb005ebA67813B5Ab82398FAC7F0178"
+      "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "NewVault": "0x2Fee56e039AcCceFA3cB1f3051aD00fe550a472c",
+      "StrategyContract": "IdleStrategyDAIMainnet",
+      "NewStrategy": "0x3330d534A470BdaBD1105dab6C5Fa61E7789882E",
+      "NewPool": "0x5954F9d5AFb005ebA67813B5Ab82398FAC7F0178"
     },
     "polygon_USDC": {
       "Underlying": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
