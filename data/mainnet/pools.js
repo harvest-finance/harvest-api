@@ -5,6 +5,20 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_BABL_ETH',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_V3,
+      params: [addresses.V2.UniV3_BABL_ETH.NewVault, 'UniV3_BABL_ETH', strat30PercentFactor],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_BABL_ETH.NewPool,
+    collateralAddress: addresses.V2.UniV3_BABL_ETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM, addresses.BABL],
+    rewardTokenSymbols: ['iFARM', 'BABL'],
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_DEN_4EUR',
     type: POOL_TYPES.INCENTIVE,
