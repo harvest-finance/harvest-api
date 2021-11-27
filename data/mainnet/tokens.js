@@ -121,6 +121,7 @@ module.exports = {
     },
   },
   UniV3_USDC_ETH_4200_5500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
@@ -151,6 +152,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
   },
   UniV3_DAI_ETH_4200_5500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
@@ -181,6 +183,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
   UniV3_ETH_USDT_4200_5500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
@@ -211,7 +214,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'WETH', 'USDT'],
   },
   UniV3_CNG_ETH: {
-    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: CNG-ETH',
@@ -237,6 +239,7 @@ module.exports = {
     disableAutoSwap: true,
   },
   UniV3_USDC_ETH_3000_4500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
@@ -266,6 +269,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
   },
   UniV3_DAI_ETH_3000_4500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
@@ -295,6 +299,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
   UniV3_USDT_ETH_3000_4500: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
@@ -476,6 +481,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'YEL'],
   },
   UniV3_ETH_sETH2: {
+    zapFrontrunProtection: true,
     subLabel: 'StakeWise',
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.ETH20],
@@ -1292,6 +1298,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'RENBTC', 'WBTC'],
   },
   UniV3_UST_USDT: {
+    zapFrontrunProtection: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.UNIV3, VAULT_CATEGORIES_IDS.STABLECOINS],
     displayName: 'Uniswap V3: UST-USDT',
@@ -1348,6 +1355,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'USDT'],
   },
   UniV3_WBTC_ETH: {
+    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
