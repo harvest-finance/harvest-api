@@ -58,6 +58,7 @@ module.exports = {
     },
   },
   UniV3_BABL_ETH: {
+    disableAutoSwap: true,
     isSingleAssetWithdrawalAllowed: false,
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
