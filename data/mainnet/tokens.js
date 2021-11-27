@@ -58,14 +58,15 @@ module.exports = {
     },
   },
   UniV3_BABL_ETH: {
+    disableAutoSwap: true,
     isSingleAssetWithdrawalAllowed: false,
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: BABL-ETH',
     subLabel: 'Babylon Finance',
-    apyIconUrls: ['./icons/univ3.png', './icons/babl.png'],
-    apyTokenSymbols: ['UNI', 'BABL'],
+    apyIconUrls: ['./icons/univ3.png'],
+    apyTokenSymbols: ['UNI'],
     logoUrl: './icons/univ3-babl-eth.png',
     tokenAddress: addresses.V2.UniV3_BABL_ETH.Underlying,
     decimals: '18',
@@ -4941,10 +4942,10 @@ module.exports = {
       params: [addresses.MATIC.jarvis_DEN_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
-
   FOUR_EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
     logoUrl: './icons/4eur.png',
     apyIconUrls: ['./icons/den.png'],
     apyTokenSymbols: ['DEN'],
@@ -4983,6 +4984,7 @@ module.exports = {
   jarvis_DEN_4EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
     apyTokenSymbols: ['DEN'],
