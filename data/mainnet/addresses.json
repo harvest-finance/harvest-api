@@ -728,8 +728,7 @@
       "NewVault": "0x0cA19915439C12B16C0A8C119eC05fA801365a15",
       "NewStrategy": "0x405FE1198edABAE6a85C494dCF09f7be6a957b1D",
       "PoolId": "9",
-      "NewPool": "0xE7E1C3624188052a2367B63048a32A7429980113",
-      "doHardwork": "onlyProfit"
+      "NewPool": "0xE7E1C3624188052a2367B63048a32A7429980113"
     },
     "nft20_Meme": {
       "Underlying": "0xE14f1283059afA8d3c9c52EFF76FE91854F5D1B3",
