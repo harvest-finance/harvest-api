@@ -4,7 +4,7 @@ const univ3EventsContract = require('../../../lib/web3/contracts/uniswap-v3-shar
 // fromBlock = 12429930: It was the earliest block when Uniswap V3 vaults were deployed
 const getApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'latest') => {
   let latestHarvestsToAverageOverForVault,
-    latestHarvestsToAverageOver = 3,
+    latestHarvestsToAverageOver = 2,
     dailyAPRTotal = 0
 
   const instance = new web3Socket.eth.Contract(univ3EventsContract.abi, vaultAddress)
@@ -19,6 +19,7 @@ const getApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'latest') =>
   }))
 
   const dataSize = vaultEvents.length
+  let startTime, endTime
   if (dataSize > 1) {
     latestHarvestsToAverageOverForVault =
       vaultEvents.length >= latestHarvestsToAverageOver ? latestHarvestsToAverageOver : dataSize
@@ -28,14 +29,17 @@ const getApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'latest') =>
         sharePrice1 = vaultEvents[dataSize - 1 - i].returnValues.oldPrice,
         timestamp2 = vaultEvents[dataSize - 1 - i].returnValues.newTimestamp,
         sharePrice2 = vaultEvents[dataSize - 1 - i].returnValues.newPrice
-
-      const dailyAPR =
-        ((3600 * 24 * (sharePrice2 - sharePrice1)) / sharePrice1 / (timestamp2 - timestamp1)) * 100
+      if (i == 0) {
+        endTime = timestamp2
+      } else if (i == latestHarvestsToAverageOverForVault - 1) {
+        startTime = timestamp1
+      }
+      const dailyAPR = ((3600 * 24 * (sharePrice2 - sharePrice1)) / sharePrice1) * 100
       dailyAPRTotal += dailyAPR
     }
   }
 
-  const dailyAPR = dailyAPRTotal / latestHarvestsToAverageOverForVault
+  const dailyAPR = dailyAPRTotal / (endTime - startTime)
   const yearlyApy = (Math.pow(1 + dailyAPR / 100, 365) - 1) * 100
 
   return Number.isNaN(yearlyApy) ? '0' : yearlyApy.toString()
