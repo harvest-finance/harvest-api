@@ -31,11 +31,10 @@ const getApy = async (vaultAddress, fromBlock = 12429930, toBlock = 'latest') =>
         sharePrice2 = vaultEvents[dataSize - 1 - i].returnValues.newPrice
       if (i == 0) {
         endTime = timestamp2
-      } else if (i == latestHarvestsToAverageOverForVault-1) {
+      } else if (i == latestHarvestsToAverageOverForVault - 1) {
         startTime = timestamp1
       }
-      const dailyAPR =
-        ((3600 * 24 * (sharePrice2 - sharePrice1)) / sharePrice1) * 100
+      const dailyAPR = ((3600 * 24 * (sharePrice2 - sharePrice1)) / sharePrice1) * 100
       dailyAPRTotal += dailyAPR
     }
   }
