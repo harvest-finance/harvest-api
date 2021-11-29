@@ -77,7 +77,7 @@ module.exports = {
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.UniV3_BABL_ETH.NewVault, 'BABL', 'WETH'],
+      params: [addresses.V2.UniV3_BABL_ETH.NewVault, 'WETH', 'BABL'],
     },
     estimateApyFunctions: [
       {
