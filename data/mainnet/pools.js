@@ -4770,13 +4770,8 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [
-      addresses.MATIC.miFARM,
-      addresses.MATIC.WMATIC,
-      addresses.MATIC.JEUR,
-      addresses.MATIC.JRT,
-    ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JEUR', 'JRT', 'fAUR_USDC'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4805,13 +4800,8 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [
-      addresses.MATIC.miFARM,
-      addresses.MATIC.WMATIC,
-      addresses.MATIC.JGBP,
-      addresses.MATIC.JRT,
-    ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JGBP', 'JRT', 'fAUR_USDC'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4840,13 +4830,8 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [
-      addresses.MATIC.miFARM,
-      addresses.MATIC.WMATIC,
-      addresses.MATIC.JCHF,
-      addresses.MATIC.JRT,
-    ],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'JCHF', 'JRT', 'fAUR_USDC'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4872,7 +4857,6 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.MATIC.jarvis_AUR_USDC.NewPool,
     collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
-    oldPoolContractAddress: addresses.MATIC.jarvis_AUR_USDC.OldPool,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.JRT],

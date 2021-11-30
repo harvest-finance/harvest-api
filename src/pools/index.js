@@ -153,10 +153,26 @@ const fetchAndExpandPool = async pool => {
       }
     }
 
-    const totalValueLocked = new BigNumber(poolStats.totalSupply)
+    let totalValueLocked = new BigNumber(poolStats.totalSupply)
       .multipliedBy(lpTokenData.price)
       .dividedBy(new BigNumber(10).exponentiatedBy(lpTokenData.decimals))
       .toFixed()
+
+    if (pool.oldPoolContractAddress) {
+      // to account for tvl while migrating
+      const oldPoolInstance = new web3Instance.eth.Contract(
+        poolContract.contract.abi,
+        pool.oldPoolContractAddress,
+      )
+
+      const oldPoolTotalSupply = await poolContract.methods.totalSupply(oldPoolInstance)
+      const oldPoolTvl = new BigNumber(oldPoolTotalSupply)
+        .multipliedBy(lpTokenData.price)
+        .dividedBy(new BigNumber(10).exponentiatedBy(lpTokenData.decimals))
+        .toFixed()
+
+      totalValueLocked = totalValueLocked.plus(oldPoolTvl)
+    }
 
     if (DEBUG_MODE) {
       const currentCache = cache.get(WEB3_CALL_COUNT_STATS_KEY)
