@@ -1615,7 +1615,7 @@
       "NewVault": "0xB492fAEdA6c9FFb9B9854a58F28d5333Ff7a11bc",
       "StrategyContract": "JarvisStrategyMainnet_AUR_USDC",
       "NewStrategy": "0x346523a81f16030110e6C858Ee0E11F156840BD1",
-      "NewPool": "0x918fA572ff40a2735F53BeAF224f901D6F905bCb"
+      "NewPool": "0xa8184c85a7C23f0d3A7Ee7591a85195ed740E3A3"
     },
     "jarvis_JCHF_USDC_HODL": {
       "Underlying": "0x439E6A13a5ce7FdCA2CC03bF31Fb631b3f5EF157",
