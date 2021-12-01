@@ -4891,8 +4891,12 @@ module.exports = {
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
-      type: GET_PRICE_TYPES.LP_TOKEN_THREE_WAY,
-      params: [addresses.MATIC.DEN, 'JRT', 'pUMA', 'pMIMO', addresses.MATIC.JARVIS_SANCTUARY_DEN],
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.DEN,
+        addresses.MATIC.jarvis_4EUR_HODL.Underlying,
+        addresses.MATIC.jarvis_DEN_4EUR.Underlying,
+      ],
     },
   },
   pMIMO: {
