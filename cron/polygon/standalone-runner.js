@@ -22,17 +22,6 @@ const greatDealRatio = 6;
 const idleFraction = 20;
 const bedBot = "0xbed04c43e74150794f2ff5b62b4f73820edaf661";
 
-/* TODO: replace the whole next code with harvest-api addresses */
-// matic-config/matic-addresses.json is internal file that
-// we do not want to maintain as all the data is in harvest-api repo
-/*
-const addresses = require("../matic-config/matic-addresses.json");
-const allVaults = Object.keys(addresses.V2);
-const vaultIds = allVaults.filter(vault => !addresses.V2[vault].disableCron);
-const vaults = vaultIds.map(vaultId => addresses.V2[vaultId].NewVault);
-*/
-/* example how to replace it with (unifnished): */
-
 const addresses = require('../../../harvest-api/data/mainnet/addresses.json').MATIC;
 const allVaults = Object.keys(addresses);
 
