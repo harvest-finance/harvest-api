@@ -171,7 +171,7 @@ const fetchAndExpandPool = async pool => {
         .dividedBy(new BigNumber(10).exponentiatedBy(lpTokenData.decimals))
         .toFixed()
 
-      totalValueLocked = new BigNumber(totalValueLocked).plus(oldPoolTvl)
+      totalValueLocked = new BigNumber(totalValueLocked).plus(oldPoolTvl).toFixed()
     }
 
     if (DEBUG_MODE) {
