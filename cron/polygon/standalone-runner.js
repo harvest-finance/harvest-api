@@ -23,23 +23,23 @@ const idleFraction = 20;
 const bedBot = "0xbed04c43e74150794f2ff5b62b4f73820edaf661";
 
 const addresses = require('../../../harvest-api/data/mainnet/addresses.json').MATIC;
-const allVaults = Object.keys(addresses);
+const allVaults = Object.keys(addresses.V2);
 
-const disableCron = vaultAddress => Object.keys(addresses).find(
-  key => (addresses[key].NewVault && addresses[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
-  && (addresses[key].doHardwork === false)
+const disableCron = vaultAddress => Object.keys(addresses.V2).find(
+  key => (addresses.V2[key].NewVault && addresses.V2[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
+  && (addresses.V2[key].doHardwork === false)
 );
 
-const onlyProfit = vaultAddress => Object.keys(addresses).find(
-  key => (addresses[key].NewVault && addresses[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
-  && (addresses[key].doHardwork === "onlyProfit")
+const onlyProfit = vaultAddress => Object.keys(addresses.V2).find(
+  key => (addresses.V2[key].NewVault && addresses.V2[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
+  && (addresses.V2[key].doHardwork === "onlyProfit")
 );
 
 const vaultIds = allVaults
-  .filter(vaultId => addresses[vaultId].NewVault)
-  .filter(vault => !disableCron(addresses[vault].NewVault));
+  .filter(vaultId => addresses.V2[vaultId].NewVault)
+  .filter(vault => !disableCron(addresses.V2[vault].NewVault));
 
-const vaults = vaultIds.map(vaultId => addresses[vaultId].NewVault);
+const vaults = vaultIds.map(vaultId => addresses.V2[vaultId].NewVault);
 
 
 // input vault key and output next vault key in the list
@@ -105,9 +105,8 @@ function getRandomInt(min, max) {
 let curVaultKey = nextVault.next_vault_key;
 var controller = new web3.eth.Contract(IControllerV1Abi, addresses.Controller);
 var profitShareAddr = addresses.ProfitShareTarget;
-let vaultAddress = addresses[curVaultKey].NewVault;
-let rewardPoolAddress = addresses[curVaultKey].NewPool;
-let skip = addresses[curVaultKey].Skip;
+let vaultAddress = addresses.V2[curVaultKey].NewVault;
+let rewardPoolAddress = addresses.V2[curVaultKey].NewPool;
 let vault = new web3.eth.Contract(vaultAbi, vaultAddress);
 let eth = new web3.eth.Contract(IERC20Abi, addresses.pWETH);
 
@@ -166,7 +165,7 @@ async function main() {
       let maticCost = tx.gasUsed * txSenderInfo.gasPrice;
       let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call();
       let ethProfit = ethInProfitShareAfter - (ethInProfitShareBefore);
-      let roughProfitInMatic = await roughQuoteXInMATIC(ethProfit, addresses.pWETH, addresses.quickswap_ETH_MATIC.Underlying)
+      let roughProfitInMatic = await roughQuoteXInMATIC(ethProfit, addresses.pWETH, addresses.V2["quickswap_ETH_MATIC"].Underlying)
 
       console.log("gasUsed:            ", tx.gasUsed);
       console.log("profit in Matic:    ", roughProfitInMatic/1e18);
@@ -185,7 +184,7 @@ async function main() {
       }
     }
 
-    if(skip){
+    if(disableCron(vaultAddress)){
       console.log("..........[FORCED SKIP]");
       executeFlag = false;
     }
