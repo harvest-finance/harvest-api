@@ -15,7 +15,12 @@ const getApy = async (...params) => {
   )
   let hodlApy = estimatedApy
   let hodlApr = new BigNumber((Math.pow(hodlApy / 100 + 1, 1 / 365) - 1) * 36500)
-  let yearlyApr = nativeApr.times(hodlApy).div(2).div(hodlApr.div(2)).toFixed(2, 1)
+  let yearlyApr
+  if (hodlApy == 0 || hodlApr == 0) {
+    yearlyApr = nativeApr.toFixed(2, 1)
+  } else {
+    yearlyApr = nativeApr.times(hodlApy.div(2)).div(hodlApr.div(2)).toFixed(2, 1)
+  }
   return yearlyApr
 }
 module.exports = {

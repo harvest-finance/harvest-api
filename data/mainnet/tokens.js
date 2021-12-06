@@ -5115,8 +5115,9 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS',
-        params: [3, addresses.MATIC.jarvis_AUR_USDC.Underlying, profitSharingCut8Percent],
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR'],
