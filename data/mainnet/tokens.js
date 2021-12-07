@@ -46,6 +46,17 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  IDLE: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/idle.png',
+    tokenAddress: addresses.IDLE,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['idle'],
+    },
+  },
   BABL: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/babl.png',
