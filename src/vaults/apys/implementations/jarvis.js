@@ -27,7 +27,7 @@ const getApy = async (poolId, underlying, reduction) => {
     await getBalance(jarvisRewardContract.address.mainnet, tokenInstance),
   ).dividedBy(new BigNumber(10).exponentiatedBy(18))
 
-  const aurPriceInUsd = await getTokenPrice(tokenAddresses.AUR)
+  const aurPriceInUsd = await getTokenPrice(tokenAddresses.AURFEB22)
   const aurPerBlock = new BigNumber(poolInfo.rewardPerBlocks[0]).div(1e18)
   const aurPerYear = aurPerBlock.times(blocksPerYear)
 
