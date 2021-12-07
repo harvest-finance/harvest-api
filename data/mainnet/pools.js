@@ -25,7 +25,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -53,7 +53,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -81,7 +81,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.polygon_WETH.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_WETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -91,7 +91,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.polygon_USDC.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_USDC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -101,7 +101,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.polygon_DAI.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_DAI.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -375,7 +375,7 @@ module.exports = [
         <ol class="numeric-list">
           <li>
             Go to&nbsp;
-            <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.V2.pWETH}/${addresses.MATIC.pUSDT}">
+            <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.pWETH}/${addresses.MATIC.pUSDT}">
               quickswap
             </a>
             and supply liquidity to the <b>ETH-USDT</b> pair by depositing <b>ETH</b> and
@@ -409,7 +409,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.V2.miFARM}/${addresses.MATIC.QUICK}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.miFARM}/${addresses.MATIC.QUICK}">
             quickswap
           </a>
           and supply liquidity to the <b>IFARM-QUICK</b> pair by depositing <b>IFARM</b> and
@@ -446,7 +446,7 @@ module.exports = [
           <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://app.sushi.com/add/${addresses.MATIC.V2.pUSDC}/${addresses.MATIC.pWETH}"
+              href="https://app.sushi.com/add/${addresses.MATIC.pUSDC}/${addresses.MATIC.pWETH}"
             >
               Sushiswap
             </a>
@@ -4770,7 +4770,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4800,7 +4800,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4830,7 +4830,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4859,7 +4859,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4893,7 +4893,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_POLYBASE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4927,7 +4927,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_TRICRYPTO.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4961,7 +4961,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_STABLE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
