@@ -22,10 +22,10 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_DEN_4EUR',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_DEN_4EUR.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_DEN_4EUR.NewVault,
+    contractAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -50,10 +50,10 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_4EUR_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_4EUR_HODL.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_4EUR_HODL.NewVault,
+    contractAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -78,30 +78,30 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'polygon_WETH',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.polygon_WETH.NewPool,
-    collateralAddress: addresses.MATIC.polygon_WETH.NewVault,
+    contractAddress: addresses.MATIC.V2.polygon_WETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.polygon_WETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'polygon_USDC',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.polygon_USDC.NewPool,
-    collateralAddress: addresses.MATIC.polygon_USDC.NewVault,
+    contractAddress: addresses.MATIC.V2.polygon_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.polygon_USDC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'polygon_DAI',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.polygon_DAI.NewPool,
-    collateralAddress: addresses.MATIC.polygon_DAI.NewVault,
+    contractAddress: addresses.MATIC.V2.polygon_DAI.NewPool,
+    collateralAddress: addresses.MATIC.V2.polygon_DAI.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -358,13 +358,13 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.quickswap_ETH_USDT.Underlying],
+      params: [addresses.MATIC.V2.quickswap_ETH_USDT.Underlying],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'quick_ETH_USDT',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.quickswap_ETH_USDT.NewPool,
-    collateralAddress: addresses.MATIC.quickswap_ETH_USDT.NewVault,
+    contractAddress: addresses.MATIC.V2.quickswap_ETH_USDT.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickswap_ETH_USDT.NewVault,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
@@ -375,7 +375,7 @@ module.exports = [
         <ol class="numeric-list">
           <li>
             Go to&nbsp;
-            <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.pWETH}/${addresses.MATIC.pUSDT}">
+            <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.V2.pWETH}/${addresses.MATIC.pUSDT}">
               quickswap
             </a>
             and supply liquidity to the <b>ETH-USDT</b> pair by depositing <b>ETH</b> and
@@ -392,13 +392,13 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.quickswap_IFARM_QUICK.Underlying],
+      params: [addresses.MATIC.V2.quickswap_IFARM_QUICK.Underlying],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'quick_IFARM_QUICK',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.quickswap_IFARM_QUICK.NewPool,
-    collateralAddress: addresses.MATIC.quickswap_IFARM_QUICK.NewVault,
+    contractAddress: addresses.MATIC.V2.quickswap_IFARM_QUICK.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickswap_IFARM_QUICK.NewVault,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
@@ -409,7 +409,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.miFARM}/${addresses.MATIC.QUICK}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/${addresses.MATIC.V2.miFARM}/${addresses.MATIC.QUICK}">
             quickswap
           </a>
           and supply liquidity to the <b>IFARM-QUICK</b> pair by depositing <b>IFARM</b> and
@@ -426,13 +426,13 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.sushiswap_USDC_ETH.Underlying],
+      params: [addresses.MATIC.V2.sushiswap_USDC_ETH.Underlying],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'sushi_USDC_ETH',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.sushiswap_USDC_ETH.NewPool,
-    collateralAddress: addresses.MATIC.sushiswap_USDC_ETH.NewVault,
+    contractAddress: addresses.MATIC.V2.sushiswap_USDC_ETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.sushiswap_USDC_ETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
@@ -446,7 +446,7 @@ module.exports = [
           <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://app.sushi.com/add/${addresses.MATIC.pUSDC}/${addresses.MATIC.pWETH}"
+              href="https://app.sushi.com/add/${addresses.MATIC.V2.pUSDC}/${addresses.MATIC.pWETH}"
             >
               Sushiswap
             </a>
@@ -4765,12 +4765,12 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JEUR_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewVault,
-    oldPoolContractAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.OldPool,
+    contractAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4795,12 +4795,12 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JGBP_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewVault,
-    oldPoolContractAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.OldPool,
+    contractAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4825,12 +4825,12 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JCHF_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
-    oldPoolContractAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.OldPool,
+    contractAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4855,11 +4855,11 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_AUR_USDC',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.jarvis_AUR_USDC.NewPool,
-    collateralAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    contractAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4886,14 +4886,14 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.balancer_POLYBASE.PoolId, CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.balancer_POLYBASE.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
-    contractAddress: addresses.MATIC.balancer_POLYBASE.NewPool,
-    collateralAddress: addresses.MATIC.balancer_POLYBASE.NewVault,
-    oldPoolContractAddress: addresses.MATIC.balancer_POLYBASE.OldPool,
+    contractAddress: addresses.MATIC.V2.balancer_POLYBASE.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.balancer_POLYBASE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4901,7 +4901,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.balancer_POLYBASE.PoolId}">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_POLYBASE.PoolId}">
             balancer
           </a>
           and invest <b>WMATIC</b>, <b>USDC</b>, <b>WETH</b> or <b>BAL</b>
@@ -4920,14 +4920,14 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.balancer_TRICRYPTO.PoolId, CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.balancer_TRICRYPTO.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
-    contractAddress: addresses.MATIC.balancer_TRICRYPTO.NewPool,
-    collateralAddress: addresses.MATIC.balancer_TRICRYPTO.NewVault,
-    oldPoolContractAddress: addresses.MATIC.balancer_TRICRYPTO.OldPool,
+    contractAddress: addresses.MATIC.V2.balancer_TRICRYPTO.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_TRICRYPTO.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.balancer_TRICRYPTO.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4935,7 +4935,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.balancer_TRICRYPTO.PoolId}">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_TRICRYPTO.PoolId}">
             balancer
           </a>
           and invest <b>WBTC</b>, <b>USDC</b>, or <b>WETH</b>
@@ -4954,14 +4954,14 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.balancer_STABLE.PoolId, CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.balancer_STABLE.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
-    contractAddress: addresses.MATIC.balancer_STABLE.NewPool,
-    collateralAddress: addresses.MATIC.balancer_STABLE.NewVault,
-    oldPoolContractAddress: addresses.MATIC.balancer_STABLE.OldPool,
+    contractAddress: addresses.MATIC.V2.balancer_STABLE.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_STABLE.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.balancer_STABLE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.V2.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -4969,7 +4969,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.balancer_STABLE.PoolId}">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_STABLE.PoolId}">
             balancer
           </a>
           and invest <b>USDT</b>, <b>miMATIC</b>, <b>USDC</b> or <b>DAI</b>

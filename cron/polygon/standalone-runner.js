@@ -165,7 +165,7 @@ async function main() {
       let maticCost = tx.gasUsed * txSenderInfo.gasPrice;
       let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call();
       let ethProfit = ethInProfitShareAfter - (ethInProfitShareBefore);
-      let roughProfitInMatic = await roughQuoteXInMATIC(ethProfit, addresses.pWETH, addresses.V2["quickswap_ETH_MATIC"].Underlying)
+      let roughProfitInMatic = await roughQuoteXInMATIC(ethProfit, addresses.pWETH, addresses.V2.quickswap_ETH_MATIC.Underlying)
 
       console.log("gasUsed:            ", tx.gasUsed);
       console.log("profit in Matic:    ", roughProfitInMatic/1e18);
