@@ -20,6 +20,8 @@ const greatDealRatio = 6;
 // or when the funds available for invest is 1/(idleFraction) of the total funds.
 // note that funds that are available for invest are different from funds sitting in vault
 const idleFraction = 20;
+// or minimum of DEN sent to msig.
+const minDenProfit = 0.01e18;
 const bedBot = "0xbed04c43e74150794f2ff5b62b4f73820edaf661";
 
 const addresses = require('../../../harvest-api/data/mainnet/addresses.json').MATIC;
@@ -33,6 +35,11 @@ const disableCron = vaultAddress => Object.keys(addresses.V2).find(
 const onlyProfit = vaultAddress => Object.keys(addresses.V2).find(
   key => (addresses.V2[key].NewVault && addresses.V2[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
   && (addresses.V2[key].doHardwork === "onlyProfit")
+);
+
+const useDenProfitCalculation = vaultAddress => Object.keys(addresses.V2).find(
+  key => (addresses.V2[key].NewVault && addresses.V2[key].NewVault.toLowerCase() === vaultAddress.toLowerCase())
+  && (addresses.V2[key].useDenProfitCalculation === true)
 );
 
 const vaultIds = allVaults
@@ -109,6 +116,9 @@ let vaultAddress = addresses.V2[curVaultKey].NewVault;
 let rewardPoolAddress = addresses.V2[curVaultKey].NewPool;
 let vault = new web3.eth.Contract(vaultAbi, vaultAddress);
 let eth = new web3.eth.Contract(IERC20Abi, addresses.pWETH);
+let den = new web3.eth.Contract(IERC20Abi, addresses.DEN);
+
+let denProfit = 0;
 
 async function main() {
   await hre.run('compile');
@@ -156,6 +166,7 @@ async function main() {
       console.log(".... funds don't need to be pushed");
     }
     ethInProfitShareBefore = await eth.methods.balanceOf(profitShareAddr).call();
+    denInMsigBefore = await den.methods.balanceOf(addresses.msig).call();
     if(executeFlag == false) {
       console.log("======= Doing hardwork ======");
       console.time('doHardwork simulation');
@@ -176,7 +187,14 @@ async function main() {
       console.log("after:              ",  ethInProfitShareAfter);
       console.log("profit shared Ether: ", ethProfit/1e18);
 
-      if(roughProfitInMatic > maticCost * greatDealRatio) {
+      if (useDenProfitCalculation(vaultAddress)) {
+        console.log("[ Using DEN profit calculation.. ]")
+        denInMsigAfter = await den.methods.balanceOf(addresses.msig).call();
+        denProfit = denInMsigAfter - denInMsigBefore;
+        console.log("profit shared DEN: ", denProfit/1e18);
+      }
+
+      if((roughProfitInMatic > maticCost * greatDealRatio) || (denProfit > minDenProfit)) {
         console.log("====> Time to doHardwork! ====");
         executeFlag = true;
       } else {

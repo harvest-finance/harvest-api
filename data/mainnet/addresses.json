@@ -1560,6 +1560,7 @@
     "PAR": "0xE2Aa7db6dA1dAE97C5f5C6914d285fBfCC32A128",
     "Controller": "0xebaFc813f66c3142E7993a88EE3361a1f4BDaB16",
     "ProfitShareTarget": "0xf00dD244228F51547f0563e60bCa65a30FBF5f7f",
+    "msig": "0x39cC360806b385C96969ce9ff26c23476017F652",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1672,13 +1673,15 @@
         "Underlying": "0x4924B6E1207EFb244433294619a5ADD08ACB3dfF",
         "NewVault": "0x4A5eb54018462803B9D9a35D1730e45D6EE7033E",
         "NewStrategy": "0xC8c30a6e74b1A394b4Ce8BC08De641826279e254",
-        "NewPool": "0x4e9f394Fcd6652aBB8D85bB2E1fC582C000F4805"
+        "NewPool": "0x4e9f394Fcd6652aBB8D85bB2E1fC582C000F4805",
+        "useDenProfitCalculation": true
       },
       "jarvis_4EUR_HODL": {
         "Underlying": "0xAd326c253A84e9805559b73A08724e11E49ca651",
         "NewVault": "0xDDe43710DefEf6CbCf820B18DeBfC3cF9a4f449F",
         "NewStrategy": "0xe8a2cFce2C718E0f95ee2b1d3c0331c92C06Ca0b",
-        "NewPool": "0xf74E8CFe03421D071c7dCCc3E5ecB6dDDede2f07"
+        "NewPool": "0xf74E8CFe03421D071c7dCCc3E5ecB6dDDede2f07",
+        "useDenProfitCalculation": true
       }
     }
   }
