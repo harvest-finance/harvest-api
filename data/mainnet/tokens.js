@@ -728,7 +728,7 @@ module.exports = {
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
-      params: [addresses.MATIC.V2.WMATIC, CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.WMATIC, CHAINS_ID.MATIC_MAINNET],
     },
   },
   QUICK: {
@@ -4860,11 +4860,11 @@ module.exports = {
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN_THREE_WAY,
       params: [
-        addresses.MATIC.V2.AUR0112,
+        addresses.MATIC.AUR0112,
         'JRT',
         'pUMA',
         'KNC',
-        addresses.MATIC.V2.JARVIS_SANCTUARY_AUR0112,
+        addresses.MATIC.JARVIS_SANCTUARY_AUR0112,
       ],
     },
   },
