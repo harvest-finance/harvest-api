@@ -46,6 +46,17 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  IDLE: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/idle.png',
+    tokenAddress: addresses.IDLE,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['idle'],
+    },
+  },
   BABL: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/babl.png',
@@ -4821,7 +4832,7 @@ module.exports = {
       params: ['binance-usd'],
     },
   },
-  fAUR_USDC: {
+  fAUR0112_USDC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
     tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
@@ -4840,15 +4851,21 @@ module.exports = {
     vaultAddress: null,
     priceFunction: { type: GET_PRICE_TYPES.F_TOKEN, params: [addresses.V2.SUSHI.NewVault, '18'] },
   },
-  AUR: {
+  AUR0112: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.AUR,
+    tokenAddress: addresses.MATIC.AUR0112,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN_THREE_WAY,
-      params: [addresses.MATIC.V2.AUR, 'JRT', 'pUMA', 'KNC', addresses.MATIC.JARVIS_SANCTUARY_AUR],
+      params: [
+        addresses.MATIC.V2.AUR0112,
+        'JRT',
+        'pUMA',
+        'KNC',
+        addresses.MATIC.V2.JARVIS_SANCTUARY_AUR0112,
+      ],
     },
   },
   JEUR: {
@@ -4954,6 +4971,55 @@ module.exports = {
       params: [addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
+  fAURFEB22_USDC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  AURFEB22: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.AURFEB22,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.AURFEB22,
+        addresses.MATIC.pUSDC,
+        addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+      ],
+    },
+  },
+  jarvis_AUR_USDC_V2: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/aur-usdc.png',
+    apyIconUrls: ['./icons/jaur.png'],
+    apyTokenSymbols: ['AURFEB22'],
+    displayName: 'Jarvis: AUR(FEB22)-USDC',
+    subLabel: 'Auto-compounding',
+    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, 'AURFEB22', 'pUSDC'],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS',
+        params: [3, addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, profitSharingCut8Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
+  },
   FOUR_EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5022,7 +5088,7 @@ module.exports = {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/eur-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
-    apyTokenSymbols: ['AUR'],
+    apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: EUR-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.Underlying,
@@ -5042,14 +5108,14 @@ module.exports = {
     apyDescriptionOverride: [
       'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for more APY',
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+    cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
   },
   jarvis_JGBP_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/gbp-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
-    apyTokenSymbols: ['AUR'],
+    apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: GBP-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.Underlying,
@@ -5069,14 +5135,14 @@ module.exports = {
     apyDescriptionOverride: [
       'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for more APY',
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+    cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
   },
   jarvis_JCHF_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/chf-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
-    apyTokenSymbols: ['AUR'],
+    apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: CHF-USDC',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.Underlying,
@@ -5096,30 +5162,32 @@ module.exports = {
     apyDescriptionOverride: [
       'Auto harvested <b>AUR</b> deposited into <b>AUR-USDC</b> for more APY',
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+    cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
   },
   jarvis_AUR_USDC: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/aur-usdc.png',
     apyIconUrls: ['./icons/jaur.png'],
-    apyTokenSymbols: ['AUR'],
-    displayName: 'Jarvis: AUR-USDC',
+    apyTokenSymbols: ['AUR0112'],
+    displayName: 'Jarvis: AUR(0112)-USDC',
     subLabel: 'Auto-compounding',
     tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC.Underlying,
     decimals: '18',
     vaultAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.V2.jarvis_AUR_USDC.Underlying, 'AUR', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC.Underlying, 'AUR0112', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS',
-        params: [3, addresses.MATIC.V2.jarvis_AUR_USDC.Underlying, profitSharingCut8Percent],
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'AUR'],
+    cmcRewardTokenSymbols: ['iFARM', 'AUR0112'],
   },
   bal_POLYBASE: {
     category: VAULT_CATEGORIES_IDS.BALANCER,

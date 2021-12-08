@@ -5,6 +5,35 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_AUR_USDC_V2',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewPool,
+    collateralAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/#/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0x6Fb2415463e949aF08ce50F83E94b7e008BABf07/0xA623aacf9eB4Fc0a29515F08bdABB0d8Ce385cF7">
+            KyberDMM
+          </a>
+          and add liquidity for AURFEB22-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_BABL_ETH',
     tradingApyFunction: {
@@ -511,8 +540,8 @@ module.exports = [
     collateralAddress: addresses.FARMSteadUSDC,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM'],
+    rewardTokens: [addresses.iFARM, addresses.IDLE],
+    rewardTokenSymbols: ['iFARM', 'IDLE'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.RARI_FARMSTEAD_USDC,
       params: [],
@@ -4771,7 +4800,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4801,7 +4830,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4831,7 +4860,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAUR_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -4859,8 +4888,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    rewardTokens: [],
+    rewardTokenSymbols: [],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
