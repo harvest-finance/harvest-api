@@ -8,8 +8,10 @@ module.exports = [
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_AUR_USDC_V2',
     type: POOL_TYPES.INCENTIVE,
+
     contractAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
+
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],

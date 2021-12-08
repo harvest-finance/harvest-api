@@ -4985,7 +4985,7 @@ module.exports = {
   AURFEB22: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.AURFEB22,
+    tokenAddress: addresses.MATIC.V2.AURFEB22,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
@@ -5023,12 +5023,12 @@ module.exports = {
   fAURFEB22_USDC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.F_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   AURFEB22: {
@@ -5042,7 +5042,7 @@ module.exports = {
       params: [
         addresses.MATIC.AURFEB22,
         addresses.MATIC.pUSDC,
-        addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+        addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying,
       ],
     },
   },
@@ -5054,17 +5054,17 @@ module.exports = {
     apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: AUR(FEB22)-USDC',
     subLabel: 'Auto-compounding',
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, 'AURFEB22', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying, 'AURFEB22', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS',
-        params: [3, addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, profitSharingCut8Percent],
+        params: [3, addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
