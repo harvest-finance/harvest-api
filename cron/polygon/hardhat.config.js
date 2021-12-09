@@ -21,7 +21,10 @@ module.exports = {
     },
     cron_mainnet: {
       url: `https://polygon-mainnet.g.alchemy.com/v2/${secret.alchemyKey}`,
-      chainId: 137
+      chainId: 137,
+      accounts: {
+        mnemonic: secret.mnemonic,
+      },
     },
   },
   solidity: {
