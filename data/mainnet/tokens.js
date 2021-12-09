@@ -542,12 +542,12 @@ module.exports = {
     apyIconUrls: [],
     apyTokenSymbols: [],
     logoUrl: './icons/quickswap-ifarm-quick.png',
-    tokenAddress: addresses.MATIC.quickswap_IFARM_QUICK.Underlying,
+    tokenAddress: addresses.MATIC.V2.quickswap_IFARM_QUICK.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.quickswap_IFARM_QUICK.NewVault,
+    vaultAddress: addresses.MATIC.V2.quickswap_IFARM_QUICK.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.quickswap_IFARM_QUICK.Underlying, 'miFARM', 'QUICK'],
+      params: [addresses.MATIC.V2.quickswap_IFARM_QUICK.Underlying, 'miFARM', 'QUICK'],
     },
     estimateApyFunctions: [
       {
@@ -565,18 +565,18 @@ module.exports = {
     apyIconUrls: ['./icons/quick.png'],
     apyTokenSymbols: ['dQUICK'],
     logoUrl: './icons/quickswap-eth-usdt.png',
-    tokenAddress: addresses.MATIC.quickswap_ETH_USDT.Underlying,
+    tokenAddress: addresses.MATIC.V2.quickswap_ETH_USDT.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.quickswap_ETH_USDT.NewVault,
+    vaultAddress: addresses.MATIC.V2.quickswap_ETH_USDT.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.quickswap_ETH_USDT.Underlying, 'pWETH', 'pUSDT'],
+      params: [addresses.MATIC.V2.quickswap_ETH_USDT.Underlying, 'pWETH', 'pUSDT'],
     },
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.SNX,
         params: [
-          addresses.MATIC.quickswap_ETH_USDT.RewardPool,
+          addresses.MATIC.V2.quickswap_ETH_USDT.RewardPool,
           'dQUICK',
           'quick_ETH_USDT',
           profitSharingCut8Percent,
@@ -592,18 +592,18 @@ module.exports = {
     apyIconUrls: ['./icons/sushi.png'],
     apyTokenSymbols: ['SUSHI'],
     displayName: 'Sushiswap: USDC-ETH',
-    tokenAddress: addresses.MATIC.sushiswap_USDC_ETH.Underlying,
+    tokenAddress: addresses.MATIC.V2.sushiswap_USDC_ETH.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.sushiswap_USDC_ETH.NewVault,
+    vaultAddress: addresses.MATIC.V2.sushiswap_USDC_ETH.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.sushiswap_USDC_ETH.Underlying, 'pUSDC', 'pWETH'],
+      params: [addresses.MATIC.V2.sushiswap_USDC_ETH.Underlying, 'pUSDC', 'pWETH'],
     },
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.SUSHI,
         params: [
-          addresses.MATIC.sushiswap_USDC_ETH.PoolId,
+          addresses.MATIC.V2.sushiswap_USDC_ETH.PoolId,
           'pUSDC',
           'pWETH',
           profitSharingCut8Percent,
@@ -622,9 +622,9 @@ module.exports = {
     apyTokenSymbols: ['WMATIC'],
     displayName: 'WETH',
     subLabel: 'IDLE',
-    tokenAddress: addresses.MATIC.polygon_WETH.Underlying,
+    tokenAddress: addresses.MATIC.V2.polygon_WETH.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.polygon_WETH.NewVault,
+    vaultAddress: addresses.MATIC.V2.polygon_WETH.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
       params: [addresses.WETH],
@@ -662,9 +662,9 @@ module.exports = {
     apyTokenSymbols: ['WMATIC'],
     displayName: 'USDC',
     subLabel: 'IDLE',
-    tokenAddress: addresses.MATIC.polygon_USDC.Underlying,
+    tokenAddress: addresses.MATIC.V2.polygon_USDC.Underlying,
     decimals: '6',
-    vaultAddress: addresses.MATIC.polygon_USDC.NewVault,
+    vaultAddress: addresses.MATIC.V2.polygon_USDC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
       params: [addresses.USDC],
@@ -691,9 +691,9 @@ module.exports = {
     apyTokenSymbols: ['WMATIC'],
     displayName: 'DAI',
     subLabel: 'IDLE',
-    tokenAddress: addresses.MATIC.polygon_DAI.Underlying,
+    tokenAddress: addresses.MATIC.V2.polygon_DAI.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.polygon_DAI.NewVault,
+    vaultAddress: addresses.MATIC.V2.polygon_DAI.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
       params: [addresses.DAI],
@@ -4835,12 +4835,12 @@ module.exports = {
   fAUR0112_USDC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.F_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   fSUSHI: {
@@ -4911,8 +4911,8 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.DEN,
-        addresses.MATIC.jarvis_4EUR_HODL.Underlying,
-        addresses.MATIC.jarvis_DEN_4EUR.Underlying,
+        addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
       ],
     },
   },
@@ -4963,23 +4963,23 @@ module.exports = {
   fDEN_4EUR: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.jarvis_DEN_4EUR.NewVault,
+    tokenAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.F_TOKEN,
-      params: [addresses.MATIC.jarvis_DEN_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   fAURFEB22_USDC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
     decimals: '18',
     vaultAddress: null,
     priceFunction: {
       type: GET_PRICE_TYPES.F_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   AURFEB22: {
@@ -4993,7 +4993,7 @@ module.exports = {
       params: [
         addresses.MATIC.AURFEB22,
         addresses.MATIC.pUSDC,
-        addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+        addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying,
       ],
     },
   },
@@ -5005,17 +5005,17 @@ module.exports = {
     apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: AUR(FEB22)-USDC',
     subLabel: 'Auto-compounding',
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC_V2.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_AUR_USDC_V2.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, 'AURFEB22', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying, 'AURFEB22', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS',
-        params: [3, addresses.MATIC.jarvis_AUR_USDC_V2.Underlying, profitSharingCut8Percent],
+        params: [3, addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AURFEB22'],
@@ -5029,14 +5029,14 @@ module.exports = {
     apyTokenSymbols: ['DEN'],
     displayName: 'Jarvis: 4EUR',
     subLabel: 'HODL',
-    tokenAddress: addresses.MATIC.jarvis_4EUR_HODL.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_4EUR_HODL.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.CURVE_POOL,
       params: [
-        addresses.MATIC.jarvis_4EUR_HODL.Underlying,
-        addresses.MATIC.jarvis_4EUR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
         18,
         ['JEUR', 'pEURT', 'pEURS', 'PAR'],
         CHAINS_ID.MATIC_MAINNET,
@@ -5047,7 +5047,7 @@ module.exports = {
         type: 'JARVIS_HODL_V2',
         params: [
           1,
-          addresses.MATIC.jarvis_4EUR_HODL.Underlying,
+          addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
           profitSharingCut8Percent,
           'jarvis_DEN_4EUR',
         ],
@@ -5068,17 +5068,17 @@ module.exports = {
     apyTokenSymbols: ['DEN'],
     displayName: 'Jarvis: DEN-4EUR',
     subLabel: 'Auto-compounding',
-    tokenAddress: addresses.MATIC.jarvis_DEN_4EUR.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_DEN_4EUR.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_DEN_4EUR.Underlying, 'DEN', 'FOUR_EUR'],
+      params: [addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, 'DEN', 'FOUR_EUR'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS_V2',
-        params: [0, addresses.MATIC.jarvis_DEN_4EUR.Underlying, profitSharingCut8Percent],
+        params: [0, addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DEN'],
@@ -5091,17 +5091,17 @@ module.exports = {
     apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: EUR-USDC',
     subLabel: 'HODL',
-    tokenAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_JEUR_USDC_HODL.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying, 'JEUR', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.Underlying, 'JEUR', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS_HODL',
-        params: [0, addresses.MATIC.jarvis_JEUR_USDC_HODL.Underlying, profitSharingCut8Percent],
+        params: [0, addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.Underlying, profitSharingCut8Percent],
         extraDailyCompound: false,
       },
     ],
@@ -5118,17 +5118,17 @@ module.exports = {
     apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: GBP-USDC',
     subLabel: 'HODL',
-    tokenAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_JGBP_USDC_HODL.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying, 'JGBP', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.Underlying, 'JGBP', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS_HODL',
-        params: [1, addresses.MATIC.jarvis_JGBP_USDC_HODL.Underlying, profitSharingCut8Percent],
+        params: [1, addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.Underlying, profitSharingCut8Percent],
         extraDailyCompound: false,
       },
     ],
@@ -5145,17 +5145,17 @@ module.exports = {
     apyTokenSymbols: ['AURFEB22'],
     displayName: 'Jarvis: CHF-USDC',
     subLabel: 'HODL',
-    tokenAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_JCHF_USDC_HODL.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying, 'JCHF', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.Underlying, 'JCHF', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
         type: 'JARVIS_HODL',
-        params: [2, addresses.MATIC.jarvis_JCHF_USDC_HODL.Underlying, profitSharingCut8Percent],
+        params: [2, addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.Underlying, profitSharingCut8Percent],
         extraDailyCompound: false,
       },
     ],
@@ -5173,12 +5173,12 @@ module.exports = {
     apyTokenSymbols: ['AUR0112'],
     displayName: 'Jarvis: AUR(0112)-USDC',
     subLabel: 'Auto-compounding',
-    tokenAddress: addresses.MATIC.jarvis_AUR_USDC.Underlying,
+    tokenAddress: addresses.MATIC.V2.jarvis_AUR_USDC.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.jarvis_AUR_USDC.NewVault,
+    vaultAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.jarvis_AUR_USDC.Underlying, 'AUR0112', 'pUSDC'],
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC.Underlying, 'AUR0112', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
@@ -5197,14 +5197,14 @@ module.exports = {
     apyTokenSymbols: ['BAL'],
     displayName: 'Balancer: Polybase',
     subLabel: 'WMATIC: 25%, USDC: 25%, WETH: 25%, BAL: 25%',
-    tokenAddress: addresses.MATIC.balancer_POLYBASE.Underlying,
+    tokenAddress: addresses.MATIC.V2.balancer_POLYBASE.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.balancer_POLYBASE.NewVault,
+    vaultAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.BALANCER,
       params: [
-        addresses.MATIC.balancer_POLYBASE.Underlying,
-        addresses.MATIC.balancer_POLYBASE.PoolId,
+        addresses.MATIC.V2.balancer_POLYBASE.Underlying,
+        addresses.MATIC.V2.balancer_POLYBASE.PoolId,
         CHAINS_ID.MATIC_MAINNET,
       ],
     },
@@ -5212,8 +5212,8 @@ module.exports = {
       {
         type: ESTIMATED_APY_TYPES.BALANCER,
         params: [
-          addresses.MATIC.balancer_POLYBASE.Underlying,
-          addresses.MATIC.balancer_POLYBASE.PoolId,
+          addresses.MATIC.V2.balancer_POLYBASE.Underlying,
+          addresses.MATIC.V2.balancer_POLYBASE.PoolId,
           '5500',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
@@ -5230,14 +5230,14 @@ module.exports = {
     apyTokenSymbols: ['BAL'],
     displayName: 'Balancer: Tricrypto',
     subLabel: 'WBTC: 33%, USDC: 33%, WETH: 33%',
-    tokenAddress: addresses.MATIC.balancer_TRICRYPTO.Underlying,
+    tokenAddress: addresses.MATIC.V2.balancer_TRICRYPTO.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.balancer_TRICRYPTO.NewVault,
+    vaultAddress: addresses.MATIC.V2.balancer_TRICRYPTO.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.BALANCER,
       params: [
-        addresses.MATIC.balancer_TRICRYPTO.Underlying,
-        addresses.MATIC.balancer_TRICRYPTO.PoolId,
+        addresses.MATIC.V2.balancer_TRICRYPTO.Underlying,
+        addresses.MATIC.V2.balancer_TRICRYPTO.PoolId,
         CHAINS_ID.MATIC_MAINNET,
       ],
     },
@@ -5245,8 +5245,8 @@ module.exports = {
       {
         type: ESTIMATED_APY_TYPES.BALANCER,
         params: [
-          addresses.MATIC.balancer_TRICRYPTO.Underlying,
-          addresses.MATIC.balancer_TRICRYPTO.PoolId,
+          addresses.MATIC.V2.balancer_TRICRYPTO.Underlying,
+          addresses.MATIC.V2.balancer_TRICRYPTO.PoolId,
           '2250',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
@@ -5263,14 +5263,14 @@ module.exports = {
     apyTokenSymbols: ['BAL', 'QI'],
     displayName: 'Balancer: Stable',
     subLabel: 'USDC, DAI, miMATIC, USDT',
-    tokenAddress: addresses.MATIC.balancer_STABLE.Underlying,
+    tokenAddress: addresses.MATIC.V2.balancer_STABLE.Underlying,
     decimals: '18',
-    vaultAddress: addresses.MATIC.balancer_STABLE.NewVault,
+    vaultAddress: addresses.MATIC.V2.balancer_STABLE.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.BALANCER,
       params: [
-        addresses.MATIC.balancer_STABLE.Underlying,
-        addresses.MATIC.balancer_STABLE.PoolId,
+        addresses.MATIC.V2.balancer_STABLE.Underlying,
+        addresses.MATIC.V2.balancer_STABLE.PoolId,
         CHAINS_ID.MATIC_MAINNET,
       ],
     },
@@ -5278,8 +5278,8 @@ module.exports = {
       {
         type: ESTIMATED_APY_TYPES.BALANCER,
         params: [
-          addresses.MATIC.balancer_STABLE.Underlying,
-          addresses.MATIC.balancer_STABLE.PoolId,
+          addresses.MATIC.V2.balancer_STABLE.Underlying,
+          addresses.MATIC.V2.balancer_STABLE.PoolId,
           '2500',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
