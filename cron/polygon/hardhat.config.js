@@ -1,8 +1,7 @@
-require("@nomiclabs/hardhat-ethers");
-require("@nomiclabs/hardhat-web3");
+require('@nomiclabs/hardhat-ethers')
+require('@nomiclabs/hardhat-web3')
 
-
-const secret = require('./dev-keys.json');
+const secret = require('./dev-keys.json')
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
@@ -11,7 +10,7 @@ const secret = require('./dev-keys.json');
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: 'hardhat',
   networks: {
     hardhat: {
       chainId: 137,
@@ -30,7 +29,7 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.6.12",
+        version: '0.6.12',
         settings: {
           optimizer: {
             enabled: true,
@@ -40,4 +39,4 @@ module.exports = {
       },
     ],
   },
-};
+}
