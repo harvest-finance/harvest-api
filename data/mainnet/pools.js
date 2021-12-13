@@ -3063,7 +3063,7 @@ module.exports = [
     collateralAddress: addresses.BSC.V2.pancake_CAKE.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -3100,7 +3100,7 @@ module.exports = [
     collateralAddress: addresses.BSC.V2.pancake_CAKE_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -3175,7 +3175,7 @@ module.exports = [
     collateralAddress: addresses.BSC.V2.pancake_USDT_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -3246,7 +3246,7 @@ module.exports = [
     collateralAddress: addresses.BSC.V2.goose_EGG_BNB.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -3843,7 +3843,7 @@ module.exports = [
     contractAddress: addresses.BSC.V2.belt_BELT_BNB.NewPool,
     collateralAddress: addresses.BSC.V2.belt_BELT_BNB.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -4008,7 +4008,7 @@ module.exports = [
     contractAddress: addresses.BSC.V2.popsicle_ICE_BNB.NewPool,
     collateralAddress: addresses.BSC.V2.popsicle_ICE_BNB.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -4105,7 +4105,7 @@ module.exports = [
     contractAddress: addresses.BSC.V2.ellipsis_BTC.NewPool,
     collateralAddress: addresses.BSC.V2.ellipsis_BTC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.BSC.V2.bFARM, addresses.BSC.ampliFARM],
+    rewardTokens: [addresses.BSC.bFARM, addresses.BSC.ampliFARM],
     rewardTokenSymbols: ['bFARM', 'ampliFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">

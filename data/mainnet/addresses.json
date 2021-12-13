@@ -1213,6 +1213,12 @@
     "ampliFARM": "0x8cf3F692CAd5Bfa94817Fb425a2871bA11FE883d",
     "ProfitShareTarget": "0xf00dD244228F51547f0563e60bCa65a30FBF5f7f",
     "Controller": "0x222412af183BCeAdEFd72e4Cb1b71f1889953b1C",
+    "AmpliFARM": {
+      "tokenAddress": "0x8cf3F692CAd5Bfa94817Fb425a2871bA11FE883d",
+      "proxy": "0xE10f2E9bc4C59E8F40759675b44778F7a044d94A",
+      "amplifier": "0x633a050832519e824367859895a955D14714AD6A",
+      "amplifierViewer": "0x0F0Cd8eCf7d13245A54e785F8c3B67dea80f63f2"
+    },
     "V2": {
       "venus_BETH": {
         "Underlying": "0x250632378E573c6Be1AC2f97Fcdf00515d0Aa91B",
@@ -1530,12 +1536,6 @@
         "NewPool": "0x1Bb6fDaf6258071F4d2E96d70ffEB8AD392f299B",
         "PoolId": "0",
         "doHardwork": false
-      },
-      "AmpliFARM": {
-        "tokenAddress": "0x8cf3F692CAd5Bfa94817Fb425a2871bA11FE883d",
-        "proxy": "0xE10f2E9bc4C59E8F40759675b44778F7a044d94A",
-        "amplifier": "0x633a050832519e824367859895a955D14714AD6A",
-        "amplifierViewer": "0x0F0Cd8eCf7d13245A54e785F8c3B67dea80f63f2"
       }
     }
   },
