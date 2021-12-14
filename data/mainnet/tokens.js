@@ -1367,7 +1367,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'USDT'],
   },
   UniV3_WBTC_ETH: {
-    zapFrontrunProtection: true,
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3,
