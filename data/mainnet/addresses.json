@@ -681,8 +681,7 @@
       "NewVault": "0x02d77f6925f4ef89EE2C35eB3dD5793f5695356f",
       "NewStrategy": "0x127BfdC843a35607B024781324311522907bCA66",
       "GaugePool": "0x055be5DDB7A925BfEF3417FC157f53CA77cA7222",
-      "NewPool": "0x15AEB9B209FEC67c672dBF5113827daB0b80f390",
-      "doHardwork": "onlyProfit"
+      "NewPool": "0x15AEB9B209FEC67c672dBF5113827daB0b80f390"
     },
     "crvThreeCrypto": {
       "Underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
