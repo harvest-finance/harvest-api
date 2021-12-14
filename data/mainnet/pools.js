@@ -3149,7 +3149,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://exchange.pancakeswap.finance/#/add/${addresses.BSC.ETH}/BNB"
+              href="https://exchange.pancakeswap.finance/#/add/${addresses.BSC.bETH}/BNB"
             >
               PancakeSwap
             </a>
@@ -3257,7 +3257,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://exchange.goosedefi.com/#/add/${addresses.BSC.V2.EGG}/${addresses.BSC.WBNB}"
+              href="https://exchange.goosedefi.com/#/add/${addresses.BSC.EGG}/${addresses.BSC.wBNB}"
             >
               Goose
             </a>
@@ -3290,7 +3290,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://exchange.goosedefi.com/#/add/${addresses.BSC.V2.EGG}/${addresses.BSC.bUSD}"
+              href="https://exchange.goosedefi.com/#/add/${addresses.BSC.EGG}/${addresses.BSC.bUSD}"
             >
               Goose
             </a>
@@ -3386,7 +3386,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://v1exchange.pancakeswap.finance/#/add/${addresses.BSC.V2.BDO}/${addresses.BSC.bUSD}"
+              href="https://v1exchange.pancakeswap.finance/#/add/${addresses.BSC.BDO}/${addresses.BSC.bUSD}"
             >
               PancakeSwap
             </a>
@@ -3420,7 +3420,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://v1exchange.pancakeswap.finance/#/add/${addresses.BSC.V2.sBDO}/${addresses.BSC.bUSD}"
+              href="https://v1exchange.pancakeswap.finance/#/add/${addresses.BSC.sBDO}/${addresses.BSC.bUSD}"
             >
               PancakeSwap
             </a>
@@ -3488,7 +3488,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://1inch.exchange/#/dao/pools?network=56&token0=${addresses.BSC.V2.b1INCH}&token1=${addresses.BSC.bRENBTC}"
+              href="https://1inch.exchange/#/dao/pools?network=56&token0=${addresses.BSC.b1INCH}&token1=${addresses.BSC.bRENBTC}"
             >
               1INCH
             </a>
@@ -3817,7 +3817,7 @@ module.exports = [
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://pancake.ellipsis.finance/#/add/${addresses.BSC.V2.SPACE}/${addresses.BSC.bUSD}"
+              href="https://pancake.ellipsis.finance/#/add/${addresses.BSC.SPACE}/${addresses.BSC.bUSD}"
             >
               PancakeSwap
             </a>
