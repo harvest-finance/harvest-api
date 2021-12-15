@@ -10,20 +10,13 @@ const secret = require('./dev-keys.json')
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  defaultNetwork: 'hardhat',
   networks: {
-    hardhat: {
-      chainId: 56,
-      forking: {
-        url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
-      },
-    },
     cron_mainnet: {
-      url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
-      chainId: 56,
+      url: 'https://mainnet.infura.io/v3/' + secret.infuraKey,
       accounts: {
         mnemonic: secret.mnemonic,
       },
+      gas: 7000000,
     },
   },
   solidity: {
