@@ -15,11 +15,11 @@ module.exports = {
     hardhat: {
       chainId: 56,
       forking: {
-        url: 'https://bsc-dataseed.binance.org',
+        url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
       },
     },
     cron_mainnet: {
-      url: 'https://bsc-dataseed.binance.org',
+      url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
       chainId: 56,
       accounts: {
         mnemonic: secret.mnemonic,
