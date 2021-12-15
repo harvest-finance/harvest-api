@@ -37,7 +37,7 @@ const getTradingApy = async (
 
   const underlyingBalanceWithInvestment = await getUnderlyingBalanceWithInvestment(vaultInstance)
   const usdPrice = (await getTokenPrice(symbol)).toString()
-  const totalValueLocked = new BigNumber(underlyingBalanceWithInvestment)
+  let totalValueLocked = new BigNumber(underlyingBalanceWithInvestment)
     .multipliedBy(usdPrice)
     .dividedBy(new BigNumber(10).exponentiatedBy(Number(vaultData.decimals)))
     .decimalPlaces(6)
@@ -59,6 +59,7 @@ const getTradingApy = async (
     uniNonFungibleContractData.address.mainnet,
   )
   const lastHarvest = vaultEvents[vaultEvents.length - 1]
+
   const posId = await getPosId(vaultAddress, web3)
 
   const liquidityChangeEvents = orderBy(
@@ -79,7 +80,8 @@ const getTradingApy = async (
     'asc',
   )
 
-  let dailyAPR = 0
+  let dailyAPR = 0,
+    timeWeightedTvl
 
   if (liquidityChangeEvents.length > 0) {
     const startTimestamp =
@@ -112,7 +114,73 @@ const getTradingApy = async (
       .dividedBy(10 ** token1Decimals)
       .multipliedBy(token1Price)
     const totalRewards = +BigNumber(rewardsToken0).plus(rewardsToken1).decimalPlaces(6)
+    const getTvlChangeFromLCE = liquidityChangeEvent => {
+      const {
+        returnValues: { amount0, amount1 },
+        event,
+      } = liquidityChangeEvent
+      const sign = getSign(event)
+      const valueToken0 = BigNumber(amount0)
+        .dividedBy(10 ** token0Decimals)
+        .multipliedBy(token0Price)
+      const valueToken1 = BigNumber(amount1)
+        .dividedBy(10 ** token1Decimals)
+        .multipliedBy(token1Price)
+      const totalRewards = +BigNumber(valueToken0)
+        .plus(valueToken1)
+        .multipliedBy(sign)
+        .decimalPlaces(6)
+      return totalRewards
+    }
 
+    if (liquidityChangeEvents.length > 1) {
+      let parsedEvents = liquidityChangeEvents
+        .map(event => {
+          return {
+            blockNumber: event.blockNumber,
+            tvlChange: getTvlChangeFromLCE(event),
+          }
+        })
+        .filter(event => event.blockNumber !== (lastHarvest && lastHarvest.blockNumber))
+
+      const totalTvlChange = parsedEvents.reduce((sum, event) => sum + event.tvlChange, 0)
+      const startTvl = totalValueLocked.minus(totalTvlChange)
+
+      var timedTvls = await parsedEvents.reduce(
+        async (acc, event, index) => {
+          const currentTimestamp = (await web3.eth.getBlock(event.blockNumber)).timestamp
+          if (index === 0) {
+            const result = [{ tvl: startTvl, elapsed: currentTimestamp - startTimestamp }]
+            return {
+              result,
+              tvl: startTvl,
+              prev: event,
+              prevTimestamp: currentTimestamp,
+            }
+          }
+
+          const { result, tvl, prev, prevTimestamp } = await acc
+          const newTvl = BigNumber(tvl).plus(prev.tvlChange)
+
+          return {
+            result: [...result, { tvl: tvl, elapsed: currentTimestamp - prevTimestamp }],
+            tvl: newTvl,
+            prev: event,
+            prevTimestamp: currentTimestamp,
+          }
+        },
+        { result: [] },
+      )
+
+      timeWeightedTvl = timedTvls.result
+        .map(item => {
+          return BigNumber(item.tvl).multipliedBy(item.elapsed)
+        })
+        .reduce((sum, x) => sum.plus(x))
+        .dividedBy(secondsElapsed)
+    }
+
+    totalValueLocked = timeWeightedTvl || totalValueLocked
     dailyAPR = BigNumber(
       ((3600 * 24 * totalRewards) / totalValueLocked / secondsElapsed) * 100,
     ).times(stratPercentFactor)
@@ -123,6 +191,14 @@ const getTradingApy = async (
   return getYearlyApy(dailyAPR)
 }
 
+const getSign = liquidityChangeEventType => {
+  let eventTypes = {
+    IncreaseLiquidity: 1,
+    DecreaseLiquidity: -1,
+    default: 1,
+  }
+  return eventTypes[liquidityChangeEventType] || eventTypes['default']
+}
 const getYearlyApy = dailyAPR => {
   const yearlyApy = (Math.pow(1 + dailyAPR / 100, 365) - 1) * 100
   return Number.isNaN(yearlyApy) ? '0' : yearlyApy.toString()
