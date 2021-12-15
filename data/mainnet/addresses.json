@@ -330,12 +330,13 @@
       "NewVault": "0x640704D106E79e105FDA424f05467F005418F1B5",
       "NewStrategy": "0xE26d94dED203F5402882D19fEf92Ee04f6b73ef9",
       "NewPool": "0x017eC1772A45d2cf68c429A820eF374f0662C57c",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "crvCOMPOUND": {
       "NewVault": "0x998cEb152A42a3EaC1f555B1E911642BeBf00faD",
       "NewStrategy": "0x1825a0013E030DD668C5e4a00AE76Fb6E94687f6",
-      "NewPool": "0xC0f51a979e762202e9BeF0f62b07F600d0697DE1"
+      "NewPool": "0xC0f51a979e762202e9BeF0f62b07F600d0697DE1",
+      "doHardwork": false
     },
     "crvUSDN": {
       "NewVault": "0x683E683fBE6Cf9b635539712c999f3B3EdCB8664",
@@ -639,7 +640,8 @@
       "NewVault": "0x24C562E24A4B5D905f16F2391E07213efCFd216E",
       "NewStrategy": "0x3a0073726E60Fd202fD228a9C88288F331977d04",
       "GaugePool": "0xFD4D8a17df4C27c1dD245d153ccf4499e806C87D",
-      "NewPool": "0x9c6FbDBF59808CD920fDb166c25E2E9FcF708dD1"
+      "NewPool": "0x9c6FbDBF59808CD920fDb166c25E2E9FcF708dD1",
+      "doHardwork": false
     },
     "SUSHI": {
       "Underlying": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2",
@@ -741,7 +743,8 @@
       "NewVault": "0xe6e0B4294eF6a518bB702402e9842Df2a2Abf1B1",
       "NewStrategy": "0x7E33Ef42d0B7f2b25E27b49004cE79E1b11f2649",
       "PoolId": "8",
-      "NewPool": "0x9b36b44C6E3BfB1aDfbe31BB7b8c4f9AF7A804Ee"
+      "NewPool": "0x9b36b44C6E3BfB1aDfbe31BB7b8c4f9AF7A804Ee",
+      "doHardwork": false
     },
     "uni_ETH_MVI": {
       "Underlying": "0x4d3C5dB2C68f6859e0Cd05D080979f597DD64bff",
@@ -1576,7 +1579,8 @@
         "StrategyContract": "QuickStrategyMainnet_ETH_USDT",
         "NewStrategy": "0xfFBD102fAFbd9e15C9122d9C62aB299AFD4D3E4F",
         "RewardPool": "0x45a5CB25F3E3bFEe615F6da0731740093F59b768",
-        "NewPool": "0xE1f9A3EE001a2EcC906E8de637DBf20BB2d44633"
+        "NewPool": "0xE1f9A3EE001a2EcC906E8de637DBf20BB2d44633",
+        "doHardwork": false
       },
       "quickswap_IFARM_QUICK": {
         "Underlying": "0xD7668414BfD52DE6d59E16e5f647c9761992C435",
