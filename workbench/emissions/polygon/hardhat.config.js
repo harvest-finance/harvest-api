@@ -1,7 +1,7 @@
 require('@nomiclabs/hardhat-ethers')
 require('@nomiclabs/hardhat-web3')
 
-const secret = require('./dev-keys.json')
+const secret = require('../../../../dev-keys.json')
 const prompt = require('prompt')
 const parser = require('../shared/csv-parser.js')
 const assert = require('assert')

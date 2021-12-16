@@ -10,7 +10,7 @@ Set up `settings.json` and `dev-keys.json`
   "gasLimit": "7000000"
 }
 ```
-1. `dev-keys.json`
+1. `dev-keys.json` (place it right OUTSIDE your instance of `harvest-api` repository folder)
 ```
 {
   "mnemonic": "<your mnemonic>",
