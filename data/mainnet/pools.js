@@ -540,8 +540,8 @@ module.exports = [
     collateralAddress: addresses.FARMSteadUSDC,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.iFARM, addresses.IDLE],
-    rewardTokenSymbols: ['iFARM', 'IDLE'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.RARI_FARMSTEAD_USDC,
       params: [],
