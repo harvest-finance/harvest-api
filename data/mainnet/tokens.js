@@ -5215,6 +5215,39 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'AUR0112'],
   },
+  bal_BTC: {
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/balancer-btc.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'Balancer: BTC',
+    subLabel: 'WBTC, renBTC',
+    tokenAddress: addresses.MATIC.V2.balancer_BTC.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_BTC.Underlying,
+        addresses.MATIC.V2.balancer_BTC.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER,
+        params: [
+          addresses.MATIC.V2.balancer_BTC.Underlying,
+          addresses.MATIC.V2.balancer_BTC.PoolId,
+          '1000',
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
   bal_POLYBASE: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,

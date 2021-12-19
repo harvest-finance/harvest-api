@@ -4911,6 +4911,40 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_BTC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.balancer_BTC.PoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_BTC.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.balancer_BTC.OldPool,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_BTC.PoolId}">
+            balancer
+          </a>
+          and invest <b>WBTC</b> or <b>renBTC</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
     id: 'bal_POLYBASE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
