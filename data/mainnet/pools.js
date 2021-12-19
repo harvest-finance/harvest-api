@@ -4919,7 +4919,6 @@ module.exports = [
     },
     contractAddress: addresses.MATIC.V2.balancer_BTC.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
-    oldPoolContractAddress: addresses.MATIC.V2.balancer_BTC.OldPool,
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
