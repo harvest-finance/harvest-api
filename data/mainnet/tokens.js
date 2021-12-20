@@ -614,7 +614,6 @@ module.exports = {
   pWETH: {
     category: VAULT_CATEGORIES_IDS.IDLE,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/weth.png',
     apyIconUrls: ['./icons/wmatic.png'],
     apyTokenSymbols: ['WMATIC'],
@@ -654,7 +653,6 @@ module.exports = {
   pUSDC: {
     category: VAULT_CATEGORIES_IDS.IDLE,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/usdc.png',
     apyIconUrls: ['./icons/wmatic.png'],
     apyTokenSymbols: ['WMATIC'],
@@ -683,7 +681,6 @@ module.exports = {
   pDAI: {
     category: VAULT_CATEGORIES_IDS.IDLE,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/dai.png',
     apyIconUrls: ['./icons/wmatic.png'],
     apyTokenSymbols: ['WMATIC'],
@@ -5049,7 +5046,6 @@ module.exports = {
   FOUR_EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/4eur.png',
     apyIconUrls: ['./icons/den.png'],
     apyTokenSymbols: ['DEN'],
@@ -5088,7 +5084,6 @@ module.exports = {
   jarvis_DEN_4EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    isNew: true,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
     apyTokenSymbols: ['DEN'],
@@ -5218,6 +5213,7 @@ module.exports = {
   bal_BTC: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
+    isNew: true,
     logoUrl: './icons/balancer-btc.png',
     apyIconUrls: ['./icons/balancer.png'],
     apyTokenSymbols: ['BAL'],
