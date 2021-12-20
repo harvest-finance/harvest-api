@@ -1608,6 +1608,14 @@
         "NewStrategy": "0xe3f309F151746b3C0953e4C0E455bFf3dc2176AA",
         "NewPool": "0xB25e2C1efDD4b79CD5d63C0F5a45326FA4CA2139"
       },
+      "balancer_BTC": {
+        "Underlying": "0xFeadd389a5c427952D8fdb8057D6C8ba1156cC56",
+        "NewVault": "0x002Fbb34646c32fCe6bb1D973B7585e62EeE6aa9",
+        "StrategyContract": "BalancerStrategyMainnet_BTC",
+        "NewStrategy": "0xE4b9a65c8692e7d9c574E99bF7BF2bFFa61F14E9",
+        "NewPool": "0x299F75862c49DD852f2F3349D62A7e6a98fB8A0F",
+        "PoolId": "0xfeadd389a5c427952d8fdb8057d6c8ba1156cc5600020000000000000000001e"
+      },
       "balancer_POLYBASE": {
         "Underlying": "0x0297e37f1873D2DAb4487Aa67cD56B58E2F27875",
         "NewVault": "0x5C6bC2287C48a2C9fc2f0533De2B2acFe7a9230A",
