@@ -1,7 +1,8 @@
 const assert = require('assert')
 const fs = require('fs')
+const csvParse = require('csv-parse')
 
-function convertFrom(csvParse, filePath, vaultsObject) {
+function convertFrom(filePath, vaultsObject) {
   return new Promise(resolve => {
     let items = []
     const parse = csvParse.parse

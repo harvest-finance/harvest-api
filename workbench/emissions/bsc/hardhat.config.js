@@ -3,13 +3,13 @@ require('@nomiclabs/hardhat-web3')
 
 const secret = require('../../../../dev-keys.json') // note this is outside the current repository folder
 const prompt = require('prompt')
-const addresses = require('../../../data/mainnet/addresses.json').MATIC
+const addresses = require('../../../data/mainnet/addresses.json').BSC
 
 const helperAddresses = {
-  GenericEmissionHelper: '0xfe092d36CcDc81019Bc1A7835bF793abABD76f33',
-  GlobalIncentivesHelper: '0x1ebCf09b26E7b892A69cc5289534a1B15ac23156',
-  NotifyHelperStatefulFarm: '0x5c93b28bf2048D6D882FB67edb56139d4Ed97b0D',
-  NotifyHelperStatefulWMatic: '0xc7d49ffede1120af066448c4acd51f35f6fbaa98',
+  GenericEmissionHelper: '0xf328f799A9C719F446E05385EB64c8a29D3B0674',
+  StatefulEmissionHelperFARM: '0xDe7099898619E6264B4a3b702A9c69bf1f2eCA1C',
+  GlobalIncentivesHelper: '0x19b3ABA7BA46f9Cac08BA2872cbCf8F96aE8DE15',
+  NotifyHelperAmpliFARM: '0xd9B13B448Ae9d93DC7b9FBc7FACc83E9B1f4C9DC',
 }
 
 /* global task */
@@ -43,22 +43,14 @@ async function updateState(emissionItems) {
   let vesting = []
   for (let i = 0; i < emissionItems.length; i++) {
     const item = emissionItems[i]
-    tokens.push(addresses.miFARM)
+    tokens.push(addresses.bFARM)
     pools.push(item.address)
     percentages.push(item.percentage)
-    types.push(NotificationType.FARM)
-    vesting.push(false)
-  }
-  for (let i = 0; i < emissionItems.length; i++) {
-    const item = emissionItems[i]
-    tokens.push(addresses.WMATIC)
-    pools.push(item.address)
-    percentages.push(item.percentage)
-    types.push(NotificationType.TOKEN)
+    types.push(NotificationType.AMPLIFARM)
     vesting.push(false)
   }
   console.log(tokens, pools, percentages, types, vesting)
-  console.log('Setting state for bot WMATIC and miFARM through Global Incentives Helper')
+  console.log('Setting state for ampliFARM Global Incentives Helper')
 
   await setPoolBatch(
     helperAddresses.GlobalIncentivesHelper,
@@ -73,21 +65,21 @@ async function updateState(emissionItems) {
 async function printStats() {
   return printStatsParametrized(
     helperAddresses.GlobalIncentivesHelper,
-    'MATIC',
-    [addresses.miFARM, addresses.WMATIC],
-    ['miFARM', 'WMATIC'],
+    'BNB',
+    [addresses.bFARM],
+    ['bFARM'],
   )
 }
 
 task('record', 'Stores percentages of emissions in the contract').setAction(async () => {
-  const emissionItems = await parser.convertFrom(`../_data/polygon.csv`, addresses.V2)
+  const emissionItems = await parser.convertFrom(`../_data/bsc.csv`, addresses.V2)
   await printStats()
 
   prompt.message = `Check to update reward distribution? Type "yes" to do so`
   const { toUpdate } = await prompt.get(['toUpdate'])
   if (toUpdate === 'yes') {
     console.log('Updating reward distribution...')
-    await updateRewardDistributionAsNeeded(helperAddresses.GenericEmissionHelper, emissionItems)
+    await updateRewardDistributionAsNeeded(helperAddresses.NotifyHelperAmpliFARM, emissionItems)
     console.log('Updated')
   }
 
@@ -105,21 +97,17 @@ task('notify', 'Notifies with specified amounts').setAction(async () => {
   await printStats()
 
   prompt.start()
-  prompt.message = `Total miFARM amount (in human format like "18.23" miFARM)`
-  const { amountMiFarm } = await prompt.get(['amountMiFarm'])
-  const machineAmountFarm = to18(amountMiFarm)
+  prompt.message = `Total bFARM amount (in human format like "18.23" bFARM)`
+  const { amountBFarm } = await prompt.get(['amountBFarm'])
+  const machineBFarm = to18(amountBFarm)
 
-  prompt.message = `Total WMATIC amount (in human format like "18.23" wMATIC)`
-  const { amountWMatic } = await prompt.get(['amountWMatic'])
-  const machineAmountWMatic = to18(amountWMatic)
-
-  prompt.message = `miFARM: ${amountMiFarm} [${machineAmountFarm}]\nWMATIC: ${amountWMatic} [${machineAmountWMatic}]`
+  prompt.message = `miFARM: ${amountBFarm} [${machineBFarm}]`
   await prompt.get(['ok'])
 
   await notifyPools(
     helperAddresses.GlobalIncentivesHelper,
-    [addresses.miFARM, addresses.WMATIC],
-    [amountMiFarm, amountWMatic],
+    [addresses.bFARM],
+    [machineBFarm],
     '1637694000', // not relevant on polygon, don't bother updating
   ),
     console.log('Notification completed.')
@@ -143,8 +131,7 @@ task('view', 'Views the current state recorded in the contract').setAction(async
   await printStats()
 
   const finalObj = {}
-  await viewState(helperAddresses.NotifyHelperStatefulFarm, finalObj, 'farm', addresses.V2)
-  await viewState(helperAddresses.NotifyHelperStatefulWMatic, finalObj, 'wmatic', addresses.V2)
+  await viewState(helperAddresses.StatefulEmissionHelperFARM, finalObj, 'bFarm', addresses.V2)
   console.log(finalObj)
   console.log('Querying complete.')
 })
@@ -156,17 +143,17 @@ module.exports = {
   defaultNetwork: 'hardhat',
   networks: {
     hardhat: {
-      chainId: 137,
+      chainId: 56,
       accounts: {
         mnemonic: secret.mnemonic,
       },
       forking: {
-        url: `https://polygon-mainnet.g.alchemy.com/v2/${secret.alchemyKey}`,
+        url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
       },
     },
-    mainnet: {
-      url: `https://polygon-mainnet.g.alchemy.com/v2/${secret.alchemyKey}`,
-      chainId: 137,
+    cron_mainnet: {
+      url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
+      chainId: 56,
       accounts: {
         mnemonic: secret.mnemonic,
       },
