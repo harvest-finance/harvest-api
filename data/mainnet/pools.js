@@ -306,7 +306,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM', 'DON'],
     vestingDescriptionOverride: {
       iFARM: '',
-      DON: '2/3rds of <b>DON</b> rewards are vested for 6 months',
+      DON: '',
     },
   },
   {
