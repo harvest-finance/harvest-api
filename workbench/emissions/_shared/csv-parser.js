@@ -3,7 +3,7 @@ const fs = require('fs')
 const csvParse = require('csv-parse')
 const BigNumber = require('bignumber.js')
 
-function convertFromForEthereumMainnet(filePath, vaultsObject) {
+function convertFromForEthereumMainnet(filePath, vaultsObject, statefulEmissionsHelperAddress) {
   function isRegularPool(poolAddress) {
     return (
       [
@@ -139,6 +139,9 @@ function convertFromForEthereumMainnet(filePath, vaultsObject) {
         } else if (id === '__grainBuybackBot') {
           notificationType = NotificationType.TRANSFER
           address = addresses.Multisig
+        } else if (id === '__otherChainsCombined') {
+          notificationType = NotificationType.TRANSFER
+          address = statefulEmissionsHelperAddress
         } else if (id === 'FARMsteadUSDC24') {
           notificationType = NotificationType.IFARM
           address = addresses.FARMSteadUSDCPool

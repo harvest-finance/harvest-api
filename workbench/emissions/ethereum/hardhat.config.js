@@ -9,12 +9,12 @@ const assert = require('assert')
 const baseWeekOffset = 70 // item 0 would correspond to week 70
 
 const helperAddresses = {
-  StatefulEmissionsHelper: '0xbf025cA78DC18e8646B706A49dC194D04537A14D', // StatefulEmissionsHelper
+  StatefulEmissionsHelper: '0x71316a3465e0fbcd08e665D6675caA8F7B1Dd40A', // StatefulEmissionsHelper
   NotifyHelper: '0xE20c31e3d08027F5AfACe84A3A46B7b3B165053c',
   NotifyHelperIFARM: '0x8af7Eb5a93076F6A2316261aC8D42F97aDaab64E',
-  MinterHelper: '0xE5C6BE56401986F8ae7e031bFAD5e07c13467fD4',
+  MinterHelper: '0x973d0408deE278203c8613178c1732fd60182916',
   DelayMinter: '0x284D7200a0Dabb05ee6De698da10d00df164f61d',
-  Storage_MinterHelperAsGovernance: '0x8085407A8b5Cc475Cc5c02F872b39b57E4Ee3bCF',
+  Storage_MinterHelperAsGovernance: '0x9933682D7c7c03a4752Ad26fCf07a0Ed32203D62',
 }
 
 /* global task */
@@ -136,6 +136,7 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
   const emissionItems = await parser.convertFromForEthereumMainnet(
     `../_data/ethereum.csv`,
     addresses.V2,
+    helperAddresses.StatefulEmissionsHelper,
   )
   await printStats()
   const filteredEmissions = await filterEmissions(emissionItems)
