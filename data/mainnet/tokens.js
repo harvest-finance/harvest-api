@@ -1003,7 +1003,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['cvxcrv', convexProfitSharingFactor],
+        params: ['cvxcrv', strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
@@ -2864,7 +2864,7 @@ module.exports = {
   },
   cvxCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: './icons/curve.png',
+    logoUrl: '',
     tokenAddress: addresses.cvxCRV,
     decimals: '18',
     vaultAddress: null,
