@@ -2862,14 +2862,6 @@ module.exports = {
     vaultAddress: null,
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CRV] },
   },
-  CRV: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: './icons/curve.png',
-    tokenAddress: addresses.CRV,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CRV] },
-  },
   cvxCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/curve.png',

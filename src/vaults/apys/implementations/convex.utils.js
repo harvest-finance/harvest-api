@@ -4,6 +4,12 @@ const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
 const { web3 } = require('../../../lib/web3')
 const addresses = require('../../../lib/data/addresses.json')
 
+let crvAddress = '0xD533a949740bb3306d119CC777fa900bA034cd52',
+  cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
+  cliffSize = 100000, // * 1e18; //new cliff every 100,000 tokens
+  cliffCount = 1000, // 1,000 cliffs
+  maxSupply = 100000000 // * 1e18; //100 mil max supply
+
 //// ----------- APRs ----------- ///
 
 const convexAPR = poolName => convexAPRWithPrice(poolName, -1, -1)
@@ -22,6 +28,10 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
   virtualPrice = 1
   if (pool.isV2 == undefined || pool.isV2 == false) {
     virtualPrice = await curveLpValue(1, curveSwap)
+    if(pool.name == 'cvxcrv') {
+      const tokenValue = await getPrice(crvAddress, pool.currency)
+      virtualPrice = virtualPrice * tokenValue
+    }
   } else {
     virtualPrice = await curveV2LpValue(pool, pool.currency)
   }
@@ -66,12 +76,6 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
 }
 
 ////--------------- Util  -------------------///
-
-let crvAddress = '0xD533a949740bb3306d119CC777fa900bA034cd52',
-  cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
-  cliffSize = 100000, // * 1e18; //new cliff every 100,000 tokens
-  cliffCount = 1000, // 1,000 cliffs
-  maxSupply = 100000000 // * 1e18; //100 mil max supply
 
 const getCVXMintAmount = async crvEarned => {
   //first get total supply
