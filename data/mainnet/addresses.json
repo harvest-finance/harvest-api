@@ -353,13 +353,15 @@
       "SushiPoolId": "156",
       "NewVault": "0x230D3E848d04516826067aCb08Fa6c5A552D3E62",
       "NewStrategy": "0x630D435934e07151DB105D2D43BF5a3d3705e781",
-      "NewPool": "0x6Dc8Be78e95480e5566138429089D4ca589f5A34"
+      "NewPool": "0x6Dc8Be78e95480e5566138429089D4ca589f5A34",
+      "doHardwork": false
     },
     "sushi_USDT_WETH": {
       "NewVault": "0x64035b583c8c694627A199243E863Bb33be60745",
       "NewStrategy": "0x180A71C5688AC7e2368890ef77B0036Af8e261b6",
       "NewPool": "0xA56522BCA0A09f57B85C52c0Cc8Ba1B5eDbc64ef",
-      "SushiPoolId": "0"
+      "SushiPoolId": "0",
+      "doHardwork": false
     },
     "sushi_USDC_WETH": {
       "NewVault": "0x01bd09A1124960d9bE04b638b142Df9DF942b04a",
@@ -371,7 +373,8 @@
       "NewVault": "0x203E97aa6eB65A1A02d9E80083414058303f241E",
       "NewStrategy": "0x895CC1b32Aa6f5FEdf0E113eAC556309Ad225322",
       "NewPool": "0x76Aef359a33C02338902aCA543f37de4b01BA1FA",
-      "SushiPoolId": "2"
+      "SushiPoolId": "2",
+      "doHardwork": false
     },
     "sushi_WBTC_WETH": {
       "NewVault": "0x5C0A3F55AAC52AA320Ff5F280E77517cbAF85524",
@@ -713,7 +716,8 @@
       "NewStrategy": "",
       "PoolId": "5",
       "NewPool": "0xC5fc56779b5925218D2Cdac093d0bFc6de7Cc2D1",
-      "MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52"
+      "MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52",
+      "doHardwork": false
     },
     "nft20_Rope": {
       "Underlying": "0x95ACF4ba2c53E31Db1459172332D52bAaC433bB3",
@@ -961,7 +965,8 @@
       "StrategyContract": "BalancerStrategyMainnet_DAI_WETH",
       "NewStrategy": "0xc2c30cD4898b6004fbb82a8c7bD72d3b3734b5d1",
       "NewPool": "0x2bd2Ba6cCa8A9e1FfbCdFe9a3cCF7fB7d4F83EC4",
-      "PoolId": "0x0b09dea16768f0799065c475be02919503cb2a3500020000000000000000001a"
+      "PoolId": "0x0b09dea16768f0799065c475be02919503cb2a3500020000000000000000001a",
+      "doHardwork": false
     },
     "bal_USDC_WETH": {
       "Underlying": "0x96646936b91d6B9D7D0c47C496AfBF3D6ec7B6f8",
