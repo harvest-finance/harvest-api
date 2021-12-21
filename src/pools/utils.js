@@ -139,7 +139,7 @@ const getPoolStatsPerType = async (pool, poolContractData, lpTokenData, weeklyRe
           size(pool.rewardTokens) >= 2,
         )
 
-        if (rewardTokenAddress === addresses.iFARM || rewardTokenAddress === addresses.DON) {
+        if (rewardTokenAddress === addresses.iFARM) {
           poolStats.apr = new BigNumber(poolStats.apr).times(3).toFixed()
         }
         if (pool.chain === CHAIN_TYPES.ETH && rewardTokenAddress === addresses.iFARM) {
