@@ -29,7 +29,9 @@ const {
   appendMints,
   getBalance,
   viewState,
-  setPoolBatch,
+  viewStateRaw,
+  approve,
+  setPoolBatchEthereumMainnet,
   transferGovernance,
   setStorageOriginal,
   executeMintOriginal,
@@ -69,9 +71,25 @@ const mintsToFollow = [
   },
 ]
 
+async function filterEmissions(emissionItems) {
+  let stateArrays = await viewStateRaw(helperAddresses.StatefulEmissionsHelper)
+  console.log('stateArrays', stateArrays)
+
+  // remove each pool from emissionItems that is not in state and emissionItems have 0 emission
+  const noZeroEmission = emissionItems.filter(
+    item => !(item.percentage == 0 && stateArrays[0].indexOf(item.address) === -1),
+  )
+
+  // remove each pool from emissionItems that is in state but the value does not differ
+  const onlyChanges = noZeroEmission.filter(
+    item => item.percentage != stateArrays[2][stateArrays[0].indexOf(item.address)],
+  )
+
+  return onlyChanges
+}
+
 async function updateState(emissionItems) {
   // Handle the emission
-  let tokens = []
   let pools = []
   let percentages = []
   let types = []
@@ -79,23 +97,21 @@ async function updateState(emissionItems) {
   let totalPercent = new BigNumber(0)
   for (let i = 0; i < emissionItems.length; i++) {
     const item = emissionItems[i]
-    tokens.push(addresses.FARM)
     pools.push(item.address)
     percentages.push(item.percentage)
     totalPercent = totalPercent.plus(item.percentage)
     types.push(item.notificationType)
     vesting.push(item.isVested)
   }
-  console.log(tokens, pools, percentages, types, vesting)
+  console.log(pools, percentages, types, vesting)
   console.log(`TOTAL PERCENT: ${totalPercent.dividedBy(100).toFixed(2)}%`)
   console.log('Setting state for Global Incentives Helper')
 
   prompt.message = `Proceed with recording numbers? Type "yes" to continue`
   const { ok } = await prompt.get(['ok'])
   if (ok === 'yes') {
-    await setPoolBatch(
+    await setPoolBatchEthereumMainnet(
       helperAddresses.StatefulEmissionsHelper,
-      tokens,
       pools,
       percentages,
       types,
@@ -122,7 +138,9 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
     addresses.V2,
   )
   await printStats()
-  await updateState(emissionItems)
+  const filteredEmissions = await filterEmissions(emissionItems)
+  console.log('filteredEmissions', filteredEmissions)
+  await updateState(filteredEmissions)
 
   const finalObj = {}
   await viewState(helperAddresses.StatefulEmissionsHelper, finalObj, 'farm', addresses.V2)
@@ -206,8 +224,55 @@ task(
   prompt.message = `Total FARM amount for this first only week is: ${amountFarm}. Proceed?`
   await prompt.get(['ok'])
 
+  await approve(addresses.FARM, helperAddresses.MinterHelper, machineAmountFarm)
+  console.log('Approved')
+
+  console.log(
+    '--strat reserve before',
+    toReadable(await getBalance(addresses.FARM, '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4')),
+  )
+
+  console.log(
+    '--a FARM vault before',
+    toReadable(await getBalance(addresses.FARM, '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e')),
+  )
+
+  console.log(
+    '--an FARM (no vesting) vault before',
+    toReadable(await getBalance(addresses.FARM, '0x2E25800957742C52b4d69b65F9C67aBc5ccbffe6')),
+  )
+
+  console.log(
+    '--an iFARM vault before',
+    toReadable(await getBalance(addresses.iFARM, '0x6055d7f2E84e334176889f6d8c3F84580cA4F507')),
+  )
+
   await executeFirstMint(helperAddresses.MinterHelper, machineAmountFarm, timestampWeek69)
   console.log('First mint and notification executed in MinterHelper.')
+
+  ///
+
+  console.log(
+    '--strat reserve after',
+    toReadable(await getBalance(addresses.FARM, '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4')),
+  )
+
+  console.log(
+    '--a FARM vault after',
+    toReadable(await getBalance(addresses.FARM, '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e')),
+  )
+
+  console.log(
+    '--a FARM (no vesting) vault after',
+    toReadable(await getBalance(addresses.FARM, '0x2E25800957742C52b4d69b65F9C67aBc5ccbffe6')),
+  )
+
+  console.log(
+    '--an iFARM vault after',
+    toReadable(await getBalance(addresses.iFARM, '0x6055d7f2E84e334176889f6d8c3F84580cA4F507')),
+  )
+
+  await printStats()
 })
 
 task('append-mints', 'Executes the very first mint and notifies all relevant pools').setAction(
@@ -266,9 +331,10 @@ module.exports = {
       },
       forking: {
         url: 'https://eth-mainnet.alchemyapi.io/v2/' + secret.alchemyKey,
+//        blockNumber: 13850296,
       },
     },
-    cron_mainnet: {
+    mainnet: {
       url: 'https://eth-mainnet.alchemyapi.io/v2/' + secret.alchemyKey,
       accounts: {
         mnemonic: secret.mnemonic,

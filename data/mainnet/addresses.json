@@ -296,7 +296,7 @@
       "MigrationStrategy": "0xE0DBB056f31D554e6928d2c97442111958A0E62E",
       "NewVault": "0x053c80eA73Dc6941F518a68E2FC52Ac45BDE7c9C",
       "NewStrategy": "0xf32146f6EBeAE1a19F035e385b75d04a9ECD6e10",
-      "NewPool": "0x6ac4a7ab91e6fd098e13b7d347c6d4d1494994a2",
+      "NewPool": "0x6ac4a7AB91E6fD098E13B7d347c6d4d1494994a2",
       "RewardPool": "0xC6D58F8c684F0F2992bA613d209209897c298E44"
     },
     "renBTC": {

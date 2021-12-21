@@ -2,6 +2,7 @@ const PotPoolAbi = require('./abi/PotPool.json')
 const ERC20Abi = require('./abi/ERC20.json')
 const NotifyHelperStatefulAbi = require('./abi/NotifyHelperStateful.json')
 const GlobalIncentivesHelperAbi = require('./abi/GlobalIncentivesHelper.json')
+const StatefulEmissionHelperAbi = require('./abi/StatefulEmissionHelper.json')
 const MinterHelperAbi = require('./abi/MinterHelper.json')
 const DelayMinterAbi = require('./abi/DelayMinter.json')
 const BigNumber = require('bignumber.js')
@@ -132,6 +133,8 @@ async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
     .getConfig(await notifyHelper.methods.totalPercentage().call())
     .call()
 
+  let total = 0
+
   for (let i = 0; i < regularResult[0].length; i++) {
     let key = Object.keys(allVaultsJson).find(
       key => allVaultsJson[key].NewPool === regularResult[0][i],
@@ -143,8 +146,36 @@ async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
     if (!finalObj[key]) {
       finalObj[key] = {}
     }
+    total += +regularResult[2][i]
     finalObj[key][keyName] = `${regularResult[2][i] * 0.01}%`
   }
+
+  console.log('total:', total / 100)
+}
+
+async function viewStateRaw(helperAddress) {
+  const notifyHelper = new hre.web3.eth.Contract(NotifyHelperStatefulAbi, helperAddress)
+  const regularResult = await notifyHelper.methods
+    .getConfig(await notifyHelper.methods.totalPercentage().call())
+    .call()
+  return regularResult
+}
+
+async function setPoolBatchEthereumMainnet(
+  statefulEmissionHelperAddress,
+  pools,
+  percentages,
+  types,
+  vesting,
+) {
+  let statefulEmissionHelper = new hre.web3.eth.Contract(
+    StatefulEmissionHelperAbi,
+    statefulEmissionHelperAddress,
+  )
+
+  await statefulEmissionHelper.methods
+    .setPoolBatch(pools, percentages, types, vesting)
+    .send(await formulateTxSenderInfo())
 }
 
 async function setPoolBatch(
@@ -165,6 +196,11 @@ async function setPoolBatch(
     .send(await formulateTxSenderInfo())
 }
 
+async function approve(tokenAddress, consumerAddress, amount) {
+  let tokenInstance = new hre.web3.eth.Contract(ERC20Abi, tokenAddress)
+  await tokenInstance.methods.approve(consumerAddress, amount).send(await formulateTxSenderInfo())
+}
+
 module.exports = {
   formulateTxSenderInfo,
   printStatsParametrized,
@@ -173,6 +209,8 @@ module.exports = {
   toReadable,
   getBalance,
   getMintInfo,
+  viewStateRaw,
+  approve,
   appendMints,
   executeMint,
   executeFirstMint,
@@ -181,5 +219,6 @@ module.exports = {
   transferGovernance,
   viewState,
   setPoolBatch,
+  setPoolBatchEthereumMainnet,
   to18,
 }
