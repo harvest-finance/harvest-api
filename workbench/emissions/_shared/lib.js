@@ -2,7 +2,8 @@ const PotPoolAbi = require('./abi/PotPool.json')
 const ERC20Abi = require('./abi/ERC20.json')
 const NotifyHelperStatefulAbi = require('./abi/NotifyHelperStateful.json')
 const GlobalIncentivesHelperAbi = require('./abi/GlobalIncentivesHelper.json')
-
+const MinterHelperAbi = require('./abi/MinterHelper.json')
+const DelayMinterAbi = require('./abi/DelayMinter.json')
 const BigNumber = require('bignumber.js')
 
 /* global hre */
@@ -23,6 +24,11 @@ async function formulateTxSenderInfo() {
 
   const txSenderInfo = { gasPrice: settings.gasPrice, gas: settings.gasLimit, nonce, from: sender }
   return txSenderInfo
+}
+
+async function getBalance(tokenAddress, userAddress) {
+  let tokenInstance = new hre.web3.eth.Contract(ERC20Abi, tokenAddress)
+  return new BigNumber(await tokenInstance.methods.balanceOf(userAddress).call()).toFixed()
 }
 
 async function printStatsParametrized(
@@ -83,6 +89,43 @@ async function notifyPools(incentivesHelperAddress, tokenAddresses, amounts, tim
     .send(await formulateTxSenderInfo())
 }
 
+async function appendMints(minterAddress, amounts, targets, timestamps) {
+  let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
+  await minter.methods.appendMints(amounts, targets, timestamps).send(await formulateTxSenderInfo())
+}
+
+async function transferGovernance(minterAddress, addr, newStorage) {
+  let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
+  await minter.methods.transferGovernance(addr, newStorage).send(await formulateTxSenderInfo())
+}
+
+async function executeMint(minterAddress, mintId) {
+  let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
+  await minter.methods.execute(mintId).send(await formulateTxSenderInfo())
+}
+
+async function executeMintOriginal(minterAddress, mintId) {
+  let minter = new hre.web3.eth.Contract(DelayMinterAbi, minterAddress)
+  await minter.methods.executeMint(mintId).send(await formulateTxSenderInfo())
+}
+
+async function setStorageOriginal(minterAddress, newStorage) {
+  let minter = new hre.web3.eth.Contract(DelayMinterAbi, minterAddress)
+  await minter.methods.setStorage(newStorage).send(await formulateTxSenderInfo())
+}
+
+async function executeFirstMint(minterAddress, machineAmountFarm, timestamp) {
+  let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
+  await minter.methods
+    .executeFirstMint(machineAmountFarm, timestamp, true, 0)
+    .send(await formulateTxSenderInfo())
+}
+
+async function getMintInfo(minterAddress, mintId) {
+  let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
+  await minter.methods.executeFirstMint(mintId).call()
+}
+
 async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
   const notifyHelper = new hre.web3.eth.Contract(NotifyHelperStatefulAbi, helperAddress)
   const regularResult = await notifyHelper.methods
@@ -90,11 +133,12 @@ async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
     .call()
 
   for (let i = 0; i < regularResult[0].length; i++) {
-    const key = Object.keys(allVaultsJson).find(
+    let key = Object.keys(allVaultsJson).find(
       key => allVaultsJson[key].NewPool === regularResult[0][i],
     )
     if (!key) {
       console.error('Key not found for', regularResult[0][i])
+      key = regularResult[0][i] // just using the address instead
     }
     if (!finalObj[key]) {
       finalObj[key] = {}
@@ -127,6 +171,14 @@ module.exports = {
   notifyPools,
   updateRewardDistributionAsNeeded,
   toReadable,
+  getBalance,
+  getMintInfo,
+  appendMints,
+  executeMint,
+  executeFirstMint,
+  executeMintOriginal,
+  setStorageOriginal,
+  transferGovernance,
   viewState,
   setPoolBatch,
   to18,
