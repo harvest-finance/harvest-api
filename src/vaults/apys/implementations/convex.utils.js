@@ -57,7 +57,7 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
       }
       let price = await getPrice(ex.token, pool.currency)
       if (ex.token.toLowerCase() === addresses.KP3R.toLowerCase()) {
-        price = price / 2
+        price = price / 10
       }
       apr += perYear * price
     }
@@ -742,7 +742,7 @@ const pools = [
     gauge: '0x99fb76F75501039089AAC8f20f487bf84E51d76F',
     crvRewards: '0xCd0559ADb6fAa2fc83aB21Cf4497c3b9b45bB29f',
     swap: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',
-    currency: 'USD',
+    currency: 'EUR',
     extras: [
       {
         contract: '0x21034ccc4f8D07d0cF8998Fdd4c45e426540dEc1',
