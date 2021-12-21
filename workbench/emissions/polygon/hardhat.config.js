@@ -51,6 +51,13 @@ async function updateState(emissionItems) {
   }
   for (let i = 0; i < emissionItems.length; i++) {
     const item = emissionItems[i]
+    if (
+      item.address === '0xE1f9A3EE001a2EcC906E8de637DBf20BB2d44633' ||
+      item.address === '0x284D7200a0Dabb05ee6De698da10d00df164f61d' ||
+      item.address === '0xB25e2C1efDD4b79CD5d63C0F5a45326FA4CA2139'
+    ) {
+      continue // skipping some pools
+    }
     tokens.push(addresses.WMATIC)
     pools.push(item.address)
     percentages.push(item.percentage)
@@ -119,7 +126,7 @@ task('notify', 'Notifies with specified amounts').setAction(async () => {
   await notifyPools(
     helperAddresses.GlobalIncentivesHelper,
     [addresses.miFARM, addresses.WMATIC],
-    [amountMiFarm, amountWMatic],
+    [machineAmountFarm, machineAmountWMatic],
     '1637694000', // not relevant on polygon, don't bother updating
   ),
     console.log('Notification completed.')

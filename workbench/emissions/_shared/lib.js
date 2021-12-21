@@ -70,7 +70,7 @@ async function updateRewardDistributionAsNeeded(notifyHelperRegularAddress, emis
     let item = emissionItems[i]
     let poolContract = new hre.web3.eth.Contract(PotPoolAbi, item.address)
     console.log('Checking reward distribution for', item.address)
-    if (!(await poolContract.methods.rewardDistribution(notifyHelperRegularAddress))) {
+    if (!(await poolContract.methods.rewardDistribution(notifyHelperRegularAddress).call())) {
       console.log('Not reward distribution for ', item.address, 'Setting it...')
       await poolContract.methods
         .setRewardDistribution([notifyHelperRegularAddress], true)
@@ -124,7 +124,7 @@ async function executeFirstMint(minterAddress, machineAmountFarm, timestamp) {
 
 async function getMintInfo(minterAddress, mintId) {
   let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
-  await minter.methods.executeFirstMint(mintId).call()
+  return await minter.methods.mints(mintId).call()
 }
 
 async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {

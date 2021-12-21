@@ -151,7 +151,7 @@ module.exports = {
         url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
       },
     },
-    cron_mainnet: {
+    mainnet: {
       url: 'https://bsc.getblock.io/mainnet/?api_key=' + secret.getBlockKey,
       chainId: 56,
       accounts: {

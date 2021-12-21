@@ -208,11 +208,12 @@ task(
 
   await appendMints(
     helperAddresses.MinterHelper,
-    mintsToFollow.map(m => m.amount),
-    mintsToFollow.map(() => helperAddresses.MinterHelper), // constant
     mintsToFollow.map(m => m.timestamp),
+    mintsToFollow.map(() => helperAddresses.MinterHelper), // constant
+    mintsToFollow.map(m => m.amount),
   )
 
+  console.log('next mint:', await getMintInfo(helperAddresses.MinterHelper, 0))
   console.log('Next mints were added.')
 
   const timestampWeek69 = '1640113200'
@@ -287,9 +288,9 @@ task('append-mints', 'Executes the very first mint and notifies all relevant poo
 
     await appendMints(
       helperAddresses.MinterHelper,
-      mintsToFollow.map(m => m.amount),
-      mintsToFollow.map(() => helperAddresses.MinterHelper), // constant
       mintsToFollow.map(m => m.timestamp),
+      mintsToFollow.map(() => helperAddresses.MinterHelper), // constant
+      mintsToFollow.map(m => m.amount),
     )
 
     console.log('Minting and notification completed.')
@@ -331,7 +332,6 @@ module.exports = {
       },
       forking: {
         url: 'https://eth-mainnet.alchemyapi.io/v2/' + secret.alchemyKey,
-//        blockNumber: 13850296,
       },
     },
     mainnet: {
