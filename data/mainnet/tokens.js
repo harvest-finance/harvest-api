@@ -46,6 +46,34 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  crvCVXCRV: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.GENERAL,
+    displayName: 'CRV:CVXCRV',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
+    apyTokenSymbols: ['CRV', 'CVX'],
+    logoUrl: './icons/curve-cvxcrv.png',
+    tokenAddress: addresses.V2.crvCVXCRV.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.crvCVXCRV.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.V2.crvCVXCRV.Underlying,
+        addresses.V2.crvCVXCRV.Underlying,
+        '18',
+        ['CRV', 'cvxCRV'],
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['cvxcrv', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
   IDLE: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/idle.png',
@@ -446,7 +474,6 @@ module.exports = {
   sushi_YEL_ETH: {
     category: VAULT_CATEGORIES_IDS.GENERAL,
     chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
     logoUrl: './icons/yel-eth.png',
     apyIconUrls: ['./icons/yel.png'],
     apyTokenSymbols: ['YEL'],
@@ -469,7 +496,6 @@ module.exports = {
   yelhold_YEL: {
     category: VAULT_CATEGORIES_IDS.GENERAL,
     chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
     logoUrl: './icons/yel.png',
     apyIconUrls: ['./icons/yel.png'],
     apyTokenSymbols: ['YEL'],
@@ -976,34 +1002,6 @@ module.exports = {
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
         params: ['tricrypto2', convexProfitSharingFactor],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
-  },
-  crvCVXCRV: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
-    displayName: 'CRV:CVXCRV',
-    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
-    apyTokenSymbols: ['CRV', 'CVX'],
-    logoUrl: './icons/curve-cvxcrv.png',
-    tokenAddress: addresses.V2.crvCVXCRV.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.crvCVXCRV.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.CURVE_POOL,
-      params: [
-        addresses.V2.crvCVXCRV.Underlying,
-        addresses.V2.crvCVXCRV.Underlying,
-        '18',
-        ['CRV', 'cvxCRV'],
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['cvxcrv', strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
