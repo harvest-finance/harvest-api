@@ -31,3 +31,6 @@ Set up `settings.json` and `dev-keys.json` (place `dev-keys.json` right OUTSIDE 
 
 1. `npx hardhat append-mints` - appends multiple mints for future execution by `execute-mint`
 1. `npx hardhat execute-fist-mint` - to execute first mint
+
+## Other methods:
+1. `npx hardhat incentivize-ifarm-pool` - incentivizes a specific iFARM pool with a given amount of FARM

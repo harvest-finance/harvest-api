@@ -28,7 +28,7 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
   virtualPrice = 1
   if (pool.isV2 == undefined || pool.isV2 == false) {
     virtualPrice = await curveLpValue(1, curveSwap)
-    if(pool.name == 'cvxcrv') {
+    if (pool.name == 'cvxcrv') {
       const tokenValue = await getPrice(crvAddress, pool.currency)
       virtualPrice = virtualPrice * tokenValue
     }
@@ -748,11 +748,11 @@ const pools = [
     currency: 'ETH',
     extras: [
       {
-        "contract": "0xbE4DEa8E5d1E53FAd661610E47501f858F25852D",
-        "token": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
-        "chefHook": "0x93E85b8C3995B407fB2f1198d83F4e500242B3A2",
-        "chefToken": "0xe79d9a5eF6E19C3f1003f4F27a1423259460f6D0",
-        "name": "CVX"
+        contract: '0xbE4DEa8E5d1E53FAd661610E47501f858F25852D',
+        token: '0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b',
+        chefHook: '0x93E85b8C3995B407fB2f1198d83F4e500242B3A2',
+        chefToken: '0xe79d9a5eF6E19C3f1003f4F27a1423259460f6D0',
+        name: 'CVX',
       },
     ],
     name: 'cvxcrv',

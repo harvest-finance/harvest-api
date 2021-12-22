@@ -3,6 +3,7 @@ const ERC20Abi = require('./abi/ERC20.json')
 const NotifyHelperStatefulAbi = require('./abi/NotifyHelperStateful.json')
 const GlobalIncentivesHelperAbi = require('./abi/GlobalIncentivesHelper.json')
 const StatefulEmissionHelperAbi = require('./abi/StatefulEmissionHelper.json')
+const FeeRewardForwarderAbi = require('./abi/FeeRewardForwarder.json')
 const MinterHelperAbi = require('./abi/MinterHelper.json')
 const DelayMinterAbi = require('./abi/DelayMinter.json')
 const BigNumber = require('bignumber.js')
@@ -122,6 +123,18 @@ async function executeFirstMint(minterAddress, machineAmountFarm, timestamp) {
     .send(await formulateTxSenderInfo())
 }
 
+async function notifyIFarmBuybackAmount(
+  feeRewardForwarderAddr,
+  farmAddr,
+  rewardPoolAddr,
+  machineAmountFarm,
+) {
+  let feeRewardForwarder = new hre.web3.eth.Contract(FeeRewardForwarderAbi, feeRewardForwarderAddr)
+  await feeRewardForwarder.methods
+    .notifyIFarmBuybackAmount(farmAddr, rewardPoolAddr, machineAmountFarm)
+    .send(await formulateTxSenderInfo())
+}
+
 async function getMintInfo(minterAddress, mintId) {
   let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
   return await minter.methods.mints(mintId).call()
@@ -214,6 +227,7 @@ module.exports = {
   appendMints,
   executeMint,
   executeFirstMint,
+  notifyIFarmBuybackAmount,
   executeMintOriginal,
   setStorageOriginal,
   transferGovernance,

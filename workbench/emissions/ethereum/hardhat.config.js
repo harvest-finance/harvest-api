@@ -35,6 +35,7 @@ const {
   transferGovernance,
   setStorageOriginal,
   executeMintOriginal,
+  notifyIFarmBuybackAmount,
 } = require('../_shared/lib.js')
 const parser = require('../_shared/csv-parser.js')
 
@@ -235,6 +236,11 @@ task(
   )
 
   console.log(
+    '--ptofit share before',
+    toReadable(await getBalance(addresses.FARM, '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C')),
+  )
+
+  console.log(
     '--a FARM vault before',
     toReadable(await getBalance(addresses.FARM, '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e')),
   )
@@ -257,6 +263,11 @@ task(
   console.log(
     '--strat reserve after',
     toReadable(await getBalance(addresses.FARM, '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4')),
+  )
+
+  console.log(
+    '--ptofit share after',
+    toReadable(await getBalance(addresses.FARM, '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C')),
   )
 
   console.log(
@@ -297,6 +308,47 @@ task('append-mints', 'Executes the very first mint and notifies all relevant poo
     console.log('Minting and notification completed.')
   },
 )
+
+task('incentivize-ifarm-pool', 'Incentives a specific iFARM pool').setAction(async () => {
+  await printStats()
+
+  prompt.start()
+
+  prompt.message = `Which vault (use id from addresses.json)?`
+  const { vaultName } = await prompt.get([
+    {
+      name: 'vaultName',
+      default: '',
+    },
+  ])
+
+  prompt.message = `confirming pool address. Enter the correct one if it is wrong.`
+  const { rewardPoolAddr } = await prompt.get([
+    {
+      name: 'rewardPoolAddr',
+      default: addresses.V2[vaultName].NewPool,
+    },
+  ])
+
+  prompt.message = `How much? (default 3 farm)`
+
+  const { balance } = await prompt.get([
+    {
+      name: 'balance',
+      default: '3' + '0'.repeat(18),
+    },
+  ])
+
+  await approve(addresses.FARM, addresses.FeeRewardForwarder, balance)
+  console.log('Approved.')
+  await notifyIFarmBuybackAmount(
+    addresses.FeeRewardForwarder,
+    addresses.FARM,
+    rewardPoolAddr,
+    balance,
+  )
+  console.log('Minting and notification completed.')
+})
 
 task('clear-pool', 'Clears a specific pool address (for emergency)').setAction(async () => {
   await printStats()
