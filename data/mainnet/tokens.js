@@ -980,6 +980,34 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
   },
+  crvCVXCRV: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.GENERAL,
+    displayName: 'CRV:CVXCRV',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
+    apyTokenSymbols: ['CRV', 'CVX'],
+    logoUrl: './icons/curve-cvxcrv.png',
+    tokenAddress: addresses.V2.crvCVXCRV.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.crvCVXCRV.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.V2.crvCVXCRV.Underlying,
+        addresses.V2.crvCVXCRV.Underlying,
+        '18',
+        ['CRV', 'cvxCRV'],
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['cvxcrv', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
   BAL: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/balancer.png',
@@ -2838,6 +2866,14 @@ module.exports = {
     decimals: '18',
     vaultAddress: null,
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CRV] },
+  },
+  cvxCRV: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.cvxCRV,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.cvxCRV] },
   },
   HARVEST_AP: {
     chain: CHAINS_ID.ETH_MAINNET,

@@ -4,6 +4,12 @@ const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
 const { web3 } = require('../../../lib/web3')
 const addresses = require('../../../lib/data/addresses.json')
 
+let crvAddress = '0xD533a949740bb3306d119CC777fa900bA034cd52',
+  cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
+  cliffSize = 100000, // * 1e18; //new cliff every 100,000 tokens
+  cliffCount = 1000, // 1,000 cliffs
+  maxSupply = 100000000 // * 1e18; //100 mil max supply
+
 //// ----------- APRs ----------- ///
 
 const convexAPR = poolName => convexAPRWithPrice(poolName, -1, -1)
@@ -22,6 +28,10 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
   virtualPrice = 1
   if (pool.isV2 == undefined || pool.isV2 == false) {
     virtualPrice = await curveLpValue(1, curveSwap)
+    if(pool.name == 'cvxcrv') {
+      const tokenValue = await getPrice(crvAddress, pool.currency)
+      virtualPrice = virtualPrice * tokenValue
+    }
   } else {
     virtualPrice = await curveV2LpValue(pool, pool.currency)
   }
@@ -38,7 +48,6 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
   //crv per year
   const crvPerYear = crvPerUnderlying * 86400 * 365
   const cvxPerYear = await getCVXMintAmount(crvPerYear)
-
   if (cvxPrice <= 0) cvxPrice = await getPrice(cvxAddress, pool.currency)
 
   if (crvPrice <= 0) crvPrice = await getPrice(crvAddress, pool.currency)
@@ -67,12 +76,6 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
 }
 
 ////--------------- Util  -------------------///
-
-let crvAddress = '0xD533a949740bb3306d119CC777fa900bA034cd52',
-  cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
-  cliffSize = 100000, // * 1e18; //new cliff every 100,000 tokens
-  cliffCount = 1000, // 1,000 cliffs
-  maxSupply = 100000000 // * 1e18; //100 mil max supply
 
 const getCVXMintAmount = async crvEarned => {
   //first get total supply
@@ -735,6 +738,25 @@ const pools = [
     ],
     name: 'mim',
     id: 40,
+  },
+  {
+    lptoken: '0x9D0464996170c6B9e75eED71c68B99dDEDf279e8',
+    token: '0x8FDF7cabfEc73d5FfD1447867834b4cf39B745B7',
+    gauge: '0x903dA6213a5A12B61c821598154EfAd98C3B20E4',
+    crvRewards: '0x0392321e86F42C2F94FBb0c6853052487db521F0',
+    swap: '0x9D0464996170c6B9e75eED71c68B99dDEDf279e8',
+    currency: 'ETH',
+    extras: [
+      {
+        "contract": "0xbE4DEa8E5d1E53FAd661610E47501f858F25852D",
+        "token": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+        "chefHook": "0x93E85b8C3995B407fB2f1198d83F4e500242B3A2",
+        "chefToken": "0xe79d9a5eF6E19C3f1003f4F27a1423259460f6D0",
+        "name": "CVX"
+      },
+    ],
+    name: 'cvxcrv',
+    id: 41,
   },
   {
     lptoken: '0x19b080FE1ffA0553469D20Ca36219F17Fcf03859',

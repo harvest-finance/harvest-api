@@ -4424,6 +4424,43 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'farm-curve-cvxcrv',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.crvCVXCRV.NewPool,
+    collateralAddress: addresses.V2.crvCVXCRV.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['cvxcrv'],
+    },
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://curve.fi/factory/22/deposit"
+            >
+              curve.fi
+            </a>
+            and deposit <b>CRV and/or cvxCRV</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'bal_BAL_WETH',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.bal_BAL_WETH.NewPool,
