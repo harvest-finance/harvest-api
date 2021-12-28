@@ -305,7 +305,6 @@ module.exports = [
     rewardTokens: [addresses.iFARM, addresses.DON],
     rewardTokenSymbols: ['iFARM', 'DON'],
     vestingDescriptionOverride: {
-      iFARM: '',
       DON: '',
     },
   },
@@ -568,7 +567,6 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
-    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -1078,9 +1076,7 @@ module.exports = [
     collateralAddress: addresses.V2.WETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardMultiplier: 3,
     rewardTokens: [addresses.FARM],
-    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     rewardTokenSymbols: ['FARM'],
   },
   {
@@ -4190,7 +4186,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
-    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4797,7 +4792,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
-    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
