@@ -305,8 +305,7 @@ module.exports = [
     rewardTokens: [addresses.iFARM, addresses.DON],
     rewardTokenSymbols: ['iFARM', 'DON'],
     vestingDescriptionOverride: {
-      iFARM: '',
-      DON: '2/3rds of <b>DON</b> rewards are vested for 6 months',
+      DON: '',
     },
   },
   {
@@ -540,8 +539,8 @@ module.exports = [
     collateralAddress: addresses.FARMSteadUSDC,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.iFARM, addresses.IDLE],
-    rewardTokenSymbols: ['iFARM', 'IDLE'],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.RARI_FARMSTEAD_USDC,
       params: [],
@@ -568,7 +567,6 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.FARM],
     rewardTokenSymbols: ['FARM'],
-    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -1078,9 +1076,7 @@ module.exports = [
     collateralAddress: addresses.V2.WETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardMultiplier: 3,
     rewardTokens: [addresses.FARM],
-    vestingDescriptionOverride: { FARM: '2/3rds of <b>FARM</b> rewards are vested for 6 months' },
     rewardTokenSymbols: ['FARM'],
   },
   {
@@ -4190,7 +4186,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
-    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4413,6 +4408,43 @@ module.exports = [
               curve.fi
             </a>
             and deposit <b>WBTC, ETH, and/or USDT</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'farm-curve-cvxcrv',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.crvCVXCRV.NewPool,
+    collateralAddress: addresses.V2.crvCVXCRV.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['cvxcrv'],
+    },
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://curve.fi/factory/22/deposit"
+            >
+              curve.fi
+            </a>
+            and deposit <b>CRV and/or cvxCRV</b>
           </li>
           <li>
             Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -4760,7 +4792,6 @@ module.exports = [
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
     rewardTokenSymbols: ['iFARM'],
-    vestingDescriptionOverride: { iFARM: '' },
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
@@ -4900,6 +4931,39 @@ module.exports = [
             KyberDMM
           </a>
           and add liquidity for AUR-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_BTC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.balancer_BTC.PoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_BTC.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_BTC.PoolId}">
+            balancer
+          </a>
+          and invest <b>WBTC</b> or <b>renBTC</b>
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
