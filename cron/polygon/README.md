@@ -6,7 +6,11 @@
 ```
 {
   "gasPriceMax": "201000000000",
-  "gasLimit": "3000000"
+  "gasLimit": "3000000",
+  "prometheusMonitoring" : {
+    "enabled": "false",
+    "pushGatewayUrl": "http://127.0.0.1:9091"
+  }
 }
 ```
 ## `dev-keys.json`

@@ -13,6 +13,76 @@ const vaultDecision = require('./vault-decision.json')
 
 const ethers = hre.ethers
 
+// Prometheus monitoring
+const promClient = require('prom-client')
+const Registry = promClient.Registry
+const register = new Registry()
+
+async function pushMetrics(labels) {
+  const gateway = new promClient.Pushgateway(
+    settings.prometheusMonitoring.pushGatewayUrl,
+    [],
+    register,
+  )
+  return gateway
+    .push(labels)
+    .then(({ resp, body }) => {
+      console.log(`Metrics pushed, status ${resp.statusCode} ${body}`)
+      register.clear()
+    })
+    .catch(err => {
+      console.log(`Error pushing metrics: ${err}`)
+    })
+}
+
+async function reportSimulationProfit(vault, block, ethProfit, execute) {
+  const profitMetric = new promClient.Gauge({
+    name: 'eth_profit',
+    help: 'profit shared Ether',
+    registers: [register],
+  })
+  register.registerMetric(profitMetric)
+  profitMetric.set(ethProfit)
+
+  const blockMetric = new promClient.Gauge({
+    name: 'eth_block',
+    help: 'block number',
+    registers: [register],
+  })
+  register.registerMetric(blockMetric)
+  blockMetric.set(block)
+
+  const executeMetric = new promClient.Gauge({
+    name: 'eth_execute_flag',
+    help: 'execute flag',
+    registers: [register],
+  })
+  register.registerMetric(executeMetric)
+  executeMetric.set(execute == true ? 1 : 0)
+
+  let labels = {
+    jobName: vault,
+    groupings: { instance: 'polygon' },
+  }
+  return pushMetrics(labels)
+}
+
+async function reportError(vault, block, error) {
+  const errorMetric = new promClient.Counter({
+    name: block == 0 ? 'mainnet_error' : 'simulation_error',
+    help: 'error during hardwork execution',
+    registers: [register],
+  })
+  register.registerMetric(errorMetric)
+  errorMetric.inc(1)
+
+  let labels = {
+    jobName: vault,
+    groupings: { instance: 'polygon', block: block, error: error },
+  }
+  return pushMetrics(labels)
+}
+
 // Only execute the `doHardWork` when
 // the profit share is `greatDealRatio` times better than the gas cost in Ether
 const greatDealRatio = 6
@@ -60,10 +130,6 @@ function findNextVaultKey(curVault) {
 }
 
 async function roughQuoteXInMATIC(xAmount, xAddress, xMATICLPPair) {
-  console.log(xAmount)
-  console.log(xAddress)
-  console.log(xMATICLPPair)
-
   var x = new web3.eth.Contract(IERC20Abi, xAddress)
   var matic = new web3.eth.Contract(IERC20Abi, addresses.WMATIC)
 
@@ -79,7 +145,7 @@ async function roughQuoteXInMATIC(xAmount, xAddress, xMATICLPPair) {
 
 // determines the gas price by taking the minimum of "locally set max gas" and the gas price returned from api
 async function getGasPrice() {
-  return 65000000000 // 10 gwei in BSC
+  return 65000000000 // 65 gwei in Polygon
 }
 
 // properly setup the txSenderInfo for sending
@@ -166,45 +232,53 @@ async function main() {
     }
     let ethInProfitShareBefore = await eth.methods.balanceOf(profitShareAddr).call()
     let denInMsigBefore = await den.methods.balanceOf(addresses.msig).call()
+    let ethProfit = 0
     if (executeFlag == false) {
       console.log('======= Doing hardwork ======')
-      console.time('doHardwork simulation')
-      let tx = await controller.methods.doHardWork(vaultAddress).send(txSenderInfo)
-      console.timeEnd('doHardwork simulation')
+      try {
+        console.time('doHardwork simulation')
+        let tx = await controller.methods.doHardWork(vaultAddress).send(txSenderInfo)
+        console.timeEnd('doHardwork simulation')
 
-      let maticCost = tx.gasUsed * txSenderInfo.gasPrice
-      let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call()
-      let ethProfit = ethInProfitShareAfter - ethInProfitShareBefore
-      let roughProfitInMatic = await roughQuoteXInMATIC(
-        ethProfit,
-        addresses.pWETH,
-        addresses.V2.quickswap_ETH_MATIC.Underlying,
-      )
+        let maticCost = tx.gasUsed * txSenderInfo.gasPrice
+        let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call()
+        ethProfit = ethInProfitShareAfter - ethInProfitShareBefore
+        let roughProfitInMatic = await roughQuoteXInMATIC(
+          ethProfit,
+          addresses.pWETH,
+          addresses.V2.quickswap_ETH_MATIC.Underlying,
+        )
 
-      console.log('gasUsed:            ', tx.gasUsed)
-      console.log('profit in Matic:    ', roughProfitInMatic / 1e18)
-      console.log('Matic cost:         ', maticCost / 1e18)
+        console.log('gasUsed:            ', tx.gasUsed)
+        console.log('profit in Matic:    ', roughProfitInMatic / 1e18)
+        console.log('Matic cost:         ', maticCost / 1e18)
 
-      console.log('[ Is the profit share good enough? ]')
-      console.log('before:             ', ethInProfitShareBefore)
-      console.log('after:              ', ethInProfitShareAfter)
-      console.log('profit shared Ether: ', ethProfit / 1e18)
+        console.log('[ Is the profit share good enough? ]')
+        console.log('before:             ', ethInProfitShareBefore)
+        console.log('after:              ', ethInProfitShareAfter)
+        console.log('profit shared Ether: ', ethProfit / 1e18)
 
-      if (useDenProfitCalculation(vaultAddress)) {
-        console.log('[ Using DEN profit calculation.. ]')
-        let denInMsigAfter = await den.methods.balanceOf(addresses.msig).call()
-        denProfit = denInMsigAfter - denInMsigBefore
-        console.log('profit shared DEN: ', denProfit / 1e18)
-      }
+        if (useDenProfitCalculation(vaultAddress)) {
+          console.log('[ Using DEN profit calculation.. ]')
+          let denInMsigAfter = await den.methods.balanceOf(addresses.msig).call()
+          denProfit = denInMsigAfter - denInMsigBefore
+          console.log('profit shared DEN: ', denProfit / 1e18)
+        }
 
-      if (roughProfitInMatic > maticCost * greatDealRatio || denProfit > minDenProfit) {
-        console.log('====> Time to doHardwork! ====')
-        executeFlag = true
-      } else {
-        console.log('............................. bad deal')
+        if (roughProfitInMatic > maticCost * greatDealRatio || denProfit > minDenProfit) {
+          console.log('====> Time to doHardwork! ====')
+          executeFlag = true
+        } else {
+          console.log('............................. bad deal')
+        }
+      } catch (e) {
+        console.log('Error during simulation: ')
+        console.log(e)
+        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled) {
+          await reportError(curVaultKey, currentSimBlock, e)
+        }
       }
     }
-
     if (disableCron(vaultAddress)) {
       console.log('..........[FORCED SKIP]')
       executeFlag = false
@@ -217,6 +291,9 @@ async function main() {
 
     fs.writeFileSync('./vault-decision.json', JSON.stringify(decision), 'utf-8')
     console.log('Decision wrote in file.')
+    if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled) {
+      await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
+    }
   } else if (process.env.HARDHAT_NETWORK == 'cron_mainnet') {
     let hardworker = accounts[0].address
     let txSenderInfo = await formulateTxSenderInfo(hardworker)
@@ -236,6 +313,9 @@ async function main() {
       } catch (e) {
         console.log('Error when sending tx: ')
         console.log(e)
+        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled) {
+          await reportError(curVaultKey, 0, e)
+        }
       }
     } else {
       console.log('Mainnet: NOT sending the tx of ', vaultDecision.vaultKey)
