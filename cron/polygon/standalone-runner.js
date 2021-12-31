@@ -274,7 +274,7 @@ async function main() {
       } catch (e) {
         console.log('Error during simulation: ')
         console.log(e)
-        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === 'true') {
+        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
           await reportError(curVaultKey, currentSimBlock, e)
         }
       }
@@ -291,7 +291,7 @@ async function main() {
 
     fs.writeFileSync('./vault-decision.json', JSON.stringify(decision), 'utf-8')
     console.log('Decision wrote in file.')
-    if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === 'true') {
+    if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
       await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
     }
   } else if (process.env.HARDHAT_NETWORK == 'cron_mainnet') {
@@ -313,7 +313,7 @@ async function main() {
       } catch (e) {
         console.log('Error when sending tx: ')
         console.log(e)
-        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === 'true') {
+        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
           await reportError(curVaultKey, 0, e)
         }
       }
