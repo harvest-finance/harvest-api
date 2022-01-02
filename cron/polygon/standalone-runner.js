@@ -19,6 +19,9 @@ const Registry = promClient.Registry
 const register = new Registry()
 
 async function pushMetrics(labels) {
+  if (!settings.prometheusMonitoring || settings.prometheusMonitoring.enabled !== true) {
+    return
+  }
   const gateway = new promClient.Pushgateway(
     settings.prometheusMonitoring.pushGatewayUrl,
     [],
@@ -36,6 +39,9 @@ async function pushMetrics(labels) {
 }
 
 async function reportSimulationProfit(vault, block, ethProfit, execute) {
+  if (!settings.prometheusMonitoring || settings.prometheusMonitoring.enabled !== true) {
+    return
+  }
   const profitMetric = new promClient.Gauge({
     name: 'eth_profit',
     help: 'profit shared Ether',
@@ -68,6 +74,9 @@ async function reportSimulationProfit(vault, block, ethProfit, execute) {
 }
 
 async function reportError(vault, block, error) {
+  if (!settings.prometheusMonitoring || settings.prometheusMonitoring.enabled !== true) {
+    return
+  }
   const errorMetric = new promClient.Counter({
     name: block == 0 ? 'mainnet_error' : 'simulation_error',
     help: 'error during hardwork execution',
@@ -274,9 +283,7 @@ async function main() {
       } catch (e) {
         console.log('Error during simulation: ')
         console.log(e)
-        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
-          await reportError(curVaultKey, currentSimBlock, e)
-        }
+        await reportError(curVaultKey, currentSimBlock, e)
       }
     }
     if (disableCron(vaultAddress)) {
@@ -291,9 +298,7 @@ async function main() {
 
     fs.writeFileSync('./vault-decision.json', JSON.stringify(decision), 'utf-8')
     console.log('Decision wrote in file.')
-    if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
-      await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
-    }
+    await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
   } else if (process.env.HARDHAT_NETWORK == 'cron_mainnet') {
     let hardworker = accounts[0].address
     let txSenderInfo = await formulateTxSenderInfo(hardworker)
@@ -313,9 +318,7 @@ async function main() {
       } catch (e) {
         console.log('Error when sending tx: ')
         console.log(e)
-        if (settings.prometheusMonitoring && settings.prometheusMonitoring.enabled === true) {
-          await reportError(curVaultKey, 0, e)
-        }
+        await reportError(curVaultKey, 0, e)
       }
     } else {
       console.log('Mainnet: NOT sending the tx of ', vaultDecision.vaultKey)
