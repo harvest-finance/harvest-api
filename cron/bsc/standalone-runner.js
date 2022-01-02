@@ -27,7 +27,7 @@ async function pushMetrics(labels) {
     [],
     register,
   )
-  return gateway
+  return await gateway
     .push(labels)
     .then(({ resp, body }) => {
       console.log(`Metrics pushed, status ${resp.statusCode} ${body}`)
