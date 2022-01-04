@@ -5,6 +5,82 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.SUSHI_GENE_ETH.Underlying],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'SUSHI_GENE_ETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.SUSHI_GENE_ETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.SUSHI_GENE_ETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGNOME],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'pGNOME'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://app.sushi.com/add/${addresses.MATIC.pGENE}/${addresses.MATIC.pWETH}"
+            >
+              Sushiswap
+            </a>
+            and supply liquidity to the <b>GENE-ETH</b> pair by depositing <b>GENE</b> and
+            <b>ETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.SUSHI_GNOME_ETH.Underlying],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'SUSHI_GNOME_ETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.SUSHI_GNOME_ETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.SUSHI_GNOME_ETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGENE],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'pGENE'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://app.sushi.com/add/${addresses.MATIC.pGNOME}/${addresses.MATIC.pWETH}"
+            >
+              Sushiswap
+            </a>
+            and supply liquidity to the <b>GNOME-ETH</b> pair by depositing <b>GNOME</b> and
+            <b>ETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_AUR_USDC_V2',
     type: POOL_TYPES.INCENTIVE,
