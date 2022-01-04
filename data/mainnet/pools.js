@@ -16,8 +16,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.SUSHI_GENE_ETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGNOME],
-    rewardTokenSymbols: ['miFARM', 'pGNOME'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGNOME],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'pGNOME'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -54,8 +54,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.SUSHI_GNOME_ETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGENE],
-    rewardTokenSymbols: ['miFARM', 'pGENE'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGENE],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'pGENE'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
