@@ -5220,4 +5220,103 @@ module.exports = [
       </div>
    `,
   },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_TUSD_STABLE',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.bal_TUSD_STABLE.PoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.bal_TUSD_STABLE.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_TUSD_STABLE.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_TUSD_STABLE.PoolId}">
+            balancer
+          </a>
+          and invest <b>TUSD stable</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_USDC_WETH_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.bal_USDC_WETH_polygon.PoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.bal_USDC_WETH_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_USDC_WETH_polygon.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_USDC_WETH_polygon.PoolId}">
+            balancer
+          </a>
+          and invest <b>USDC</b>, <b>WETH</b> polygon
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_WBTC_WETH_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.bal_WBTC_WETH_polygon.PoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.bal_WBTC_WETH_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_WBTC_WETH_polygon.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_WBTC_WETH_polygon.PoolId}">
+            balancer
+          </a>
+          and invest <b>WBTC</b>, <b>WETH</b> polygon
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
 ]

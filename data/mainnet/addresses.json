@@ -1740,6 +1740,30 @@
         "NewVault": "0x948aD16CD52a1658B404fE67ED7a56360F52cE08",
         "NewStrategy": "0x7571FEbd37190caaF071D7D7AA17d3704EF44e0d",
         "NewPool": "0x0a0be71cfcE12ECb966dC762016C28eF5640B56a"
+      },
+      "bal_TUSD_STABLE": {
+        "Underlying": "0x0d34e5dD4D8f043557145598E4e2dC286B35FD4f",
+        "NewVault": "0x32e3cC7D37ce9EB26EEA54241840B0b72F05Aa26",
+        "StrategyContract": "BalancerStrategyMainnet_TUSD_STABLE",
+        "NewStrategy": "0x430799E21A2aF202D8d983E29935e4D2Ed16aa2e",
+        "NewPool": "0xA917F56A1749f0E7820fdBc4EB783a3a476164ba",
+        "PoolId": "0x0d34e5dd4d8f043557145598e4e2dc286b35fd4f000000000000000000000068"
+      },
+      "bal_USDC_WETH_polygon": {
+        "Underlying": "0x10f21C9bD8128a29Aa785Ab2dE0d044DCdd79436",
+        "NewVault": "0x264B17DF8a79bFa830C1A94B90876CD3b0784b30",
+        "StrategyContract": "BalancerStrategyMainnet_USDC_WETH",
+        "NewStrategy": "0x014cE9201e417b7A8c49Aa1C9eB72E8f8D2b3DcD",
+        "NewPool": "0x02F28abb9bc319E03FC6844466BBB569D5cDe097",
+        "PoolId": "0x10f21c9bd8128a29aa785ab2de0d044dcdd79436000200000000000000000059"
+      },
+      "bal_WBTC_WETH_polygon": {
+        "Underlying": "0xCF354603A9AEbD2Ff9f33E1B04246d8Ea204ae95",
+        "NewVault": "0x60E057A17be997a1631B7188e8AF42657F836077",
+        "StrategeContract": "BalancerStrategyMainnet_WBTC_WETH",
+        "NewStrategy": "0x58Ca938dcACB193a9939D13A4b2AB6De5128D755",
+        "NewPool": "0x0E8661714998c2d8232Ca47406d8bE7ac066D16a",
+        "PoolId": "0xcf354603a9aebd2ff9f33e1b04246d8ea204ae9500020000000000000000005a"
       }
     }
   }
