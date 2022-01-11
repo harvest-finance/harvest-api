@@ -7,6 +7,42 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
+      params: [addresses.V2.uni_LOOKS_ETH.Underlying],
+    },
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'Uni_LOOKS_ETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.uni_LOOKS_ETH.NewPool,
+    collateralAddress: addresses.V2.uni_LOOKS_ETH.NewVault,
+    rewardAPY: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://app.uniswap.org/#/add/v2/ETH/0xf4d2888d29D722226FafA5d9B24F9164c092421E"
+          >
+          UniswapV2
+          </a>
+          and provide liquidity using <b>LOOKS</b> and <b>ETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.SUSHI_GENE_ETH.Underlying],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
