@@ -46,6 +46,40 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  LOOKS: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/looks.png',
+    tokenAddress: addresses.LOOKS,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['looksrare'],
+    },
+  },
+  uni_LOOKS_ETH: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    isNew: true,
+    displayName: 'LooksRare: LOOKS-WETH',
+    apyIconUrls: ['./icons/looks.png'],
+    apyTokenSymbols: ['LOOKS'],
+    logoUrl: './icons/uni-looks-weth.png',
+    tokenAddress: addresses.V2.uni_LOOKS_ETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.uni_LOOKS_ETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'LOOKS', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.LOOKSRARE,
+        params: [addresses.V2.uni_LOOKS_ETH.RewardPool, strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'LOOKS'],
+  },
   pGENE: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/gene.png',
