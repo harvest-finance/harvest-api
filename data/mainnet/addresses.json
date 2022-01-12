@@ -838,7 +838,7 @@
       ],
       "NewVault": "0x0b4C4EA418Cd596B1204C0dd07E419707149C7C6",
       "NewPool": "0x8AB3342a692935a8ad23214d7403403D224d2ba4",
-      "doHardwork": false
+      "doHardwork": "onlyProfit"
     },
     "UniV3_USDC_USDT": {
       "Underlying": [
@@ -865,7 +865,7 @@
       ],
       "NewVault": "0x5c49E0386215077d1A3eCc425CC30ce34Ec08B60",
       "NewPool": "0xd2d19439E84fcBaA7D4C755b3E15B1cB67CeA17B",
-      "doHardwork": false
+      "doHardwork": "onlyProfit"
     },
     "UniV3_DAI_USDC": {
       "Underlying": [
@@ -883,7 +883,7 @@
       ],
       "NewVault": "0x970CC1E0Bdb3B29a6A12BDE1954A8509acbC9158",
       "NewPool": "0xA9e60dD0eF825A1009B37EDb75B312BdA5Ad1A51",
-      "doHardwork": false
+      "doHardwork": "onlyProfit"
     },
     "UniV3_UNI_ETH": {
       "Underlying": [
@@ -1168,7 +1168,7 @@
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ],
       "NewPool": "0xe9D5571a741AF8201e6ca11241aF4d2D635D6c85",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_DAI_ETH_4200_5500": {
       "NewVault": "0x8137ac6dF358fe2D0DFbB1b5aA87C110950A16Cd",
@@ -1182,7 +1182,7 @@
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ],
       "NewPool": "0x35De0D0F9448B35a09e1E884C7d23A00027fbD8f",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_ETH_USDT_4200_5500": {
       "NewVault": "0xEA46CfcB43D5274991344cF6F56765e39A7Eae1a",
@@ -1196,7 +1196,7 @@
         "0xdAC17F958D2ee523a2206206994597C13D831ec7"
       ],
       "NewPool": "0xFd1121b2292eBD475791Ee2d646ccC8451c9F7Ae",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_BABL_ETH": {
       "Underlying": [
