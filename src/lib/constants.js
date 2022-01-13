@@ -7,6 +7,7 @@ const INFURA_WS_URL =
 const COINGECKO_PRICE_API_ENDPOINT_CONTRACT = 'https://api.coingecko.com/api/v3/simple/token_price'
 const COINGECKO_PRICE_API_ENDPOINT_ID = 'https://api.coingecko.com/api/v3/simple/price'
 const API_KEY = process.env.API_KEY || 'harvest-key'
+const APY_VISION_TOKEN = process.env.APY_VISION_TOKEN
 
 const POOL_TYPES = {
   INCENTIVE: 'INCENTIVE',
@@ -222,6 +223,7 @@ module.exports = {
   COINGECKO_PRICE_API_ENDPOINT_ID,
   API_KEY,
   APY_VISION_API_URL,
+  APY_VISION_TOKEN,
   POOL_TYPES,
   GET_PRICE_TYPES,
   ESTIMATED_APY_TYPES,
