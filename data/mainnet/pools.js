@@ -7,7 +7,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.uni_LOOKS_ETH.Underlying],
+      params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'uniswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'Uni_LOOKS_ETH',
@@ -43,7 +43,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.SUSHI_GENE_ETH.Underlying],
+      params: [addresses.MATIC.V2.SUSHI_GENE_ETH.Underlying, 'sushiswap_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'SUSHI_GENE_ETH',
@@ -81,7 +81,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.SUSHI_GNOME_ETH.Underlying],
+      params: [addresses.MATIC.V2.SUSHI_GNOME_ETH.Underlying, 'sushiswap_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'SUSHI_GNOME_ETH',
@@ -117,6 +117,10 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.Underlying, 'kyber_matic'],
+    },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_AUR_USDC_V2',
     type: POOL_TYPES.INCENTIVE,
@@ -160,6 +164,10 @@ module.exports = [
     rewardTokenSymbols: ['iFARM', 'BABL'],
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, 'kyber_matic'],
+    },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_DEN_4EUR',
     type: POOL_TYPES.INCENTIVE,
@@ -498,7 +506,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.quickswap_ETH_USDT.Underlying],
+      params: [addresses.MATIC.V2.quickswap_ETH_USDT.Underlying, 'quickswap_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'quick_ETH_USDT',
@@ -532,7 +540,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.quickswap_IFARM_QUICK.Underlying],
+      params: [addresses.MATIC.V2.quickswap_IFARM_QUICK.Underlying, 'quickswap_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'quick_IFARM_QUICK',
@@ -566,7 +574,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.sushiswap_USDC_ETH.Underlying],
+      params: [addresses.MATIC.V2.sushiswap_USDC_ETH.Underlying, 'sushiswap_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'sushi_USDC_ETH',
@@ -669,7 +677,7 @@ module.exports = [
     displayName: 'FARM/ETH',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.FARM_WETH_LP],
+      params: [addresses.FARM_WETH_LP, 'uniswap_eth'],
     },
     externalPoolURL: `https://v2.info.uniswap.org/pair/${addresses.FARM_WETH_LP}`,
     type: POOL_TYPES.INCENTIVE,
@@ -710,7 +718,7 @@ module.exports = [
     id: 'farm-grain',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.FARM_GRAIN_LP],
+      params: [addresses.FARM_GRAIN_LP, 'uniswap_eth'],
     },
     externalPoolURL: `https://v2.info.uniswap.org/pair/${addresses.FARM_GRAIN_LP}`,
     type: POOL_TYPES.INCENTIVE,
@@ -1148,7 +1156,7 @@ module.exports = [
     uniPool: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.VaultUNI_LP_WETH_DPI],
+      params: [addresses.VaultUNI_LP_WETH_DPI, 'uniswap_eth'],
     },
     id: 'weth-dpi-uni-farm',
     type: POOL_TYPES.INCENTIVE,
@@ -1194,7 +1202,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.UNI_BAC_DAI.Underlying],
+      params: [addresses.V2.UNI_BAC_DAI.Underlying, 'uniswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'BAC-DAI',
@@ -1233,7 +1241,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.UNI_DAI_BAS.Underlying],
+      params: [addresses.V2.UNI_DAI_BAS.Underlying, 'uniswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'DAI-BAS',
@@ -1415,7 +1423,7 @@ module.exports = [
     id: 'SUSHI-ETH-PERP',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_PERP_ETH.Underlying],
+      params: [addresses.V2.sushi_PERP_ETH.Underlying, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE_BUYBACK,
     contractAddress: addresses.V2.sushi_PERP_ETH.NewPool,
@@ -1453,7 +1461,7 @@ module.exports = [
     id: 'SUSHI-SUSHI-ETH',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_SUSHI_WETH.NewVault],
+      params: [addresses.V2.sushi_SUSHI_WETH.NewVault, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_SUSHI_WETH.NewPool,
@@ -1491,7 +1499,7 @@ module.exports = [
     id: 'SUSHI-ETH-DAI',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_DAI_WETH],
+      params: [addresses.sushi_DAI_WETH, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_DAI_WETH.NewPool,
@@ -1528,7 +1536,7 @@ module.exports = [
     id: 'SUSHI-ETH-USDC',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_USDC_WETH],
+      params: [addresses.sushi_USDC_WETH, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_USDC_WETH.NewPool,
@@ -1566,7 +1574,7 @@ module.exports = [
     id: 'SUSHI-ETH-USDT',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_USDT_WETH],
+      params: [addresses.sushi_USDT_WETH, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_USDT_WETH.NewPool,
@@ -1604,7 +1612,7 @@ module.exports = [
     id: 'SUSHI-ETH-WBTC',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_WBTC_WETH],
+      params: [addresses.sushi_WBTC_WETH, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_WBTC_WETH.NewPool,
@@ -1642,7 +1650,7 @@ module.exports = [
     id: 'SUSHI-ETH-UST',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_UST_WETH],
+      params: [addresses.sushi_UST_WETH, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_UST_WETH.NewPool,
@@ -2604,7 +2612,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_DAI_WETH],
+      params: [addresses.sushi_DAI_WETH, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-ETH-DAI-HODL',
@@ -2641,7 +2649,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_USDC_WETH],
+      params: [addresses.sushi_USDC_WETH, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-ETH-USDC-HODL',
@@ -2679,7 +2687,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_USDT_WETH],
+      params: [addresses.sushi_USDT_WETH, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-ETH-USDT-HODL',
@@ -2717,7 +2725,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.sushi_WBTC_WETH],
+      params: [addresses.sushi_WBTC_WETH, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-ETH-WBTC-HODL',
@@ -2790,7 +2798,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Muse.Underlying],
+      params: [addresses.V2.nft20_Muse.Underlying, 'uniswap_eth'],
     },
     id: 'farm-muse-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -2829,7 +2837,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Dudes.Underlying],
+      params: [addresses.V2.nft20_Dudes.Underlying, 'uniswap_eth'],
     },
     id: 'farm-dudes20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -2868,7 +2876,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Mask.Underlying],
+      params: [addresses.V2.nft20_Mask.Underlying, 'uniswap_eth'],
     },
     id: 'farm-mask20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -2906,7 +2914,7 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Rope.Underlying],
+      params: [addresses.V2.nft20_Rope.Underlying, 'uniswap_eth'],
     },
     id: 'farm-rope20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -2945,7 +2953,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Mooncat.Underlying],
+      params: [addresses.V2.nft20_Mooncat.Underlying, 'uniswap_eth'],
     },
     id: 'farm-mcat20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -3128,7 +3136,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.pancake_BUSD_BNB.Underlying],
+      params: [addresses.BSC.V2.pancake_BUSD_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'pancakeBUSDBNB',
@@ -3199,7 +3207,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.pancake_CAKE_BNB.Underlying],
+      params: [addresses.BSC.V2.pancake_CAKE_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'pancakeCAKEBNB',
@@ -3237,7 +3245,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.pancake_ETH_BNB.Underlying],
+      params: [addresses.BSC.V2.pancake_ETH_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'pancakeETHBNB',
@@ -3274,7 +3282,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.pancake_USDT_BNB.Underlying],
+      params: [addresses.BSC.V2.pancake_USDT_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'pancakeUSDTBNB',
@@ -3312,7 +3320,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.pancake_XVS_BNB.Underlying],
+      params: [addresses.BSC.V2.pancake_XVS_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'pancakeXVSBNB',
@@ -3616,7 +3624,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Meme.Underlying],
+      params: [addresses.V2.nft20_Meme.Underlying, 'uniswap_eth'],
     },
     id: 'farm-meme20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -3655,7 +3663,7 @@ module.exports = [
     isDegen: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.nft20_Gpunks.Underlying],
+      params: [addresses.V2.nft20_Gpunks.Underlying, 'uniswap_eth'],
     },
     id: 'farm-gpunks20-eth',
     type: POOL_TYPES.INCENTIVE,
@@ -3694,7 +3702,7 @@ module.exports = [
     uniPool: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.uni_ETH_MVI.Underlying],
+      params: [addresses.V2.uni_ETH_MVI.Underlying, 'uniswap_eth'],
     },
     id: 'weth-mvi-uni-farm',
     type: POOL_TYPES.INCENTIVE,
@@ -3800,7 +3808,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.ellipsis_EPS_BNB.Underlying],
+      params: [addresses.BSC.V2.ellipsis_EPS_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'ellipsis_EPS_BNB',
@@ -3869,7 +3877,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.space_SPACE_BNB.Underlying],
+      params: [addresses.BSC.V2.space_SPACE_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'space_SPACE_BNB',
@@ -3906,7 +3914,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.space_SPACE_BUSD.Underlying],
+      params: [addresses.BSC.V2.space_SPACE_BUSD.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'space_SPACE_BUSD',
@@ -3943,7 +3951,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.belt_BELT_BNB.Underlying],
+      params: [addresses.BSC.V2.belt_BELT_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'belt_BELT_BNB',
@@ -4108,7 +4116,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.popsicle_ICE_BNB.NewVault],
+      params: [addresses.BSC.V2.popsicle_ICE_BNB.NewVault, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'popsicle_ICE_BNB',
@@ -4573,8 +4581,8 @@ module.exports = [
     contractAddress: addresses.V2.bal_BAL_WETH.NewPool,
     collateralAddress: addresses.V2.bal_BAL_WETH.NewVault,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.V2.bal_BAL_WETH.PoolId, CHAINS_ID.ETH_MAINNET],
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.V2.bal_BAL_WETH.Underlying, 'balancerv2_eth'],
     },
     rewardAPY: [],
     rewardAPR: null,
@@ -4782,7 +4790,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.uni_FOX_WETH.Underlying],
+      params: [addresses.V2.uni_FOX_WETH.Underlying, 'uniswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'Uni_FOX_WETH',
@@ -4818,7 +4826,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_PHTR_FARM.Underlying],
+      params: [addresses.V2.sushi_PHTR_FARM.Underlying, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-PHTR-FARM',
@@ -4856,7 +4864,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_PHTR_ETH.Underlying],
+      params: [addresses.V2.sushi_PHTR_ETH.Underlying, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'SUSHI-PHTR-ETH',
@@ -4934,6 +4942,10 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.Underlying, 'kyber_matic'],
+    },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JEUR_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
@@ -4964,6 +4976,10 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.Underlying, 'kyber_matic'],
+    },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JGBP_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
@@ -4994,6 +5010,10 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.Underlying, 'kyber_matic'],
+    },
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_JCHF_USDC_HODL',
     type: POOL_TYPES.INCENTIVE,
@@ -5057,8 +5077,8 @@ module.exports = [
     id: 'bal_BTC',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.V2.balancer_BTC.PoolId, CHAINS_ID.MATIC_MAINNET],
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_BTC.Underlying, 'balancerv2_matic'],
     },
     contractAddress: addresses.MATIC.V2.balancer_BTC.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
@@ -5090,8 +5110,8 @@ module.exports = [
     id: 'bal_POLYBASE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.V2.balancer_POLYBASE.PoolId, CHAINS_ID.MATIC_MAINNET],
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_POLYBASE.Underlying, 'balancerv2_matic'],
     },
     contractAddress: addresses.MATIC.V2.balancer_POLYBASE.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
@@ -5124,8 +5144,8 @@ module.exports = [
     id: 'bal_TRICRYPTO',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.V2.balancer_TRICRYPTO.PoolId, CHAINS_ID.MATIC_MAINNET],
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_TRICRYPTO.Underlying, 'balancerv2_matic'],
     },
     contractAddress: addresses.MATIC.V2.balancer_TRICRYPTO.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_TRICRYPTO.NewVault,
@@ -5158,8 +5178,8 @@ module.exports = [
     id: 'bal_STABLE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.BALANCER,
-      params: [addresses.MATIC.V2.balancer_STABLE.PoolId, CHAINS_ID.MATIC_MAINNET],
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_STABLE.Underlying, 'balancerv2_matic'],
     },
     contractAddress: addresses.MATIC.V2.balancer_STABLE.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_STABLE.NewVault,
@@ -5190,7 +5210,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_YEL_ETH.Underlying],
+      params: [addresses.V2.sushi_YEL_ETH.Underlying, 'sushiswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'sushi_YEL_ETH',
