@@ -16,7 +16,10 @@ const {
   contract: { abi },
 } = vaultContractData
 
-const oldVaultImplementations = ['0x3833b631B454AE659a2Ca11104854823009969D4']
+const oldVaultImplementations = [
+  '0x3833b631B454AE659a2Ca11104854823009969D4',
+  '0xdd40f85251AAAB470EE93AC445DE52F512235Caf',
+]
 
 // fromBlock = 12429930: It was the earliest block when Uniswap V3 vaults were deployed
 const getTradingApy = async (
