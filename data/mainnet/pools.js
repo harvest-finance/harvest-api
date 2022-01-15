@@ -6,6 +6,43 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     tradingApyFunction: {
+      type: TRADING_APY_TYPES.MSTABLE,
+      params: ['imUSD', 'polygon'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'mUSD',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.mUSD.NewPool,
+    collateralAddress: addresses.MATIC.V2.mUSD.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://mstable.app/#/musd/save"
+            >
+              mStable
+            </a>
+            and deposit <b>mUSD</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'uniswap_eth'],
     },
