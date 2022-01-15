@@ -39,6 +39,9 @@ const farmsteadUSDCContract = require('../contracts/farmstead-usdc/contract.json
 
 const amplifierContract = require('../contracts/amplifier/contract.json')
 
+const balancerVaultMethods = require('../contracts/balancer-vault/methods')
+const balancerVaultContract = require('../contracts/balancer-vault/contract.json')
+
 module.exports = {
   vault: {
     methods: vaultMethods,
@@ -94,5 +97,9 @@ module.exports = {
   farmsteadUSDC: {
     contract: farmsteadUSDCContract,
     methods: farmsteadUSDCMethods,
+  },
+  balancerVault: {
+    contract: balancerVaultContract,
+    methods: balancerVaultMethods,
   },
 }
