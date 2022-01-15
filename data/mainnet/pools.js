@@ -7,82 +7,6 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.quick_YEL_MATIC.Underlying, 'quickswap_matic'],
-    },
-    chain: CHAINS_ID.MATIC_MAINNET,
-    id: 'quick_YEL_MATIC',
-    type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewPool,
-    collateralAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewVault,
-    rewardAPY: [],
-    rewardAPR: null,
-    rewardTokens: [addresses.MATIC.pYEL],
-    rewardTokenSymbols: ['YEL'],
-    stakeAndDepositHelpMessage: `
-      <div class="help-message">
-        <b>Deposit and stake:</b>
-        <ol class="numeric-list">
-          <li>
-            Go to&nbsp;
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://quickswap.exchange/#/add/${addresses.MATIC.pYEL}/${addresses.MATIC.WMATIC}"
-              >
-                Quickswap
-              </a>
-              and supply liquidity to the <b>YEL-MATIC</b> pair by depositing <b>YEL</b> and
-              <b>MATIC</b>
-          </li>
-          <li>
-            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
-            &quot;Stake for rewards&quot; checked for staking
-          </li>
-        </ol>
-      </div>
-    `,
-  },
-  {
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.popsicle_ICE_WETH.Underlying, 'sushiswap_matic'],
-    },
-    chain: CHAINS_ID.MATIC_MAINNET,
-    id: 'popsicle_ICE_WETH',
-    type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewPool,
-    collateralAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewVault,
-    rewardAPY: [],
-    rewardAPR: null,
-    rewardTokens: [addresses.MATIC.pICE],
-    rewardTokenSymbols: ['ICE'],
-    stakeAndDepositHelpMessage: `
-      <div class="help-message">
-        <b>Deposit and stake:</b>
-        <ol class="numeric-list">
-          <li>
-            Go to&nbsp;
-            <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://app.sushi.com/add/${addresses.MATIC.pWETH}/${addresses.MATIC.pICE}"
-              >
-                Sushiswap
-              </a>
-              and supply liquidity to the <b>ICE-ETH</b> pair by depositing <b>ICE</b> and
-              <b>ETH</b>
-          </li>
-          <li>
-            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
-            &quot;Stake for rewards&quot; checked for staking
-          </li>
-        </ol>
-      </div>
-    `,
-  },
-  {
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
       params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'uniswap_eth'],
     },
     chain: CHAINS_ID.ETH_MAINNET,
@@ -298,6 +222,82 @@ module.exports = [
       </ol>
     </div>
  `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.quick_YEL_MATIC.Underlying, 'quickswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quick_YEL_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.pYEL],
+    rewardTokenSymbols: ['YEL'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://quickswap.exchange/#/add/${addresses.MATIC.pYEL}/${addresses.MATIC.WMATIC}"
+              >
+                Quickswap
+              </a>
+              and supply liquidity to the <b>YEL-MATIC</b> pair by depositing <b>YEL</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.popsicle_ICE_WETH.Underlying, 'sushiswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'popsicle_ICE_WETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.pICE],
+    rewardTokenSymbols: ['ICE'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://app.sushi.com/add/${addresses.MATIC.pWETH}/${addresses.MATIC.pICE}"
+              >
+                Sushiswap
+              </a>
+              and supply liquidity to the <b>ICE-ETH</b> pair by depositing <b>ICE</b> and
+              <b>ETH</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
