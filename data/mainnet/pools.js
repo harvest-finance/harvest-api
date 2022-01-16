@@ -16,8 +16,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.mUSD.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -34,8 +34,7 @@ module.exports = [
             and deposit <b>mUSD</b>
         </li>
         <li>
-          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
-          &quot;Stake for rewards&quot; checked for staking
+          Users deposit mUSD into our vault directly.
         </li>
       </ol>
     </div>

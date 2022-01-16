@@ -3,7 +3,7 @@ const { get } = require('lodash')
 const { cachedAxios } = require('../../../lib/db/models/cache')
 const { MSTABLE_API_URL } = require('../../../lib/constants')
 
-const getApy = async (pair, chain) => {
+const getApy = async (pair, chain, profitSharingFactor) => {
   let apy
 
   try {
@@ -15,7 +15,7 @@ const getApy = async (pair, chain) => {
       0,
     )
 
-    apy = new BigNumber(_apy)
+    apy = new BigNumber(_apy).times(profitSharingFactor)
   } catch (err) {
     console.error('mStable API error: ', err)
     apy = new BigNumber(0)
