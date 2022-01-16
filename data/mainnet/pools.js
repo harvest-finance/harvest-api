@@ -18,27 +18,6 @@ module.exports = [
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
-    stakeAndDepositHelpMessage: `
-    <div class="help-message">
-      <b>Deposit and stake:</b>
-      <ol class="numeric-list">
-        <li>
-          Go to&nbsp;
-          <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://mstable.app/#/musd/save"
-            >
-              mStable
-            </a>
-            and deposit <b>mUSD</b>
-        </li>
-        <li>
-          Users deposit mUSD into our vault directly.
-        </li>
-      </ol>
-    </div>
- `,
   },
   {
     tradingApyFunction: {
