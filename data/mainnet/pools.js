@@ -4808,7 +4808,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.UNIV3_APYVISION,
-      params: [addresses.V2.Univ3_renBTC_wBTC.NewVault, 'uniswap_eth', strat30PercentFactor],
+      params: [addresses.V2.Univ3_renBTC_wBTC.NewVault, 'uniswapv3_eth', strat30PercentFactor],
     },
   },
   {
