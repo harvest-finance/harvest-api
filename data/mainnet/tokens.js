@@ -172,6 +172,27 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['miFARM', 'pGENE'],
   },
+  mUSD: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    category: VAULT_CATEGORIES_IDS.MSTABLE,
+    isNew: true,
+    logoUrl: './icons/mstable.svg',
+    apyIconUrls: ['./icons/mta.svg'],
+    apyTokenSymbols: ['MTA'],
+    displayName: 'mUSD',
+    subLabel: 'mStable',
+    tokenAddress: addresses.MATIC.V2.mUSD.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.mUSD.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_ID, params: ['musd'] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.MSTABLE,
+        params: ['imUSD', 'polygon', profitSharingCut8Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['miFARM', 'wMATIC'],
+  },
   crvCVXCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
     isNew: true,
@@ -5235,6 +5256,14 @@ module.exports = {
       type: GET_PRICE_TYPES.F_TOKEN,
       params: [addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
+  },
+  pMTA: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/mta.svg',
+    tokenAddress: addresses.MATIC.pMTA,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_ID, params: ['meta'] },
   },
   AURFEB22: {
     chain: CHAINS_ID.MATIC_MAINNET,

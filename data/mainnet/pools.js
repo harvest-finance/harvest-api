@@ -6,6 +6,21 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     tradingApyFunction: {
+      type: TRADING_APY_TYPES.MSTABLE,
+      params: ['imUSD', 'polygon'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'mUSD',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.mUSD.NewPool,
+    collateralAddress: addresses.MATIC.V2.mUSD.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+  },
+  {
+    tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'uniswap_eth'],
     },
