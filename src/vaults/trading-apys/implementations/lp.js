@@ -8,7 +8,7 @@ const getTradingApy = async (address, providerKey) => {
 
   try {
     response = await axios.get(
-      `${APY_VISION_API_URL}/pools/${address}?poolProviderKey=${providerKey}&access_token=${APY_VISION_TOKEN}`,
+      `${APY_VISION_API_URL}/pools/${address}?pool_provider_key=${providerKey}&access_token=${APY_VISION_TOKEN}`,
     )
     apy = get(response, 'data.fee_apys_1d', 0) // 1 day moving average APY from trading fees
   } catch (err) {
