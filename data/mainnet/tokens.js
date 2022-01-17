@@ -742,6 +742,7 @@ module.exports = {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.POPSICLE,
     displayName: 'Popsicle: ICE-WETH',
+    isNew: true,
     subLabel: 'Sushiswap',
     apyIconUrls: ['./icons/ICE.png'],
     apyTokenSymbols: ['ICE'],
@@ -798,6 +799,7 @@ module.exports = {
   quick_YEL_MATIC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.YEL,
+    isNew: true,
     logoUrl: './icons/yel-matic.png',
     apyIconUrls: ['./icons/yel.png'],
     apyTokenSymbols: ['YEL'],
