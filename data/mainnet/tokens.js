@@ -65,20 +65,26 @@ module.exports = {
     apyIconUrls: ['./icons/psp.png', './icons/quick.png'],
     apyTokenSymbols: ['PSP', 'dQUICK'],
     logoUrl: './icons/quick-psp-matic.png',
-    tokenAddress: addresses.V2.MATIC.quickswap_PSP_MATIC.Underlying,
+    tokenAddress: addresses.MATIC.V2.quickswap_PSP_MATIC.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.MATIC.quickswap_PSP_MATIC.NewVault,
+    vaultAddress: addresses.MATIC.V2.quickswap_PSP_MATIC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.MATIC.quickswap_PSP_MATIC.Underlying, 'pPSP', 'WMATIC'],
+      params: [addresses.MATIC.V2.quickswap_PSP_MATIC.Underlying, 'pPSP', 'WMATIC'],
     },
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.QUICKSWAP_DUAL_REWARD,
-        params: [addresses.V2.MATIC.quickswap_PSP_MATIC.RewardPool, profitSharingCut8Percent],
+        params: [
+          addresses.MATIC.V2.quickswap_PSP_MATIC.RewardPool,
+          'quickswap_PSP_MATIC',
+          'dQUICK',
+          'pPSP',
+          profitSharingCut8Percent,
+        ],
       },
     ],
-    cmcRewardTokenSymbols: ['miFARM', 'WMATIC', 'pPSP', 'QUICK'],
+    cmcRewardTokenSymbols: ['miFARM', 'WMATIC', 'pPSP', 'dQUICK'],
   },
   LOOKS: {
     chain: CHAINS_ID.ETH_MAINNET,
