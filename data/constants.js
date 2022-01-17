@@ -29,6 +29,8 @@ const VAULT_CATEGORIES_IDS = {
   IDLE: 'IDLE',
   INACTIVE_POLYGON: 'INACTIVE_POLYGON',
   GENOMES: 'GENOMES',
+  POPSICLE: 'POPSICLE',
+  YEL: 'YEL',
 }
 
 const VAULT_CATEGORIES_NAMES = {
@@ -62,6 +64,8 @@ const VAULT_CATEGORIES_NAMES = {
   QUICKSWAP: 'Quickswap',
   IDLE: 'IDLE',
   GENOMES: 'Genomes',
+  POPSICLE: 'Popsicle',
+  YEL: 'YEL',
 }
 
 const CHAINS_ID = {
