@@ -1,4 +1,10 @@
-const { API_KEY, ENDPOINT_TYPES, ACTIVE_ENDPOINTS, DB_CACHE_IDS } = require('../../lib/constants')
+const {
+  API_KEY,
+  ENDPOINT_TYPES,
+  ACTIVE_ENDPOINTS,
+  DB_CACHE_IDS,
+  UPDATE_LOOP_INTERVAL_MS,
+} = require('../../lib/constants')
 const { validateAPIKey, asyncWrap, validateTokenSymbol } = require('./middleware')
 const { Cache } = require('../../lib/db/models/cache')
 const { get } = require('lodash')
@@ -129,6 +135,26 @@ const initRouter = app => {
         res.send(get(cmcData, 'data', {}))
       }),
     )
+
+    app.get(
+      '/token-infos',
+      asyncWrap(async (req, res) => {
+        const cmcData = await Cache.findOne({ type: DB_CACHE_IDS.CMC })
+        const tokenStatsData = await Cache.findOne(
+          { type: DB_CACHE_IDS.STATS },
+          { ['data.tokenStats']: 1 },
+        )
+        const monthlyStatsData = await Cache.findOne(
+          { type: DB_CACHE_IDS.STATS },
+          { ['data.monthlyRevenue']: 1 },
+        )
+        res.send({
+          cmc: get(cmcData, 'data', {}),
+          tokenStats: get(tokenStatsData, 'data.tokenStats', {}),
+          monthly: get(monthlyStatsData, 'data.monthlyRevenue', '0'),
+        })
+      }),
+    )
   }
 
   if (ACTIVE_ENDPOINTS === ENDPOINT_TYPES.ALL || ACTIVE_ENDPOINTS === ENDPOINT_TYPES.INTERNAL) {
@@ -168,6 +194,29 @@ const initRouter = app => {
       }),
     )
   }
+
+  // api health
+  app.get(
+    '/health',
+    asyncWrap(async (req, res) => {
+      const vaultsData = await Cache.findOne({ type: DB_CACHE_IDS.VAULTS })
+      const poolsData = await Cache.findOne({ type: DB_CACHE_IDS.POOLS })
+      const vaultsUpdateTime = get(vaultsData, 'updatedAt')
+      const vaultsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
+      const poolsUpdateTime = get(poolsData, 'updatedAt')
+      const poolsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
+      res.send({
+        vaults: {
+          updatedAt: vaultsUpdateTime,
+          status: vaultsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+        },
+        pools: {
+          updatedAt: poolsUpdateTime,
+          status: poolsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+        },
+      })
+    }),
+  )
 }
 
 module.exports = { initRouter }
