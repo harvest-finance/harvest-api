@@ -9,6 +9,7 @@ const { validateAPIKey, asyncWrap, validateTokenSymbol } = require('./middleware
 const { Cache } = require('../../lib/db/models/cache')
 const { get } = require('lodash')
 const { default: BigNumber } = require('bignumber.js')
+const { format } = require('timeago.js')
 
 const initRouter = app => {
   app.use(validateAPIKey(API_KEY))
@@ -137,7 +138,7 @@ const initRouter = app => {
     )
 
     app.get(
-      '/token-infos',
+      '/tokens-info',
       asyncWrap(async (req, res) => {
         const cmcData = await Cache.findOne({ type: DB_CACHE_IDS.CMC })
         const tokenStatsData = await Cache.findOne(
@@ -162,14 +163,11 @@ const initRouter = app => {
       '/pools',
       asyncWrap(async (req, res) => {
         const allPools = await Cache.findOne({ type: DB_CACHE_IDS.POOLS })
-        const uiData = await Cache.findOne(
-          { type: DB_CACHE_IDS.UI_DATA },
-          { 'data.pools.updatedAt': 1 },
-        )
+        const updatedAt = get(allPools, 'updatedAt')
         res.send({
           updatedAt: {
-            apiData: get(allPools, 'updatedAt'),
-            uiData: get(uiData, 'data.pools.updatedAt'),
+            apiData: updatedAt,
+            lastUpdated: format(updatedAt),
           },
           ...get(allPools, 'data', {}),
         })
@@ -180,14 +178,11 @@ const initRouter = app => {
       '/vaults',
       asyncWrap(async (req, res) => {
         const allVaults = await Cache.findOne({ type: DB_CACHE_IDS.VAULTS })
-        const uiData = await Cache.findOne(
-          { type: DB_CACHE_IDS.UI_DATA },
-          { 'data.tokens.updatedAt': 1 },
-        )
+        const updatedAt = get(allVaults, 'updatedAt')
         res.send({
           updatedAt: {
-            apiData: get(allVaults, 'updatedAt'),
-            uiData: get(uiData, 'data.tokens.updatedAt'),
+            apiData: updatedAt,
+            lastUpdated: format(updatedAt),
           },
           ...get(allVaults, 'data', {}),
         })
@@ -208,10 +203,12 @@ const initRouter = app => {
       res.send({
         vaults: {
           updatedAt: vaultsUpdateTime,
+          lastUpdated: format(vaultsUpdateTime),
           status: vaultsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
         },
         pools: {
           updatedAt: poolsUpdateTime,
+          lastUpdated: format(poolsUpdateTime),
           status: poolsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
         },
       })
