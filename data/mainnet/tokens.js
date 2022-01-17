@@ -744,7 +744,7 @@ module.exports = {
     displayName: 'Popsicle: ICE-WETH',
     isNew: true,
     subLabel: 'Sushiswap',
-    apyIconUrls: ['./icons/ICE.png'],
+    apyIconUrls: ['./icons/ice.png'],
     apyTokenSymbols: ['ICE'],
     logoUrl: './icons/ice-eth.png',
     tokenAddress: addresses.MATIC.V2.popsicle_ICE_WETH.Underlying,
