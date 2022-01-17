@@ -1600,6 +1600,7 @@
     "msig": "0x39cC360806b385C96969ce9ff26c23476017F652",
     "pGENE": "0x34667ED7C36cBBbF2d5d5c5c8d6Eb76a094EDb9F",
     "pGNOME": "0x6E8a8726639d12935b3219892155520bdC57366B",
+    "pPSP": "0x42d61D766B85431666B39B89C43011f24451bFf6",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1748,6 +1749,13 @@
         "NewVault": "0x948aD16CD52a1658B404fE67ED7a56360F52cE08",
         "NewStrategy": "0x7571FEbd37190caaF071D7D7AA17d3704EF44e0d",
         "NewPool": "0x0a0be71cfcE12ECb966dC762016C28eF5640B56a"
+      },
+      "quickswap_PSP_MATIC": {
+        "Underlying": "0x7AfC060acCA7ec6985d982dD85cC62B111CAc7a7",
+        "NewVault": "0x54Bc6af48464510838e81fDdda4de53B2d65f32a",
+        "NewStrategy": "0x8cB98c8FD5740665E88827D45bEC42c00A8d4322",
+        "NewPool": "0x77050b56e8aC54b14e207D1E013c2719ed7C71Ab",
+        "RewardPool": "0x64D2B3994F64E3E82E48CC92e1122489e88e8727"
       }
     }
   }

@@ -46,6 +46,40 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  pPSP: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/psp.png',
+    tokenAddress: addresses.MATIC.pPSP,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['paraswap'],
+    },
+  },
+  quickswap_PSP_MATIC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    category: VAULT_CATEGORIES_IDS.QUICKSWAP,
+    isNew: true,
+    displayName: 'Quickswap: PSP-MATIC',
+    apyIconUrls: ['./icons/psp.png', './icons/quick.png'],
+    apyTokenSymbols: ['PSP', 'dQUICK'],
+    logoUrl: './icons/quick-psp-matic.png',
+    tokenAddress: addresses.V2.MATIC.quickswap_PSP_MATIC.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.MATIC.quickswap_PSP_MATIC.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.MATIC.quickswap_PSP_MATIC.Underlying, 'pPSP', 'WMATIC'],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.QUICKSWAP_DUAL_REWARD,
+        params: [addresses.V2.MATIC.quickswap_PSP_MATIC.RewardPool, profitSharingCut8Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['miFARM', 'WMATIC', 'pPSP', 'QUICK'],
+  },
   LOOKS: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/looks.png',
