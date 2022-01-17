@@ -1603,6 +1603,7 @@
     "pMTA": "0xF501dd45a1198C2E1b5aEF5314A68B9006D842E0",
     "pYEL": "0xD3b71117E6C1558c1553305b44988cd944e97300",
     "pICE": "0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59",
+    "pPSP": "0x42d61D766B85431666B39B89C43011f24451bFf6",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1771,6 +1772,13 @@
         "NewStrategy": "0x2e5A5455411DE1AFb9Bf81f11fD764B9bCc0674E",
         "NewPool": "0xB2a1727Db618D6614c57ccdc7e70F3d930BFDe11",
         "PoolId": 1
+      },
+      "quickswap_PSP_MATIC": {
+        "Underlying": "0x7AfC060acCA7ec6985d982dD85cC62B111CAc7a7",
+        "NewVault": "0x54Bc6af48464510838e81fDdda4de53B2d65f32a",
+        "NewStrategy": "0x8cB98c8FD5740665E88827D45bEC42c00A8d4322",
+        "NewPool": "0x77050b56e8aC54b14e207D1E013c2719ed7C71Ab",
+        "RewardPool": "0x64D2B3994F64E3E82E48CC92e1122489e88e8727"
       }
     }
   }
