@@ -288,8 +288,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.pYEL],
-    rewardTokenSymbols: ['YEL'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -326,8 +326,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.pICE],
-    rewardTokenSymbols: ['ICE'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
