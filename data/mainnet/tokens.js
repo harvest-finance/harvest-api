@@ -1286,7 +1286,7 @@ module.exports = {
         params: [
           addresses.V2.bal_BAL_WETH.Underlying,
           addresses.V2.bal_BAL_WETH.PoolId,
-          '30000',
+          '25000',
           strat30PercentFactor,
           CHAINS_ID.ETH_MAINNET,
         ],
@@ -5634,7 +5634,7 @@ module.exports = {
         params: [
           addresses.MATIC.V2.balancer_STABLE.Underlying,
           addresses.MATIC.V2.balancer_STABLE.PoolId,
-          '2500',
+          '2400',
           profitSharingCut8Percent,
           CHAINS_ID.MATIC_MAINNET,
           addresses.MATIC.QI,
