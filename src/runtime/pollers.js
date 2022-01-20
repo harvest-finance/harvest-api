@@ -380,6 +380,9 @@ const getWeeklyBuybacks = async () => {
                 pool.collateralAddress.toLowerCase() === vault.vaultAddress.toLowerCase()),
           )
           estimatedApy = poolToFetch.tradingApy
+          if (vault.estimatedApy > 0) {
+            estimatedApy = Number(estimatedApy) + Number(vault.estimatedApy)
+          }
         } else if (vault.category == 'SUSHI_HODL') {
           profitSharingFactor = 0.85
           estimatedApy = vault.estimatedApy
