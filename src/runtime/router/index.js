@@ -52,6 +52,45 @@ const initRouter = app => {
     )
 
     app.get(
+      '/buybacks/total',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuyback'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/per-network',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuybackPerNetwork'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/per-vault',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuybackPerVault'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/:symbol',
+      validateTokenSymbol,
+      asyncWrap(async (req, res) => {
+        const tokenSymbol = req.params.symbol.toUpperCase()
+
+        const dbField = `data.weeklyBuybackPerVault.${tokenSymbol}`
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, '0'))
+      }),
+    )
+
+    app.get(
       '/revenue/_debug',
       asyncWrap(async (req, res) => {
         const results = {}
