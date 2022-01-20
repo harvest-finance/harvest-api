@@ -1,5 +1,6 @@
 const hre = require('hardhat')
 const fs = require('fs')
+const axios = require('axios')
 
 const IERC20Abi = require('./abi/IERC20Upgradeable.json')
 const IControllerV1Abi = require('./abi/Controller.json')
@@ -153,18 +154,48 @@ async function roughQuoteXInMATIC(xAmount, xAddress, xMATICLPPair) {
 }
 
 // determines the gas price by taking the minimum of "locally set max gas" and the gas price returned from api
-async function getGasPrice() {
-  return 65000000000 // 65 gwei in Polygon
+async function getFeeData() {
+  const gasPriceMin = 65e9 // 65 gwei minimum in Polygon
+  const maxPriorityFeePerGas = 2.51e9
+
+  let fee = await axios
+    .get('https://owlracle.info/poly/gas?accept=90&apikey=' + settings.owlracleApiKey)
+    .then(response => {
+      return parseFloat(response.data.speeds[0].gasPrice) * 1e9
+    })
+    .catch(error => {
+      console.log(error)
+      return 0
+    })
+
+  if (fee < gasPriceMin) {
+    fee = gasPriceMin
+  } else if (fee > settings.gasPriceMax) {
+    fee = settings.gasPriceMax
+  }
+  return { maxFeePerGas: fee, maxPriorityFeePerGas: maxPriorityFeePerGas }
 }
 
 // properly setup the txSenderInfo for sending
 async function formulateTxSenderInfo(sender) {
-  let submitGasPrice = await getGasPrice()
+  let submitGasPrice = await getFeeData()
   let nonce = await web3.eth.getTransactionCount(sender)
 
-  console.log('gasPrice: ', submitGasPrice)
+  console.log(
+    'maxFeePerGas:',
+    submitGasPrice.maxFeePerGas / 1e9,
+    'maxPriorityFeePerGas:',
+    submitGasPrice.maxPriorityFeePerGas / 1e9,
+  )
 
-  const txSenderInfo = { gasPrice: submitGasPrice, gas: settings.gasLimit, nonce, from: sender }
+  const txSenderInfo = {
+    type: 2,
+    maxFeePerGas: submitGasPrice.maxFeePerGas,
+    maxPriorityFeePerGas: submitGasPrice.maxPriorityFeePerGas,
+    gasLimit: settings.gasLimit,
+    nonce,
+    from: sender,
+  }
   return txSenderInfo
 }
 
@@ -249,7 +280,8 @@ async function main() {
         let tx = await controller.methods.doHardWork(vaultAddress).send(txSenderInfo)
         console.timeEnd('doHardwork simulation')
 
-        let maticCost = tx.gasUsed * txSenderInfo.gasPrice
+        const gasPrice = txSenderInfo.maxFeePerGas + txSenderInfo.maxPriorityFeePerGas
+        let maticCost = tx.gasUsed * gasPrice
         let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call()
         ethProfit = ethInProfitShareAfter - ethInProfitShareBefore
         let roughProfitInMatic = await roughQuoteXInMATIC(
