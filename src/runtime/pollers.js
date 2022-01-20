@@ -340,6 +340,96 @@ const getTotalGmv = async () => {
   console.log('-- Done getting total GMV --\n')
 }
 
+const getWeeklyBuybacks = async () => {
+  console.log('\n-- Getting weekly buybacks --')
+
+  const vaults = await loadData(Cache, DB_CACHE_IDS.VAULTS)
+  const pools = await loadData(Cache, DB_CACHE_IDS.POOLS)
+  if (!vaults) {
+    console.log(`Error getting weekly buybacks due to missing data. Vaults: ${vaults}`)
+    return
+  } else if (!pools) {
+    console.log(`Error getting weekly buybacks due to missing data. Pools: ${pools}`)
+    return
+  }
+
+  let totalWeeklyBuyback = new BigNumber(0),
+    hasErrors
+
+  const weeklyBuybackList = {},
+    weeklyBuybackPerNetworkList = {}
+
+  for (let networkId in vaults) {
+    let weeklyBuybackPerNetwork = new BigNumber(0)
+    for (let symbol in vaults[networkId]) {
+      const vault = vaults[networkId][symbol]
+      let weeklyBuyback = 0
+      if (!vault.inactive && symbol != 'IFARM') {
+        const tokenGmv = vault.totalValueLocked
+        let profitSharingFactor = getProfitSharingFactor(vault.chain)
+        let estimatedApy
+        if (
+          vault.category == 'UNIV3' ||
+          vault.category[0] == 'UNIV3' ||
+          vault.category[1] == 'UNIV3'
+        ) {
+          const poolToFetch = pools[networkId].find(
+            pool =>
+              pool.id === symbol ||
+              (pool.collateralAddress &&
+                pool.collateralAddress.toLowerCase() === vault.vaultAddress.toLowerCase()),
+          )
+          estimatedApy = poolToFetch.tradingApy
+        } else if (vault.category == 'SUSHI_HODL') {
+          profitSharingFactor = 0.85
+          estimatedApy = vault.estimatedApy
+        } else {
+          estimatedApy = vault.estimatedApy
+        }
+
+        const dailyApr = Math.pow(Number(estimatedApy / 100) + 1, 1 / 365) - 1
+        const weeklyApr = dailyApr * 7
+
+        const weeklyRevenue = new BigNumber(tokenGmv)
+          .multipliedBy(weeklyApr)
+          .dividedBy(profitSharingFactor)
+
+        weeklyBuyback = weeklyRevenue.times(1 - profitSharingFactor)
+
+        weeklyBuybackList[symbol] = weeklyBuyback.toString()
+
+        console.log(
+          'Got weekly profit for: ',
+          symbol,
+          ':',
+          weeklyBuyback.toFixed(4),
+          '|',
+          tokenGmv,
+          estimatedApy,
+          profitSharingFactor,
+        )
+      } else {
+        weeklyBuybackList[symbol] = '0'
+      }
+      totalWeeklyBuyback = totalWeeklyBuyback.plus(weeklyBuyback)
+      weeklyBuybackPerNetwork = weeklyBuybackPerNetwork.plus(weeklyBuyback)
+    }
+    weeklyBuybackPerNetworkList[networkId] = weeklyBuybackPerNetwork.toString()
+  }
+
+  await storeData(
+    Cache,
+    DB_CACHE_IDS.STATS,
+    {
+      weeklyBuyback: totalWeeklyBuyback.toFixed(),
+      weeklyBuybackPerVault: weeklyBuybackList,
+      weeklyBuybackPerNetwork: weeklyBuybackPerNetworkList,
+    },
+    hasErrors,
+  )
+  console.log('-- Done getting weekly buybacks --\n')
+}
+
 const getTotalRevenue = async () => {
   console.log('\n-- Getting total revenue --')
 
@@ -671,6 +761,12 @@ const runUpdateLoop = async () => {
     await getTotalGmv()
     if (DEBUG_MODE) {
       updateCallCountCache('gmv')
+      resetCallCount()
+    }
+
+    await getWeeklyBuybacks()
+    if (DEBUG_MODE) {
+      updateCallCountCache('profit')
       resetCallCount()
     }
 
