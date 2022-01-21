@@ -39,7 +39,14 @@ async function pushMetrics(labels) {
     })
 }
 
-async function reportSimulationProfit(vault, block, ethProfit, execute) {
+async function reportSimulationProfit(
+  vault,
+  block,
+  ethProfit,
+  execute,
+  maxFeePerGas,
+  maxPriorityFeePerGas,
+) {
   if (!settings.prometheusMonitoring || settings.prometheusMonitoring.enabled !== true) {
     return
   }
@@ -66,6 +73,22 @@ async function reportSimulationProfit(vault, block, ethProfit, execute) {
   })
   register.registerMetric(executeMetric)
   executeMetric.set(execute == true ? 1 : 0)
+
+  const gasFeeMetric = new promClient.Gauge({
+    name: 'eth_gas_fee',
+    help: 'transaction gas fee - maxFeePerGas',
+    registers: [register],
+  })
+  register.registerMetric(gasFeeMetric)
+  gasFeeMetric.set(maxFeePerGas)
+
+  const gasPriorityFeeMetric = new promClient.Gauge({
+    name: 'eth_gas_priority_fee',
+    help: 'transaction gas priority fee - maxPriorityFeePerGas',
+    registers: [register],
+  })
+  register.registerMetric(gasPriorityFeeMetric)
+  gasPriorityFeeMetric.set(maxPriorityFeePerGas)
 
   let labels = {
     jobName: vault,
@@ -156,7 +179,6 @@ async function roughQuoteXInMATIC(xAmount, xAddress, xMATICLPPair) {
 // determines the gas price by taking the minimum of "locally set max gas" and the gas price returned from api
 async function getFeeData() {
   const gasPriceMin = 65e9 // 65 gwei minimum in Polygon
-  const maxPriorityFeePerGas = 2.51e9
 
   let fee = await axios
     .get('https://owlracle.info/poly/gas?accept=90&apikey=' + settings.owlracleApiKey)
@@ -173,7 +195,12 @@ async function getFeeData() {
   } else if (fee > settings.gasPriceMax) {
     fee = settings.gasPriceMax
   }
-  return { maxFeePerGas: fee, maxPriorityFeePerGas: maxPriorityFeePerGas }
+
+  let priorityFee = fee / 3
+  if (priorityFee > settings.priorityFeeMax) {
+    priorityFee = settings.priorityFeeMax
+  }
+  return { maxFeePerGas: fee, maxPriorityFeePerGas: priorityFee }
 }
 
 // properly setup the txSenderInfo for sending
@@ -329,7 +356,14 @@ async function main() {
 
     fs.writeFileSync('./vault-decision.json', JSON.stringify(decision), 'utf-8')
     console.log('Decision wrote in file.')
-    await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
+    await reportSimulationProfit(
+      curVaultKey,
+      currentSimBlock,
+      ethProfit,
+      executeFlag,
+      txSenderInfo.maxFeePerGas / 1e9,
+      txSenderInfo.maxPriorityFeePerGas / 1e9,
+    )
   } else if (process.env.HARDHAT_NETWORK == 'cron_mainnet') {
     let hardworker = accounts[0].address
     let txSenderInfo = await formulateTxSenderInfo(hardworker)

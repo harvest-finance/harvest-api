@@ -6,6 +6,7 @@
 ```
 {
   "gasPriceMax": "901000000000",
+  "priorityFeeMax": "50000000000",
   "gasLimit": "3500000",
   "prometheusMonitoring" : {
     "enabled": false,
