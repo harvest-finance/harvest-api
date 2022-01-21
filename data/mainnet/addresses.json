@@ -1512,7 +1512,8 @@
         "StrategyContract": "BeltStrategyMainnet_BELT_BNB",
         "NewStrategy": "0x497173d620560440BD715202a2fA0a39491B6402",
         "NewPool": "0x8E8Ca3719360809cd4BFe175De58992E7d3e7874",
-        "PoolId": "11"
+        "PoolId": "11",
+        "doHardwork": false
       },
       "swirl_SWIRL_BNB": {
         "Underlying": "0x135AeDCFb35b0b5dCf61Db7891a21253452Eb970",
