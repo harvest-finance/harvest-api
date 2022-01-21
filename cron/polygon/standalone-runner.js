@@ -280,8 +280,7 @@ async function main() {
         let tx = await controller.methods.doHardWork(vaultAddress).send(txSenderInfo)
         console.timeEnd('doHardwork simulation')
 
-        const gasPrice = txSenderInfo.maxFeePerGas + txSenderInfo.maxPriorityFeePerGas
-        let maticCost = tx.gasUsed * gasPrice
+        let maticCost = tx.gasUsed * txSenderInfo.maxFeePerGas
         let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call()
         ethProfit = ethInProfitShareAfter - ethInProfitShareBefore
         let roughProfitInMatic = await roughQuoteXInMATIC(
