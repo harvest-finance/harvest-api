@@ -2977,7 +2977,6 @@ module.exports = {
     },
   },
   FARM_GRAIN_LP: {
-    inactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
     displayName: 'FARM/GRAIN',
     logoUrl: './icons/farm-grain.png',
