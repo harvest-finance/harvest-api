@@ -183,7 +183,7 @@ async function getFeeData() {
   let fee = await axios
     .get('https://owlracle.info/poly/gas?accept=90&apikey=' + settings.owlracleApiKey)
     .then(response => {
-      return parseFloat(response.data.speeds[0].gasPrice) * 1e9
+      return Math.round(parseFloat(response.data.speeds[0].gasPrice) * 1e9)
     })
     .catch(error => {
       console.log(error)
@@ -196,7 +196,7 @@ async function getFeeData() {
     fee = settings.gasPriceMax
   }
 
-  let priorityFee = fee / 3
+  let priorityFee = Math.round(fee / 3)
   if (priorityFee > settings.priorityFeeMax) {
     priorityFee = settings.priorityFeeMax
   }
