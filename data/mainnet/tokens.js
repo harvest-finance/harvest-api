@@ -783,15 +783,15 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        extraDailyCompound: false,
-        type: 'UNIV3_SETH2',
-        params: [addresses.V2.UniV3_ETH_sETH2.NewVault],
+        type: 'STAKEWISE',
+        params: [
+          addresses.V2.UniV3_ETH_sETH2.NewVault,
+          '0x7379e81228514a1D2a6Cf7559203998E20598346',
+          strat30PercentFactor,
+        ],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'WETH', 'sETH2', 'rETH2', 'SWISE'],
-    apyDescriptionOverride: [
-      'Auto harvested <b>rETH2, SWISE</b>, the value also includes the trading APY',
-    ],
   },
   zUSD: {
     chain: CHAINS_ID.ETH_MAINNET,
