@@ -12,6 +12,7 @@ const {
   getRewardPerBlockForStaking,
 } = require('../../../lib/web3/contracts/looks-distributor/methods')
 const { getTokenPrice } = require('../../../prices')
+const { getDailyCompound } = require('../../../lib/utils.js')
 
 const getTradingApy = async rewardPool => {
   const rewardPoolInstance = new web3.eth.Contract(looksFeeShare.abi, rewardPool)
@@ -37,9 +38,10 @@ const getTradingApy = async rewardPool => {
   const totalSupplyInUsd = totalSupply.multipliedBy(stakedPrice)
   const rewardInUsdPerYear = new BigNumber(stakedPrice).times(rewardPerBlock).times(blocksPerYear)
 
-  let apy = rewardInUsdPerYear.div(totalSupplyInUsd)
+  const apr = rewardInUsdPerYear.div(totalSupplyInUsd).times(100)
+  const apy = getDailyCompound(apr)
 
-  return apy.multipliedBy(100).toFixed(2, 1)
+  return apy
 }
 
 module.exports = {
