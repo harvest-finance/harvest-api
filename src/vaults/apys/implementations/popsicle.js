@@ -1,4 +1,4 @@
-const { web3BSC } = require('../../../lib/web3')
+const { web3BSC, web3MATIC } = require('../../../lib/web3')
 const BigNumber = require('bignumber.js')
 const getLPTokenPrice = require('../../../prices/implementations/lp-token.js').getPrice
 const { token: tokenContractData } = require('../../../lib/web3/contracts')
@@ -9,6 +9,7 @@ const {
   getIcePerSecond,
 } = require('../../../lib/web3/contracts/popsicle-masterchef/methods')
 const { getTokenPrice } = require('../../../prices')
+const { CHAIN_TYPES } = require('../../../lib/constants')
 
 const getPopsiclePoolWeight = async (poolInfo, popsicleInstance) => {
   const totalAllocPoint = await getTotalAllocPointPopsicle(popsicleInstance)
@@ -16,22 +17,28 @@ const getPopsiclePoolWeight = async (poolInfo, popsicleInstance) => {
   return new BigNumber(poolInfo.allocPoint).div(new BigNumber(totalAllocPoint))
 }
 
-const getApy = async (poolId, firstToken, secondToken, reduction) => {
+const popsicleMaticMasterchefAddress = '0xbf513aCe2AbDc69D38eE847EFFDaa1901808c31c'
+const getApy = async (poolId, firstToken, secondToken, reduction, networkId) => {
   const {
     methods: { getBalance },
     contract: { abi },
   } = tokenContractData
 
+  let provider, contractAddress
+  if (networkId == CHAIN_TYPES.BSC) {
+    provider = web3BSC
+    contractAddress = popsicleMasterContract.address.mainnet
+  } else if (networkId == CHAIN_TYPES.MATIC) {
+    provider = web3MATIC
+    contractAddress = popsicleMaticMasterchefAddress
+  }
   const icePriceInUsd = await getTokenPrice('ice-token')
 
-  const popsicleInstance = new web3BSC.eth.Contract(
-    popsicleMasterContract.abi,
-    popsicleMasterContract.address.mainnet,
-  )
+  const popsicleInstance = new provider.eth.Contract(popsicleMasterContract.abi, contractAddress)
 
   const poolInfo = await getPoolInfoPopsicle(poolId, popsicleInstance)
 
-  const tokenInstance = new web3BSC.eth.Contract(abi, poolInfo.stakingToken)
+  const tokenInstance = new provider.eth.Contract(abi, poolInfo.stakingToken)
 
   const poolWeight = await getPopsiclePoolWeight(poolInfo, popsicleInstance)
 

@@ -1,8 +1,15 @@
-const { API_KEY, ENDPOINT_TYPES, ACTIVE_ENDPOINTS, DB_CACHE_IDS } = require('../../lib/constants')
+const {
+  API_KEY,
+  ENDPOINT_TYPES,
+  ACTIVE_ENDPOINTS,
+  DB_CACHE_IDS,
+  UPDATE_LOOP_INTERVAL_MS,
+} = require('../../lib/constants')
 const { validateAPIKey, asyncWrap, validateTokenSymbol } = require('./middleware')
 const { Cache } = require('../../lib/db/models/cache')
 const { get } = require('lodash')
 const { default: BigNumber } = require('bignumber.js')
+const { format } = require('timeago.js')
 
 const initRouter = app => {
   app.use(validateAPIKey(API_KEY))
@@ -41,6 +48,45 @@ const initRouter = app => {
         const dbField = 'data.tokenStats'
         const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
         res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/total',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuyback'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/per-network',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuybackPerNetwork'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/per-vault',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.weeklyBuybackPerVault'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
+
+    app.get(
+      '/buybacks/:symbol',
+      validateTokenSymbol,
+      asyncWrap(async (req, res) => {
+        const tokenSymbol = req.params.symbol.toUpperCase()
+
+        const dbField = `data.weeklyBuybackPerVault.${tokenSymbol}`
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+        res.send(get(queryResponse, dbField, '0'))
       }),
     )
 
@@ -129,6 +175,26 @@ const initRouter = app => {
         res.send(get(cmcData, 'data', {}))
       }),
     )
+
+    app.get(
+      '/tokens-info',
+      asyncWrap(async (req, res) => {
+        const cmcData = await Cache.findOne({ type: DB_CACHE_IDS.CMC })
+        const tokenStatsData = await Cache.findOne(
+          { type: DB_CACHE_IDS.STATS },
+          { ['data.tokenStats']: 1 },
+        )
+        const monthlyStatsData = await Cache.findOne(
+          { type: DB_CACHE_IDS.STATS },
+          { ['data.monthlyRevenue']: 1 },
+        )
+        res.send({
+          cmc: get(cmcData, 'data', {}),
+          tokenStats: get(tokenStatsData, 'data.tokenStats', {}),
+          monthly: get(monthlyStatsData, 'data.monthlyRevenue', '0'),
+        })
+      }),
+    )
   }
 
   if (ACTIVE_ENDPOINTS === ENDPOINT_TYPES.ALL || ACTIVE_ENDPOINTS === ENDPOINT_TYPES.INTERNAL) {
@@ -136,14 +202,11 @@ const initRouter = app => {
       '/pools',
       asyncWrap(async (req, res) => {
         const allPools = await Cache.findOne({ type: DB_CACHE_IDS.POOLS })
-        const uiData = await Cache.findOne(
-          { type: DB_CACHE_IDS.UI_DATA },
-          { 'data.pools.updatedAt': 1 },
-        )
+        const updatedAt = get(allPools, 'updatedAt')
         res.send({
           updatedAt: {
-            apiData: get(allPools, 'updatedAt'),
-            uiData: get(uiData, 'data.pools.updatedAt'),
+            apiData: updatedAt,
+            lastUpdated: format(updatedAt),
           },
           ...get(allPools, 'data', {}),
         })
@@ -154,20 +217,42 @@ const initRouter = app => {
       '/vaults',
       asyncWrap(async (req, res) => {
         const allVaults = await Cache.findOne({ type: DB_CACHE_IDS.VAULTS })
-        const uiData = await Cache.findOne(
-          { type: DB_CACHE_IDS.UI_DATA },
-          { 'data.tokens.updatedAt': 1 },
-        )
+        const updatedAt = get(allVaults, 'updatedAt')
         res.send({
           updatedAt: {
-            apiData: get(allVaults, 'updatedAt'),
-            uiData: get(uiData, 'data.tokens.updatedAt'),
+            apiData: updatedAt,
+            lastUpdated: format(updatedAt),
           },
           ...get(allVaults, 'data', {}),
         })
       }),
     )
   }
+
+  // api health
+  app.get(
+    '/health',
+    asyncWrap(async (req, res) => {
+      const vaultsData = await Cache.findOne({ type: DB_CACHE_IDS.VAULTS })
+      const poolsData = await Cache.findOne({ type: DB_CACHE_IDS.POOLS })
+      const vaultsUpdateTime = get(vaultsData, 'updatedAt')
+      const vaultsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
+      const poolsUpdateTime = get(poolsData, 'updatedAt')
+      const poolsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
+      res.send({
+        vaults: {
+          updatedAt: vaultsUpdateTime,
+          lastUpdated: format(vaultsUpdateTime),
+          status: vaultsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+        },
+        pools: {
+          updatedAt: poolsUpdateTime,
+          lastUpdated: format(poolsUpdateTime),
+          status: poolsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+        },
+      })
+    }),
+  )
 }
 
 module.exports = { initRouter }

@@ -64,39 +64,7 @@ function convertFromForEthereumMainnet(filePath, vaultsObject, statefulEmissions
   }
 
   function isVestingOn(poolAddress) {
-    return (
-      [
-        'WETH',
-        'UniV3_USDC_ETH',
-        'Univ3_USDC_ETH_1400_2400',
-        'UniV3_USDC_ETH_3000_4500',
-        'UniV3_USDC_USDT',
-        'UniV3_WBTC_ETH',
-        'UniV3_ETH_USDT',
-        'Univ3_USDT_ETH_1400_2400',
-        'UniV3_USDT_ETH_3000_4500',
-        'UniV3_DAI_USDC',
-        'UniV3_DAI_ETH',
-        'Univ3_DAI_ETH_1400_2400',
-        'UniV3_DAI_ETH_3000_4500',
-        'UniV3_UNI_ETH',
-        'UniV3_UST_USDT',
-        'Univ3_BUSD_USDC',
-        'Univ3_renBTC_wBTC',
-        'UniV3_ZUSD_ETH',
-        'UniV3_ETH_sETH2',
-        'UniV3_USDC_ETH_4200_5500',
-        'UniV3_ETH_USDT_4200_5500',
-        'UniV3_DAI_ETH_4200_5500',
-      ].find(key => {
-        try {
-          vaultsObject[key].NewPool
-        } catch (e) {
-          console.error(key)
-        }
-        return vaultsObject[key].NewPool === poolAddress
-      }) !== undefined
-    )
+    return poolAddress !== 'nothing' && false // making linter happy
   }
 
   const addresses = {

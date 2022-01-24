@@ -7,6 +7,7 @@ const INFURA_WS_URL =
 const COINGECKO_PRICE_API_ENDPOINT_CONTRACT = 'https://api.coingecko.com/api/v3/simple/token_price'
 const COINGECKO_PRICE_API_ENDPOINT_ID = 'https://api.coingecko.com/api/v3/simple/price'
 const API_KEY = process.env.API_KEY || 'harvest-key'
+const APY_VISION_TOKEN = process.env.APY_VISION_TOKEN
 
 const POOL_TYPES = {
   INCENTIVE: 'INCENTIVE',
@@ -62,6 +63,7 @@ const ESTIMATED_APY_TYPES = {
   CONVEX: 'CONVEX',
   BALANCER: 'BALANCER',
   BALANCER_POLYGON: 'BALANCER_POLYGON',
+  MSTABLE: 'MSTABLE',
 }
 
 const TRADING_APY_TYPES = {
@@ -73,6 +75,7 @@ const TRADING_APY_TYPES = {
   CONVEX: 'CONVEX',
   BELT: 'BELT',
   VENUS: 'VENUS',
+  MSTABLE: 'MSTABLE',
 }
 
 const COLLATERAL_TYPE = {
@@ -173,6 +176,7 @@ const BDO_API_URL = 'https://api.bdollar.fi/api/bdollar/'
 const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
 const BELT_API_URL = 'https://s.belt.fi/info/all.json'
+const MSTABLE_API_URL = 'https://api.mstable.org/pools'
 
 const BALANCER_SUBGRAPH_URLS = {
   ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
@@ -222,6 +226,7 @@ module.exports = {
   COINGECKO_PRICE_API_ENDPOINT_ID,
   API_KEY,
   APY_VISION_API_URL,
+  APY_VISION_TOKEN,
   POOL_TYPES,
   GET_PRICE_TYPES,
   ESTIMATED_APY_TYPES,
@@ -246,6 +251,7 @@ module.exports = {
   ELLIPSIS_API_URL,
   SWIRL_API_URL,
   BELT_API_URL,
+  MSTABLE_API_URL,
   DEBUG_MODE,
   DB_CACHE_IDS,
   PROFIT_SHARING_POOL_ID,

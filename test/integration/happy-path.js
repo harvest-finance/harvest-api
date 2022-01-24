@@ -122,6 +122,48 @@ describe('Happy Paths', function () {
         })
     })
 
+    it('queries /buybacks/total', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/total?key=${harvestKey}`)
+        .expect('Content-Type', /text/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.text)
+        })
+    })
+
+    it('queries /buybacks/per-network', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/per-network?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.body.matic)
+          assertValidPositiveNumber(res.body.eth)
+          assertValidPositiveNumber(res.body.bsc)
+        })
+    })
+
+    it('queries /buybacks/per-vault', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/per-vault?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assert.equal(Object.keys(res.body).length, allVaultsJsonArray.length)
+        })
+    })
+
+    it('queries /buybacks/{token}', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/DAI?key=${harvestKey}`)
+        .expect('Content-Type', /text/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.text)
+        })
+    })
+
     it('queries /gmv/total', () => {
       return request(`http://localhost:${testPort}`)
         .get(`/gmv/total?key=${harvestKey}`)
