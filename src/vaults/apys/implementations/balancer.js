@@ -35,12 +35,11 @@ const getApy = async (
   const lpPrice = await getBalancerTokenPrice(tokenAddress, poolId, networkId)
   let extraPrice, extraValue
   let totalExtraValue = new BigNumber(0)
-  if (extraRewards.length > 0 && weeklyExtraAmounts.length > 0) {
+  if (extraRewards && weeklyExtraAmounts) {
     for (let i = 0; i < extraRewards.length; i++) {
       extraPrice = await getTokenPrice(extraRewards[i], networkId)
       extraValue = new BigNumber(extraPrice).times(weeklyExtraAmounts[i])
       totalExtraValue = totalExtraValue.plus(extraValue)
-      console.log(totalExtraValue.toFixed())
     }
   }
 
