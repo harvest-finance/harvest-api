@@ -6,6 +6,20 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     tradingApyFunction: {
+      type: TRADING_APY_TYPES.LOOKS,
+      params: [addresses.V2.looks_LOOKS.RewardPool],
+    },
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'looks_LOOKS',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.looks_LOOKS.NewPool,
+    collateralAddress: addresses.V2.looks_LOOKS.NewVault,
+    rewardAPY: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    tradingApyFunction: {
       type: TRADING_APY_TYPES.MSTABLE,
       params: ['imUSD', 'polygon'],
     },
