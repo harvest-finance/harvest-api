@@ -1612,6 +1612,7 @@
     "pYEL": "0xD3b71117E6C1558c1553305b44988cd944e97300",
     "pICE": "0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59",
     "pPSP": "0x42d61D766B85431666B39B89C43011f24451bFf6",
+    "pTUSD": "0x2e1ad108ff1d8c782fcbbb89aad783ac49586756",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1787,6 +1788,30 @@
         "NewStrategy": "0x8cB98c8FD5740665E88827D45bEC42c00A8d4322",
         "NewPool": "0x77050b56e8aC54b14e207D1E013c2719ed7C71Ab",
         "RewardPool": "0x64D2B3994F64E3E82E48CC92e1122489e88e8727"
+      },
+      "bal_TUSD_STABLE": {
+        "Underlying": "0x0d34e5dD4D8f043557145598E4e2dC286B35FD4f",
+        "NewVault": "0x32e3cC7D37ce9EB26EEA54241840B0b72F05Aa26",
+        "StrategyContract": "BalancerStrategyMainnet_TUSD_STABLE",
+        "NewStrategy": "0x430799E21A2aF202D8d983E29935e4D2Ed16aa2e",
+        "NewPool": "0xA917F56A1749f0E7820fdBc4EB783a3a476164ba",
+        "PoolId": "0x0d34e5dd4d8f043557145598e4e2dc286b35fd4f000000000000000000000068"
+      },
+      "bal_USDC_WETH_polygon": {
+        "Underlying": "0x10f21C9bD8128a29Aa785Ab2dE0d044DCdd79436",
+        "NewVault": "0x264B17DF8a79bFa830C1A94B90876CD3b0784b30",
+        "StrategyContract": "BalancerStrategyMainnet_USDC_WETH",
+        "NewStrategy": "0x014cE9201e417b7A8c49Aa1C9eB72E8f8D2b3DcD",
+        "NewPool": "0x02F28abb9bc319E03FC6844466BBB569D5cDe097",
+        "PoolId": "0x10f21c9bd8128a29aa785ab2de0d044dcdd79436000200000000000000000059"
+      },
+      "bal_WBTC_WETH_polygon": {
+        "Underlying": "0xCF354603A9AEbD2Ff9f33E1B04246d8Ea204ae95",
+        "NewVault": "0x60E057A17be997a1631B7188e8AF42657F836077",
+        "StrategeContract": "BalancerStrategyMainnet_WBTC_WETH",
+        "NewStrategy": "0x58Ca938dcACB193a9939D13A4b2AB6De5128D755",
+        "NewPool": "0x0E8661714998c2d8232Ca47406d8bE7ac066D16a",
+        "PoolId": "0xcf354603a9aebd2ff9f33e1b04246d8ea204ae9500020000000000000000005a"
       }
     }
   }

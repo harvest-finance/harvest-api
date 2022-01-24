@@ -12,8 +12,8 @@ const getApy = async (
   weeklyBAL,
   reduction,
   networkId,
-  extraReward,
-  weeklyExtraAmount,
+  extraRewards,
+  weeklyExtraAmounts,
 ) => {
   const {
     methods: { getTotalSupply },
@@ -33,20 +33,22 @@ const getApy = async (
   )
   const balPrice = await getTokenPrice(tokenAddresses.BAL)
   const lpPrice = await getBalancerTokenPrice(tokenAddress, poolId, networkId)
-  let extraPrice = 0
-  if (extraReward && weeklyExtraAmount) {
-    extraPrice = await getTokenPrice(extraReward, networkId)
+  let extraPrice, extraValue
+  let totalExtraValue = new BigNumber(0)
+  if (extraRewards && weeklyExtraAmounts) {
+    for (let i = 0; i < extraRewards.length; i++) {
+      extraPrice = await getTokenPrice(extraRewards[i], networkId)
+      extraValue = new BigNumber(extraPrice).times(weeklyExtraAmounts[i])
+      totalExtraValue = totalExtraValue.plus(extraValue)
+    }
   }
 
   const totalSupplyInUSD = totalSupply.multipliedBy(lpPrice)
 
   let balApy = new BigNumber(weeklyBAL).times(balPrice).times(52).dividedBy(totalSupplyInUSD)
   let extraApy = 0
-  if (extraPrice > 0 && weeklyExtraAmount > 0) {
-    extraApy = new BigNumber(weeklyExtraAmount)
-      .times(extraPrice)
-      .times(52)
-      .dividedBy(totalSupplyInUSD)
+  if (totalExtraValue > 0) {
+    extraApy = totalExtraValue.times(52).dividedBy(totalSupplyInUSD)
   }
   let apy = balApy.plus(extraApy)
 
