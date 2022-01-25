@@ -5539,7 +5539,12 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: 'JARVIS_V2',
-        params: [1, addresses.MATIC.V2.jarvis_DEN2_4EUR.RewardPool, addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying, profitSharingCut8Percent],
+        params: [
+          1,
+          addresses.MATIC.V2.jarvis_DEN2_4EUR.RewardPool,
+          addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying,
+          profitSharingCut8Percent,
+        ],
       },
     ],
     cmcRewardTokenSymbols: ['miFARM', 'DEN-MAR22'],
@@ -5563,7 +5568,12 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: 'JARVIS_V2',
-        params: [0, addresses.MATIC.V2.jarvis_DEN_4EUR.RewardPool, addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, profitSharingCut8Percent],
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_DEN_4EUR.RewardPool,
+          addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
+          profitSharingCut8Percent,
+        ],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DEN'],

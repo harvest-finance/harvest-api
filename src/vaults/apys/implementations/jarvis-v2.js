@@ -17,19 +17,16 @@ const getApy = async (poolId, rewardPool, underlying, reduction) => {
     contract: { abi },
   } = tokenContractData
 
-  const jarvisInstance = new web3MATIC.eth.Contract(
-    jarvisRewardContract.abi,
-    rewardPool,
-  )
+  const jarvisInstance = new web3MATIC.eth.Contract(jarvisRewardContract.abi, rewardPool)
 
   const poolInfo = await getPoolInfo(poolId, jarvisInstance)
 
   const blocksPerYear = new BigNumber(13720402.6087)
 
   const tokenInstance = new web3MATIC.eth.Contract(abi, poolInfo.lpToken)
-  const totalSupply = new BigNumber(
-    await getBalance(rewardPool, tokenInstance),
-  ).dividedBy(new BigNumber(10).exponentiatedBy(18))
+  const totalSupply = new BigNumber(await getBalance(rewardPool, tokenInstance)).dividedBy(
+    new BigNumber(10).exponentiatedBy(18),
+  )
 
   const denPriceInUsd = await getTokenPrice(tokenAddresses.DEN)
   const denPerBlock = new BigNumber(await rewardPerBlock(jarvisInstance))
