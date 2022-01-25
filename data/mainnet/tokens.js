@@ -5327,6 +5327,21 @@ module.exports = {
       params: ['jarvis-synthetic-british-pound'],
     },
   },
+  'DEN-MAR22': {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.DEN_MAR22,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.DEN_MAR22,
+        addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
+      ],
+    },
+  },
   DEN: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '',
@@ -5338,7 +5353,7 @@ module.exports = {
       params: [
         addresses.MATIC.DEN,
         addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
-        addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
+        addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying,
       ],
     },
   },
@@ -5384,6 +5399,17 @@ module.exports = {
     priceFunction: {
       type: GET_PRICE_TYPES.COINGECKO_ID,
       params: ['par-stablecoin'],
+    },
+  },
+  fDEN2_4EUR: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_DEN2_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   fDEN_4EUR: {
@@ -5459,7 +5485,7 @@ module.exports = {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/4eur.png',
     apyIconUrls: ['./icons/den.png'],
-    apyTokenSymbols: ['DEN'],
+    apyTokenSymbols: ['DEN-MAR22'],
     displayName: 'Jarvis: 4EUR',
     subLabel: 'HODL',
     tokenAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
@@ -5479,21 +5505,46 @@ module.exports = {
       {
         type: 'JARVIS_HODL_V2',
         params: [
-          1,
+          0,
+          addresses.MATIC.V2.jarvis_4EUR_HODL.RewardPool,
           addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
           profitSharingCut8Percent,
-          'jarvis_DEN_4EUR',
+          'jarvis_DEN2_4EUR',
         ],
         extraDailyCompound: false,
       },
     ],
     apyDescriptionOverride: [
-      'Auto harvested <b>DEN</b> deposited into <b>DEN-4EUR</b> for more APY',
+      'Auto harvested <b>DEN</b> deposited into <b>DEN(MAR22)-4EUR</b> for more APY',
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'DEN'],
+    cmcRewardTokenSymbols: ['iFARM', 'DEN-MAR22'],
+  },
+  jarvis_DEN2_4EUR: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/den-4eur.png',
+    apyIconUrls: ['./icons/den.png'],
+    apyTokenSymbols: ['DEN-MAR22'],
+    displayName: 'Jarvis: DEN(MAR22)-4EUR',
+    subLabel: 'Auto-compounding',
+    tokenAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying, 'DEN-MAR22', 'FOUR_EUR'],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_V2',
+        params: [1, addresses.MATIC.V2.jarvis_DEN2_4EUR.RewardPool, addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying, profitSharingCut8Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['miFARM', 'DEN-MAR22'],
   },
   jarvis_DEN_4EUR: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
@@ -5510,7 +5561,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: 'JARVIS_V2',
-        params: [0, addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, profitSharingCut8Percent],
+        params: [0, addresses.MATIC.V2.jarvis_DEN_4EUR.RewardPool, addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DEN'],

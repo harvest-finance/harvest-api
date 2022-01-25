@@ -11,7 +11,7 @@ const {
 const { token: tokenContractData } = require('../../../lib/web3/contracts')
 const { getTokenPrice } = require('../../../prices')
 
-const getApy = async (poolId, underlying, reduction) => {
+const getApy = async (poolId, rewardPool, underlying, reduction) => {
   const {
     methods: { getBalance },
     contract: { abi },
@@ -19,7 +19,7 @@ const getApy = async (poolId, underlying, reduction) => {
 
   const jarvisInstance = new web3MATIC.eth.Contract(
     jarvisRewardContract.abi,
-    jarvisRewardContract.address.mainnet,
+    rewardPool,
   )
 
   const poolInfo = await getPoolInfo(poolId, jarvisInstance)
@@ -28,7 +28,7 @@ const getApy = async (poolId, underlying, reduction) => {
 
   const tokenInstance = new web3MATIC.eth.Contract(abi, poolInfo.lpToken)
   const totalSupply = new BigNumber(
-    await getBalance(jarvisRewardContract.address.mainnet, tokenInstance),
+    await getBalance(rewardPool, tokenInstance),
   ).dividedBy(new BigNumber(10).exponentiatedBy(18))
 
   const denPriceInUsd = await getTokenPrice(tokenAddresses.DEN)

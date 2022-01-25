@@ -318,6 +318,38 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_DEN2_4EUR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB/0xEb6f426963140471a7c1E4337877e6dBf834d2A8">
+            KyberDMM
+          </a>
+          and add liquidity for DEN(MAR22)-4EUR
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, 'kyber_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -355,7 +387,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR', 'fDEN2_4EUR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
