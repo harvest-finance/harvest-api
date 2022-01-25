@@ -5340,7 +5340,7 @@ module.exports = {
       params: [
         addresses.MATIC.DEN_MAR22,
         addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
-        addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
+        addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying,
       ],
     },
   },
@@ -5355,7 +5355,7 @@ module.exports = {
       params: [
         addresses.MATIC.DEN,
         addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
-        addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying,
+        addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
       ],
     },
   },
@@ -5510,8 +5510,8 @@ module.exports = {
           0,
           addresses.MATIC.V2.jarvis_4EUR_HODL.RewardPool,
           addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
-          profitSharingCut8Percent,
           'jarvis_DEN2_4EUR',
+          profitSharingCut8Percent,
         ],
         extraDailyCompound: false,
       },
