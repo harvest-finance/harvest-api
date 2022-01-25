@@ -65,6 +65,7 @@ const ESTIMATED_APY_TYPES = {
   BALANCER_POLYGON: 'BALANCER_POLYGON',
   MSTABLE: 'MSTABLE',
   LOOKSRARE_SINGLE_ASSET: 'LOOKSRARE_SINGLE_ASSET',
+  STAKEWISE: 'STAKEWISE',
 }
 
 const TRADING_APY_TYPES = {
@@ -185,6 +186,11 @@ const BALANCER_SUBGRAPH_URLS = {
   MATIC: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2',
 }
 
+const STAKEWISE_API_URLS = {
+  LIQUIDITY: 'https://api.stakewise.io/uniswap-pools/',
+  STAKING: 'https://api.stakewise.io/pool-stats/',
+}
+
 const DEBUG_MODE = process.env.DEBUG_MODE
 
 const WEB3_CALL_COUNT_STATS_KEY = 'web3CallCountStats'
@@ -264,4 +270,5 @@ module.exports = {
   MATIC_RPC_URL,
   TRADING_APY_TYPES,
   BALANCER_SUBGRAPH_URLS,
+  STAKEWISE_API_URLS,
 }

@@ -196,7 +196,7 @@ async function getFeeData() {
     fee = settings.gasPriceMax
   }
 
-  let priorityFee = Math.round(fee / 3)
+  let priorityFee = Math.round(fee / 2)
   if (priorityFee > settings.priorityFeeMax) {
     priorityFee = settings.priorityFeeMax
   }
