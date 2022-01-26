@@ -8,14 +8,19 @@ const BigNumber = require('bignumber.js')
 const { APY_VISION_API_URL } = require('../../../lib/constants')
 
 const getTradingApy = async (vaultAddress, providerKey, reduction) => {
-  let response, data, apr, apy
+  let response, data, apr, apy, isWeekOld
 
   const posId = await getPosId(vaultAddress, web3)
 
   try {
     response = await axios.get(`${APY_VISION_API_URL}/uniswapv3/${providerKey}/positions/${posId}`)
-    data = get(response, 'data.day_datas[0]', 0)
-    apr = new BigNumber(data.fee_apys.apy_7d).times(reduction) // 7 day moving average APY from trading fees
+    data = get(response, 'data', 0)
+    isWeekOld = Number(data.position_age_days) > 7
+    if (isWeekOld) {
+      apr = new BigNumber(data.day_datas[0].fee_apys.apy_7d).times(reduction) // 7 day moving average APY from trading fees
+    } else {
+      apr = new BigNumber(data.day_datas[0].fee_apys.apy_inception).times(reduction) // moving average APY from trading fees since inception
+    }
     apy = getDailyCompound(apr)
   } catch (err) {
     console.error('APY.vision API error: ', err)
