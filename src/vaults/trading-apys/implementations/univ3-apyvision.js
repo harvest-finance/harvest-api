@@ -15,7 +15,7 @@ const getTradingApy = async (vaultAddress, providerKey, reduction) => {
   try {
     response = await axios.get(`${APY_VISION_API_URL}/uniswapv3/${providerKey}/positions/${posId}`)
     data = get(response, 'data', 0)
-    isWeekOld = Number(data.position_age_days) > 7
+    isWeekOld = Number(data.position_age_days) >= 7
     if (isWeekOld) {
       apr = new BigNumber(data.day_datas[0].fee_apys.apy_7d).times(reduction) // 7 day moving average APY from trading fees
     } else {
