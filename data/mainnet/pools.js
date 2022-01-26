@@ -219,7 +219,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGNOME],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'GNOME'],
+    rewardTokenSymbols: ['miFARM', 'GNOME', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -257,7 +257,7 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGENE],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'GENE'],
+    rewardTokenSymbols: ['miFARM', 'GENE', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
