@@ -20,6 +20,7 @@ function iterate(obj) {
       } else {
         if (
           typeof obj[property] == 'string' &&
+          obj[property].length > 0 &&
           !obj[property].startsWith('0x') &&
           isNaN(obj[property]) == false
         ) {

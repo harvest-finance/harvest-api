@@ -12,9 +12,21 @@ const vaultsPattern = {
             maximum: 1000,
           },
           category: {
-            type: 'string',
-            pattern:
-              '^(INACTIVE|SUSHI|STABLECOINS|BTC|GENERAL|LIQUIDITY|ONEINCH|SEIGNIORAGE|MSTONKS|ETH20|SUSHI_HODL|LINK|VENUS|PANCAKE|GOOSE|BDOLLAR|NFT|SPACE|INACTIVE_BSC|ELLIPSIS|BELT|UNIV3|LIFT|BALANCER|JARVIS|AMPLIFARM|QUICKSWAP|IDLE|INACTIVE_POLYGON|GENOMES|MSTABLE|POPSICLE|YEL)$',
+            anyOf: [
+              {
+                type: 'string',
+                pattern:
+                  '^(INACTIVE|SUSHI|STABLECOINS|BTC|GENERAL|LIQUIDITY|ONEINCH|SEIGNIORAGE|MSTONKS|ETH20|SUSHI_HODL|LINK|VENUS|PANCAKE|GOOSE|BDOLLAR|NFT|SPACE|INACTIVE_BSC|ELLIPSIS|BELT|UNIV3|LIFT|BALANCER|JARVIS|AMPLIFARM|QUICKSWAP|IDLE|INACTIVE_POLYGON|GENOMES|MSTABLE|POPSICLE|YEL)$',
+              },
+              {
+                type: 'array',
+                items: {
+                  type: 'string',
+                  pattern:
+                    '^(INACTIVE|SUSHI|STABLECOINS|BTC|GENERAL|LIQUIDITY|ONEINCH|SEIGNIORAGE|MSTONKS|ETH20|SUSHI_HODL|LINK|VENUS|PANCAKE|GOOSE|BDOLLAR|NFT|SPACE|INACTIVE_BSC|ELLIPSIS|BELT|UNIV3|LIFT|BALANCER|JARVIS|AMPLIFARM|QUICKSWAP|IDLE|INACTIVE_POLYGON|GENOMES|MSTABLE|POPSICLE|YEL)$',
+                },
+              },
+            ],
           },
           displayName: {
             type: 'string',
@@ -108,7 +120,7 @@ const vaultsPattern = {
             },
           },
           rewardPool: {
-            type: 'string',
+            type: ['string', 'null'],
             pattern: '^0x[a-fA-F0-9]{40}$',
           },
           inactive: {
@@ -119,7 +131,6 @@ const vaultsPattern = {
           'chain',
           'id',
           'displayName',
-          'category',
           'totalSupply',
           'totalValueLocked',
           'apyIconUrls',
