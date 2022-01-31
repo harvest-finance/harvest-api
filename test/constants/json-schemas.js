@@ -1,3 +1,8 @@
+const { POOLS_TYPE, VAULTS_CATEGORY } = require('./types')
+
+const poolType = `^(${POOLS_TYPE.join('|')})$`
+const vaultsCategory = `^(${VAULTS_CATEGORY.join('|')})$`
+
 const vaultsPattern = {
   type: 'array',
   items: {
@@ -15,15 +20,13 @@ const vaultsPattern = {
             anyOf: [
               {
                 type: 'string',
-                pattern:
-                  '^(INACTIVE|SUSHI|STABLECOINS|BTC|GENERAL|LIQUIDITY|ONEINCH|SEIGNIORAGE|MSTONKS|ETH20|SUSHI_HODL|LINK|VENUS|PANCAKE|GOOSE|BDOLLAR|NFT|SPACE|INACTIVE_BSC|ELLIPSIS|BELT|UNIV3|LIFT|BALANCER|JARVIS|AMPLIFARM|QUICKSWAP|IDLE|INACTIVE_POLYGON|GENOMES|MSTABLE|POPSICLE|YEL)$',
+                pattern: vaultsCategory,
               },
               {
                 type: 'array',
                 items: {
                   type: 'string',
-                  pattern:
-                    '^(INACTIVE|SUSHI|STABLECOINS|BTC|GENERAL|LIQUIDITY|ONEINCH|SEIGNIORAGE|MSTONKS|ETH20|SUSHI_HODL|LINK|VENUS|PANCAKE|GOOSE|BDOLLAR|NFT|SPACE|INACTIVE_BSC|ELLIPSIS|BELT|UNIV3|LIFT|BALANCER|JARVIS|AMPLIFARM|QUICKSWAP|IDLE|INACTIVE_POLYGON|GENOMES|MSTABLE|POPSICLE|YEL)$',
+                  pattern: vaultsCategory,
                 },
               },
             ],
@@ -169,7 +172,7 @@ const poolsPattern = {
       },
       type: {
         type: 'string',
-        pattern: '^(INCENTIVE|PROFIT_SHARING|INCENTIVE_BUYBACK|INACTIVE|UNIV3)$',
+        pattern: poolType,
       },
       fullBuyback: {
         type: 'boolean',
