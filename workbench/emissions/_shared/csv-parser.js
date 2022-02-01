@@ -172,7 +172,7 @@ function convertFrom(filePath, vaultsObject) {
         const id = record[0]
         const values = record[1].split('%')
         assert(values.length == 2, 'Does not use %')
-        assert(values[1] == '', 'Does not end with %')
+        assert(values[1] == '', 'Does not end with %: ' + record[1])
         assert(vaultsObject[id], 'Unknown id ' + id)
         const item = {
           id,
