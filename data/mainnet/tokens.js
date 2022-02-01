@@ -467,7 +467,7 @@ module.exports = {
     vaultAddress: addresses.V2.UniV3_ORC_ETH.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.UniV3_ORC_ETH.NewVault, 'WETH', 'ORC'],
+      params: [addresses.V2.UniV3_ORC_ETH.NewVault, 'ORC', 'WETH'],
     },
     estimateApyFunctions: [
       {
