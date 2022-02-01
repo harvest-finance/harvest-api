@@ -42,34 +42,65 @@ const parser = require('../_shared/csv-parser.js')
 
 const mintsToFollow = [
   {
-    // week 70
-    amount: to18('1225.66'),
-    timestamp: '1640718000',
+    // week 76
+    amount: to18('932.98'),
+    timestamp: '1644346800',
   },
   {
-    // week 71
-    amount: to18('1171.17'),
-    timestamp: '1641322800',
+    // week 77
+    amount: to18('891.51'),
+    timestamp: '1644951600',
   },
   {
-    // week 72
-    amount: to18('1119.11'),
-    timestamp: '1641927600',
+    // week 78
+    amount: to18('851.87'),
+    timestamp: '1645556400',
   },
   {
-    // week 73
-    amount: to18('1069.36'),
-    timestamp: '1642532400',
+    // week 79
+    amount: to18('814.00'),
+    timestamp: '1646161200',
   },
   {
-    // week 74
-    amount: to18('1021.82'),
-    timestamp: '1643137200',
+    // week 80
+    amount: to18('777.82'),
+    timestamp: '1646766000',
   },
   {
-    // week 75
-    amount: to18('976.39'),
-    timestamp: '1643742000',
+    // week 81
+    amount: to18('743.24'),
+    timestamp: '1647370800',
+  },
+  {
+    //todo
+    // week 82
+    amount: to18('710.19'),
+    timestamp: '1647975600',
+  },
+  {
+    // week 83
+    amount: to18('678.62'),
+    timestamp: '1648580400',
+  },
+  {
+    // week 84
+    amount: to18('648.45'),
+    timestamp: '1649185200',
+  },
+  {
+    // week 85
+    amount: to18('619.63'),
+    timestamp: '1649790000',
+  },
+  {
+    // week 86
+    amount: to18('592.08'),
+    timestamp: '1650394800',
+  },
+  {
+    // week 87
+    amount: to18('565.76'),
+    timestamp: '1650999600',
   },
 ]
 

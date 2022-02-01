@@ -123,13 +123,23 @@ task('notify', 'Notifies with specified amounts').setAction(async () => {
   prompt.message = `miFARM: ${amountMiFarm} [${machineAmountFarm}]\nWMATIC: ${amountWMatic} [${machineAmountWMatic}]`
   await prompt.get(['ok'])
 
-  await notifyPools(
-    helperAddresses.GlobalIncentivesHelper,
-    [addresses.miFARM, addresses.WMATIC],
-    [machineAmountFarm, machineAmountWMatic],
-    '1637694000', // not relevant on polygon, don't bother updating
-  ),
-    console.log('Notification completed.')
+  if (machineAmountWMatic > 0) {
+    await notifyPools(
+      helperAddresses.GlobalIncentivesHelper,
+      [addresses.miFARM, addresses.WMATIC],
+      [machineAmountFarm, machineAmountWMatic],
+      '1637694000', // not relevant on polygon, don't bother updating
+    ),
+      console.log('Notification completed.')
+  } else {
+    await notifyPools(
+      helperAddresses.GlobalIncentivesHelper,
+      [addresses.miFARM],
+      [machineAmountFarm],
+      '1637694000', // not relevant on polygon, don't bother updating
+    ),
+      console.log('Notification completed.')
+  }
 })
 
 task('clear-pool', 'Clears a specific pool address (for emergency)').setAction(async () => {
