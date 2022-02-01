@@ -1,7 +1,7 @@
-const { POOLS_TYPE, VAULTS_CATEGORY } = require('./types')
+const { VAULT_CATEGORIES_IDS, POOL_TYPES } = require('../../data/constants')
 
-const poolType = `^(${POOLS_TYPE.join('|')})$`
-const vaultsCategory = `^(${VAULTS_CATEGORY.join('|')})$`
+const poolType = `^(${Object.values(POOL_TYPES).join('|')})$`
+const vaultsCategory = `^(${Object.values(VAULT_CATEGORIES_IDS).join('|')})$`
 
 const vaultsPattern = {
   type: 'array',
@@ -83,14 +83,12 @@ const vaultsPattern = {
           estimatedApy: {
             type: 'number',
             minimum: 0,
-            maximum: 10000,
           },
           estimatedApyBreakdown: {
             type: 'array',
             items: {
               type: 'number',
               minimum: 0,
-              maximum: 10000,
             },
           },
           boostedEstimatedAPY: {
@@ -203,7 +201,6 @@ const poolsPattern = {
         items: {
           type: 'number',
           minimum: 0,
-          maximum: 10000,
         },
       },
       rewardAPR: {
@@ -211,7 +208,6 @@ const poolsPattern = {
         items: {
           type: 'number',
           minimum: 0,
-          maximum: 10000,
         },
       },
       rewardTokens: {
