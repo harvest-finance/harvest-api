@@ -1120,7 +1120,7 @@
         "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ],
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_DAI_ETH_3000_4500": {
       "NewVault": "0x503Ea79B73995Cf0C8d323C17782047ED5cC72B2",
@@ -1134,7 +1134,7 @@
         "0x6B175474E89094C44Da98b954EedeAC495271d0F",
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ],
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_USDT_ETH_3000_4500": {
       "NewVault": "0xc53DaB6fDD18AF6CD5cF37fDE7C941d368f8664f",
@@ -1148,7 +1148,7 @@
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
         "0xdAC17F958D2ee523a2206206994597C13D831ec7"
       ],
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_CNG_ETH": {
       "NewVault": "0xc3426599Ec933FbF657ee44b53e7f01d83Be1f63",
@@ -1642,7 +1642,8 @@
         "StrategyContract": "QuickStrategyMainnet_iFARM_QUICK",
         "NewStrategy": "0x6a7C4655a567e105b143285542be8B47A31540A5",
         "RewardPool": "0xEa2EC0713D3B48234Ad4b2f14EDb4978D1228aE5",
-        "NewPool": "0x284D7200a0Dabb05ee6De698da10d00df164f61d"
+        "NewPool": "0x284D7200a0Dabb05ee6De698da10d00df164f61d",
+        "doHardwork": false
       },
       "sushiswap_USDC_ETH": {
         "Underlying": "0x34965ba0ac2451A34a0471F04CCa3F990b8dea27",
