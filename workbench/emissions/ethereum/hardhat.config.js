@@ -185,7 +185,7 @@ task('execute-mint', 'Executes the mint for the given week and notifies all rele
   .addParam('week', 'The week to mint')
   .addParam('debug', 'Increases time if debug is true')
   .setAction(async (taskArgs, hre) => {
-    if (taskArgs.debug == 'true') {
+    if (taskArgs.debug === 'true') {
       await hre.network.provider.send('evm_increaseTime', [3600 * 6])
       await hre.network.provider.send('evm_mine')
     }
