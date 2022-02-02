@@ -21,9 +21,14 @@ function assertArraySize(ar, size) {
   assert.equal(ar.length, size, `Array size mismatch: ${ar.length} vs ${size}`)
 }
 
+function assertIsDate(date) {
+  return new Date(date) !== 'Invalid Date' && !isNaN(new Date(date))
+}
+
 module.exports = {
   sleep,
   assertValidPositiveNumber,
   assertValidNonNegativeNumber,
   assertArraySize,
+  assertIsDate,
 }

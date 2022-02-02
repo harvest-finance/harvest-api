@@ -12,6 +12,8 @@
     "test": "PORT=3030 MONGODB_DB_NAME=harvest-test-local ACTIVE_ENDPOINTS=all mocha ./test/integration/*  --timeout 600000",
     "debug-web3": "DEBUG_MODE=true yarn start",
     "print-vault": "node ./test/cli/print-vault",
+    "test-schema": "node ./test/cli/test-schema",
+    "print-diff": "node ./test/cli/test-diff",
     "lint": "eslint ./",
     "lint-fix": "eslint --fix ./"
   },
@@ -46,6 +48,8 @@
     "string-hash": "1.1.3",
     "timeago.js": "4.0.2",
     "web3": "1.3.4",
+    "jsonschema": "^1.4.0",
+    "text-diff": "^1.0.1",
     "web3-utils": "1.3.4"
   },
   "devDependencies": {
