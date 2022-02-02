@@ -75,7 +75,7 @@ const main = async () => {
 
   var v = new Validator()
 
-  console.log('Checking vaults api ....')
+  console.log('\nChecking vaults api ....\n')
   iterate(vaults_output)
   var resultVaults = v.validate(vaults_output, VAULTS_SCHEMA)
 
@@ -84,10 +84,17 @@ const main = async () => {
     console.log('The vaults api output is valid.')
   } else {
     console.log('FAILURE!')
-    console.log(resultVaults.toString())
+    for (let i = 0; i < resultVaults.errors.length; i++) {
+      let error = resultVaults.errors[i]
+      if (error.path[0] == 'bsc' || error.path[0] == 'eth' || error.path[0] == 'matic') {
+        console.log(vaults_output[error.path[0]][error.path[1]].name + ': ' + error.stack)
+      } else {
+        console.log(error.path[error.path.length - 1] + ' ' + error.message)
+      }
+    }
   }
 
-  console.log('Checking pools api ....')
+  console.log('\nChecking pools api ....\n')
   iterate(pools_output)
   var resultPools = v.validate(pools_output, POOLS_SCHEMA)
 
@@ -96,7 +103,14 @@ const main = async () => {
     console.log('The pools api output is valid.')
   } else {
     console.log('FAILURE!')
-    console.log(resultPools.toString())
+    for (let i = 0; i < resultPools.errors.length; i++) {
+      let error = resultPools.errors[i]
+      if (error.path[0] == 'bsc' || error.path[0] == 'eth' || error.path[0] == 'matic') {
+        console.log(pools_output[error.path[0]][error.path[1]].id + ': ' + error.stack)
+      } else {
+        console.log(error.path[error.path.length - 1] + ' ' + error.message)
+      }
+    }
   }
 
   console.log('------------------------')
