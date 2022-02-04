@@ -8,7 +8,7 @@ const initDb = require('../../src/lib/db')
 const { Cache, clearAllDataTestOnly } = require('../../src/lib/db/models/cache')
 
 const app = require('../../src/runtime/app')
-const { sleep, assertValidPositiveNumber, assertArraySize } = require('./utils')
+const { sleep, assertValidPositiveNumber, assertArraySize, assertIsDate } = require('./utils')
 const harvestKey = 'harvest-key'
 const testPort = 3030
 const { tokens: tokensJson, pools: poolsJson } = require('../../data/index.js')
@@ -122,6 +122,48 @@ describe('Happy Paths', function () {
         })
     })
 
+    it('queries /buybacks/total', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/total?key=${harvestKey}`)
+        .expect('Content-Type', /text/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.text)
+        })
+    })
+
+    it('queries /buybacks/per-network', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/per-network?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.body.matic)
+          assertValidPositiveNumber(res.body.eth)
+          assertValidPositiveNumber(res.body.bsc)
+        })
+    })
+
+    it('queries /buybacks/per-vault', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/per-vault?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assert.equal(Object.keys(res.body).length, allVaultsJsonArray.length)
+        })
+    })
+
+    it('queries /buybacks/{token}', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/buybacks/DAI?key=${harvestKey}`)
+        .expect('Content-Type', /text/)
+        .expect(200)
+        .then(res => {
+          assertValidPositiveNumber(res.text)
+        })
+    })
+
     it('queries /gmv/total', () => {
       return request(`http://localhost:${testPort}`)
         .get(`/gmv/total?key=${harvestKey}`)
@@ -150,6 +192,31 @@ describe('Happy Paths', function () {
         .then(res => {
           assertArraySize(res.body.links, 6) // links/socials
           assertArraySize(res.body.pools, activeVaultsJsonArray.length + 3) // pools must contain all active vaults + 3 special pools
+        })
+    })
+
+    it('queries /health', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/health?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assert.exists(res.body.vaults)
+          assert.exists(res.body.pools)
+          assertIsDate(res.body.vaults.updatedAt)
+          assertIsDate(res.body.pools.updatedAt)
+        })
+    })
+
+    it('queries /tokens-info', () => {
+      return request(`http://localhost:${testPort}`)
+        .get(`/tokens-info?key=${harvestKey}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
+        .then(res => {
+          assert.exists(res.body.cmc)
+          assert.exists(res.body.tokenStats)
+          assert.exists(res.body.monthly)
         })
     })
   })

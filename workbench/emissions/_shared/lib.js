@@ -101,9 +101,9 @@ async function transferGovernance(minterAddress, addr, newStorage) {
   await minter.methods.transferGovernance(addr, newStorage).send(await formulateTxSenderInfo())
 }
 
-async function executeMint(minterAddress, mintId) {
+async function executeMint(minterAddress, mintId, announceNext) {
   let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
-  await minter.methods.execute(mintId).send(await formulateTxSenderInfo())
+  await minter.methods.execute(mintId, announceNext).send(await formulateTxSenderInfo())
 }
 
 async function executeMintOriginal(minterAddress, mintId) {
@@ -142,9 +142,22 @@ async function getMintInfo(minterAddress, mintId) {
 
 async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
   const notifyHelper = new hre.web3.eth.Contract(NotifyHelperStatefulAbi, helperAddress)
-  const regularResult = await notifyHelper.methods
-    .getConfig(await notifyHelper.methods.totalPercentage().call())
-    .call()
+  let totalPercentage = await notifyHelper.methods.totalPercentage().call()
+  return await viewStateWithExactMint(
+    helperAddress,
+    finalObj,
+    keyName,
+    allVaultsJson,
+    totalPercentage,
+    100.0,
+  )
+}
+
+async function viewStateWithExactMint(helperAddress, finalObj, keyName, allVaultsJson, mint, unit) {
+  const notifyHelper = new hre.web3.eth.Contract(NotifyHelperStatefulAbi, helperAddress)
+  const regularResult = await notifyHelper.methods.getConfig(mint).call()
+
+  console.log(regularResult)
 
   let total = 0
 
@@ -160,7 +173,7 @@ async function viewState(helperAddress, finalObj, keyName, allVaultsJson) {
       finalObj[key] = {}
     }
     total += +regularResult[2][i]
-    finalObj[key][keyName] = `${regularResult[2][i] * 0.01}%`
+    finalObj[key][keyName] = `${regularResult[2][i] / unit}%`
   }
 
   console.log('total:', total / 100)
@@ -232,6 +245,7 @@ module.exports = {
   setStorageOriginal,
   transferGovernance,
   viewState,
+  viewStateWithExactMint,
   setPoolBatch,
   setPoolBatchEthereumMainnet,
   to18,

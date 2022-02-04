@@ -5,12 +5,12 @@ const { UI_DATA_FILES } = require('../../../lib/constants')
 const { getUIData } = require('../../../lib/data')
 const { executeEstimateApyFunctions } = require('..')
 
-const getApy = async (poolId, underlying, reduction) => {
+const getApy = async (poolId, rewardPool, underlying, hodlVaultId, reduction) => {
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
-  let nativeApr = new BigNumber(await getNativeAPY(poolId, underlying, reduction))
-  const hodlVaultData = tokens['jarvis_DEN_4EUR']
+  let nativeApr = new BigNumber(await getNativeAPY(poolId, rewardPool, underlying, reduction))
+  const hodlVaultData = tokens[hodlVaultId]
   const { estimatedApy } = await executeEstimateApyFunctions(
-    'jarvis_DEN_4EUR',
+    hodlVaultId,
     hodlVaultData.estimateApyFunctions,
   )
   let hodlApy = estimatedApy

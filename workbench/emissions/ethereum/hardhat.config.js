@@ -30,6 +30,7 @@ const {
   getBalance,
   viewState,
   viewStateRaw,
+  viewStateWithExactMint,
   approve,
   setPoolBatchEthereumMainnet,
   transferGovernance,
@@ -41,34 +42,65 @@ const parser = require('../_shared/csv-parser.js')
 
 const mintsToFollow = [
   {
-    // week 70
-    amount: to18('1225.66'),
-    timestamp: '1640718000',
+    // week 76
+    amount: to18('932.98'),
+    timestamp: '1644346800',
   },
   {
-    // week 71
-    amount: to18('1171.17'),
-    timestamp: '1641322800',
+    // week 77
+    amount: to18('891.51'),
+    timestamp: '1644951600',
   },
   {
-    // week 72
-    amount: to18('1119.11'),
-    timestamp: '1641927600',
+    // week 78
+    amount: to18('851.87'),
+    timestamp: '1645556400',
   },
   {
-    // week 73
-    amount: to18('1069.36'),
-    timestamp: '1642532400',
+    // week 79
+    amount: to18('814.00'),
+    timestamp: '1646161200',
   },
   {
-    // week 74
-    amount: to18('1021.82'),
-    timestamp: '1643137200',
+    // week 80
+    amount: to18('777.82'),
+    timestamp: '1646766000',
   },
   {
-    // week 75
-    amount: to18('976.39'),
-    timestamp: '1643742000',
+    // week 81
+    amount: to18('743.24'),
+    timestamp: '1647370800',
+  },
+  {
+    //todo
+    // week 82
+    amount: to18('710.19'),
+    timestamp: '1647975600',
+  },
+  {
+    // week 83
+    amount: to18('678.62'),
+    timestamp: '1648580400',
+  },
+  {
+    // week 84
+    amount: to18('648.45'),
+    timestamp: '1649185200',
+  },
+  {
+    // week 85
+    amount: to18('619.63'),
+    timestamp: '1649790000',
+  },
+  {
+    // week 86
+    amount: to18('592.08'),
+    timestamp: '1650394800',
+  },
+  {
+    // week 87
+    amount: to18('565.76'),
+    timestamp: '1650999600',
   },
 ]
 
@@ -149,27 +181,66 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
   console.log(finalObj)
 })
 
-task(
-  'execute-mint',
-  'Executes the mint for the given week and notifies all relevant pools',
-).setAction(async taskArgs => {
-  await printStats()
-  assert(taskArgs.week >= baseWeekOffset, 'wrong week')
+task('execute-mint', 'Executes the mint for the given week and notifies all relevant pools')
+  .addParam('week', 'The week to mint')
+  .addParam('debug', 'Increases time if debug is true')
+  .setAction(async (taskArgs, hre) => {
+    if (taskArgs.debug === 'true') {
+      await hre.network.provider.send('evm_increaseTime', [3600 * 6])
+      await hre.network.provider.send('evm_mine')
+    }
 
-  prompt.start()
-  const mintInfo = await getMintInfo(helperAddresses.MinterHelper, taskArgs.week - baseWeekOffset)
-  console.log(mintInfo)
-  prompt.message = `Please see the FARM amount for week ${taskArgs.week} above. Proceed?`
-  await prompt.get(['ok'])
+    await printStats()
+    assert(taskArgs.week >= baseWeekOffset, 'wrong week')
 
-  await executeMint(
-    helperAddresses.MinterHelper,
-    taskArgs.week - baseWeekOffset,
-    true, // announce next week
-  )
+    prompt.start()
+    const mintInfo = await getMintInfo(helperAddresses.MinterHelper, taskArgs.week - baseWeekOffset)
+    console.log(mintInfo)
+    prompt.message = `Please see the FARM amount for week ${taskArgs.week} above. Proceed?`
+    await prompt.get(['ok'])
 
-  console.log('Minting and notification completed.')
-})
+    let check = [
+      '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4',
+      '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C',
+      '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e',
+      '0x2E25800957742C52b4d69b65F9C67aBc5ccbffe6',
+      '0x6055d7f2E84e334176889f6d8c3F84580cA4F507',
+      '0x15d3A64B2d5ab9E152F16593Cdebc4bB165B5B4A',
+    ]
+
+    let before = {}
+    for (let i = 0; i < check.length; i++) {
+      before[check[i]] = {
+        FARM: toReadable(await getBalance(addresses.FARM, check[i])),
+        iFARM: toReadable(await getBalance(addresses.iFARM, check[i])),
+      }
+    }
+
+    await executeMint(
+      helperAddresses.MinterHelper,
+      taskArgs.week - baseWeekOffset,
+      true, // announce next week
+    )
+
+    console.log('Minting and notification completed.')
+
+    let after = {}
+    for (let i = 0; i < check.length; i++) {
+      after[check[i]] = {
+        FARM: toReadable(await getBalance(addresses.FARM, check[i])),
+        iFARM: toReadable(await getBalance(addresses.iFARM, check[i])),
+      }
+    }
+
+    for (let i = 0; i < check.length; i++) {
+      console.log('--------- ' + check[i])
+      console.log('iFARM before: ' + before[check[i]].iFARM)
+      console.log('iFARM after:  ' + after[check[i]].iFARM)
+      console.log('FARM  before: ' + before[check[i]].FARM)
+      console.log('FARM  after:  ' + after[check[i]].FARM)
+      console.log('---------')
+    }
+  })
 
 task(
   'execute-first-mint',
@@ -364,11 +435,57 @@ task('clear-pool', 'Clears a specific pool address (for emergency)').setAction(a
   console.log('Pool percentage cleared.')
 })
 
+task('view-exact', 'Views the outcome of the state recorded in the contract').setAction(
+  async () => {
+    await printStats()
+
+    prompt.message = `How much FARM goes to strategies (70% of the mint)?`
+
+    const { mint } = await prompt.get([
+      {
+        name: 'mint',
+        default: '1.00',
+      },
+    ])
+    const formattedMint = new BigNumber(mint).multipliedBy('1' + '0'.repeat(18)).toFixed()
+
+    const finalObj = {}
+    let includeCustom = addresses.V2
+    includeCustom['_StrategicReserve'] = { NewPool: '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4' }
+    includeCustom['_ProfitSharing'] = { NewPool: '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C' }
+    includeCustom['_FARM-WETH'] = { NewPool: '0x6555c79a8829b793F332f1535B0eFB1fE4C11958' }
+    includeCustom['_GrainBuyBackBot'] = { NewPool: '0xF49440C1F012d041802b25A73e5B0B9166a75c02' }
+    includeCustom['_OtherChainsCombined'] = {
+      NewPool: '0x71316a3465e0fbcd08e665D6675caA8F7B1Dd40A',
+    }
+    includeCustom['_FarmStead'] = { NewPool: '0x95D2e18C069175523F56B617F96be7575E381547' }
+
+    await viewStateWithExactMint(
+      helperAddresses.StatefulEmissionsHelper,
+      finalObj,
+      'farm',
+      includeCustom,
+      formattedMint,
+      1.0e18,
+    )
+    console.log(finalObj)
+    console.log('Querying complete.')
+  },
+)
+
 task('view', 'Views the current state recorded in the contract').setAction(async () => {
   await printStats()
 
   const finalObj = {}
-  await viewState(helperAddresses.StatefulEmissionsHelper, finalObj, 'farm', addresses.V2)
+  let includeCustom = addresses.V2
+  includeCustom['_StrategicReserve'] = { NewPool: '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4' }
+  includeCustom['_ProfitSharing'] = { NewPool: '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C' }
+  includeCustom['_FARM-WETH'] = { NewPool: '0x6555c79a8829b793F332f1535B0eFB1fE4C11958' }
+  includeCustom['_GrainBuyBackBot'] = { NewPool: '0xF49440C1F012d041802b25A73e5B0B9166a75c02' }
+  includeCustom['_OtherChainsCombined'] = { NewPool: '0x71316a3465e0fbcd08e665D6675caA8F7B1Dd40A' }
+  includeCustom['_FarmStead'] = { NewPool: '0x95D2e18C069175523F56B617F96be7575E381547' }
+
+  await viewState(helperAddresses.StatefulEmissionsHelper, finalObj, 'farm', includeCustom)
   console.log(finalObj)
   console.log('Querying complete.')
 })
@@ -385,6 +502,7 @@ module.exports = {
       },
       forking: {
         url: 'https://eth-mainnet.alchemyapi.io/v2/' + secret.alchemyKey,
+        // blockNumber: 13984900,
       },
     },
     mainnet: {

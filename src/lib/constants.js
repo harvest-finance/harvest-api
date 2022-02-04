@@ -63,6 +63,9 @@ const ESTIMATED_APY_TYPES = {
   CONVEX: 'CONVEX',
   BALANCER: 'BALANCER',
   BALANCER_POLYGON: 'BALANCER_POLYGON',
+  MSTABLE: 'MSTABLE',
+  LOOKSRARE_SINGLE_ASSET: 'LOOKSRARE_SINGLE_ASSET',
+  STAKEWISE: 'STAKEWISE',
 }
 
 const TRADING_APY_TYPES = {
@@ -74,6 +77,8 @@ const TRADING_APY_TYPES = {
   CONVEX: 'CONVEX',
   BELT: 'BELT',
   VENUS: 'VENUS',
+  MSTABLE: 'MSTABLE',
+  LOOKS: 'LOOKS',
 }
 
 const COLLATERAL_TYPE = {
@@ -174,10 +179,16 @@ const BDO_API_URL = 'https://api.bdollar.fi/api/bdollar/'
 const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
 const BELT_API_URL = 'https://s.belt.fi/info/all.json'
+const MSTABLE_API_URL = 'https://api.mstable.org/pools'
 
 const BALANCER_SUBGRAPH_URLS = {
   ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
   MATIC: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2',
+}
+
+const STAKEWISE_API_URLS = {
+  LIQUIDITY: 'https://api.stakewise.io/uniswap-pools/',
+  STAKING: 'https://api.stakewise.io/pool-stats/',
 }
 
 const DEBUG_MODE = process.env.DEBUG_MODE
@@ -248,6 +259,7 @@ module.exports = {
   ELLIPSIS_API_URL,
   SWIRL_API_URL,
   BELT_API_URL,
+  MSTABLE_API_URL,
   DEBUG_MODE,
   DB_CACHE_IDS,
   PROFIT_SHARING_POOL_ID,
@@ -258,4 +270,5 @@ module.exports = {
   MATIC_RPC_URL,
   TRADING_APY_TYPES,
   BALANCER_SUBGRAPH_URLS,
+  STAKEWISE_API_URLS,
 }

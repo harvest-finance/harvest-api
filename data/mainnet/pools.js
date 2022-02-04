@@ -5,6 +5,186 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_ORC_ETH',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_APYVISION,
+      params: [addresses.V2.UniV3_ORC_ETH.NewVault, 'uniswapv3_eth', strat30PercentFactor],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_ORC_ETH.NewPool,
+    collateralAddress: addresses.V2.UniV3_ORC_ETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM, addresses.ORC],
+    rewardTokenSymbols: ['iFARM', 'ORC'],
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_TUSD_STABLE',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.bal_TUSD_STABLE.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.bal_TUSD_STABLE.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_TUSD_STABLE.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_TUSD_STABLE.PoolId}">
+            balancer
+          </a>
+          and invest <b>USDT</b>, <b>TUSD</b>, <b>USDC</b> or <b>DAI</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_USDC_WETH_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.bal_USDC_WETH_polygon.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.bal_USDC_WETH_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_USDC_WETH_polygon.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_USDC_WETH_polygon.PoolId}">
+            balancer
+          </a>
+          and invest <b>USDC</b>, <b>WETH</b> polygon
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_WBTC_WETH_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.bal_WBTC_WETH_polygon.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.bal_WBTC_WETH_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_WBTC_WETH_polygon.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_WBTC_WETH_polygon.PoolId}">
+            balancer
+          </a>
+          and invest <b>WBTC</b>, <b>WETH</b> polygon
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LOOKS,
+      params: [addresses.V2.looks_LOOKS.RewardPool],
+    },
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'looks_LOOKS',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.looks_LOOKS.NewPool,
+    collateralAddress: addresses.V2.looks_LOOKS.NewVault,
+    rewardAPY: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.MSTABLE,
+      params: ['imUSD', 'polygon'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'mUSD',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.mUSD.NewPool,
+    collateralAddress: addresses.MATIC.V2.mUSD.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.quickswap_PSP_MATIC.Underlying, 'quickswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickswap_PSP_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.quickswap_PSP_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickswap_PSP_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://quickswap.exchange/#/add/${addresses.MATIC.pPSP}/${addresses.MATIC.WMATIC}"
+            >
+              Quickswap
+            </a>
+            and supply liquidity to the <b>PSP-MATIC</b> pair by depositing <b>PSP</b> and
+            <b>MATIC</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.V2.uni_LOOKS_ETH.Underlying, 'uniswap_eth'],
@@ -52,8 +232,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.SUSHI_GENE_ETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGNOME],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'GNOME'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGNOME],
+    rewardTokenSymbols: ['miFARM', 'GNOME', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -90,8 +270,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.SUSHI_GNOME_ETH.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC, addresses.MATIC.pGENE],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'GENE'],
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.pGENE],
+    rewardTokenSymbols: ['miFARM', 'GENE', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -128,7 +308,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC_V2.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -166,6 +346,38 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_DEN2_4EUR.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_DEN2_4EUR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_DEN2_4EUR.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB/0xEb6f426963140471a7c1E4337877e6dBf834d2A8">
+            KyberDMM
+          </a>
+          and add liquidity for DEN(MAR22)-4EUR
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying, 'kyber_matic'],
     },
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -174,7 +386,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -202,8 +414,8 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR', 'fDEN2_4EUR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -224,13 +436,89 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.quick_YEL_MATIC.Underlying, 'quickswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quick_YEL_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.quick_YEL_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://quickswap.exchange/#/add/${addresses.MATIC.pYEL}/${addresses.MATIC.WMATIC}"
+              >
+                Quickswap
+              </a>
+              and supply liquidity to the <b>YEL-MATIC</b> pair by depositing <b>YEL</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.popsicle_ICE_WETH.Underlying, 'sushiswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'popsicle_ICE_WETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.popsicle_ICE_WETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://app.sushi.com/add/${addresses.MATIC.pWETH}/${addresses.MATIC.pICE}"
+              >
+                Sushiswap
+              </a>
+              and supply liquidity to the <b>ICE-ETH</b> pair by depositing <b>ICE</b> and
+              <b>ETH</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'polygon_WETH',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.MATIC.V2.polygon_WETH.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_WETH.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -240,7 +528,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.polygon_USDC.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_USDC.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -250,7 +538,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.polygon_DAI.NewPool,
     collateralAddress: addresses.MATIC.V2.polygon_DAI.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
   },
   {
@@ -4310,6 +4598,10 @@ module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'UniV3_ETH_sETH2',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_APYVISION,
+      params: [addresses.V2.UniV3_ETH_sETH2.NewVault, 'uniswapv3_eth', strat30PercentFactor],
+    },
     type: POOL_TYPES.UNIV3,
     contractAddress: addresses.V2.UniV3_ETH_sETH2.NewPool,
     collateralAddress: addresses.V2.UniV3_ETH_sETH2.NewVault,
@@ -4978,7 +5270,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JEUR_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5012,7 +5304,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JGBP_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5046,7 +5338,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.jarvis_JCHF_USDC_HODL.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURFEB22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5075,7 +5367,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_AUR_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5108,7 +5400,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.balancer_BTC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5142,7 +5434,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_POLYBASE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5176,7 +5468,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_TRICRYPTO.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
@@ -5210,7 +5502,7 @@ module.exports = [
     oldPoolContractAddress: addresses.MATIC.V2.balancer_STABLE.OldPool,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.WMATIC],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">

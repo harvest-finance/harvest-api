@@ -1,5 +1,6 @@
 const hre = require('hardhat')
 const fs = require('fs')
+const axios = require('axios')
 
 const IERC20Abi = require('./abi/IERC20Upgradeable.json')
 const IControllerV1Abi = require('./abi/Controller.json')
@@ -38,7 +39,14 @@ async function pushMetrics(labels) {
     })
 }
 
-async function reportSimulationProfit(vault, block, ethProfit, execute) {
+async function reportSimulationProfit(
+  vault,
+  block,
+  ethProfit,
+  execute,
+  maxFeePerGas,
+  maxPriorityFeePerGas,
+) {
   if (!settings.prometheusMonitoring || settings.prometheusMonitoring.enabled !== true) {
     return
   }
@@ -65,6 +73,22 @@ async function reportSimulationProfit(vault, block, ethProfit, execute) {
   })
   register.registerMetric(executeMetric)
   executeMetric.set(execute == true ? 1 : 0)
+
+  const gasFeeMetric = new promClient.Gauge({
+    name: 'eth_gas_fee',
+    help: 'transaction gas fee - maxFeePerGas',
+    registers: [register],
+  })
+  register.registerMetric(gasFeeMetric)
+  gasFeeMetric.set(maxFeePerGas)
+
+  const gasPriorityFeeMetric = new promClient.Gauge({
+    name: 'eth_gas_priority_fee',
+    help: 'transaction gas priority fee - maxPriorityFeePerGas',
+    registers: [register],
+  })
+  register.registerMetric(gasPriorityFeeMetric)
+  gasPriorityFeeMetric.set(maxPriorityFeePerGas)
 
   let labels = {
     jobName: vault,
@@ -153,18 +177,52 @@ async function roughQuoteXInMATIC(xAmount, xAddress, xMATICLPPair) {
 }
 
 // determines the gas price by taking the minimum of "locally set max gas" and the gas price returned from api
-async function getGasPrice() {
-  return 65000000000 // 65 gwei in Polygon
+async function getFeeData() {
+  const gasPriceMin = 65e9 // 65 gwei minimum in Polygon
+
+  let fee = await axios
+    .get('https://owlracle.info/poly/gas?accept=90&apikey=' + settings.owlracleApiKey)
+    .then(response => {
+      return Math.round(parseFloat(response.data.speeds[0].gasPrice) * 1e9)
+    })
+    .catch(error => {
+      console.log(error)
+      return 0
+    })
+
+  if (fee < gasPriceMin) {
+    fee = gasPriceMin
+  } else if (fee > settings.gasPriceMax) {
+    fee = settings.gasPriceMax
+  }
+
+  let priorityFee = Math.round(fee / 2)
+  if (priorityFee > settings.priorityFeeMax) {
+    priorityFee = settings.priorityFeeMax
+  }
+  return { maxFeePerGas: fee, maxPriorityFeePerGas: priorityFee }
 }
 
 // properly setup the txSenderInfo for sending
 async function formulateTxSenderInfo(sender) {
-  let submitGasPrice = await getGasPrice()
+  let submitGasPrice = await getFeeData()
   let nonce = await web3.eth.getTransactionCount(sender)
 
-  console.log('gasPrice: ', submitGasPrice)
+  console.log(
+    'maxFeePerGas:',
+    submitGasPrice.maxFeePerGas / 1e9,
+    'maxPriorityFeePerGas:',
+    submitGasPrice.maxPriorityFeePerGas / 1e9,
+  )
 
-  const txSenderInfo = { gasPrice: submitGasPrice, gas: settings.gasLimit, nonce, from: sender }
+  const txSenderInfo = {
+    type: 2,
+    maxFeePerGas: submitGasPrice.maxFeePerGas,
+    maxPriorityFeePerGas: submitGasPrice.maxPriorityFeePerGas,
+    gasLimit: settings.gasLimit,
+    nonce,
+    from: sender,
+  }
   return txSenderInfo
 }
 
@@ -249,7 +307,7 @@ async function main() {
         let tx = await controller.methods.doHardWork(vaultAddress).send(txSenderInfo)
         console.timeEnd('doHardwork simulation')
 
-        let maticCost = tx.gasUsed * txSenderInfo.gasPrice
+        let maticCost = tx.gasUsed * txSenderInfo.maxFeePerGas
         let ethInProfitShareAfter = await eth.methods.balanceOf(profitShareAddr).call()
         ethProfit = ethInProfitShareAfter - ethInProfitShareBefore
         let roughProfitInMatic = await roughQuoteXInMATIC(
@@ -298,7 +356,14 @@ async function main() {
 
     fs.writeFileSync('./vault-decision.json', JSON.stringify(decision), 'utf-8')
     console.log('Decision wrote in file.')
-    await reportSimulationProfit(curVaultKey, currentSimBlock, ethProfit, executeFlag)
+    await reportSimulationProfit(
+      curVaultKey,
+      currentSimBlock,
+      ethProfit,
+      executeFlag,
+      txSenderInfo.maxFeePerGas / 1e9,
+      txSenderInfo.maxPriorityFeePerGas / 1e9,
+    )
   } else if (process.env.HARDHAT_NETWORK == 'cron_mainnet') {
     let hardworker = accounts[0].address
     let txSenderInfo = await formulateTxSenderInfo(hardworker)

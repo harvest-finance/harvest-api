@@ -24,8 +24,8 @@ Set up `settings.json` and `dev-keys.json` (place `dev-keys.json` right OUTSIDE 
 1. `npx hardhat record --network hardhat` to simulate recording emission numbers
 1. `npx hardhat record --network mainnet` to execute recording emission numbers
 1. `npx hardhat view --network hardhat` to view newly recorded emission percentages
-1. `npx hardhat execute-mint --week 70 --network hardhat` to simulate actual minting and notification
-1. `npx hardhat execute-mint --week 70 --network mainnet` to execute actual minting and notification
+1. `npx hardhat execute-mint --week 70 --network hardhat --debug true` to simulate actual minting and notification
+1. `npx hardhat execute-mint --week 70 --network mainnet --debug false` to execute actual minting and notification
 
 ## Admin-only methods:
 
