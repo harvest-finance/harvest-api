@@ -17,7 +17,7 @@ module.exports = {
       chainId: 137,
       forking: {
         url: `https://polygon-mainnet.g.alchemy.com/v2/${secret.alchemyKey}`,
-        blockNumber: 23440873
+        blockNumber: 23880727
       },
       // gasPrice: 30000000000
     },

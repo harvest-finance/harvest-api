@@ -1,88 +1,54 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+
 import "./interfaces/IResolver.sol";
-import "./interfaces/IVault.sol";
-import "./interfaces/IERC20.sol";
 import "./interfaces/IController.sol";
 import "./interfaces/AggregatorV3Interface.sol";
+import "./upgradeability/BaseUpgradeableResolver.sol";
 
-import "../node_modules/hardhat/console.sol";
+contract DoHardWorkResolver is Initializable, GovernableInit, BaseUpgradeableResolver, IResolver {
+    using SafeERC20 for IERC20;
 
-contract DoHardWorkResolver is IResolver {
-    // todo: use storage slots
-    // todo: use SafeERC20
-    // todo: make upgradable with proxy
-    // todo: make more universally usable across chains with profitSharingToken etc.
-    // todo: getter and setter for priceFeed address, as storage slot
+    constructor() {}
 
-    address internal profitShareTarget = address(0xf00dD244228F51547f0563e60bCa65a30FBF5f7f);
-    address internal weth = address(0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619);
-    address internal controller = address(0xebaFc813f66c3142E7993a88EE3361a1f4BDaB16);
-    uint8 internal greatDealRatio = 6;
-
-    AggregatorV3Interface internal priceFeed;
-
-    constructor() {
-        priceFeed = AggregatorV3Interface(address(0x327e23A4855b6F663a28c5161541d69Af8973302));
+    function initialize(address _storage, 
+        address _controller,
+        address _profitSharingTarget,
+        address _profitSharingToken,
+        address _profitSharingTokenToNativePriceFeed,
+        address _pokeMe
+    ) public initializer {
+        BaseUpgradeableResolver.initialize(_storage,
+            _controller,
+            _profitSharingTarget,
+            _profitSharingToken,
+            _profitSharingTokenToNativePriceFeed,
+            _pokeMe,
+            6, // great deal ratio
+            12 hours // implementation change delay
+        );
     }
 
-     function checker(address vault)
+    /**
+    * Checks the profitability of a doHardWork by comparing gasCost
+    * to profitSharing earnings times a greatDealRatio
+    * Called by Gelato as trigger for tasks (which trigger doHardWork on a given vault)
+    */
+    function checker(address vault)
         external
         override
+        onlyPokeMe
+        onlyNotPausedTriggering
         returns (bool canExec, bytes memory execPayload)
     {
-        console.log("start.");
-
-        // get farmBalance before
-        uint256 profitShareBalanceBefore = IERC20(weth).balanceOf(profitShareTarget);
-        // get amount of gas left before
-        uint256 gasLeftBefore = gasleft();
-
-        console.log("we in, gas left", gasLeftBefore);
-        
-        // run doHardWork for vault
-        IController(controller).doHardWork(vault);
-
-        console.log("did hard work");
-
-        // approximate tx cost
-        // use amount of gas left after to get gas amount which the doHardWork used
-        uint256 gasUsed = gasLeftBefore - gasleft();
-        console.log("gasUsed\n", gasUsed);
-        console.log("tx.gasprice\n", tx.gasprice);
-        uint256 gasCost = gasUsed * tx.gasprice;
-
-        console.log("gas cost\n", gasCost);
-
-        // approximate profit sharing gains
-        // get farmBalance after
-        uint256 profitShareBalanceAfter = IERC20(weth).balanceOf(profitShareTarget);
-        uint256 profitShareGainsInEth = profitShareBalanceAfter - profitShareBalanceBefore;
-
-        console.log("profit share gains in ETH\n", profitShareGainsInEth);
-        
-        // profitShare is in WETH, gasCost is in Matic.
-        // we need to compare the two. we use the chainlink oracle price feeds to get the price 
-        // for ETH / MATIC
-        uint256 priceOneMaticInEth = getLatestPrice(); // uint256(668500000000000);//
-        console.log("priceOneMaticInEth\n");
-        console.log(priceOneMaticInEth);
-        // gas cost is already in matic, let's get the ETH to matic
-        // profitShareGainsInEth has 18 decimals, priceOneMaticInEth has 18 decimals
-        uint256 profitShareGains = profitShareGainsInEth * 1e18 / priceOneMaticInEth;
-        console.log("profit share gains in MATIC\n");
-        console.log(profitShareGains);
-
-        console.log("\n\nCOMPARING\n");
-        console.log("GAINS:");
-        console.log(profitShareGains);
-        console.log(gasCost * greatDealRatio);
-        console.log("COST * greatDealRatio (ABOVE)");
-        console.log("\n\n -------------------- ");
+       (uint256 profitSharingGains, uint256 gasCost) = checkDoHardWorkCostVsGain(vault);
 
         // check profitability and return false if gains threshold is not surpassed
-        if(profitShareGains > gasCost * greatDealRatio) {
+        if(profitSharingGains > gasCost * greatDealRatio()) {
             canExec = true;
         } else {
             canExec = false;
@@ -94,20 +60,100 @@ contract DoHardWorkResolver is IResolver {
         );
     }
 
-    function doExec(bytes calldata execPayload) external {
-
+    /**
+    * Sets the ratio that defines the margin for when to trigger a doHardWork on vaults
+    */
+    function setGreatDealRatio(uint8 greatDealRatio) public onlyGovernance {
+        _setGreatDealRatio(greatDealRatio);
     }
 
     /**
-     * Returns the latest price
+    * Sets the profit sharing token (e.g. WETH on Polygon)
+    */
+    function setProfitSharingToken(address profitSharingToken) public onlyGovernance {
+        _setProfitSharingToken(profitSharingToken);
+    }
+
+    /**
+    * Sets the controller that triggers doHardWorks on vaults
+    */
+    function setController(address controller) public onlyGovernance {
+        _setController(controller);
+    }
+
+    /**
+    * Sets the pokeMe whitelisted task execution checker address from gelato
+    */
+    function setPokeMe(address pokeMe) public onlyGovernance {
+        _setPokeMe(pokeMe);
+    }
+
+    /**
+    * Sets the profit sharing target address
+    */
+    function setProfitSharingTarget(address profitSharingTarget) public onlyGovernance {
+        _setProfitSharingTarget(profitSharingTarget);
+    }
+
+    /**
+    * Sets the profit sharing token to native token chainlink pricefeed
+    * can be found here: https://docs.chain.link/docs/reference-contracts/
+    */
+    function setProfitSharingTokenToNativePriceFeed(address priceFeed) public onlyGovernance {
+        _setProfitSharingTokenToNativePriceFeed(priceFeed);
+    }
+
+    /**
+    * governance can pause all triggers in an emergency situation
+    */
+    function setPausedTriggering(bool pausedTriggering) public onlyGovernance {
+        _setPausedTriggering(pausedTriggering);
+    }
+
+    /**
+     * Returns the latest price of the native token / reward token pair
      */
     function getLatestPrice() internal view returns (uint256) {
-        (
-            , 
-            int256 price,
-            ,
-            ,
-        ) = priceFeed.latestRoundData();
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(profitSharingTokenToNativePriceFeed());
+        (,int256 price,,,) = priceFeed.latestRoundData();
         return uint256(price);
+    }
+
+    /** 
+     * Gets the balance of the profitSharingToken at the profitSharingTarget
+     */
+    function getProfitSharingTargetBalance() internal view returns(uint256) {
+        return IERC20(profitSharingToken()).balanceOf(profitSharingTarget());
+    }
+
+    /** 
+     * Executes a doHardWork on the given vault and returns profitSharingGains and gasCost
+     */
+    function checkDoHardWorkCostVsGain(address vault) internal returns(uint256 profitSharingGains, uint256 gasCost){
+         // get farmBalance before
+        uint256 profitSharingBalanceBefore = getProfitSharingTargetBalance();
+        // get amount of gas left before
+        uint256 gasLeftBefore = gasleft();
+
+        // run doHardWork for vault
+        IController(controller()).doHardWork(vault);
+
+        // approximate tx cost
+        // use amount of gas left after to get gas amount which the doHardWork used
+        uint256 gasUsed = gasLeftBefore - gasleft();
+        gasCost = gasUsed * tx.gasprice;
+
+        // approximate profit sharing gains
+        // get farmBalance after
+        uint256 profitSharingBalanceAfter = getProfitSharingTargetBalance();
+        uint256 profitSharingGainsInRewardToken = profitSharingBalanceAfter - profitSharingBalanceBefore;
+
+        // profitSharing is in reward token, gasCost is in chain native token.
+        // we need to compare the two. we use the chainlink oracle price feeds to get the price
+        // for RewardToken / NativeToken
+        uint256 priceOneNativeInRewardToken = getLatestPrice();
+        // gas cost is already in matic, let's get the ETH to matic
+        // profitSharingGainsInRewardToken has 18 decimals, priceOneNativeInRewardToken has 18 decimals
+        profitSharingGains = profitSharingGainsInRewardToken * 1e18 / priceOneNativeInRewardToken;
     }
 }
