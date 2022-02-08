@@ -1444,7 +1444,7 @@ module.exports = [
     uniPool: true,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.VaultUNI_LP_WETH_DPI, 'uniswap_eth'],
+      params: [addresses.UNI_LP_WETH_DPI, 'uniswap_eth'],
     },
     id: 'weth-dpi-uni-farm',
     type: POOL_TYPES.INCENTIVE,
@@ -1749,7 +1749,7 @@ module.exports = [
     id: 'SUSHI-SUSHI-ETH',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.sushi_SUSHI_WETH.NewVault, 'sushiswap_eth'],
+      params: [addresses.V2.sushi_SUSHI_WETH.Underlying, 'sushiswap_eth'],
     },
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.sushi_SUSHI_WETH.NewPool,
@@ -4404,7 +4404,7 @@ module.exports = [
   {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.BSC.V2.popsicle_ICE_BNB.NewVault, 'pancakeswap_bsc'],
+      params: [addresses.BSC.V2.popsicle_ICE_BNB.Underlying, 'pancakeswap_bsc'],
     },
     chain: CHAINS_ID.BSC_MAINNET,
     id: 'popsicle_ICE_BNB',
