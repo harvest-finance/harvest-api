@@ -1717,7 +1717,8 @@
         "StrategyContract": "JarvisHodlStrategyMainnet_jCHF_USDC",
         "NewStrategy": "0xd432F8C6861a6Ba344734F364539262AB69d8c07",
         "OldPool": "0xe7666F2AF0a6F5199281944C112CA8511F27C330",
-        "NewPool": "0x24Aa3547962872351c30F1127430172317C05FEC"
+        "NewPool": "0x24Aa3547962872351c30F1127430172317C05FEC",
+        "doHardwork": false
       },
       "jarvis_JEUR_USDC_HODL": {
         "Underlying": "0xa1219DBE76eEcBf7571Fed6b020Dd9154396B70e",
@@ -1725,7 +1726,8 @@
         "StrategyContract": "JarvisHodlStrategyMainnet_jEUR_USDC",
         "NewStrategy": "0x19A9B287272535AF40e087F3Fd32Bd2BA07bF4AB",
         "OldPool": "0x083830D8d41f21dE5832649db40e9268b027696a",
-        "NewPool": "0xf25474FBf9812bE2ef76abf4297A27411C156403"
+        "NewPool": "0xf25474FBf9812bE2ef76abf4297A27411C156403",
+        "doHardwork": false
       },
       "jarvis_JGBP_USDC_HODL": {
         "Underlying": "0xbb2d00675B775E0F8acd590e08DA081B2a36D3a6",
@@ -1733,7 +1735,8 @@
         "StrategyContract": "JarvisHodlStrategyMainnet_jGBP_USDC",
         "NewStrategy": "0xB60E69F21b469A93aB6e3f4a831E833bcFb7C7dE",
         "OldPool": "0xB91f62A423dE007ce25E5538D747B259fb207938",
-        "NewPool": "0x877635e68C1E943D6d6B777C0e847Cd7aE5A01BE"
+        "NewPool": "0x877635e68C1E943D6d6B777C0e847Cd7aE5A01BE",
+        "doHardwork": false
       },
       "polygon_DAI": {
         "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
@@ -1776,7 +1779,8 @@
         "Underlying": "0xA623aacf9eB4Fc0a29515F08bdABB0d8Ce385cF7",
         "NewVault": "0xFf127E0dDB5E0a53d29f9eA029F5b41F281F3EFD",
         "NewStrategy": "0xA87Abed957338A5dE2106D13d1967cF62d6d7996",
-        "NewPool": "0xb42E1201cc041727B063cfbB506Ca7ee74B7857e"
+        "NewPool": "0xb42E1201cc041727B063cfbB506Ca7ee74B7857e",
+        "doHardwork": false
       },
       "SUSHI_GENE_ETH": {
         "Underlying": "0x3d4219987fBb25C3DcF73FbD9AA85FbE3C7411D9",
