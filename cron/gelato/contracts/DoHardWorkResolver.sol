@@ -152,7 +152,7 @@ contract DoHardWorkResolver is Initializable, GovernableInit, BaseUpgradeableRes
         // we need to compare the two. we use the chainlink oracle price feeds to get the price
         // for RewardToken / NativeToken
         uint256 priceOneNativeInRewardToken = getLatestPrice();
-        // gas cost is already in matic, let's get the ETH to matic
+        // gas cost is already in native token, let's get the reward token to native token
         // profitSharingGainsInRewardToken has 18 decimals, priceOneNativeInRewardToken has 18 decimals
         profitSharingGains = profitSharingGainsInRewardToken * 1e18 / priceOneNativeInRewardToken;
     }

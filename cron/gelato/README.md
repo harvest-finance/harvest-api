@@ -16,6 +16,9 @@ Controller has to whitelist the deployed Resolver as hardworker.
 
 ### Tests
 
+- use block 23880727 as example for non-profitability
+- use block 24223199 as example for profitability
+
 ```
 npx hardhat test test/resolver.js
 ```
