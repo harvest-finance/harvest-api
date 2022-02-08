@@ -5,6 +5,7 @@ const axios = require('axios')
 const IERC20Abi = require('./abi/IERC20Upgradeable.json')
 const IControllerV1Abi = require('./abi/Controller.json')
 const vaultAbi = require('./abi/Vault.json')
+const strategyAbi = require('./abi/Strategy.json')
 const { web3 } = require('hardhat')
 const settings = require('./settings.json')
 
@@ -122,8 +123,8 @@ const greatDealRatio = 6
 // or when the funds available for invest is 1/(idleFraction) of the total funds.
 // note that funds that are available for invest are different from funds sitting in vault
 const idleFraction = 20
-// or minimum of DEN sent to msig.
-const minDenProfit = 0.01e18
+// or minimum of token sent to msig.
+const minMsigProfit = 0.001e18
 const bedBot = '0xbed04c43e74150794f2ff5b62b4f73820edaf661'
 
 const addresses = require('../../../harvest-api/data/mainnet/addresses.json').MATIC
@@ -137,12 +138,12 @@ const disableCron = vaultAddress =>
       addresses.V2[key].doHardwork === false,
   )
 
-const useDenProfitCalculation = vaultAddress =>
+const useMsigProfitCalculation = vaultAddress =>
   Object.keys(addresses.V2).find(
     key =>
       addresses.V2[key].NewVault &&
       addresses.V2[key].NewVault.toLowerCase() === vaultAddress.toLowerCase() &&
-      addresses.V2[key].useDenProfitCalculation === true,
+      addresses.V2[key].useMsigProfitCalculation === true,
   )
 
 const vaultIds = allVaults
@@ -245,9 +246,9 @@ var profitShareAddr = addresses.ProfitShareTarget
 let vaultAddress = addresses.V2[curVaultKey].NewVault
 let vault = new web3.eth.Contract(vaultAbi, vaultAddress)
 let eth = new web3.eth.Contract(IERC20Abi, addresses.pWETH)
-let den = new web3.eth.Contract(IERC20Abi, addresses.DEN)
+let msigRewardToken
 
-let denProfit = 0
+let msigProfit = 0
 
 async function main() {
   await hre.run('compile')
@@ -298,8 +299,17 @@ async function main() {
       console.log(".... funds don't need to be pushed")
     }
     let ethInProfitShareBefore = await eth.methods.balanceOf(profitShareAddr).call()
-    let denInMsigBefore = await den.methods.balanceOf(addresses.msig).call()
     let ethProfit = 0
+    let profitInMsigBefore = 0
+    if (useMsigProfitCalculation(vaultAddress)) {
+      console.log('[ Using msig profit calculation.. ]')
+      let strategyAddress = addresses.V2[curVaultKey].NewStrategy
+      let strategy = new web3.eth.Contract(strategyAbi, strategyAddress)
+      let rewardTokenAddress = await strategy.methods.rewardToken().call()
+      console.log('reward token:', rewardTokenAddress)
+      msigRewardToken = new web3.eth.Contract(IERC20Abi, rewardTokenAddress)
+      profitInMsigBefore = await msigRewardToken.methods.balanceOf(addresses.msig).call()
+    }
     if (executeFlag == false) {
       console.log('======= Doing hardwork ======')
       try {
@@ -325,14 +335,13 @@ async function main() {
         console.log('after:              ', ethInProfitShareAfter)
         console.log('profit shared Ether: ', ethProfit / 1e18)
 
-        if (useDenProfitCalculation(vaultAddress)) {
-          console.log('[ Using DEN profit calculation.. ]')
-          let denInMsigAfter = await den.methods.balanceOf(addresses.msig).call()
-          denProfit = denInMsigAfter - denInMsigBefore
-          console.log('profit shared DEN: ', denProfit / 1e18)
+        if (useMsigProfitCalculation(vaultAddress)) {
+          let profitInMsigAfter = await msigRewardToken.methods.balanceOf(addresses.msig).call()
+          msigProfit = profitInMsigAfter - profitInMsigBefore
+          console.log('msig profit shared: ', msigProfit / 1e18)
         }
 
-        if (roughProfitInMatic > maticCost * greatDealRatio || denProfit > minDenProfit) {
+        if (roughProfitInMatic > maticCost * greatDealRatio || msigProfit > minMsigProfit) {
           console.log('====> Time to doHardwork! ====')
           executeFlag = true
         } else {
