@@ -162,7 +162,6 @@ module.exports = {
   quickswap_PSP_MATIC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.QUICKSWAP,
-    isNew: true,
     displayName: 'Quickswap: PSP-MATIC',
     apyIconUrls: ['./icons/psp.png', './icons/quick.png'],
     apyTokenSymbols: ['PSP', 'dQUICK'],
@@ -191,7 +190,6 @@ module.exports = {
   quick_YEL_MATIC: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.YEL,
-    isNew: true,
     logoUrl: './icons/yel-matic.png',
     apyIconUrls: ['./icons/yel.png'],
     apyTokenSymbols: ['YEL'],
@@ -216,7 +214,6 @@ module.exports = {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.POPSICLE,
     displayName: 'Popsicle: ICE-WETH',
-    isNew: true,
     subLabel: 'Sushiswap',
     apyIconUrls: ['./icons/ice.png'],
     apyTokenSymbols: ['ICE'],
@@ -245,7 +242,6 @@ module.exports = {
   mUSD: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.MSTABLE,
-    isNew: true,
     logoUrl: './icons/mstable.svg',
     apyIconUrls: ['./icons/mta.svg'],
     apyTokenSymbols: ['MTA'],
@@ -356,7 +352,6 @@ module.exports = {
   SUSHI_GENE_ETH: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.GENOMES,
-    isNew: true,
     logoUrl: './icons/sushi-gene-eth.png',
     subLabel: 'Genomes.io',
     apyIconUrls: [],
@@ -380,7 +375,6 @@ module.exports = {
   SUSHI_GNOME_ETH: {
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.GENOMES,
-    isNew: true,
     logoUrl: './icons/sushi-gnome-eth.png',
     subLabel: 'Genomes.io',
     apyIconUrls: [],
@@ -403,7 +397,6 @@ module.exports = {
   },
   crvCVXCRV: {
     chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.GENERAL,
     displayName: 'CRV:CVXCRV',
     apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
@@ -493,7 +486,6 @@ module.exports = {
     disableAutoSwap: true,
     isSingleAssetWithdrawalAllowed: false,
     chain: CHAINS_ID.ETH_MAINNET,
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: BABL-ETH',
     subLabel: 'Babylon Finance',
