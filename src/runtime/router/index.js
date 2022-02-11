@@ -238,7 +238,7 @@ const initRouter = app => {
       const vaultsUpdateTime = get(vaultsData, 'updatedAt')
       const vaultsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
       const poolsUpdateTime = get(poolsData, 'updatedAt')
-      const poolsDiff = new Date().getTime() - new Date(vaultsUpdateTime).getTime()
+      const poolsDiff = new Date().getTime() - new Date(poolsUpdateTime).getTime()
       res.send({
         vaults: {
           updatedAt: vaultsUpdateTime,
