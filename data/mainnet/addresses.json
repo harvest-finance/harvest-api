@@ -1638,6 +1638,7 @@
     "pICE": "0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59",
     "pPSP": "0x42d61D766B85431666B39B89C43011f24451bFf6",
     "pTUSD": "0x2e1ad108ff1d8c782fcbbb89aad783ac49586756",
+    "AUR_APR22": "0xBF06D9b11126B140788D842a6ed8dC7885C722B3",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1718,7 +1719,8 @@
         "NewStrategy": "0xd432F8C6861a6Ba344734F364539262AB69d8c07",
         "OldPool": "0xe7666F2AF0a6F5199281944C112CA8511F27C330",
         "NewPool": "0x24Aa3547962872351c30F1127430172317C05FEC",
-        "doHardwork": false
+        "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
+        "useMsigProfitCalculation": true
       },
       "jarvis_JEUR_USDC_HODL": {
         "Underlying": "0xa1219DBE76eEcBf7571Fed6b020Dd9154396B70e",
@@ -1727,7 +1729,8 @@
         "NewStrategy": "0x19A9B287272535AF40e087F3Fd32Bd2BA07bF4AB",
         "OldPool": "0x083830D8d41f21dE5832649db40e9268b027696a",
         "NewPool": "0xf25474FBf9812bE2ef76abf4297A27411C156403",
-        "doHardwork": false
+        "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
+        "useMsigProfitCalculation": true
       },
       "jarvis_JGBP_USDC_HODL": {
         "Underlying": "0xbb2d00675B775E0F8acd590e08DA081B2a36D3a6",
@@ -1736,7 +1739,8 @@
         "NewStrategy": "0xB60E69F21b469A93aB6e3f4a831E833bcFb7C7dE",
         "OldPool": "0xB91f62A423dE007ce25E5538D747B259fb207938",
         "NewPool": "0x877635e68C1E943D6d6B777C0e847Cd7aE5A01BE",
-        "doHardwork": false
+        "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
+        "useMsigProfitCalculation": true
       },
       "polygon_DAI": {
         "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
@@ -1851,6 +1855,14 @@
         "NewStrategy": "0xfeB6A323BA0254F207750C9ff2bEDBbDF7F6C880",
         "NewPool": "0x183CfA5f9Be0d45a532Bd2EB94398162e14fb049",
         "RewardPool": "0x9c802D12Da5C7c74104d8cAD9E6084E32c2B70B7",
+        "useMsigProfitCalculation": true
+      },
+      "jarvis_AUR3_USDC": {
+        "Underlying": "0xF40E249737c510CCE832286e54cB30E60D4e4656",
+        "NewVault": "0x102Df50dB22407B64a8A6b11734c8743B6AeF953",
+        "NewStrategy": "0xC41D252b9cA4EC08E7bAAb0a490216C8598bf911",
+        "NewPool": "0x4Af93A7D4Bb47c814988dA5E774112f7b5ae5Dab",
+        "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
         "useMsigProfitCalculation": true
       }
     }
