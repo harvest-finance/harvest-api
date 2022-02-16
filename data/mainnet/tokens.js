@@ -5427,10 +5427,7 @@ module.exports = {
     tokenAddress: addresses.MATIC.JJPY,
     decimals: '18',
     vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_ID,
-      params: ['jarvis-synthetic-jpy'],
-    },
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.JPYC] },
   },
   JPYC: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5438,10 +5435,7 @@ module.exports = {
     tokenAddress: addresses.MATIC.JPYC,
     decimals: '18',
     vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_ID,
-      params: ['jpy-coin'],
-    },
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.JPYC] },
   },
   JCAD: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5449,10 +5443,7 @@ module.exports = {
     tokenAddress: addresses.MATIC.JCAD,
     decimals: '18',
     vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_ID,
-      params: ['jarvis-synthetic-cad'],
-    },
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CADC] },
   },
   CADC: {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5460,10 +5451,7 @@ module.exports = {
     tokenAddress: addresses.MATIC.CADC,
     decimals: '18',
     vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_ID,
-      params: ['cad-coin'],
-    },
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CADC] },
   },
   'DEN-MAR22': {
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5870,17 +5858,13 @@ module.exports = {
     vaultAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, 'SES', 'TWO_JPY'],
+      params: [addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, 'SES', 'jarvis_2JPY_HODL'],
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS_V2',
-        params: [
-          0,
-          addresses.MATIC.V2.jarvis_SES_2JPY.RewardPool,
-          addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
-          profitSharingCut8Percent,
-        ],
+        type: 'JARVIS_HODL',
+        params: [0, addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, profitSharingCut8Percent],
+        extraDailyCompound: false,
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'SES'],
@@ -5899,17 +5883,13 @@ module.exports = {
     vaultAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying, 'QUI', 'TWO_CAD'],
+      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying, 'QUI', 'jarvis_2CAD_HODL'],
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS_V2',
-        params: [
-          0,
-          addresses.MATIC.V2.jarvis_QUI_2CAD.RewardPool,
-          addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying,
-          profitSharingCut8Percent,
-        ],
+        type: 'JARVIS_HODL',
+        params: [0, addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying, profitSharingCut8Percent],
+        extraDailyCompound: false,
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'QUI'],
