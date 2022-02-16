@@ -299,8 +299,8 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.LOOKSRARE,
-        params: [addresses.V2.uni_LOOKS_ETH.RewardPool, strat30PercentFactor],
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'LOOKS'],
