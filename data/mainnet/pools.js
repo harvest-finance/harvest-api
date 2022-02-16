@@ -5,6 +5,72 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'farm-curve-ust-wormhole',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.crv_UST_WORMHOLE.NewPool,
+    collateralAddress: addresses.V2.crv_UST_WORMHOLE.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['ust-wormhole'],
+    },
+    StakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://curve.fi/factory/53/deposit">
+              curve.fi
+            </a>
+            and deposit <b>USD stablecoins</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+    </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'farm-curve-crv-eth',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.crv_CRV_ETH.NewPool,
+    collateralAddress: addresses.V2.crv_CRV_ETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['crveth'],
+    },
+    StakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://curve.fi/crveth/deposit">
+              curve.fi
+            </a>
+            and deposit <b>CRV and/or cvxCRV</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+    </div>
+   `,
+  },
+  {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_AUR3_USDC.Underlying, 'kyber_matic'],
