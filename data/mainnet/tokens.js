@@ -859,7 +859,7 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
-  },  
+  },
   crvCRVETH: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.GENERAL,
