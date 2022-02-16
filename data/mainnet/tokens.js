@@ -5383,6 +5383,50 @@ module.exports = {
       params: ['jarvis-synthetic-british-pound'],
     },
   },
+  JJPY: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jjpy.png',
+    tokenAddress: addresses.MATIC.JJPY,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-synthetic-jpy'],
+    },
+  },
+  JPYC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jpyc.png',
+    tokenAddress: addresses.MATIC.JPYC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jpy-coin'],
+    },
+  },
+  JCAD: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jcad.png',
+    tokenAddress: addresses.MATIC.JCAD,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['jarvis-synthetic-cad'],
+    },
+  },
+  CADC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/cadc.png',
+    tokenAddress: addresses.MATIC.CADC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['cad-coin'],
+    },
+  },
   'DEN-MAR22': {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '',
@@ -5410,6 +5454,21 @@ module.exports = {
         addresses.MATIC.DEN,
         addresses.MATIC.V2.jarvis_4EUR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_DEN_4EUR.Underlying,
+      ],
+    },
+  },
+  SES: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.SES,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.DEN,
+        addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
       ],
     },
   },
@@ -5477,6 +5536,28 @@ module.exports = {
     priceFunction: {
       type: GET_PRICE_TYPES.F_TOKEN,
       params: [addresses.MATIC.V2.jarvis_DEN_4EUR.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  fSES_2JPY: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_SES_2JPY.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  fQUI_2CAD: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
     },
   },
   fAURFEB22_USDC: {
@@ -5575,6 +5656,84 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DEN-MAR22'],
   },
+  jarvis_2JPY_HODL: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/two-cad.jpg',
+    apyIconUrls: ['./icons/ses.png'],
+    apyTokenSymbols: ['SES'],
+    displayName: 'Jarvis: 2JPY',
+    subLabel: 'HODL',
+    tokenAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+        18,
+        ['JJPY', 'JPYC'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_HODL_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_2JPY_HODL.RewardPool,
+          addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+          'jarvis_SES_2JPY',
+          profitSharingCut8Percent,
+        ],
+        extraDailyCompound: false,
+      },
+    ],
+    apyDescriptionOverride: [
+      'Auto harvested <b>SES</b> deposited into <b>SES(MAR22)-2JPY</b> for more APY',
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'SES'],
+  },
+  jarvis_2CAD_HODL: {
+    category: VAULT_CATEGORIES_IDS.JARVIS,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2jpy.png',
+    apyIconUrls: ['./icons/qui.png'],
+    apyTokenSymbols: ['QUI'],
+    displayName: 'Jarvis: 2CAD',
+    subLabel: 'HODL',
+    tokenAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.jarvis_2CAD_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_2CAD_HODL.Underlying,
+        18,
+        ['JCAD', 'CADC'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_HODL_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_2CAD_HODL.RewardPool,
+          addresses.MATIC.V2.jarvis_2CAD_HODL.Underlying,
+          'jarvis_SES_2JPY',
+          profitSharingCut8Percent,
+        ],
+        extraDailyCompound: false,
+      },
+    ],
+    apyDescriptionOverride: [
+      'Auto harvested <b>SES</b> deposited into <b>SES(MAR22)-2JPY</b> for more APY',
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'SES'],
+  },
   jarvis_DEN2_4EUR: {
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -5631,6 +5790,64 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DEN'],
+  },
+  jarvis_SES_2JPY: {
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/ses.png',
+    apyIconUrls: ['./icons/ses.png'],
+    apyTokenSymbols: ['SES'],
+    displayName: 'Jarvis: SES-2JPY',
+    subLabel: 'Auto-compounding',
+    tokenAddress: addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, 'SES', 'TWO_JPY'],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_SES_2JPY.RewardPool,
+          addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'SES'],
+  },
+  jarvis_QUI_2CAD: {
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/qui.png',
+    apyIconUrls: ['./icons/qui.png'],
+    apyTokenSymbols: ['QUI'],
+    displayName: 'Jarvis: QUI-2CAD',
+    subLabel: 'Auto-compounding',
+    tokenAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying, 'QUI', 'TWO_CAD'],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_QUI_2CAD.RewardPool,
+          addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'QUI'],
   },
   jarvis_JEUR_USDC_HODL: {
     category: VAULT_CATEGORIES_IDS.JARVIS,

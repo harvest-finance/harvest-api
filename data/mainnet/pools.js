@@ -408,6 +408,126 @@ module.exports = [
  `,
   },
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_SES_2JPY',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020/0x4924B6E1207EFb244433294619a5ADD08ACB3dfF">
+            KyberDMM
+          </a>
+          and add liquidity for SES-2JPY
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_2JPY_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fSES_2JPY'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/37/deposit">
+            Curve
+          </a>
+          and add liquidity for 2JPY
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_QUI_2CAD',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020/0x4924B6E1207EFb244433294619a5ADD08ACB3dfF">
+            KyberDMM
+          </a>
+          and add liquidity for QUI_2CAD
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_2CAD_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fQUI_2CAD'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/37/deposit">
+            Curve
+          </a>
+          and add liquidity for 2CAD
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_4EUR_HODL',
     type: POOL_TYPES.INCENTIVE,
