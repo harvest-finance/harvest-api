@@ -844,7 +844,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['f-ibeur', strat30PercentFactor],
+        params: ['fixedforex:eur', strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'],
@@ -3068,7 +3068,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['iearn', convexProfitSharingFactor],
+        params: ['ypool', convexProfitSharingFactor],
       },
     ],
     cmcRewardTokenSymbols: ['FARM', 'CVX', 'CRV'],
