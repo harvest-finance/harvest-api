@@ -5881,7 +5881,7 @@ module.exports = {
       {
         type: 'JARVIS_V2',
         params: [
-          3,
+          1,
           addresses.MATIC.V2.jarvis_SES_2JPY.RewardPool,
           addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
           profitSharingCut8Percent,
@@ -5910,9 +5910,9 @@ module.exports = {
       {
         type: 'JARVIS_V2',
         params: [
-          3,
-          addresses.MATIC.V2.jarvis_SES_2JPY.RewardPool,
-          addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
+          1,
+          addresses.MATIC.V2.jarvis_QUI_2CAD.RewardPool,
+          addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying,
           profitSharingCut8Percent,
         ],
       },
