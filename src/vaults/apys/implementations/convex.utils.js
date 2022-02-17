@@ -29,10 +29,6 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
   virtualPrice = 1
   if (pool.isV2 == undefined || pool.isV2 == false) {
     virtualPrice = await curveLpValue(1, curveSwap)
-    if (pool.name == 'cvxcrv') {
-      const tokenValue = await getPrice(crvAddress, pool.currency)
-      virtualPrice = virtualPrice * tokenValue
-    }
   } else {
     virtualPrice = await curveV2LpValue(pool, pool.currency)
   }
@@ -138,7 +134,13 @@ const curveV2LpValue = async (pool, currencyType) => {
 
   let total = 0
   for (let i = 0; i < pool.coins.length; i++) {
-    const bal = await balanceOf(pool.swap, pool.coins[i], pool.coinDecimals[i])
+    let bal
+    if (pool.coins[i] == '0x0000000000000000000000000000000000000000') {
+      bal = new BigNumber(await web3.eth.getBalance(pool.swap)).div(1e18)
+      pool.coins[i] = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
+    } else {
+      bal = await balanceOf(pool.swap, pool.coins[i], pool.coinDecimals[i])
+    }
 
     const price = await getPrice(pool.coins[i], currencyType)
 

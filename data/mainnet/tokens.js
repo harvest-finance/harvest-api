@@ -46,6 +46,54 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  crvUSTWORMHOLE: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.STABLECOINS,
+    displayName: 'CRV:UST-WORMHOLE',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
+    apyTokenSymbols: ['CRV', 'CVX'],
+    logoUrl: './icons/curve-ust.png',
+    tokenAddress: addresses.V2.crv_UST_WORMHOLE.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.crv_UST_WORMHOLE.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.UST] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['ust-wormhole', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
+  crvCRVETH: {
+    isNew: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.GENERAL,
+    displayName: 'CRV:CRVETH',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
+    apyTokenSymbols: ['CRV', 'CVX'],
+    logoUrl: './icons/curve-crveth.png',
+    tokenAddress: addresses.V2.crv_CRV_ETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.crv_CRV_ETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.V2.crv_CRV_ETH.Underlying,
+        addresses.V2.crv_CRV_ETH.Underlying,
+        '18',
+        ['CRV', 'WETH'],
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['crv-eth', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
   bal_TUSD_STABLE: {
     category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
@@ -285,7 +333,6 @@ module.exports = {
   uni_LOOKS_ETH: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.LIQUIDITY,
-    isNew: true,
     displayName: 'LOOKS-WETH',
     apyIconUrls: ['./icons/looks.png'],
     apyTokenSymbols: ['LOOKS'],
@@ -797,7 +844,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['f-ibeur', strat30PercentFactor],
+        params: ['fixedforex:eur', strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV', 'rKP3R'],
@@ -837,52 +884,6 @@ module.exports = {
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
         params: ['eurt', convexProfitSharingFactor],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
-  },
-  crvUSTWORMHOLE: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.STABLECOINS,
-    displayName: 'CRV:UST-WORMHOLE',
-    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
-    apyTokenSymbols: ['CRV', 'CVX'],
-    logoUrl: './icons/curve-ust.png',
-    tokenAddress: addresses.V2.crv_UST_WORMHOLE.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.crv_UST_WORMHOLE.NewVault,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.UST] },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['ust-wormhole', convexProfitSharingFactor],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
-  },
-  crvCRVETH: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
-    displayName: 'CRV:CRVETH',
-    apyIconUrls: ['./icons/curve.png', './icons/cvx.png'],
-    apyTokenSymbols: ['CRV', 'CVX'],
-    logoUrl: './icons/curve-crveth.png',
-    tokenAddress: addresses.V2.crv_CRV_ETH.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.crv_CRV_ETH.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.CURVE_POOL,
-      params: [
-        addresses.V2.crv_CRV_ETH.Underlying,
-        addresses.V2.crv_CRV_ETH.Underlying,
-        '18',
-        ['CRV', 'WETH'],
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['crv-eth', strat30PercentFactor],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
@@ -3067,7 +3068,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['iearn', convexProfitSharingFactor],
+        params: ['ypool', convexProfitSharingFactor],
       },
     ],
     cmcRewardTokenSymbols: ['FARM', 'CVX', 'CRV'],
