@@ -525,7 +525,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020/0x4924B6E1207EFb244433294619a5ADD08ACB3dfF">
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/#/add/0x9120ECada8dc70Dc62cBD49f58e861a09bf83788/0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A/0x3b76F90A8ab3EA7f0EA717F34ec65d194E5e9737">
             KyberDMM
           </a>
           and add liquidity for SES-2JPY
@@ -553,7 +553,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/37/deposit">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/85/deposit">
             Curve
           </a>
           and add liquidity for 2JPY
@@ -585,10 +585,10 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://dmm.exchange/#/add/0xAd326c253A84e9805559b73A08724e11E49ca651/0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020/0x4924B6E1207EFb244433294619a5ADD08ACB3dfF">
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/#/add/0xA69b0D5c0C401BBA2d5162138613B5E38584F63F/0xF65fb31ad1ccb2E7A6Ec3B34BEA4c81b68af6695/0x32d8513eDDa5AEf930080F15270984A043933A95">
             KyberDMM
           </a>
-          and add liquidity for QUI_2CAD
+          and add liquidity for QUI-2CAD
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -613,7 +613,7 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/37/deposit">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/23/deposit">
             Curve
           </a>
           and add liquidity for 2CAD
