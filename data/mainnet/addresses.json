@@ -1247,7 +1247,8 @@
       "FeeAmount": 3000,
       "PosId": [
         186833
-      ]
+      ],
+      "doHardwork": "onlyProfit"
     },
     "crv_UST_WORMHOLE": {
       "Underlying": "0xCEAF7747579696A2F0bb206a14210e3c9e6fB269",
