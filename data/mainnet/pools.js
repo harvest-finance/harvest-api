@@ -773,7 +773,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['f-ibeur'],
+      params: ['fixedforex:eur'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
