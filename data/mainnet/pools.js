@@ -18,7 +18,7 @@ module.exports = [
       type: TRADING_APY_TYPES.CONVEX,
       params: ['ust-wormhole'],
     },
-    StakeAndDepositHelpMessage: `
+    stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
         <ol class="numeric-list">
@@ -51,7 +51,7 @@ module.exports = [
       type: TRADING_APY_TYPES.CONVEX,
       params: ['crveth'],
     },
-    StakeAndDepositHelpMessage: `
+    stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
         <ol class="numeric-list">
