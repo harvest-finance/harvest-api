@@ -93,7 +93,7 @@ module.exports = [
           <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/#/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0xBF06D9b11126B140788D842a6ed8dC7885C722B3/0xF40E249737c510CCE832286e54cB30E60D4e4656">
             KyberDMM
           </a>
-          and add liquidity for AURFEB22-USDC
+          and add liquidity for AUR(APR22)-USDC
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -773,7 +773,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['f-ibeur'],
+      params: ['fixedforex:eur'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
