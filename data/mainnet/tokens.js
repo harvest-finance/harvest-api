@@ -332,7 +332,8 @@ module.exports = {
   },
   uni_LOOKS_ETH: {
     chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.LIQUIDITY,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    inactive: true,
     displayName: 'LOOKS-WETH',
     apyIconUrls: ['./icons/looks.png'],
     apyTokenSymbols: ['LOOKS'],
