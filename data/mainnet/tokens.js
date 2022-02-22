@@ -532,7 +532,8 @@ module.exports = {
   UniV3_BABL_ETH: {
     disableAutoSwap: true,
     isSingleAssetWithdrawalAllowed: false,
-    chain: CHAINS_ID.ETH_MAINNET,
+    chain: CHAINS_ID.INACTIVE,
+    inactive: true,
     category: VAULT_CATEGORIES_IDS.UNIV3,
     displayName: 'Uniswap V3: BABL-ETH',
     subLabel: 'Babylon Finance',
