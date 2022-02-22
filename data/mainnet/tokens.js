@@ -80,7 +80,7 @@ module.exports = {
     priceFunction: {
       type: GET_PRICE_TYPES.CURVE_POOL,
       params: [
-        addresses.V2.crv_CRV_ETH.Underlying,
+        addresses.V2.crv_CRV_ETH.Miner,
         addresses.V2.crv_CRV_ETH.Underlying,
         '18',
         ['CRV', 'WETH'],
