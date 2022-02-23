@@ -184,6 +184,90 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'SES'],
   },
+  JJPY: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jjpy.png',
+    tokenAddress: addresses.MATIC.JJPY,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.JPYC] },
+  },
+  JPYC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jpyc.png',
+    tokenAddress: addresses.MATIC.JPYC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.JPYC] },
+  },
+  JCAD: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/jcad.png',
+    tokenAddress: addresses.MATIC.JCAD,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CADC] },
+  },
+  CADC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/cadc.png',
+    tokenAddress: addresses.MATIC.CADC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.CADC] },
+  },
+  SES: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.SES,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.SES,
+        addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
+      ],
+    },
+  },
+  QUI: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.QUI,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.KYBER_PAIR,
+      params: [
+        addresses.MATIC.QUI,
+        addresses.MATIC.V2.jarvis_2CAD_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_QUI_2CAD.Underlying,
+      ],
+    },
+  },
+  fSES_2JPY: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.V2.jarvis_SES_2JPY.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_SES_2JPY.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  fQUI_2CAD: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '', // unused
+    tokenAddress: addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.F_TOKEN,
+      params: [addresses.MATIC.V2.jarvis_QUI_2CAD.NewVault, '18', CHAINS_ID.MATIC_MAINNET],
+    },
+  },
   crvUSTWORMHOLE: {
     isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
