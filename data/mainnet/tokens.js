@@ -108,7 +108,7 @@ module.exports = {
     isNew: true,
     category: VAULT_CATEGORIES_IDS.JARVIS,
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/2jpy.jpg',
+    logoUrl: './icons/2jpy.png',
     apyIconUrls: ['./icons/ses.png'],
     apyTokenSymbols: ['SES'],
     displayName: 'Jarvis: 2JPY',
