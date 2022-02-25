@@ -3,13 +3,13 @@ const {
   ENDPOINT_TYPES,
   ACTIVE_ENDPOINTS,
   DB_CACHE_IDS,
-  UPDATE_LOOP_INTERVAL_MS,
+  HEALTH_ALERT_TIME_MS,
 } = require('../../lib/constants')
 const { validateAPIKey, asyncWrap, validateTokenSymbol } = require('./middleware')
 const { Cache } = require('../../lib/db/models/cache')
 const { get } = require('lodash')
 const { default: BigNumber } = require('bignumber.js')
-const { format } = require('timeago.js')
+const { formatTimeago } = require('../../lib/utils.js')
 
 const initRouter = app => {
   app.use(validateAPIKey(API_KEY))
@@ -206,7 +206,7 @@ const initRouter = app => {
         res.send({
           updatedAt: {
             apiData: updatedAt,
-            lastUpdated: format(updatedAt),
+            lastUpdated: formatTimeago(updatedAt),
           },
           ...get(allPools, 'data', {}),
         })
@@ -221,7 +221,7 @@ const initRouter = app => {
         res.send({
           updatedAt: {
             apiData: updatedAt,
-            lastUpdated: format(updatedAt),
+            lastUpdated: formatTimeago(updatedAt),
           },
           ...get(allVaults, 'data', {}),
         })
@@ -242,13 +242,13 @@ const initRouter = app => {
       res.send({
         vaults: {
           updatedAt: vaultsUpdateTime,
-          lastUpdated: format(vaultsUpdateTime),
-          status: vaultsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+          lastUpdated: formatTimeago(vaultsUpdateTime),
+          status: vaultsDiff > HEALTH_ALERT_TIME_MS ? 'NOT OK' : 'OK',
         },
         pools: {
           updatedAt: poolsUpdateTime,
-          lastUpdated: format(poolsUpdateTime),
-          status: poolsDiff > UPDATE_LOOP_INTERVAL_MS ? 'NOT OK' : 'OK',
+          lastUpdated: formatTimeago(poolsUpdateTime),
+          status: poolsDiff > HEALTH_ALERT_TIME_MS ? 'NOT OK' : 'OK',
         },
       })
     }),
