@@ -1228,7 +1228,8 @@
       "NewVault": "0x41d0Ab2Bf4E8Da44FEE38232E56b089f3Bb00587",
       "NewStrategy": "0x30D985f869B11321610c41bD3ce1c3Faf86B9684",
       "NewPool": "0xc349d842f1e937569736ADbA53bb735297cF575D",
-      "RewardPool": "0x2A70e7F51f6cd40C3E9956aa964137668cBfAdC5"
+      "RewardPool": "0x2A70e7F51f6cd40C3E9956aa964137668cBfAdC5",
+      "doHardwork": false
     },
     "looks_LOOKS": {
       "Underlying": "0xf4d2888d29D722226FafA5d9B24F9164c092421E",
