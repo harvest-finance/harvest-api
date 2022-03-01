@@ -1896,28 +1896,32 @@
         "NewVault": "0x483d1e18E67bF69ef555c798807DaDbE7757311D",
         "NewStrategy": "0xE01009072a45D782Fe827a286EB2Fd09cf559eDB",
         "NewPool": "0x811020F961f3A3EB4DF393c2837611fC1271556E",
-        "RewardPool": "0xeb4a4ba3ef5e3a286dc49408c27f9bdaa286db84"
+        "RewardPool": "0xeb4a4ba3ef5e3a286dc49408c27f9bdaa286db84",
+        "useMsigProfitCalculation": true
       },
       "jarvis_2JPY_HODL": {
         "Underlying": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
         "NewVault": "0x9e00c8E675F3F25Ca0F7f51d4bCA28b7be009e12",
         "NewStrategy": "0xEF9D1a246d013F4a8b16d9D875946abEb2AbEe68",
         "NewPool": "0x8451d905e6b4dEd563b5AB49027f28e2eBcCc991",
-        "RewardPool": "0xeb4a4ba3ef5e3a286dc49408c27f9bdaa286db84"
+        "RewardPool": "0xeb4a4ba3ef5e3a286dc49408c27f9bdaa286db84",
+        "useMsigProfitCalculation": true
       },
       "jarvis_QUI_2CAD": {
         "Underlying": "0x32d8513eDDa5AEf930080F15270984A043933A95",
         "NewVault": "0x7f7136760ce6235b0889704B01bE23E6E8220e7B",
         "NewStrategy": "0x77B2a497dC7482622Ff38C4C624B258F009Bf34b",
         "NewPool": "0x21284e4A00999cf01783Cc1c2dF9C9F059435c41",
-        "RewardPool": "0x16ef7a2f8156819bae95cfce0ca712d01498b665"
+        "RewardPool": "0x16ef7a2f8156819bae95cfce0ca712d01498b665",
+        "useMsigProfitCalculation": true
       },
       "jarvis_2CAD_HODL": {
         "Underlying": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
         "NewVault": "0x2D165213df42C70B72FbE47670bA3b7e6DBfAB4a",
         "NewStrategy": "0x2081afC37F39274Ed5ad41ED7F2c84e99b92C316",
         "NewPool": "0x2f590EB4980ed49Ff9613E3098b61772970a7f36",
-        "RewardPool": "0x16ef7a2f8156819bae95cfce0ca712d01498b665"
+        "RewardPool": "0x16ef7a2f8156819bae95cfce0ca712d01498b665",
+        "useMsigProfitCalculation": true
       }
     }
   }
