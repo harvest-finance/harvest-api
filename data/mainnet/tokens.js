@@ -126,7 +126,8 @@ module.exports = {
         type: ESTIMATED_APY_TYPES.MANUAL,
         params: ['0.00'],
       },
-    ],    apyDescriptionOverride: [
+    ],
+    apyDescriptionOverride: [
       'Auto harvested <b>SES</b> deposited into <b>SES-2JPY</b> for more APY',
     ],
     cmcRewardTokenSymbols: ['iFARM', 'SES'],
