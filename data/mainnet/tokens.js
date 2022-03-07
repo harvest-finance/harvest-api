@@ -64,13 +64,8 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS_V2',
-        params: [
-          1,
-          addresses.MATIC.V2.jarvis_SES_2JPY.RewardPool,
-          addresses.MATIC.V2.jarvis_SES_2JPY.Underlying,
-          profitSharingCut8Percent,
-        ],
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'SES'],
@@ -128,15 +123,8 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: 'JARVIS_HODL_V2',
-        params: [
-          0,
-          addresses.MATIC.V2.jarvis_2JPY_HODL.RewardPool,
-          addresses.MATIC.V2.jarvis_2JPY_HODL.Underlying,
-          'jarvis_SES_2JPY',
-          profitSharingCut8Percent,
-        ],
-        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
       },
     ],
     apyDescriptionOverride: [
