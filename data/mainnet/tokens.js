@@ -3,7 +3,6 @@ const {
   VAULT_CATEGORIES_IDS,
   GET_PRICE_TYPES,
   ESTIMATED_APY_TYPES,
-  COLLATERAL_TYPE,
   SUSHI_POOLS_IDS,
   BASIS_POOL_IDS,
 } = require('../constants')
@@ -3719,12 +3718,9 @@ module.exports = {
         type: ESTIMATED_APY_TYPES.CRV_GENERAL,
         params: [
           'crvGUSD', // itself
-          ['gusd', 'DAI'], // params for curve API for getting lend rates
           addresses.V2.crvGUSD.GaugePool, // gauge pool
           '0x4f062658EaAF2C1ccf8C8e36D6824CDf41167956', // swap address
-          COLLATERAL_TYPE.NULL,
           strat30PercentFactor,
-          '0', // any added term
         ],
       },
     ],
