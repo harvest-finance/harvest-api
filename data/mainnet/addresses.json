@@ -262,7 +262,8 @@
     },
     "crvHUSD": {
       "NewVault": "0x29780C39164Ebbd62e9DDDE50c151810070140f2",
-      "NewPool": "0x72C50e6FD8cC5506E166c273b6E814342Aa0a3c1"
+      "NewPool": "0x72C50e6FD8cC5506E166c273b6E814342Aa0a3c1",
+      "doHardwork": false
     },
     "WBTC": {
       "OldVault": "0xc07EB91961662D275E2D285BdC21885A4Db136B0",
@@ -271,7 +272,7 @@
       "NewStrategy": "0x3F31eDCd57B2461fD2650F4A1066a97F73b97158",
       "NewPool": "0x917d6480Ec60cBddd6CbD0C8EA317Bcc709EA77B",
       "RewardPool": "0xE41F9FAbee859C4E6D248E9442c822F09742228a",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "WETH": {
       "OldVault": "0x8e298734681adbfC41ee5d17FF8B0d6d803e7098",
@@ -351,7 +352,8 @@
     "crvBUSD": {
       "NewVault": "0x4b1cBD6F6D8676AcE5E412C78B7a59b4A1bbb68a",
       "NewStrategy": "0x2b7CAA7D87c01152A82c266791AdA69CcFe64045",
-      "NewPool": "0x093C2ae5E6F3D2A897459aa24551289D462449AD"
+      "NewPool": "0x093C2ae5E6F3D2A897459aa24551289D462449AD",
+      "doHardwork": false
     },
     "sushi_PERP_ETH": {
       "Underlying": "0x8486c538DcBD6A707c5b3f730B6413286FE8c854",
