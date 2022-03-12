@@ -1837,7 +1837,8 @@
         "NewVault": "0xC2F50f1886D790e199Cd8a5c0AC360DF44636012",
         "NewStrategy": "0x1626e9a3880805fD2349E90e3116562c5Dc65f31",
         "NewPool": "0x26906cFF92f5c0D24B3045BEA0cf11a30a22D0eA",
-        "PoolId": 0
+        "PoolId": 0,
+        "doHardwork": false
       },
       "quick_YEL_MATIC": {
         "Underlying": "0x8bAb87ECF28Bf45507Bd745bc70532e968b5c2De",
