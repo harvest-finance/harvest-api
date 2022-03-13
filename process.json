@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "check-updates",
+      "script": "./git-checks.sh",
+      "watch": true
+    },
+    {
+      "name": "api",
+      "script": "./src/index.js",
+      "watch": true
+    }
+  ]
+}
+
