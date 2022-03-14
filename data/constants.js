@@ -32,6 +32,7 @@ const VAULT_CATEGORIES_IDS = {
   MSTABLE: 'MSTABLE',
   POPSICLE: 'POPSICLE',
   YEL: 'YEL',
+  CURVE: 'CURVE',
 }
 
 const VAULT_CATEGORIES_NAMES = {
@@ -68,6 +69,7 @@ const VAULT_CATEGORIES_NAMES = {
   MSTABLE: 'mStable',
   POPSICLE: 'Popsicle',
   YEL: 'YEL',
+  CURVE: 'Curve',
 }
 
 const CHAINS_ID = {

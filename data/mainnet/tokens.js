@@ -3,7 +3,6 @@ const {
   VAULT_CATEGORIES_IDS,
   GET_PRICE_TYPES,
   ESTIMATED_APY_TYPES,
-  COLLATERAL_TYPE,
   SUSHI_POOLS_IDS,
   BASIS_POOL_IDS,
 } = require('../constants')
@@ -45,6 +44,135 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
+  },
+  amWBTC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amWBTC,
+    decimals: '8',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WBTC] },
+  },
+  amWETH: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amWETH,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WETH] },
+  },
+  am3CRV: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.am3CRVToken,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.am3CRVPool,
+        addresses.MATIC.am3CRVToken,
+        18,
+        ['amDAI', 'amUSDC', 'amUSDT'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  amDAI: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amDAI,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.DAI] },
+  },
+  amUSDC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amUSDC,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.USDC] },
+  },
+  amUSDT: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amUSDT,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.USDT] },
+  },
+  crvTriCrypto3_polygon: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.CURVE,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/curve-tricrypto.png',
+    apyIconUrls: ['./icons/curve.png'],
+    apyTokenSymbols: ['CRV'],
+    displayName: 'Curve: aTriCrypto3',
+    tokenAddress: addresses.MATIC.V2.crvTriCrypto3_polygon.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.crvTriCrypto3_polygon.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.crvTriCrypto3_polygon.CurvePool,
+        addresses.MATIC.V2.crvTriCrypto3_polygon.Underlying,
+        18,
+        ['amWBTC', 'amWETH', 'am3CRV'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CRV_GENERAL,
+        params: [
+          'crvTriCrypto3_polygon',
+          addresses.MATIC.V2.crvTriCrypto3_polygon.Gauge,
+          addresses.MATIC.V2.crvTriCrypto3_polygon.Underlying,
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+          addresses.MATIC.V2.crvTriCrypto3_polygon.RootChainGauge,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CRV'],
+  },
+  crvEurtUsd_polygon: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.CURVE,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/curve-eurtusd.png',
+    apyIconUrls: ['./icons/curve.png'],
+    apyTokenSymbols: ['CRV'],
+    displayName: 'Curve: EURT-USD',
+    tokenAddress: addresses.MATIC.V2.crvEurtUsd_polygon.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.crvEurtUsd_polygon.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.crvEurtUsd_polygon.CurvePool,
+        addresses.MATIC.V2.crvEurtUsd_polygon.Underlying,
+        18,
+        ['pEURT', 'am3CRV'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CRV_GENERAL,
+        params: [
+          'crvEurtUsd_polygon',
+          addresses.MATIC.V2.crvEurtUsd_polygon.Gauge,
+          addresses.MATIC.V2.crvEurtUsd_polygon.Underlying,
+          profitSharingCut8Percent,
+          CHAINS_ID.MATIC_MAINNET,
+          addresses.MATIC.V2.crvEurtUsd_polygon.RootChainGauge,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CRV'],
   },
   jarvis_SES_2JPY: {
     isNew: true,
@@ -3590,12 +3718,9 @@ module.exports = {
         type: ESTIMATED_APY_TYPES.CRV_GENERAL,
         params: [
           'crvGUSD', // itself
-          ['gusd', 'DAI'], // params for curve API for getting lend rates
           addresses.V2.crvGUSD.GaugePool, // gauge pool
           '0x4f062658EaAF2C1ccf8C8e36D6824CDf41167956', // swap address
-          COLLATERAL_TYPE.NULL,
           strat30PercentFactor,
-          '0', // any added term
         ],
       },
     ],

@@ -1,8 +1,6 @@
 /* eslint-disable  one-var */
 const BigNumber = require('bignumber.js')
 const { forEach } = require('promised-loops')
-const { ESTIMATED_APY_TYPES } = require('../../lib/constants')
-const getCurveLendRate = require('../../lib/third-party/curve-apy')
 const { cache } = require('../../lib/cache')
 const { getDailyCompound } = require('../../lib/utils')
 
@@ -23,12 +21,6 @@ const getYearlyAPR = async (type, params, share) => {
 
   if (share) {
     yearlyApr = new BigNumber(yearlyApr).div(100).times(share)
-  }
-
-  if (type === ESTIMATED_APY_TYPES.CRV_GENERAL) {
-    const lendParams = params[1]
-    const lendApy = await getCurveLendRate(lendParams)
-    yearlyApr = new BigNumber(yearlyApr).plus(lendApy).toFixed(2)
   }
 
   return yearlyApr

@@ -5,6 +5,62 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'crvTriCrypto3_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.crvTriCrypto3_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.crvTriCrypto3_polygon.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/atricrypto3/deposit">
+            Curve
+          </a>
+          and add liquidity for aTriCrypto3
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'crvEurtUsd_polygon',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.crvEurtUsd_polygon.NewPool,
+    collateralAddress: addresses.MATIC.V2.crvEurtUsd_polygon.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/eurtusd/deposit">
+            Curve
+          </a>
+          and add liquidity for EURT-USD
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_SES_2JPY.Underlying, 'kyber_matic'],
