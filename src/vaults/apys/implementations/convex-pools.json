@@ -684,12 +684,12 @@
         "name": "fixedforex:eur",
         "extras": [
             {
-                "contract": "",
+                "contract": "0x21034ccc4f8D07d0cF8998Fdd4c45e426540dEc1",
                 "token": "0xEdB67Ee1B171c4eC66E6c10EC43EDBbA20FaE8e9",
                 "name": "rKP3R"
             },
             {
-                "contract": "",
+                "contract": "0xbA5eF047ce02cc0096DB3Bc8ED84aAD14291f8a0",
                 "token": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
                 "name": "CVX"
             }
