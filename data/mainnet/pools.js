@@ -5,6 +5,20 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_UNT_ETH',
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_APYVISION,
+      params: [addresses.V2.UniV3_UNT_ETH.NewVault, 'uniswapv3_eth', strat30PercentFactor],
+    },
+    type: POOL_TYPES.UNIV3,
+    contractAddress: addresses.V2.UniV3_UNT_ETH.NewPool,
+    collateralAddress: addresses.V2.UniV3_UNT_ETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM, addresses.UNT],
+    rewardTokenSymbols: ['iFARM', 'UNT'],
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'crvTriCrypto3_polygon',
     type: POOL_TYPES.INCENTIVE,
