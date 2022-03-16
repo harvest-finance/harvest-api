@@ -113,7 +113,7 @@ module.exports = [
     contractAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewPool,
     collateralAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewVault,
     rewardAPY: [],
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.V2.jarvis_SES_2JPY.NewVault],
+    rewardTokens: [addresses.MATIC.miFARM],
     rewardTokenSymbols: ['miFARM', 'fSES_2JPY', 'WMATIC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
