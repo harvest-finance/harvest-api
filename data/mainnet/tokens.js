@@ -47,7 +47,7 @@ module.exports = {
   },
   UNT: {
     chain: CHAINS_ID.ETH_MAINNET,
-    logoUrl: '',
+    logoUrl: './icons/unt.png',
     tokenAddress: addresses.UNT,
     decimals: '18',
     vaultAddress: null,
