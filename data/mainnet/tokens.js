@@ -1302,7 +1302,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'USDT', 'WETH'],
   },
   UniV3_DON_WETH_full_range: {
-    inactive:true,
+    inactive: true,
     subLabel: 'Donkey',
     isDegen: true,
     chain: CHAINS_ID.ETH_MAINNET,
