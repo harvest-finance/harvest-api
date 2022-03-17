@@ -1076,7 +1076,7 @@
         "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
       ],
       "NewPool": "0xb33A40857fAD73760730A7543E79Dac1b25858c3",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "sushi_YEL_ETH": {
       "Underlying": "0xc83cE8612164eF7A13d17DDea4271DD8e8EEbE5d",
