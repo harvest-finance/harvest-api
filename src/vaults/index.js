@@ -14,7 +14,6 @@ const contractData = require('../lib/web3/contracts/token/contract.json')
 const { getSymbol, getDecimals } = require('../lib/web3/contracts/token/methods.js')
 const { VAULT_CATEGORIES_IDS } = require('../../data/constants') 
 const {
-  VAULT_CATEGORIES_IDS,
   DB_CACHE_IDS,
   DEBUG_MODE,
   WEB3_CALL_COUNT_STATS_KEY,
