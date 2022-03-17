@@ -12,6 +12,7 @@ const managedVaultData = require('../lib/web3/contracts/uniswap-v3-managed/contr
 const { getCap, getDepositCapReached, getWithdrawalTimestamp, getCurrentCap } = require('../lib/web3/contracts/uniswap-v3-managed/methods')
 const contractData = require('../lib/web3/contracts/token/contract.json')
 const { getSymbol, getDecimals } = require('../lib/web3/contracts/token/methods.js')
+const { VAULT_CATEGORIES_IDS } = require('../../data/constants') 
 const {
   VAULT_CATEGORIES_IDS,
   DB_CACHE_IDS,
