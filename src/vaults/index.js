@@ -8,7 +8,12 @@ const { getTokenPrice } = require('../prices')
 const { getPosId } = require('../prices/implementations/uniswap-v3.js')
 const { omit, get, find, isArray, toString } = require('lodash')
 const { getTotalSupply } = require('../lib/web3/contracts/vault/methods')
+const managedVaultData = require('../lib/web3/contracts/uniswap-v3-managed/contract.json')
+const { getCap, getDepositCapReached, getWithdrawalTimestamp, getCurrentCap } = require('../lib/web3/contracts/uniswap-v3-managed/methods')
+const contractData = require('../lib/web3/contracts/token/contract.json')
+const { getSymbol, getDecimals } = require('../lib/web3/contracts/token/methods.js')
 const {
+  VAULT_CATEGORIES_IDS,
   DB_CACHE_IDS,
   DEBUG_MODE,
   WEB3_CALL_COUNT_STATS_KEY,
@@ -41,7 +46,15 @@ const fetchAndExpandVault = async symbol => {
     totalSupply = null,
     uniswapV3PositionId = null,
     uniswapV3UnderlyingTokenPrices = [],
-    totalValueLocked = null
+    totalValueLocked = null,
+    cap = [],
+    capLimit = null,
+    capToken = null,
+    capTokenSymbol = null,
+    capTokenDecimal = null,
+    depositReached = false,
+    withdrawalTimestamp = null,
+    currentCap = null
 
   const vaultData = tokens[symbol]
   vaultData.id = symbol
@@ -117,19 +130,66 @@ const fetchAndExpandVault = async symbol => {
     })
   }
 
-  return {
-    ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
-    pricePerFullShare,
-    estimatedApy,
-    estimatedApyBreakdown,
-    boostedEstimatedAPY,
-    underlyingBalanceWithInvestment,
-    usdPrice,
-    totalSupply,
-    totalValueLocked,
-    uniswapV3PositionId,
-    uniswapV3UnderlyingTokenPrices,
-    rewardPool: vaultPool ? vaultPool.contractAddress : null,
+  if(vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED) {
+    
+    const managedVaultInstance = new web3Instance.eth.Contract(managedVaultData.abi, vaultData.vaultAddress)
+    
+    cap = await getCap(managedVaultInstance)
+    capLimit = cap[0]
+    capToken = cap[1]
+
+    if(capToken !== "0x0000000000000000000000000000000000000000" && capToken !== null ){
+      const contractInstance = new web3Instance.eth.Contract(contractData.abi,  capToken)
+      capTokenSymbol = await getSymbol(contractInstance)
+      capTokenDecimal = await getDecimals(contractInstance)
+    }
+
+    depositReached = await getDepositCapReached(managedVaultInstance)
+    withdrawalTimestamp = await getWithdrawalTimestamp(managedVaultInstance)
+    if(capToken !== "0x0000000000000000000000000000000000000000"){
+      currentCap = await getCurrentCap(managedVaultInstance)
+    }
+
+  }
+
+  if(vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED && capToken !== null) {
+    return {
+      ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
+      pricePerFullShare,
+      estimatedApy,
+      estimatedApyBreakdown,
+      boostedEstimatedAPY,
+      underlyingBalanceWithInvestment,
+      usdPrice,
+      totalSupply,
+      totalValueLocked,
+      uniswapV3PositionId,
+      uniswapV3UnderlyingTokenPrices,
+      rewardPool: vaultPool ? vaultPool.contractAddress : null,
+      capLimit,
+      capToken,
+      capTokenSymbol,
+      capTokenDecimal,
+      depositReached,
+      withdrawalTimestamp,
+      currentCap,
+    }
+  }
+  else {
+    return {
+      ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
+      pricePerFullShare,
+      estimatedApy,
+      estimatedApyBreakdown,
+      boostedEstimatedAPY,
+      underlyingBalanceWithInvestment,
+      usdPrice,
+      totalSupply,
+      totalValueLocked,
+      uniswapV3PositionId,
+      uniswapV3UnderlyingTokenPrices,
+      rewardPool: vaultPool ? vaultPool.contractAddress : null,
+    }
   }
 }
 
