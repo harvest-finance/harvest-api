@@ -8,6 +8,7 @@ const addresses = require('../../../data/mainnet/addresses.json').MATIC
 const helperAddresses = {
   GenericEmissionHelper: '0xfe092d36CcDc81019Bc1A7835bF793abABD76f33',
   GlobalIncentivesHelper: '0x1ebCf09b26E7b892A69cc5289534a1B15ac23156',
+  GlobalIncentivesExecutor: '0xBdC9bE69f3C9212c3965B55E6ce7360D03Ea99ce',
   NotifyHelperStatefulFarm: '0x5c93b28bf2048D6D882FB67edb56139d4Ed97b0D',
   NotifyHelperStatefulWMatic: '0xc7d49ffede1120af066448c4acd51f35f6fbaa98',
 }

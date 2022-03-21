@@ -13,6 +13,7 @@ const helperAddresses = {
   NotifyHelper: '0xE20c31e3d08027F5AfACe84A3A46B7b3B165053c',
   NotifyHelperIFARM: '0x8af7Eb5a93076F6A2316261aC8D42F97aDaab64E',
   MinterHelper: '0x973d0408deE278203c8613178c1732fd60182916',
+  MinterExecutor: '0xA8558d9460Bb13e50542359974E67a59DBE3b15e',
   DelayMinter: '0x284D7200a0Dabb05ee6De698da10d00df164f61d',
   Storage_MinterHelperAsGovernance: '0x9933682D7c7c03a4752Ad26fCf07a0Ed32203D62',
 }
@@ -37,6 +38,8 @@ const {
   setStorageOriginal,
   executeMintOriginal,
   notifyIFarmBuybackAmount,
+  getCurrentMintId,
+  execute,
 } = require('../_shared/lib.js')
 const parser = require('../_shared/csv-parser.js')
 
@@ -180,6 +183,60 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
   await viewState(helperAddresses.StatefulEmissionsHelper, finalObj, 'farm', addresses.V2)
   console.log(finalObj)
 })
+
+task('execute', 'Executes the current available mint and notifies all relevant pools')
+  .addParam('debug', 'Increases time if debug is true')
+  .setAction(async (taskArgs, hre) => {
+    if (taskArgs.debug === 'true') {
+      await hre.network.provider.send('evm_increaseTime', [3600 * 24])
+      await hre.network.provider.send('evm_mine')
+    }
+
+    await printStats()
+
+    prompt.start()
+    const mintId = await getCurrentMintId(helperAddresses.MinterExecutor)
+    prompt.message = `Current mint id: ${mintId}. Proceed?`
+    await prompt.get(['ok'])
+
+    let check = [
+      '0xd00FCE4966821Da1EdD1221a02aF0AFc876365e4',
+      '0x8f5adC58b32D4e5Ca02EAC0E293D35855999436C',
+      '0x3DA9D911301f8144bdF5c3c67886e5373DCdff8e',
+      '0x2E25800957742C52b4d69b65F9C67aBc5ccbffe6',
+      '0x6055d7f2E84e334176889f6d8c3F84580cA4F507',
+      '0x15d3A64B2d5ab9E152F16593Cdebc4bB165B5B4A',
+    ]
+
+    let before = {}
+    for (let i = 0; i < check.length; i++) {
+      before[check[i]] = {
+        FARM: toReadable(await getBalance(addresses.FARM, check[i])),
+        iFARM: toReadable(await getBalance(addresses.iFARM, check[i])),
+      }
+    }
+
+    await execute(helperAddresses.MinterExecutor)
+
+    console.log('Minting and notification completed.')
+
+    let after = {}
+    for (let i = 0; i < check.length; i++) {
+      after[check[i]] = {
+        FARM: toReadable(await getBalance(addresses.FARM, check[i])),
+        iFARM: toReadable(await getBalance(addresses.iFARM, check[i])),
+      }
+    }
+
+    for (let i = 0; i < check.length; i++) {
+      console.log('--------- ' + check[i])
+      console.log('iFARM before: ' + before[check[i]].iFARM)
+      console.log('iFARM after:  ' + after[check[i]].iFARM)
+      console.log('FARM  before: ' + before[check[i]].FARM)
+      console.log('FARM  after:  ' + after[check[i]].FARM)
+      console.log('---------')
+    }
+  })
 
 task('execute-mint', 'Executes the mint for the given week and notifies all relevant pools')
   .addParam('week', 'The week to mint')

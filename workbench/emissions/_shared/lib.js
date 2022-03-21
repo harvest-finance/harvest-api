@@ -5,6 +5,8 @@ const GlobalIncentivesHelperAbi = require('./abi/GlobalIncentivesHelper.json')
 const StatefulEmissionHelperAbi = require('./abi/StatefulEmissionHelper.json')
 const FeeRewardForwarderAbi = require('./abi/FeeRewardForwarder.json')
 const MinterHelperAbi = require('./abi/MinterHelper.json')
+const MinterExecutorAbi = require('./abi/MinterExecutor.json')
+const GlobalIncentivesExecutorAbi = require('./abi/GlobalIncentivesExecutor.json')
 const DelayMinterAbi = require('./abi/DelayMinter.json')
 const BigNumber = require('bignumber.js')
 
@@ -104,6 +106,29 @@ async function transferGovernance(minterAddress, addr, newStorage) {
 async function executeMint(minterAddress, mintId, announceNext) {
   let minter = new hre.web3.eth.Contract(MinterHelperAbi, minterAddress)
   await minter.methods.execute(mintId, announceNext).send(await formulateTxSenderInfo())
+}
+
+async function execute(minterOrIncentivesExecutorAddress) {
+  let minterExecutor = new hre.web3.eth.Contract(
+    MinterExecutorAbi,
+    minterOrIncentivesExecutorAddress,
+  )
+  await minterExecutor.methods.execute().send(await formulateTxSenderInfo())
+}
+
+async function getCurrentMintId(minterExecutorAddress) {
+  let minterExecutor = new hre.web3.eth.Contract(MinterExecutorAbi, minterExecutorAddress)
+  return await minterExecutor.methods.currentMintId().call()
+}
+
+async function updateData(globalIncentivesExecutorAddress, tokens, totals, timestamp) {
+  let minterExecutor = new hre.web3.eth.Contract(
+    GlobalIncentivesExecutorAbi,
+    globalIncentivesExecutorAddress,
+  )
+  await minterExecutor.methods
+    .updateData(tokens, totals, timestamp)
+    .send(await formulateTxSenderInfo())
 }
 
 async function executeMintOriginal(minterAddress, mintId) {
@@ -249,4 +274,7 @@ module.exports = {
   setPoolBatch,
   setPoolBatchEthereumMainnet,
   to18,
+  execute,
+  getCurrentMintId,
+  updateData,
 }
