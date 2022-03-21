@@ -8,6 +8,7 @@ const addresses = require('../../../data/mainnet/addresses.json').MATIC
 const helperAddresses = {
   GenericEmissionHelper: '0xfe092d36CcDc81019Bc1A7835bF793abABD76f33',
   GlobalIncentivesHelper: '0x1ebCf09b26E7b892A69cc5289534a1B15ac23156',
+  GlobalIncentivesExecutor: '0xBdC9bE69f3C9212c3965B55E6ce7360D03Ea99ce',
   NotifyHelperStatefulFarm: '0x5c93b28bf2048D6D882FB67edb56139d4Ed97b0D',
   NotifyHelperStatefulWMatic: '0xc7d49ffede1120af066448c4acd51f35f6fbaa98',
 }
@@ -21,6 +22,8 @@ const {
   notifyPools,
   viewState,
   setPoolBatch,
+  updateTotals,
+  execute,
 } = require('../_shared/lib.js')
 const parser = require('../_shared/csv-parser.js')
 
@@ -108,7 +111,47 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
   }
 })
 
-task('notify', 'Notifies with specified amounts').setAction(async () => {
+task('execute', 'Executes emissions with pre-specified amounts').setAction(async () => {
+  await printStats()
+  await execute(helperAddresses.GlobalIncentivesExecutor)
+  console.log('Executed.')
+})
+
+task('update-totals', 'Update total amounts').setAction(async () => {
+  await printStats()
+
+  prompt.start()
+  prompt.message = `Total miFARM amount (in human format like "18.23" miFARM)`
+  const { amountMiFarm } = await prompt.get(['amountMiFarm'])
+  const machineAmountFarm = to18(amountMiFarm)
+
+  prompt.message = `Total WMATIC amount (in human format like "18.23" wMATIC)`
+  const { amountWMatic } = await prompt.get(['amountWMatic'])
+  const machineAmountWMatic = to18(amountWMatic)
+
+  prompt.message = `miFARM: ${amountMiFarm} [${machineAmountFarm}]\nWMATIC: ${amountWMatic} [${machineAmountWMatic}]`
+  await prompt.get(['ok'])
+
+  if (machineAmountWMatic > 0) {
+    await updateTotals(
+      helperAddresses.GlobalIncentivesExecutor,
+      [addresses.miFARM, addresses.WMATIC],
+      [machineAmountFarm, machineAmountWMatic],
+      0, // always keep as 0, unless want to reset the state completely
+    )
+    console.log('Totals updated.')
+  } else {
+    await updateTotals(
+      helperAddresses.GlobalIncentivesExecutor,
+      [addresses.miFARM],
+      [machineAmountFarm],
+      0, // always keep as 0, unless want to reset the state completely
+    )
+    console.log('Totals updated.')
+  }
+})
+
+task('old-notify', 'Notifies with specified amounts').setAction(async () => {
   await printStats()
 
   prompt.start()
