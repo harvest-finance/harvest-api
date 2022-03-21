@@ -22,6 +22,8 @@ const {
   notifyPools,
   viewState,
   setPoolBatch,
+  updateTotals,
+  execute,
 } = require('../_shared/lib.js')
 const parser = require('../_shared/csv-parser.js')
 
@@ -94,7 +96,34 @@ task('record', 'Stores percentages of emissions in the contract').setAction(asyn
   }
 })
 
-task('notify', 'Notifies with specified amounts').setAction(async () => {
+task('update-totals', 'Record the updated totals').setAction(async () => {
+  await printStats()
+
+  prompt.start()
+  prompt.message = `Total bFARM amount (in human format like "18.23" bFARM)`
+  const { amountBFarm } = await prompt.get(['amountBFarm'])
+  const machineBFarm = to18(amountBFarm)
+
+  prompt.message = `bFARM: ${amountBFarm} [${machineBFarm}]`
+  await prompt.get(['ok'])
+
+  await updateTotals(
+    helperAddresses.GlobalIncentivesExecutor,
+    [addresses.bFARM],
+    [machineBFarm],
+    0, // ALWAYS keep as 0 (unless want to reset the state)
+  )
+
+  console.log('Totals updated.')
+})
+
+task('execute', 'Executes emissions with pre-specified amounts').setAction(async () => {
+  await printStats()
+  await execute(helperAddresses.GlobalIncentivesExecutor)
+  console.log('Executed.')
+})
+
+task('old-notify', 'Notifies with specified amounts').setAction(async () => {
   await printStats()
 
   prompt.start()

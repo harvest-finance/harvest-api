@@ -121,7 +121,7 @@ async function getCurrentMintId(minterExecutorAddress) {
   return await minterExecutor.methods.currentMintId().call()
 }
 
-async function updateData(globalIncentivesExecutorAddress, tokens, totals, timestamp) {
+async function updateTotals(globalIncentivesExecutorAddress, tokens, totals, timestamp) {
   let minterExecutor = new hre.web3.eth.Contract(
     GlobalIncentivesExecutorAbi,
     globalIncentivesExecutorAddress,
@@ -276,5 +276,5 @@ module.exports = {
   to18,
   execute,
   getCurrentMintId,
-  updateData,
+  updateTotals,
 }
