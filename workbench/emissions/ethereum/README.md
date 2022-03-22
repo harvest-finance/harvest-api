@@ -20,10 +20,9 @@ Set up `settings.json` and `dev-keys.json` (place `dev-keys.json` right OUTSIDE 
 
 ## How to run:
 1. Edit `../data/ethereum.csv` with latest percentages
-1. `npx hardhat record --network hardhat` to simulate recording emission percentages
 1. `npx hardhat record --network mainnet` to record emission percentages
-1. `npx hardhat view --network hardhat` to view newly recorded emission percentages
-1. `npx hardhat execute --network mainnet` to execute the emissions
+1. `npx hardhat execute --network mainnet --debug false` to execute the emissions
+1. `npx hardhat execute --network hardhat --debug true` to simulate the execution
 
 ## Admin-only methods:
 
@@ -34,3 +33,5 @@ Set up `settings.json` and `dev-keys.json` (place `dev-keys.json` right OUTSIDE 
 1. `npx hardhat incentivize-ifarm-pool` - incentivizes a specific iFARM pool with a given amount of FARM
 1. `npx hardhat execute-mint --week 70 --network hardhat --debug true` to simulate actual minting and notification
 1. `npx hardhat execute-mint --week 70 --network mainnet --debug false` to execute actual minting and notification
+1. `npx hardhat record --network hardhat` to simulate recording emission percentages
+1. `npx hardhat view --network hardhat` to view newly recorded emission percentages

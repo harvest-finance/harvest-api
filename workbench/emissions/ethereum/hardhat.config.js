@@ -196,7 +196,7 @@ task('execute', 'Executes the current available mint and notifies all relevant p
 
     prompt.start()
     const mintId = await getCurrentMintId(helperAddresses.MinterExecutor)
-    prompt.message = `Current mint id: ${mintId}. Proceed?`
+    prompt.message = `Current mint id in MinterHelper: ${mintId}. Proceed?`
     await prompt.get(['ok'])
 
     let check = [
