@@ -1690,6 +1690,7 @@
     "JRT_MAY22": "0xF5f480Edc68589B51F4217E6aA82Ef7Df5cf789e",
     "JSGD": "0xa926db7a4CC0cb1736D5ac60495ca8Eb7214B503",
     "XSGD": "0x769434dcA303597C8fc4997Bf3DAB233e961Eda2",
+    "DEN_MAY22": "0x51e7B5A0e8E942A62562f85D91501fbfA43121fE",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1830,7 +1831,7 @@
         "NewVault": "0xDDe43710DefEf6CbCf820B18DeBfC3cF9a4f449F",
         "NewStrategy": "0xe8a2cFce2C718E0f95ee2b1d3c0331c92C06Ca0b",
         "NewPool": "0xf74E8CFe03421D071c7dCCc3E5ecB6dDDede2f07",
-        "RewardPool": "0x9c802D12Da5C7c74104d8cAD9E6084E32c2B70B7",
+        "RewardPool": "0x845b7939D7E01fd29d6452CE9DDF9bd3ECf886b2",
         "useMsigProfitCalculation": true
       },
       "jarvis_AUR_USDC_V2": {
@@ -1984,6 +1985,14 @@
         "NewStrategy": "0x7F34356ED033715FD467b2D5a04827C13aF834fF",
         "NewPool": "0x917D36698F7195B32C3dF66Af45556eD447C79Fe",
         "RewardPool": "0x0ff93e7CE954A7Ac2ADbBe8F635513cbDB497405",
+        "useMsigProfitCalculation": true
+      },
+      "jarvis_DENMAY22_4EUR": {
+        "Underlying": "0x6E56300267A6Dd07DA0908557E02756747E1c90E",
+        "NewVault": "0x0DF469C287A8cEb2cFc396b350A9f03147B487A5",
+        "NewStrategy": "0xeeD6692252978cF4C5298B37C84619f5D3bA9d4E",
+        "NewPool": "0x8809DBd9Ab4909AAe75A729D29379C5B7D12e767",
+        "RewardPool": "0x845b7939D7E01fd29d6452CE9DDF9bd3ECf886b2",
         "useMsigProfitCalculation": true
       }
     }
