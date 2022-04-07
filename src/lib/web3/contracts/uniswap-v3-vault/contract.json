@@ -1,0 +1,836 @@
+{
+    "address": {
+      "ropsten": "",
+      "mainnet": ""
+    },
+      "abi": [
+          {
+              "anonymous": false,
+              "inputs": [
+                  {
+                      "indexed": true,
+                      "internalType": "address",
+                      "name": "owner",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": true,
+                      "internalType": "address",
+                      "name": "spender",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": false,
+                      "internalType": "uint256",
+                      "name": "value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "Approval",
+              "type": "event"
+          },
+          {
+              "anonymous": false,
+              "inputs": [
+                  {
+                      "indexed": true,
+                      "internalType": "address",
+                      "name": "from",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": true,
+                      "internalType": "address",
+                      "name": "to",
+                      "type": "address"
+                  },
+                  {
+                      "indexed": false,
+                      "internalType": "uint256",
+                      "name": "value",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "Transfer",
+              "type": "event"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256[]",
+                      "name": "newPositionIds",
+                      "type": "uint256[]"
+                  }
+              ],
+              "name": "addPositionIds",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "owner",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "address",
+                      "name": "spender",
+                      "type": "address"
+                  }
+              ],
+              "name": "allowance",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "spender",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "amount",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "approve",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "account",
+                      "type": "address"
+                  }
+              ],
+              "name": "balanceOf",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "newPosId",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "changeRange",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "newPosId",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "minFinalAmount0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "minFinalAmount1",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "changeRangeGuarded",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "original0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "original1",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "final0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "final1",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "newPosId",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "minFinalAmount0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "minFinalAmount1",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "changeRangeUnguarded",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "original0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "original1",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "final0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "final1",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "checkCap",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "currentValueInCapToken",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount1",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "bool",
+                      "name": "_zapFunds",
+                      "type": "bool"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_sqrtRatioX96",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_tolerance",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_zapAmount0OutMin",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_zapAmount1OutMin",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint160",
+                      "name": "_zapSqrtPriceLimitX96",
+                      "type": "uint160"
+                  }
+              ],
+              "name": "deposit",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "depositCapReached",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "positionId",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "findIndexOfPositionId",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "posId",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "getAmountsForPosition",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "amount0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "amount1",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getCap",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "cap",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "address",
+                      "name": "capToken",
+                      "type": "address"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getCurrentRangePositionId",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getPositionIds",
+              "outputs": [
+                  {
+                      "internalType": "uint256[]",
+                      "name": "result",
+                      "type": "uint256[]"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getPositionIdsThatAreInRange",
+              "outputs": [
+                  {
+                      "internalType": "uint256[]",
+                      "name": "",
+                      "type": "uint256[]"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getRangeChangedTime",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getRangePositionIds",
+              "outputs": [
+                  {
+                      "internalType": "uint256[]",
+                      "name": "",
+                      "type": "uint256[]"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "_token0",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "address",
+                      "name": "_token1",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "uint24",
+                      "name": "_fee",
+                      "type": "uint24"
+                  }
+              ],
+              "name": "getSqrtPriceX96",
+              "outputs": [
+                  {
+                      "internalType": "uint160",
+                      "name": "",
+                      "type": "uint160"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getSqrtPriceX96",
+              "outputs": [
+                  {
+                      "internalType": "uint160",
+                      "name": "",
+                      "type": "uint160"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "getWithdrawalTimestamp",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "isCurrentPositionInRange",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "positionId",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "isInRange",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "isManaged",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_minAmountForRemoveLiquidity0",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_minAmountForRemoveLiquidity1",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "bool",
+                      "name": "_zapFunds",
+                      "type": "bool"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_sqrtRatioX96",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_tolerance",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount0OutMinForZap",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount1OutMinForZap",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint160",
+                      "name": "_sqrtPriceLimitX96",
+                      "type": "uint160"
+                  }
+              ],
+              "name": "migrateToNftFromV2",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "existingPositionId",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "removePositionId",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "value",
+                      "type": "bool"
+                  }
+              ],
+              "name": "resetDepositCapReached",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_capInCapToken",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "address",
+                      "name": "_capToken",
+                      "type": "address"
+                  }
+              ],
+              "name": "setDepositCap",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_newLossRatio",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "setMaxLossRatio",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address[]",
+                      "name": "newSellPath",
+                      "type": "address[]"
+                  }
+              ],
+              "name": "setSellPath",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_timestamp",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "setWithdrawalTimestamp",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [],
+              "name": "totalSupply",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "recipient",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "amount",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "transfer",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "address",
+                      "name": "sender",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "address",
+                      "name": "recipient",
+                      "type": "address"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "amount",
+                      "type": "uint256"
+                  }
+              ],
+              "name": "transferFrom",
+              "outputs": [
+                  {
+                      "internalType": "bool",
+                      "name": "",
+                      "type": "bool"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          },
+          {
+              "inputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "_numberOfShares",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "bool",
+                      "name": "_token0",
+                      "type": "bool"
+                  },
+                  {
+                      "internalType": "bool",
+                      "name": "_token1",
+                      "type": "bool"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_sqrtRatioX96",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_tolerance",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount0OutMin",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "_amount1OutMin",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint160",
+                      "name": "_sqrtPriceLimitX96",
+                      "type": "uint160"
+                  }
+              ],
+              "name": "withdraw",
+              "outputs": [
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  },
+                  {
+                      "internalType": "uint256",
+                      "name": "",
+                      "type": "uint256"
+                  }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+          }
+      ]
+  }
+  
