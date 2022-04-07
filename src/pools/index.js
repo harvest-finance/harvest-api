@@ -22,7 +22,7 @@ const { Cache } = require('../lib/db/models/cache')
 const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
 
-const fetchAndExpandPool = async pool => {
+const fetchAndExpandPool = async (pool, Sentry) => {
   if (DEBUG_MODE) {
     resetCallCount()
   }
@@ -198,6 +198,7 @@ const fetchAndExpandPool = async pool => {
     }
   } catch (err) {
     console.error(`Failed to get pool data for: ${pool.id}`, err)
+    Sentry.captureException(`Failed to get pool data for: ${pool.id}, ${err}`)
   }
 }
 
@@ -227,7 +228,7 @@ const fetchLpToken = async (lpAddress, chainId) => {
   return result
 }
 
-const getPoolsData = async poolToFetch => Promise.all(poolToFetch.map(fetchAndExpandPool))
+const getPoolsData = async (poolToFetch, Sentry) => Promise.all(poolToFetch.map((pool)=>{return (fetchAndExpandPool(pool, Sentry))}))
 
 module.exports = {
   getPoolsData,
