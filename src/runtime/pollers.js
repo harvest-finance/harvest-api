@@ -44,7 +44,7 @@ const getProfitSharingFactor = chain => {
   }
 }
 
-const getVaults = async () => {
+const getVaults = async (Sentry) => {
   console.log('\n-- Getting vaults data --')
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
   let fetchedETHVaults = [],
@@ -79,6 +79,7 @@ const getVaults = async () => {
     } catch (err) {
       hasErrors = true
       console.error(`Failed to get vault data for: ${batch}`, err)
+      Sentry.captureException(`Failed to get vault data for: ${batch}, ${err}`)
     }
   })
   console.log('\n-- Done getting BSC vaults data --')
@@ -92,6 +93,7 @@ const getVaults = async () => {
     } catch (err) {
       hasErrors = true
       console.error(`Failed to get vault data for: ${batch}`, err)
+      Sentry.captureException(`Failed to get vault data for: ${batch}, ${err}`)
     }
   })
   console.log('\n-- Done getting MATIC vaults data --')
@@ -105,6 +107,7 @@ const getVaults = async () => {
     } catch (err) {
       hasErrors = true
       console.error(`Failed to get vault data for: ${batch}`, err)
+      Sentry.captureException(`Failed to get vault data for: ${batch}, ${err}`)
     }
   })
   console.log('\n-- Done getting ETH vaults data --')
@@ -192,7 +195,7 @@ const getTokenStats = async () => {
   console.log('-- Done getting FARM token stats --\n')
 }
 
-const getPools = async () => {
+const getPools = async (Sentry) => {
   console.log('\n-- Getting BSC pool data --')
   const pools = await getUIData(UI_DATA_FILES.POOLS)
   let fetchedBSCPools = [],
@@ -209,7 +212,7 @@ const getPools = async () => {
 
     if (size(bscPoolBatches)) {
       await forEach(bscPoolBatches, async poolBatch => {
-        const poolData = await getPoolsData(poolBatch)
+        const poolData = await getPoolsData(poolBatch, Sentry)
         fetchedBSCPools = fetchedBSCPools.concat(poolData)
       })
     } else {
@@ -226,7 +229,7 @@ const getPools = async () => {
 
     if (size(maticPoolBatches)) {
       await forEach(maticPoolBatches, async poolBatch => {
-        const poolData = await getPoolsData(poolBatch)
+        const poolData = await getPoolsData(poolBatch, Sentry)
         fetchedMATICPools = fetchedMATICPools.concat(poolData)
       })
     } else {
@@ -243,7 +246,7 @@ const getPools = async () => {
     )
     if (size(ethPoolBatches)) {
       await forEach(ethPoolBatches, async poolBatch => {
-        const poolData = await getPoolsData(poolBatch)
+        const poolData = await getPoolsData(poolBatch, Sentry)
         fetchedETHPools = fetchedETHPools.concat(poolData)
       })
     } else {
@@ -252,6 +255,7 @@ const getPools = async () => {
     console.log('-- Done getting ETH pool data --\n')
   } catch (err) {
     console.error('error getting pools', err)
+    Sentry.captureException(err)
     hasErrors = true
   }
 
@@ -324,6 +328,7 @@ const getTotalGmv = async () => {
       totalGmv = totalGmv.plus(relevantPool.totalValueLocked)
     } catch (err) {
       console.log(`Error getting GMV for: ${relevantPool.id}`, err)
+      Sentry.captureException(`Error getting GMV for: ${relevantPool.id}, ${err}`)
       hasErrors = true
     }
   })
@@ -653,12 +658,14 @@ const getCmc = async () => {
         } catch (err) {
           hasErrors = true
           console.error(`error getting CMC data for: ${relevantPool.id}`, err)
+          Sentry.captureException(`error getting CMC data for: ${relevantPool.id}, ${err}`)
         }
       }
     }
   } catch (err) {
     hasErrors = true
     console.log('Error getting CMC data', err)
+    Sentry.captureException(`Error getting CMC data: ${err}`)
   }
 
   await storeData(
@@ -673,7 +680,7 @@ const getCmc = async () => {
   console.log('-- Done getting CMC data --\n')
 }
 
-const preLoadCoingeckoPrices = async () => {
+const preLoadCoingeckoPrices = async (Sentry) => {
   console.log('\n-- Getting token prices from CoinGecko --')
   const tokens = await getUIData(UI_DATA_FILES.TOKENS)
 
@@ -719,6 +726,8 @@ const preLoadCoingeckoPrices = async () => {
         `Something went wrong during the preloading of prices through addresses! ${addresses}`,
         err,
       )
+      Sentry.captureException(`Something went wrong during the preloading of prices through addresses! ${addresses}, ${err}`,
+)
     },
   )
 
@@ -730,11 +739,12 @@ const preLoadCoingeckoPrices = async () => {
     },
     err => {
       console.log(`Something went wrong during the preloading of prices through ids! ${ids}`, err)
+      Sentry.captureException(`Something went wrong during the preloading of prices through ids! ${ids}, ${err}`)
     },
   )
 }
 
-const runUpdateLoop = async () => {
+const runUpdateLoop = async (Sentry) => {
   console.log('\n-- Starting data fetching --')
 
   if (DEBUG_MODE) {
@@ -750,15 +760,15 @@ const runUpdateLoop = async () => {
     })
   }
 
-  await preLoadCoingeckoPrices()
-  await getTokenStats()
+  await preLoadCoingeckoPrices(Sentry)
+  await getTokenStats(Sentry)
   if (DEBUG_MODE) {
     updateCallCountCache('tokenStats')
     resetCallCount()
   }
 
-  await getPools()
-  await getVaults()
+  await getPools(Sentry)
+  await getVaults(Sentry)
 
   if (ACTIVE_ENDPOINTS === ENDPOINT_TYPES.ALL || ACTIVE_ENDPOINTS === ENDPOINT_TYPES.EXTERNAL) {
     await getTotalGmv()
@@ -792,11 +802,11 @@ const runUpdateLoop = async () => {
   console.log('-- Done with data fetching --')
 }
 
-const startPollers = async () => {
-  await runUpdateLoop()
+const startPollers = async (Sentry) => {
+  await runUpdateLoop(Sentry)
 
-  setInterval(async () => {
-    await runUpdateLoop()
+  setInterval(async (Sentry) => {
+    await runUpdateLoop(Sentry)
   }, UPDATE_LOOP_INTERVAL_MS)
 }
 
