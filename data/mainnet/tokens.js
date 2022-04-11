@@ -2164,7 +2164,7 @@ module.exports = {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3MANAGED,
-    displayName: 'High Yield Experimental Vault',
+    displayName: 'High Yield Experimental Vault (no deposits allowed)',
     subLabel: 'Test Mode - no deposits allowed',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
