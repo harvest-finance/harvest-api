@@ -5006,6 +5006,20 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'UniV3_USDC_ETH_MANAGED',
+    type: POOL_TYPES.UNIV3,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.UNIV3_APYVISION,
+      params: [addresses.V2.UniV3_USDC_ETH_MANAGED.NewVault, 'uniswapv3_eth', strat30PercentFactor],
+    },
+    contractAddress: addresses.V2.UniV3_USDC_ETH_MANAGED.NewPool,
+    collateralAddress: addresses.V2.UniV3_USDC_ETH_MANAGED.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'Univ3_DPI_ETH',
     tradingApyFunction: {
       type: TRADING_APY_TYPES.UNIV3,
