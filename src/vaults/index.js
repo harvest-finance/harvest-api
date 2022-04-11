@@ -56,18 +56,7 @@ const fetchAndExpandVault = async symbol => {
     uniswapV3PositionId = null,
     uniswapV3UnderlyingTokenPrices = [],
     totalValueLocked = null,
-    cap = [],
-    capLimit = null,
-    capToken = null,
-    capTokenSymbol = null,
-    capTokenDecimal = null,
-    depositReached = false,
-    withdrawalTimestamp = null,
-    currentCap = null,
-    positionIds = [],
-    currentRangePositionId = null,
-    ranges = [],
-    currentRange = {}
+    uniswapV3ManagedData = null
 
   const vaultData = tokens[symbol]
   vaultData.id = symbol
@@ -144,6 +133,19 @@ const fetchAndExpandVault = async symbol => {
   }
 
   if (vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED) {
+    let cap = [],
+      capLimit = null,
+      capToken = null,
+      capTokenSymbol = null,
+      capTokenDecimal = null,
+      depositReached = false,
+      withdrawalTimestamp = null,
+      currentCap = null,
+      positionIds = [],
+      currentRangePositionId = null,
+      ranges = [],
+      currentRange = {}
+
     const managedVaultInstance = new web3Instance.eth.Contract(
       managedVaultData.abi,
       vaultData.vaultAddress,
@@ -204,22 +206,8 @@ const fetchAndExpandVault = async symbol => {
       capTokenDecimal = await getDecimals(contractInstance)
       currentCap = await getCurrentCap(managedVaultInstance)
     }
-  }
 
-  if (vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED && capToken !== null) {
-    return {
-      ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
-      pricePerFullShare,
-      estimatedApy,
-      estimatedApyBreakdown,
-      boostedEstimatedAPY,
-      underlyingBalanceWithInvestment,
-      usdPrice,
-      totalSupply,
-      totalValueLocked,
-      uniswapV3PositionId,
-      uniswapV3UnderlyingTokenPrices,
-      rewardPool: vaultPool ? vaultPool.contractAddress : null,
+    uniswapV3ManagedData = {
       capLimit,
       capToken,
       capTokenSymbol,
@@ -230,21 +218,22 @@ const fetchAndExpandVault = async symbol => {
       ranges,
       currentRange,
     }
-  } else {
-    return {
-      ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
-      pricePerFullShare,
-      estimatedApy,
-      estimatedApyBreakdown,
-      boostedEstimatedAPY,
-      underlyingBalanceWithInvestment,
-      usdPrice,
-      totalSupply,
-      totalValueLocked,
-      uniswapV3PositionId,
-      uniswapV3UnderlyingTokenPrices,
-      rewardPool: vaultPool ? vaultPool.contractAddress : null,
-    }
+  }
+
+  return {
+    ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
+    pricePerFullShare,
+    estimatedApy,
+    estimatedApyBreakdown,
+    boostedEstimatedAPY,
+    underlyingBalanceWithInvestment,
+    usdPrice,
+    totalSupply,
+    totalValueLocked,
+    uniswapV3PositionId,
+    uniswapV3UnderlyingTokenPrices,
+    uniswapV3ManagedData,
+    rewardPool: vaultPool ? vaultPool.contractAddress : null,
   }
 }
 
