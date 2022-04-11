@@ -850,6 +850,15 @@
       "NewPool": "0x8AB3342a692935a8ad23214d7403403D224d2ba4",
       "doHardwork": "onlyProfit"
     },
+    "UniV3_USDC_ETH_MANAGED": {
+      "Underlying": [
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+        "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      ],
+      "NewVault": "0x73a93Fa634056a5EDDCE5e1C7a0e33b4702faE0f",
+      "NewPool": "0x694a3Ab31241D2c49F93eAc5A4F3b05c6Fb7964b",
+      "doHardwork": "onlyProfit"
+    },
     "UniV3_USDC_USDT": {
       "Underlying": [
         "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
