@@ -164,7 +164,7 @@ const fetchAndExpandVault = async symbol => {
       ranges[i].token0Symbol = await getSymbol(token0)
       ranges[i].token1Symbol = await getSymbol(token1)
 
-      if(positions.token0 === capToken) {
+      if(positions.token0 !== capToken) {
         ranges[i].lowerBound = 1/(Math.pow(1.0001, positions.tickUpper) * Math.pow(10, (token0Decimal - token1Decimal)))
         ranges[i].upperBound = 1/(Math.pow(1.0001, positions.tickLower) * Math.pow(10, (token0Decimal - token1Decimal)))
       } else {

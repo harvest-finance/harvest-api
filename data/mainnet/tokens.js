@@ -2160,6 +2160,35 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
   },
+  UniV3_USDC_ETH_MANAGED: {
+    isSingleAssetWithdrawalAllowed: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3MANAGED,
+    displayName: 'Managed Uniswap V3: USDC-ETH',
+    subLabel: 'ETH Range: 1.9K⟷3.5K',
+    apyIconUrls: ['./icons/univ3.png'],
+    apyTokenSymbols: ['UNI'],
+    logoUrl: './icons/univ3-usdc-eth.png',
+    tokenAddress: addresses.V2.UniV3_USDC_ETH_MANAGED.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_USDC_ETH_MANAGED.NewVault,
+    pricesInfo: {
+      USDC: ['Min price: 1980 USDC per ETH', 'Max price: 3580 USDC per ETH'],
+      ETH: ['Min price: 0.000279 ETH per USDC', 'Max price: 0.000505 ETH per USDC'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_USDC_ETH.NewVault, 'USDC', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
+  },
   UniV3_ETH_USDT: {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
