@@ -11,7 +11,14 @@ const { omit, get, find, isArray, toString } = require('lodash')
 const { getTotalSupply } = require('../lib/web3/contracts/vault/methods')
 const managedVaultData = require('../lib/web3/contracts/uniswap-V3-vault/contract.json')
 const uniNonFungibleContractData = require('../lib/web3/contracts/uni-non-fungible-manager/contract.json')
-const { getCap, getDepositCapReached, getWithdrawalTimestamp, getCurrentCap, getPositionIds, getCurrentRangePositionId } = require('../lib/web3/contracts/uniswap-V3-vault/methods')
+const {
+  getCap,
+  getDepositCapReached,
+  getWithdrawalTimestamp,
+  getCurrentCap,
+  getPositionIds,
+  getCurrentRangePositionId,
+} = require('../lib/web3/contracts/uniswap-V3-vault/methods')
 const contractData = require('../lib/web3/contracts/token/contract.json')
 const { getSymbol, getDecimals } = require('../lib/web3/contracts/token/methods.js')
 const { VAULT_CATEGORIES_IDS } = require('../../data/constants')
@@ -136,10 +143,12 @@ const fetchAndExpandVault = async symbol => {
     })
   }
 
-  if(vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED ) {
-    
-    const managedVaultInstance = new web3Instance.eth.Contract(managedVaultData.abi, vaultData.vaultAddress)
-    
+  if (vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED) {
+    const managedVaultInstance = new web3Instance.eth.Contract(
+      managedVaultData.abi,
+      vaultData.vaultAddress,
+    )
+
     cap = await getCap(managedVaultInstance)
     capLimit = cap[0]
     capToken = cap[1]
@@ -152,51 +161,52 @@ const fetchAndExpandVault = async symbol => {
       uniNonFungibleContractData.address.mainnet,
     )
 
-    for(let i = 0; i < positionIds.length; i++) {
+    for (let i = 0; i < positionIds.length; i++) {
       let positions = await getPositions(positionIds[i], nonfungibleContractInstance)
-      let token0 = new web3Instance.eth.Contract(contractData.abi,  positions.token0)
-      let token1 = new web3Instance.eth.Contract(contractData.abi,  positions.token1)
+      let token0 = new web3Instance.eth.Contract(contractData.abi, positions.token0)
+      let token1 = new web3Instance.eth.Contract(contractData.abi, positions.token1)
       let token0Decimal = await getDecimals(token0)
       let token1Decimal = await getDecimals(token1)
-      
+
       ranges[i] = {}
       ranges[i].posId = positionIds[i]
       ranges[i].token0Symbol = await getSymbol(token0)
       ranges[i].token1Symbol = await getSymbol(token1)
 
-      if(positions.token0 !== capToken) {
-        ranges[i].lowerBound = 1/(Math.pow(1.0001, positions.tickUpper) * Math.pow(10, (token0Decimal - token1Decimal)))
-        ranges[i].upperBound = 1/(Math.pow(1.0001, positions.tickLower) * Math.pow(10, (token0Decimal - token1Decimal)))
+      if (positions.token0 !== capToken) {
+        ranges[i].lowerBound =
+          1 / (Math.pow(1.0001, positions.tickUpper) * Math.pow(10, token0Decimal - token1Decimal))
+        ranges[i].upperBound =
+          1 / (Math.pow(1.0001, positions.tickLower) * Math.pow(10, token0Decimal - token1Decimal))
       } else {
-        ranges[i].lowerBound = 1/(Math.pow(1.0001, positions.tickUpper) * Math.pow(10, (token1Decimal - token0Decimal)))
-        ranges[i].upperBound = 1/(Math.pow(1.0001, positions.tickLower) * Math.pow(10, (token1Decimal - token0Decimal)))
+        ranges[i].lowerBound =
+          1 / (Math.pow(1.0001, positions.tickUpper) * Math.pow(10, token1Decimal - token0Decimal))
+        ranges[i].upperBound =
+          1 / (Math.pow(1.0001, positions.tickLower) * Math.pow(10, token1Decimal - token0Decimal))
       }
 
       ranges[i].lowerBound = Math.floor(ranges[i].lowerBound)
       ranges[i].upperBound = Math.ceil(ranges[i].upperBound)
 
-      if(positionIds[i] == currentRangePositionId){
+      if (positionIds[i] == currentRangePositionId) {
         currentRange.posId = positionIds[i]
         currentRange.lowerBound = ranges[i].lowerBound
         currentRange.upperBound = ranges[i].upperBound
       }
-
     }
-
 
     depositReached = await getDepositCapReached(managedVaultInstance)
     withdrawalTimestamp = await getWithdrawalTimestamp(managedVaultInstance)
 
-    if(capToken !== "0x0000000000000000000000000000000000000000" && capToken !== null ){
-      const contractInstance = new web3Instance.eth.Contract(contractData.abi,  capToken)
+    if (capToken !== '0x0000000000000000000000000000000000000000' && capToken !== null) {
+      const contractInstance = new web3Instance.eth.Contract(contractData.abi, capToken)
       capTokenSymbol = await getSymbol(contractInstance)
       capTokenDecimal = await getDecimals(contractInstance)
       currentCap = await getCurrentCap(managedVaultInstance)
     }
-
   }
 
-  if(vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED && capToken !== null) {
+  if (vaultData.category === VAULT_CATEGORIES_IDS.UNIV3MANAGED && capToken !== null) {
     return {
       ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
       pricePerFullShare,
@@ -220,8 +230,7 @@ const fetchAndExpandVault = async symbol => {
       ranges,
       currentRange,
     }
-  }
-  else {
+  } else {
     return {
       ...omit(vaultData, ['priceFunction', 'estimateApyFunctions']),
       pricePerFullShare,
