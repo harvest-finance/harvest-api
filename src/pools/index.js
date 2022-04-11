@@ -1,4 +1,6 @@
 const BigNumber = require('bignumber.js')
+const express = require('express')
+const app = express()
 const {
   pool: regularPoolContract,
   potPool: potPoolContract,
@@ -7,6 +9,7 @@ const {
 } = require('../lib/web3/contracts')
 const { getWeb3, getCallCount, resetCallCount } = require('../lib/web3')
 const { get, find, omit } = require('lodash')
+const logger = require('../lib/logger')
 const {
   DB_CACHE_IDS,
   WEB3_CALL_COUNT_STATS_KEY,
@@ -21,8 +24,9 @@ const { getTradingApy } = require('../vaults/trading-apys')
 const { Cache } = require('../lib/db/models/cache')
 const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
+const sentry = logger(app)
 
-const fetchAndExpandPool = async (pool, Sentry) => {
+const fetchAndExpandPool = async (pool) => {
   if (DEBUG_MODE) {
     resetCallCount()
   }
@@ -198,7 +202,7 @@ const fetchAndExpandPool = async (pool, Sentry) => {
     }
   } catch (err) {
     console.error(`Failed to get pool data for: ${pool.id}`, err)
-    Sentry.captureException(`Failed to get pool data for: ${pool.id}, ${err}`)
+    sentry.captureException(`Failed to get pool data for: ${pool.id}, ${err}`)
   }
 }
 
@@ -228,7 +232,7 @@ const fetchLpToken = async (lpAddress, chainId) => {
   return result
 }
 
-const getPoolsData = async (poolToFetch, Sentry) => Promise.all(poolToFetch.map((pool)=>{return (fetchAndExpandPool(pool, Sentry))}))
+const getPoolsData = async (poolToFetch) => Promise.all(poolToFetch.map((pool)=>{return (fetchAndExpandPool(pool))}))
 
 module.exports = {
   getPoolsData,
