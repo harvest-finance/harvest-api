@@ -2164,7 +2164,7 @@ module.exports = {
     isSingleAssetWithdrawalAllowed: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.UNIV3MANAGED,
-    displayName: 'Managed Uniswap V3: USDC-ETH',
+    displayName: 'Managed Uniswap V3: USDC-ETH (In testing: deposits not enabled)',
     subLabel: 'ETH Range: 1.9K⟷3.5K',
     apyIconUrls: ['./icons/univ3.png'],
     apyTokenSymbols: ['UNI'],
