@@ -60,7 +60,7 @@ const VAULT_CATEGORIES_NAMES = {
   ELLIPSIS: 'Ellipsis',
   BELT: 'Belt',
   UNIV3: 'Uniswap V3',
-  UNIV3MANAGED: 'Uniswap V3: Managed',
+  UNIV3MANAGED: 'Experimental',
   LIFT: 'Lift',
   BALANCER: 'Balancer',
   JARVIS: 'Jarvis',
