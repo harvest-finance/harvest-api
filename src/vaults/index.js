@@ -9,7 +9,7 @@ const { getPosId } = require('../prices/implementations/uniswap-v3.js')
 const { getPositions } = require('../lib/web3/contracts/uni-non-fungible-manager/methods')
 const { omit, get, find, isArray, toString } = require('lodash')
 const { getTotalSupply } = require('../lib/web3/contracts/vault/methods')
-const managedVaultData = require('../lib/web3/contracts/uniswap-V3-vault/contract.json')
+const managedVaultData = require('../lib/web3/contracts/uniswap-v3-vault/contract.json')
 const uniNonFungibleContractData = require('../lib/web3/contracts/uni-non-fungible-manager/contract.json')
 const {
   getCap,
@@ -18,7 +18,7 @@ const {
   getCurrentCap,
   getPositionIds,
   getCurrentRangePositionId,
-} = require('../lib/web3/contracts/uniswap-V3-vault/methods')
+} = require('../lib/web3/contracts/uniswap-v3-vault/methods')
 const contractData = require('../lib/web3/contracts/token/contract.json')
 const { getSymbol, getDecimals } = require('../lib/web3/contracts/token/methods.js')
 const { VAULT_CATEGORIES_IDS } = require('../../data/constants')
