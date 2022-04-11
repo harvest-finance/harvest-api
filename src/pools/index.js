@@ -26,7 +26,7 @@ const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
 const sentry = logger(app)
 
-const fetchAndExpandPool = async (pool) => {
+const fetchAndExpandPool = async pool => {
   if (DEBUG_MODE) {
     resetCallCount()
   }
@@ -232,7 +232,7 @@ const fetchLpToken = async (lpAddress, chainId) => {
   return result
 }
 
-const getPoolsData = async (poolToFetch) => Promise.all(poolToFetch.map((pool)=>{return (fetchAndExpandPool(pool))}))
+const getPoolsData = async poolToFetch => Promise.all(poolToFetch.map(fetchAndExpandPool))
 
 module.exports = {
   getPoolsData,
