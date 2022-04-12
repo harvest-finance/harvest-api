@@ -233,6 +233,7 @@
   "sushi_UST_WETH": "0x8B00eE8606CC70c2dce68dea0CEfe632CCA0fB7b",
   "V2": {
     "TUSD": {
+      "doHardwork": false,
       "NewVault": "0x7674622c63Bee7F46E86a4A5A18976693D54441b",
       "NewStrategy": "0x1a69F857103De1B531Ab7CF935Ffc6a46C2e488c",
       "NoopStrategy": "0xc4c0d58c11ec41cc0f1a5be75296cf140ca8dd87",
