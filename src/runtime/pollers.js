@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js')
 
 const { forEach } = require('promised-loops')
 const { pickBy, get, chunk, isArray, sumBy, size } = require('lodash')
-const logger = require('../lib/logger')
+const { sentry } = require('../lib/logger/index')
 
 const { getVaultsData } = require('../vaults')
 const { getPoolsData } = require('../pools')
@@ -32,7 +32,6 @@ const {
 const { Cache } = require('../lib/db/models/cache')
 const { storeData, loadData } = require('../lib/db/models/cache')
 const { getUIData } = require('../lib/data')
-const sentry = logger()
 const addresses = require('../lib/data/addresses.json')
 
 const getProfitSharingFactor = chain => {
@@ -728,8 +727,9 @@ const preLoadCoingeckoPrices = async () => {
         `Something went wrong during the preloading of prices through addresses! ${addresses}`,
         err,
       )
-      sentry.captureException(`Something went wrong during the preloading of prices through addresses! ${addresses}, ${err}`,
-)
+      sentry.captureException(
+        `Something went wrong during the preloading of prices through addresses! ${addresses}, ${err}`,
+      )
     },
   )
 
@@ -741,7 +741,9 @@ const preLoadCoingeckoPrices = async () => {
     },
     err => {
       console.log(`Something went wrong during the preloading of prices through ids! ${ids}`, err)
-      sentry.captureException(`Something went wrong during the preloading of prices through ids! ${ids}, ${err}`)
+      sentry.captureException(
+        `Something went wrong during the preloading of prices through ids! ${ids}, ${err}`,
+      )
     },
   )
 }

@@ -7,7 +7,7 @@ const {
 } = require('../lib/web3/contracts')
 const { getWeb3, getCallCount, resetCallCount } = require('../lib/web3')
 const { get, find, omit } = require('lodash')
-const logger = require('../lib/logger')
+const { sentry } = require('../lib/logger/index')
 const {
   DB_CACHE_IDS,
   WEB3_CALL_COUNT_STATS_KEY,
@@ -22,7 +22,6 @@ const { getTradingApy } = require('../vaults/trading-apys')
 const { Cache } = require('../lib/db/models/cache')
 const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
-const sentry = logger()
 
 const fetchAndExpandPool = async pool => {
   if (DEBUG_MODE) {
