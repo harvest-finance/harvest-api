@@ -2,8 +2,6 @@ const BigNumber = require('bignumber.js')
 
 const { forEach } = require('promised-loops')
 const { pickBy, get, chunk, isArray, sumBy, size } = require('lodash')
-const express = require('express')
-const app = express()
 const logger = require('../lib/logger')
 
 const { getVaultsData } = require('../vaults')
@@ -34,7 +32,7 @@ const {
 const { Cache } = require('../lib/db/models/cache')
 const { storeData, loadData } = require('../lib/db/models/cache')
 const { getUIData } = require('../lib/data')
-const sentry = logger(app)
+const sentry = logger()
 const addresses = require('../lib/data/addresses.json')
 
 const getProfitSharingFactor = chain => {

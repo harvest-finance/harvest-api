@@ -1,6 +1,4 @@
 const BigNumber = require('bignumber.js')
-const express = require('express')
-const app = express()
 const {
   pool: regularPoolContract,
   potPool: potPoolContract,
@@ -24,7 +22,7 @@ const { getTradingApy } = require('../vaults/trading-apys')
 const { Cache } = require('../lib/db/models/cache')
 const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
-const sentry = logger(app)
+const sentry = logger()
 
 const fetchAndExpandPool = async pool => {
   if (DEBUG_MODE) {

@@ -10,7 +10,7 @@ module.exports = function () {
   const cors = require('cors')
   const { startPollers } = require('./pollers')
   const initDb = require('../lib/db')
-  const sentry = logger(app)
+  const sentry = logger()
 
   // The request handler must be the first middleware on the app
   app.use(sentry.Handlers.requestHandler());
