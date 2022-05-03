@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/harvest-finance/harvest-api#readme",
   "dependencies": {
-    "@sentry/node": "^6.19.3",
-    "@sentry/tracing": "^6.19.3",
+    "@sentry/node": "6.19.3",
+    "@sentry/tracing": "6.19.3",
     "@uniswap/sdk-core": "3.0.0",
     "@uniswap/v3-sdk": "3.0.0",
     "axios": "0.21.1",
