@@ -708,7 +708,7 @@ module.exports = {
   quickswap_PSP_MATIC: {
     inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     displayName: 'Quickswap: PSP-MATIC',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -760,7 +760,7 @@ module.exports = {
   popsicle_ICE_WETH: {
     inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     displayName: 'Popsicle: ICE-WETH',
     subLabel: 'Sushiswap',
     apyIconUrls: [],
@@ -4033,7 +4033,7 @@ module.exports = {
   pancake_CAKE: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'CAKE',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -4074,7 +4074,7 @@ module.exports = {
   pancake_USDT_BNB: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'USDT-BNB',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -4382,7 +4382,7 @@ module.exports = {
   goose_EGG_BNB: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'EGG-BNB',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -4404,7 +4404,7 @@ module.exports = {
   goose_EGG_BUSD: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'EGG-BUSD',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -4828,7 +4828,7 @@ module.exports = {
   ellipsis_EPS_BNB: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'EPS-BNB',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -4926,7 +4926,7 @@ module.exports = {
   ellipsis_BTC: {
     inactive: true,
     chain: CHAINS_ID.BSC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_BSC,
     displayName: 'EPS:BTC',
     apyIconUrls: [],
     apyTokenSymbols: [],
@@ -6296,7 +6296,7 @@ module.exports = {
   },
   jarvis_JEUR_USDC_HODL: {
     inactive: true,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/eur-usdc.png',
     apyTokenSymbols: [],
@@ -6330,7 +6330,7 @@ module.exports = {
   },
   jarvis_JGBP_USDC_HODL: {
     inactive: true,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/gbp-usdc.png',
     apyTokenSymbols: [],
@@ -6364,7 +6364,7 @@ module.exports = {
   },
   jarvis_JCHF_USDC_HODL: {
     inactive: true,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/chf-usdc.png',
     apyTokenSymbols: [],
@@ -6398,7 +6398,7 @@ module.exports = {
   },
   jarvis_AUR3_USDC: {
     inactive: true,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/aur-usdc.png',
     apyTokenSymbols: [],
