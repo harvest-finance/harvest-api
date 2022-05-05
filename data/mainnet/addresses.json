@@ -254,7 +254,8 @@
       "NewVault": "0xCf16b17A215D1728b0a36a30A57BeAaf7845F334",
       "StrategyContract": "LQTYStakingStrategyMainnet",
       "NewStrategy": "0xf13A45FF5763Cb77fe3dCAaaA25652D15f95AeF2",
-      "NewPool": "0x1997e59399bad38068b07D20d64bBdbC6882501b"
+      "NewPool": "0x1997e59399bad38068b07D20d64bBdbC6882501b",
+      "doHardwork": false
     },
     "sCrvRewards": "0x99ac10631F69C753DDb595D074422a0922D9056B",
     "StableVaultMigrator": "0x384636e5F47152275016b5D161da2a24b8a903A5",
@@ -332,7 +333,8 @@
     "ThreePool": {
       "NewVault": "0x71B9eC42bB3CB40F017D8AD8011BE8e384a95fa5",
       "NewStrategy": "0x885D59830C1FdB120B54d62790dB7A6a1f534463",
-      "NewPool": "0x27F12d1a08454402175b9F0b53769783578Be7d9"
+      "NewPool": "0x27F12d1a08454402175b9F0b53769783578Be7d9",
+      "doHardwork": false
     },
     "TBTCMixed": {
       "NewVault": "0x640704D106E79e105FDA424f05467F005418F1B5",
@@ -698,7 +700,8 @@
       "NewVault": "0x02d77f6925f4ef89EE2C35eB3dD5793f5695356f",
       "NewStrategy": "0x127BfdC843a35607B024781324311522907bCA66",
       "GaugePool": "0x055be5DDB7A925BfEF3417FC157f53CA77cA7222",
-      "NewPool": "0x15AEB9B209FEC67c672dBF5113827daB0b80f390"
+      "NewPool": "0x15AEB9B209FEC67c672dBF5113827daB0b80f390",
+      "doHardwork": false
     },
     "crvThreeCrypto": {
       "Underlying": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
@@ -710,7 +713,8 @@
       "Underlying": "0x9D0464996170c6B9e75eED71c68B99dDEDf279e8",
       "NewVault": "0xA59e923a016e1F84843915423dc17CFDdCDFb57e",
       "NewStrategy": "0x42C7B7389284B25a06F07fC4AAf12159C3c37f29",
-      "NewPool": "0x863575998615c05bBed01599de521d80c10B16F5"
+      "NewPool": "0x863575998615c05bBed01599de521d80c10B16F5",
+      "doHardwork": false
     },
     "nft20_Muse": {
       "Underlying": "0x20d2C17d1928EF4290BF17F922a10eAa2770BF43",
@@ -726,7 +730,8 @@
       "NewStrategy": "",
       "PoolId": "6",
       "NewPool": "0x3B808A7d8CCdF8893d1360ff421beF4440376842",
-      "MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52"
+      "MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52",
+      "doHardwork": false
     },
     "nft20_Mask": {
       "Underlying": "0xaa617C8726ADFDe9e7b08746457E6b90ddB21480",
@@ -751,14 +756,16 @@
       "NewVault": "0x0cA19915439C12B16C0A8C119eC05fA801365a15",
       "NewStrategy": "0x405FE1198edABAE6a85C494dCF09f7be6a957b1D",
       "PoolId": "9",
-      "NewPool": "0xE7E1C3624188052a2367B63048a32A7429980113"
+      "NewPool": "0xE7E1C3624188052a2367B63048a32A7429980113",
+      "doHardwork": false
     },
     "nft20_Meme": {
       "Underlying": "0xE14f1283059afA8d3c9c52EFF76FE91854F5D1B3",
       "NewVault": "0x227A46266329767cEa8883BFC81d21f1Ea0EdbB3",
       "NewStrategy": "0xbdc7D6284BAD0D7243Bf3ca4DCeaE2A86DeEe37d",
       "PoolId": "4",
-      "NewPool": "0x269FA8c40062692CFD5494e5ec7daD64745b45af"
+      "NewPool": "0x269FA8c40062692CFD5494e5ec7daD64745b45af",
+      "doHardwork": false
     },
     "nft20_Gpunks": {
       "Underlying": "0xBb1565072FB4f3244eBcE5Bc8Dfeda6baEb78Ad3",
@@ -1270,7 +1277,8 @@
       "Underlying": "0xCEAF7747579696A2F0bb206a14210e3c9e6fB269",
       "NewVault": "0x37b27bAA0B04a00ba5E325e88267B4511577e203",
       "NewStrategy": "0xd07BCdF0C49eCB100856B2FB659552fa1429edCB",
-      "NewPool": "0x4cc6e3c4b711091548f91b0C7B5f840359109475"
+      "NewPool": "0x4cc6e3c4b711091548f91b0C7B5f840359109475",
+      "doHardwork": "false"
     },
     "crv_CRV_ETH": {
       "Underlying": "0xEd4064f376cB8d68F770FB1Ff088a3d0F3FF5c4d",
@@ -1386,7 +1394,8 @@
         "PoolId": 0,
         "NewVault": "0x3D5B0a8CD80e2A87953525fC136c33112E4b885a",
         "NewStrategy": "0x66B7611F35e48e311929e25D73428410C2335c34",
-        "NewPool": "0x78963b538c4835E00648DF764029196700ea8eE9"
+        "NewPool": "0x78963b538c4835E00648DF764029196700ea8eE9",
+        "doHardwork": false
       },
       "pancake_CAKE_BNB": {
         "Underlying": "0x0eD7e52944161450477ee417DE9Cd3a859b14fD0",
@@ -1412,7 +1421,8 @@
         "PoolId": 264,
         "NewVault": "0x6D386490e2367Fc31b4aCC99aB7c7D4d998a3121",
         "NewStrategy": "0x7A2Af29b859fB916979daD64f4C3a21Fa8b5e1a0",
-        "NewPool": "0xf1121f56961C6DFD40355dDe61404D51b3f1c34E"
+        "NewPool": "0xf1121f56961C6DFD40355dDe61404D51b3f1c34E",
+        "doHardwork": false
       },
       "pancake_XVS_BNB": {
         "Underlying": "0x7EB5D86FD78f3852a3e0e064f2842d45a3dB6EA2",
@@ -1429,7 +1439,8 @@
         "NewPool": "0x26A4FE4c858f0d8a11442d358d182F2832A7F84c",
         "StrategyContract": "GooseStrategyMainnet_EGG_BNB",
         "NewStrategy": "0xB60E69F21b469A93aB6e3f4a831E833bcFb7C7dE",
-        "PoolId": 1
+        "PoolId": 1,
+        "doHardwork": false
       },
       "goose_EGG_BUSD": {
         "Underlying": "0x19e7cbECDD23A16DfA5573dF54d98F7CaAE03019",
@@ -1437,7 +1448,8 @@
         "NewPool": "0x7CAA01B3DC8eE91aA6FA7093e184f045e0DA8792",
         "StrategyContract": "GooseStrategyMainnet_EGG_BUSD",
         "NewStrategy": "0xc547c527D6ce9a0A0Cea928B50fbD3A598d349a2",
-        "PoolId": 0
+        "PoolId": 0,
+        "doHardwork": false
       },
       "goose_EGG": {
         "Underlying": "0xF952Fc3ca7325Cc27D15885d37117676d25BfdA6",
@@ -1537,7 +1549,8 @@
         "StrategyContract": "EllipsisLPStrategyMainnet_EPS_BNB",
         "NewStrategy": "0x5954F9d5AFb005ebA67813B5Ab82398FAC7F0178",
         "NewPool": "0x0694e3cB1055Ff33d774d51a55272DDEE305f745",
-        "PoolId": "0"
+        "PoolId": "0",
+        "doHardwork": false
       },
       "belt_BTCB": {
         "Underlying": "0x51bd63F240fB13870550423D208452cA87c44444",
@@ -1625,7 +1638,8 @@
         "StrategyContract": "EllipsisBTCStrategyMainnet",
         "NewStrategy": "0x11D4f0398d135B979d1D20761c43878FBb81417f",
         "NewPool": "0x4165884840eE7e6280c512C75B23B098F7e420fc",
-        "PoolId": "3"
+        "PoolId": "3",
+        "doHardwork": false
       },
       "popsicle_ICE_BNB": {
         "Underlying": "0x51F914a192a97408D991FddDAFB8F8537C5Ffb0a",
@@ -1783,7 +1797,8 @@
         "OldPool": "0xe7666F2AF0a6F5199281944C112CA8511F27C330",
         "NewPool": "0x24Aa3547962872351c30F1127430172317C05FEC",
         "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
-        "useMsigProfitCalculation": true
+        "useMsigProfitCalculation": true,
+        "doHardwork": false
       },
       "jarvis_JEUR_USDC_HODL": {
         "Underlying": "0xa1219DBE76eEcBf7571Fed6b020Dd9154396B70e",
@@ -1794,7 +1809,8 @@
         "OldPool": "0x083830D8d41f21dE5832649db40e9268b027696a",
         "NewPool": "0xf25474FBf9812bE2ef76abf4297A27411C156403",
         "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
-        "useMsigProfitCalculation": true
+        "useMsigProfitCalculation": true,
+        "doHardwork": false
       },
       "jarvis_JGBP_USDC_HODL": {
         "Underlying": "0xbb2d00675B775E0F8acd590e08DA081B2a36D3a6",
@@ -1805,7 +1821,8 @@
         "OldPool": "0xB91f62A423dE007ce25E5538D747B259fb207938",
         "NewPool": "0x877635e68C1E943D6d6B777C0e847Cd7aE5A01BE",
         "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
-        "useMsigProfitCalculation": true
+        "useMsigProfitCalculation": true,
+        "doHardwork": false
       },
       "polygon_DAI": {
         "Underlying": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
@@ -1889,7 +1906,8 @@
         "NewVault": "0x54Bc6af48464510838e81fDdda4de53B2d65f32a",
         "NewStrategy": "0x8cB98c8FD5740665E88827D45bEC42c00A8d4322",
         "NewPool": "0x77050b56e8aC54b14e207D1E013c2719ed7C71Ab",
-        "RewardPool": "0x64D2B3994F64E3E82E48CC92e1122489e88e8727"
+        "RewardPool": "0x64D2B3994F64E3E82E48CC92e1122489e88e8727",
+        "doHardwork": false
       },
       "bal_TUSD_STABLE": {
         "Underlying": "0x0d34e5dD4D8f043557145598E4e2dC286B35FD4f",
@@ -1929,7 +1947,8 @@
         "NewStrategy": "0xC41D252b9cA4EC08E7bAAb0a490216C8598bf911",
         "NewPool": "0x4Af93A7D4Bb47c814988dA5E774112f7b5ae5Dab",
         "RewardPool": "0xFAA0f413E67A56cbbE181024279bA5504Ce487EF",
-        "useMsigProfitCalculation": true
+        "useMsigProfitCalculation": true,
+        "doHardwork": false
       },
       "jarvis_SES_2JPY": {
         "Underlying": "0x3b76F90A8ab3EA7f0EA717F34ec65d194E5e9737",
