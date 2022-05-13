@@ -5,7 +5,7 @@ const { getPosId } = require('../../../prices/implementations/uniswap-v3')
 const { getDailyCompound } = require('../../../lib/utils.js')
 const BigNumber = require('bignumber.js')
 
-const { APY_VISION_API_URL } = require('../../../lib/constants')
+const { APY_VISION_API_URL, APY_VISION_TOKEN } = require('../../../lib/constants')
 
 const getTradingApy = async (vaultAddress, providerKey, reduction) => {
   let response, data, apr, apy, isWeekOld
@@ -13,7 +13,9 @@ const getTradingApy = async (vaultAddress, providerKey, reduction) => {
   const posId = await getPosId(vaultAddress, web3)
 
   try {
-    response = await axios.get(`${APY_VISION_API_URL}/uniswapv3/${providerKey}/positions/${posId}`)
+    response = await axios.get(
+      `${APY_VISION_API_URL}/uniswapv3/${providerKey}/positions/${posId}?access_token=${APY_VISION_TOKEN}`,
+    )
     data = get(response, 'data', 0)
     isWeekOld = Number(data.position_age_days) >= 7
     if (isWeekOld) {
