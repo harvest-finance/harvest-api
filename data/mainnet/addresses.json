@@ -1684,6 +1684,7 @@
     "JCHF": "0xbD1463F02f61676d53fd183C2B19282BFF93D099",
     "DEN": "0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020",
     "DEN_MAR22": "0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB",
+    "DEN_JUL22": "0x53d00635aeC4a6379523341AEBC325857f32FdE1",
     "SES": "0x9120ECada8dc70Dc62cBD49f58e861a09bf83788",
     "QUI": "0xF65fb31ad1ccb2E7A6Ec3B34BEA4c81b68af6695",
     "JARVIS_SANCTUARY_DEN": "0xB97ae6DdF409cd2d4549aA0d3457ce3E8143BD09",
@@ -1715,6 +1716,8 @@
     "JSGD": "0xa926db7a4CC0cb1736D5ac60495ca8Eb7214B503",
     "XSGD": "0x769434dcA303597C8fc4997Bf3DAB233e961Eda2",
     "DEN_MAY22": "0x51e7B5A0e8E942A62562f85D91501fbfA43121fE",
+    "agEUR": "0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4",
+    "agDEN_JUL22": "0xEEfF5d27e40A5239f6F28d4b0fbE20acf6432717",
     "V2": {
       "quickswap_ETH_MATIC": {
         "Underlying": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b"
@@ -1858,7 +1861,7 @@
         "NewVault": "0xDDe43710DefEf6CbCf820B18DeBfC3cF9a4f449F",
         "NewStrategy": "0xe8a2cFce2C718E0f95ee2b1d3c0331c92C06Ca0b",
         "NewPool": "0xf74E8CFe03421D071c7dCCc3E5ecB6dDDede2f07",
-        "RewardPool": "0x845b7939D7E01fd29d6452CE9DDF9bd3ECf886b2",
+        "RewardPool": "0x1e1506b8cF84f8D1C2dbF474BcB6fEC36467C478",
         "useMsigProfitCalculation": true
       },
       "jarvis_AUR_USDC_V2": {
@@ -2022,6 +2025,30 @@
         "NewStrategy": "0xeeD6692252978cF4C5298B37C84619f5D3bA9d4E",
         "NewPool": "0x8809DBd9Ab4909AAe75A729D29379C5B7D12e767",
         "RewardPool": "0x845b7939D7E01fd29d6452CE9DDF9bd3ECf886b2",
+        "useMsigProfitCalculation": true
+      },
+      "jarvis_DENJUL22_4EUR": {
+        "Underlying": "0xF84fA79A94aFb742A98EDf2c7a10ef7134b684bC",
+        "NewVault": "0x0445093206A816AfD1317f35aF250fA5e0044907",
+        "NewStrategy": "0x09C85e411b10AdFc0c63A2F6f5333Dd3bF1AC24E",
+        "NewPool": "0x52395CB002Ce1b5aF8758E9E3f63aC77234a4105",
+        "RewardPool": "0x1e1506b8cF84f8D1C2dbF474BcB6fEC36467C478",
+        "useMsigProfitCalculation": true
+      },
+      "jarvis_agDENJUL22_2EUR": {
+        "Underlying": "0x7d85cCf1B7cbAAB68c580E14fA8C92E32704404f",
+        "NewVault": "0x48795326FBa34e07076038cC8f03f88a80E71214",
+        "NewStrategy": "0xD9C4C1DD6F8dD7b7C07254B5E731530cf2EfEbBF",
+        "NewPool": "0x1dfdE6E4c9852Bb8c593b72631257EAC6A827E09",
+        "RewardPool": "0x834579150Cc521e0afAB15568930e3BEc67B865A",
+        "useMsigProfitCalculation": true
+      },
+      "jarvis_2EUR_HODL": {
+        "Underlying": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+        "NewVault": "0xE4E6055A7eB29F2Fa507ba7f8c4FAcc0C5ef9a2A",
+        "NewStrategy": "0x76341494eeA3bfC9de420d1C02C3398833f45343",
+        "NewPool": "0x9c55488f8AdC23544B8571757169AE17865ABFC8",
+        "RewardPool": "0x834579150Cc521e0afAB15568930e3BEc67B865A",
         "useMsigProfitCalculation": true
       }
     }

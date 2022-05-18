@@ -140,7 +140,6 @@ describe('Happy Paths', function () {
         .then(res => {
           assertValidPositiveNumber(res.body.matic)
           assertValidPositiveNumber(res.body.eth)
-          assertValidPositiveNumber(res.body.bsc)
         })
     })
 
