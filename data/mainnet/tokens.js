@@ -125,7 +125,11 @@ module.exports = {
     vaultAddress: addresses.MATIC.V2.jarvis_agDENJUL22_2EUR.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.MATIC.V2.jarvis_agDENJUL22_2EUR.Underlying, 'agDEN-JUL22', 'jarvis_2EUR_HODL'],
+      params: [
+        addresses.MATIC.V2.jarvis_agDENJUL22_2EUR.Underlying,
+        'agDEN-JUL22',
+        'jarvis_2EUR_HODL',
+      ],
     },
     estimateApyFunctions: [
       {

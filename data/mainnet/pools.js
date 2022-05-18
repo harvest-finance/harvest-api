@@ -888,7 +888,14 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_4EUR_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fDEN_4EUR', 'fDEN2_4EUR', 'fDENMAY22_4EUR', 'fDENJUL22_4EUR'],
+    rewardTokenSymbols: [
+      'miFARM',
+      'WMATIC',
+      'fDEN_4EUR',
+      'fDEN2_4EUR',
+      'fDENMAY22_4EUR',
+      'fDENJUL22_4EUR',
+    ],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
