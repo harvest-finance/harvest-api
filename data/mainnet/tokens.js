@@ -6374,7 +6374,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'DEN-JUL22'],
   },
   jarvis_DENMAY22_4EUR: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
