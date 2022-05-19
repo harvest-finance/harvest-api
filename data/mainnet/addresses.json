@@ -261,7 +261,8 @@
     "StableVaultMigrator": "0x384636e5F47152275016b5D161da2a24b8a903A5",
     "crvHBTC": {
       "NewVault": "0xCC775989e76ab386E9253df5B0c0b473E22102E2",
-      "NewPool": "0x01f9CAaD0f9255b0C0Aa2fBD1c1aA06ad8Af7254"
+      "NewPool": "0x01f9CAaD0f9255b0C0Aa2fBD1c1aA06ad8Af7254",
+      "doHardwork": false
     },
     "crvHUSD": {
       "NewVault": "0x29780C39164Ebbd62e9DDDE50c151810070140f2",
@@ -322,7 +323,8 @@
       "MigrationStrategy": "0x3B984969B20c7c9db50fE0B7b893565BF25aF0db",
       "NewVault": "0x9aA8F427A17d6B0d91B6262989EdC7D45d6aEdf8",
       "NewStrategy": "0x3952555B3Be488F51f0b03315a85560a83c24E04",
-      "NewPool": "0xA3Cf8D1CEe996253FAD1F8e3d68BDCba7B3A3Db5"
+      "NewPool": "0xA3Cf8D1CEe996253FAD1F8e3d68BDCba7B3A3Db5",
+      "doHardwork": false
     },
     "YCRV": {
       "NewVault": "0x0FE4283e0216F94f5f9750a7a11AC54D3c9C38F3",
@@ -847,7 +849,7 @@
       ],
       "NewVault": "0x1851A8fA2ca4d8Fb8B5c56EAC1813Fd890998EFc",
       "NewPool": "0x611aC252ED4bF54b7980ff64bc94058F5Dcb5bB2",
-      "doHardwork": "onlyProfit"
+      "doHardwork": false
     },
     "UniV3_USDC_ETH": {
       "Underlying": [
