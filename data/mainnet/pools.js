@@ -19,10 +19,10 @@ module.exports = [
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/22/deposit">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/209/deposit">
             Curve
           </a>
-          and add liquidity for 2SGD
+          and add liquidity for 2EUR
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
