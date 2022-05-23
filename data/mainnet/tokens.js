@@ -147,11 +147,7 @@ module.exports = {
     vaultAddress: addresses.MATIC.V2.jarvis_JRTJUL22_USDC.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [
-        addresses.MATIC.V2.jarvis_JRTJUL22_USDC.Underlying,
-        'JRT-JUL22',
-        'pUSDC',
-      ],
+      params: [addresses.MATIC.V2.jarvis_JRTJUL22_USDC.Underlying, 'JRT-JUL22', 'pUSDC'],
     },
     estimateApyFunctions: [
       {
