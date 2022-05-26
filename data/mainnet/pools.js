@@ -6,6 +6,66 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_2NZD_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_2NZD_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2NZD_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTJUL22_USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/228/deposit">
+            Curve
+          </a>
+          and add liquidity for 2NZD
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JRTJUL22_USDC.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JRTJUL22_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_JRTJUL22_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JRTJUL22_USDC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/#/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0xD7f13BeE20D6848D9Ca2F26d9A244AB7bd6CDDc0/0x707c7f22d5e3c0234bcc53aee51420d6cdd988f9">
+            KyberDMM
+          </a>
+          and add liquidity for JRT(JUL22)-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_2EUR_HODL',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.MATIC.V2.jarvis_2EUR_HODL.NewPool,
@@ -136,7 +196,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2SGD_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMAY22_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -266,14 +326,14 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fSES_2JPY', 'fJRTMAY22_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fSES_2JPY', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/85/deposit">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/255/deposit">
             Curve
           </a>
           and add liquidity for 2JPY
@@ -326,7 +386,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fQUI_2CAD', 'fJRTMAY22_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fQUI_2CAD', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
