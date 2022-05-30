@@ -5,6 +5,102 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_jEUR_WETH_HODL.Underlying, 'quickswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_jEUR_WETH_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_jEUR_WETH_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_jEUR_WETH_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURJUL22_WETH'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c/0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619">
+            QuickSwap
+          </a>
+          and add liquidity for jEUR-WETH
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_jCHF_WETH_HODL.Underlying, 'quickswap_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_jCHF_WETH_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_jCHF_WETH_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_jCHF_WETH_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fAURJUL22_WETH'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/add/0xbD1463F02f61676d53fd183C2B19282BFF93D099/0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619">
+            QuickSwap
+          </a>
+          and add liquidity for jCHF-WETH
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_AURJUL22_WETH.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_AURJUL22_2EUR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_AURJUL22_WETH.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_AURJUL22_WETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/add/0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619/0x8C56600D7D8f9239f124c7C52D3fa018fC801A76/0xf9ce68a9e41f1e7cee5fdcbef99669653aa61390">
+            KyberDMM
+          </a>
+          and add liquidity for AUR(JUL22)-WETH
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'bal_MaticX',
     type: POOL_TYPES.INCENTIVE,
