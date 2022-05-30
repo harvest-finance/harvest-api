@@ -102,6 +102,74 @@ module.exports = [
   },
   {
     chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_MaticX',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.bal_MaticX.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.bal_MaticX.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_MaticX.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.bal_MaticX.OldPool,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_MaticX.PoolId}">
+            balancer
+          </a>
+          and invest <b>WMATIC</b> or <b>MaticX</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'bal_stMatic',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.bal_stMatic.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.bal_stMatic.NewPool,
+    collateralAddress: addresses.MATIC.V2.bal_stMatic.NewVault,
+    oldPoolContractAddress: addresses.MATIC.V2.bal_stMatic.OldPool,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.bal_stMatic.PoolId}">
+            balancer
+          </a>
+          and invest <b>WMATIC</b> or <b>stMatic</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
     id: 'jarvis_2NZD_HODL',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.MATIC.V2.jarvis_2NZD_HODL.NewPool,

@@ -48,6 +48,9 @@ const quickswapDualRewardContract = require('../contracts/quickswap-dual-reward/
 const uniNonFungibleManagerMethods = require('../contracts/uni-non-fungible-manager/methods')
 const uniNonFungibleManagerContract = require('../contracts/uni-non-fungible-manager/contract.json')
 
+const balTokenAdminMethods = require('../contracts/bal-token-admin/methods')
+const balTokenAdminContract = require('../contracts/bal-token-admin/contract.json')
+
 module.exports = {
   vault: {
     methods: vaultMethods,
@@ -115,5 +118,9 @@ module.exports = {
   uniNonFungibleManager: {
     contract: uniNonFungibleManagerContract,
     methods: uniNonFungibleManagerMethods,
+  },
+  balTokenAdmin: {
+    contract: balTokenAdminContract,
+    methods: balTokenAdminMethods,
   },
 }
