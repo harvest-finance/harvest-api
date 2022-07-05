@@ -105,8 +105,8 @@ module.exports = [
     id: 'bal_MaticX',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.bal_MaticX.Underlying, 'balancerv2_matic'],
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.bal_MaticX.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
     contractAddress: addresses.MATIC.V2.bal_MaticX.NewPool,
     collateralAddress: addresses.MATIC.V2.bal_MaticX.NewVault,
@@ -139,8 +139,8 @@ module.exports = [
     id: 'bal_stMatic',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.bal_stMatic.Underlying, 'balancerv2_matic'],
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.bal_stMatic.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
     contractAddress: addresses.MATIC.V2.bal_stMatic.NewPool,
     collateralAddress: addresses.MATIC.V2.bal_stMatic.NewVault,
@@ -6144,8 +6144,8 @@ module.exports = [
     id: 'balancer_POLYBASE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_POLYBASE.Underlying, 'balancerv2_matic'],
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.balancer_POLYBASE.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
     contractAddress: addresses.MATIC.V2.balancer_POLYBASE.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
@@ -6212,8 +6212,8 @@ module.exports = [
     id: 'balancer_STABLE',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_STABLE.Underlying, 'balancerv2_matic'],
+      type: TRADING_APY_TYPES.BALANCER,
+      params: [addresses.MATIC.V2.balancer_STABLE.PoolId, CHAINS_ID.MATIC_MAINNET],
     },
     contractAddress: addresses.MATIC.V2.balancer_STABLE.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_STABLE.NewVault,
