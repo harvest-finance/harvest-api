@@ -190,7 +190,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE,
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
         params: [
           'bal_MaticX',
           addresses.MATIC.V2.bal_MaticX.Gauge,
@@ -225,7 +225,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE,
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
         params: [
           'bal_stMatic',
           addresses.MATIC.V2.bal_stMatic.Gauge,
@@ -1065,7 +1065,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE,
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
         params: [
           'bal_USDC_WETH_polygon',
           addresses.MATIC.V2.bal_USDC_WETH_polygon.Gauge,
@@ -7012,7 +7012,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE,
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
         params: [
           'bal_POLYBASE',
           addresses.MATIC.V2.balancer_POLYBASE.Gauge,
@@ -7080,7 +7080,7 @@ module.exports = {
     },
     estimateApyFunctions: [
       {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE,
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
         params: [
           'bal_STABLE',
           addresses.MATIC.V2.balancer_STABLE.Gauge,
