@@ -87,6 +87,7 @@
 	"crvHUSD": "0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858",
 	"cvxCRV": "0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7",
 	"BASED_sUSD": "0xaAD22f5543FCDaA694B68f94Be177B561836AE57",
+	"NOTE": "0xCFEAead4947f0705A14ec42aC3D44129E1Ef3eD5",
 
 	"UNI_LP_WETH_DPI": "0x4d5ef58aAc27d99935E5b6B4A6778ff292059991",
 	"UNI_LP_WETH_USDT": "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
@@ -1291,6 +1292,13 @@
 			"DataContract": "0xFB9a912f2375C481957e47153E079d60B980C69a",
 			"FeeAmount": 10000,
 			"PosId": [ 201880 ],
+			"doHardwork": false
+		},
+		"notional_DAI": {
+			"Underlying": "0x6ebce2453398af200c688c7c4ebd479171231818",
+			"NewVault": "",
+			"NewStrategy": "",
+			"NewPool": "",
 			"doHardwork": false
 		}
 	},

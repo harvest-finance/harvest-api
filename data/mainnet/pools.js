@@ -6310,4 +6310,36 @@ module.exports = [
       </div>
    `,
   },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'notional_DAI',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.notional_DAI.NewPool,
+    collateralAddress: addresses.V2.notional_DAI.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM', 'WETH'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://notional.finance/provide/DAI"
+            >
+             Notional Finance
+            </a>
+            and mint <b>nDAI</b> by providing <b>DAI</b> liquidity and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
 ]

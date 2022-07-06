@@ -7185,4 +7185,46 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
+  note: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/note.png',
+    tokenAddress: addresses.NOTE,
+    decimals: '8',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['notional-finance'],
+    },
+  },
+  notional_DAI: {
+    category: VAULT_CATEGORIES_IDS.NOTIONAL,
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/note-dai.png',
+    apyIconUrls: ['./icons/note.png'],
+    apyTokenSymbols: ['NOTE'],
+    displayName: 'NOTIONAL: nDAI',
+    subLabel: 'Auto-compounding',
+    tokenAddress: addresses.V2.notional_DAI.Underlying,
+    decimals: '8',
+    vaultAddress: addresses.V2.notional_DAI.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.NOTIONAL,
+      params: [1, addresses.DAI, 18],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.NOTIONAL,
+        params: [
+          addresses.V2.notional_DAI.NewStrategy,
+          1,
+          addresses.V2.NOTE,
+          addresses.V2.notional_DAI.Underlying,
+          addresses.DAI,
+          18,
+          '0.00',
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'NOTE', 'WETH'],
+  },
 }
