@@ -12,26 +12,19 @@ const getApy = async (currencyId, note, nToken, underlyingToken, reduction) => {
   const nTokenPrice = await getNTokenPrice(currencyId, nToken, underlyingToken)
 
   const notionalInstance = new web3.eth.Contract(notionalAbi, notionalProxy)
-  const {
-    totalSupply,
-    accumulatedNOTEPerNToken,
-    incentiveAnnualEmissionRate,
-  } = await getNTokenAccount(nToken, notionalInstance)
+  const { totalSupply, incentiveAnnualEmissionRate } = await getNTokenAccount(
+    nToken,
+    notionalInstance,
+  )
 
-  const additionalNOTEAccumulatedPerNToken = new BigNumber(incentiveAnnualEmissionRate)
+  const annualNOTEAccumulatedPerNToken = new BigNumber(incentiveAnnualEmissionRate)
     .multipliedBy(new BigNumber(1e8)) // nToken decimal
     .multipliedBy(new BigNumber(1e18)) // accuracy decimal
     .dividedBy(new BigNumber(totalSupply))
 
-  console.log('additionalNOTEAccumulatedPerNToken', additionalNOTEAccumulatedPerNToken.toString())
+  const casted = new BigNumber(annualNOTEAccumulatedPerNToken).dividedBy(1e18) // accuracy decimal
 
-  const castedAccumulatedNOTEPerNToken = new BigNumber(accumulatedNOTEPerNToken)
-    .plus(additionalNOTEAccumulatedPerNToken)
-    .dividedBy(1e18) // accuracy decimal
-
-  let apy = castedAccumulatedNOTEPerNToken
-    .times(new BigNumber(notePrice))
-    .dividedBy(new BigNumber(nTokenPrice))
+  let apy = casted.times(new BigNumber(notePrice)).dividedBy(new BigNumber(nTokenPrice))
 
   if (reduction) {
     apy = apy.multipliedBy(reduction)
