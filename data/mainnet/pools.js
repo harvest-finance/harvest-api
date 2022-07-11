@@ -6318,7 +6318,7 @@ module.exports = [
     collateralAddress: addresses.V2.notional_DAI.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM', 'WETH'],
+    rewardTokenSymbols: ['iFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>

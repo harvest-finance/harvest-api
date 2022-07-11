@@ -7203,28 +7203,19 @@ module.exports = {
     apyIconUrls: ['./icons/note.png'],
     apyTokenSymbols: ['NOTE'],
     displayName: 'NOTIONAL: nDAI',
-    subLabel: 'Auto-compounding',
     tokenAddress: addresses.V2.notional_DAI.Underlying,
     decimals: '8',
     vaultAddress: addresses.V2.notional_DAI.NewVault,
     priceFunction: {
       type: GET_PRICE_TYPES.NOTIONAL,
-      params: [1, addresses.DAI, 18],
+      params: [2, addresses.V2.notional_DAI.Underlying, addresses.DAI],
     },
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.NOTIONAL,
-        params: [
-          addresses.V2.notional_DAI.NewStrategy,
-          1,
-          addresses.V2.NOTE,
-          addresses.V2.notional_DAI.Underlying,
-          addresses.DAI,
-          18,
-          '0.00',
-        ],
+        params: [2, addresses.NOTE, addresses.V2.notional_DAI.Underlying, addresses.DAI, '0.00'],
       },
     ],
-    cmcRewardTokenSymbols: ['iFARM', 'NOTE', 'WETH'],
+    cmcRewardTokenSymbols: ['iFARM', 'NOTE'],
   },
 }
