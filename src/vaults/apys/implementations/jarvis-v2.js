@@ -6,6 +6,7 @@ const {
   getRewardPerBlock,
   totalAllocPoints,
   getRewardToken,
+  getEndBlock,
 } = require('../../../lib/web3/contracts/jarvis-rewards-v2/methods')
 
 const { token: tokenContractData } = require('../../../lib/web3/contracts')
@@ -43,6 +44,9 @@ const getApy = async (poolId, rewardPool, underlying, reduction) => {
   if (reduction) {
     apy = apy.multipliedBy(reduction)
   }
+  let latestBlock = await web3MATIC.eth.getBlockNumber()
+  let endBlock = await getEndBlock(jarvisInstance)
+  if (latestBlock > endBlock) return '0'
 
   return apy.multipliedBy(100).toFixed(2, 1)
 }
