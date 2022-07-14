@@ -6310,4 +6310,36 @@ module.exports = [
       </div>
    `,
   },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_cvxCRV',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_cvxCRV.NewPool,
+    collateralAddress: addresses.V2.convex_cvxCRV.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['cvxCRV'],
+    },
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a target="_blank" rel="noopener noreferrer" href="https://www.convexfinance.com/stake">
+              Convex
+            </a>
+            and convert <b>CRV</b> to <b>cvxCRV</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+    </div>
+   `,
+  },
 ]

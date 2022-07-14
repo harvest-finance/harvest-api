@@ -7185,4 +7185,23 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
+  cvxCRV: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    displayName: 'cvxCRV',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    logoUrl: '',
+    tokenAddress: addresses.V2.Convex_cvxCRV.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.Convex_cvxCRV.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.cvxCRV] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['fixedforex:eur', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
 }
