@@ -6310,4 +6310,270 @@ module.exports = [
       </div>
    `,
   },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_BANANA_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_BANANA_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_BANANA_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_BANANA_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.BANANA}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>BANANA-MATIC</b> pair by depositing <b>BANANA</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_ETH_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_ETH_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_ETH_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_ETH_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.pWETH}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>ETH-MATIC</b> pair by depositing <b>ETH</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_DAI_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_DAI_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_DAI_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_DAI_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.pDAI}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>DAI-MATIC</b> pair by depositing <b>DAI</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_USDT_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_USDT_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_USDT_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_USDT_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.pUSDT}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>USDT-MATIC</b> pair by depositing <b>USDT</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_BTC_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_BTC_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_BTC_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_BTC_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.pWBTC}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>BTC-MATIC</b> pair by depositing <b>BTC</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_DAI_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_DAI_USDC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_DAI_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_DAI_USDC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/${addresses.MATIC.pUSDC}/${addresses.MATIC.pDAI}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>DAI-USDC</b> pair by depositing <b>DAI</b> and
+              <b>USDC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'ape_BNB_MATIC',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.APE,
+      params: [addresses.MATIC.V2.ape_BNB_MATIC.ApePoolId, CHAINS_ID.MATIC_MAINNET],
+    },
+    contractAddress: addresses.MATIC.V2.ape_BNB_MATIC.NewPool,
+    collateralAddress: addresses.MATIC.V2.ape_BNB_MATIC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
+    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://apeswap.finance/add/ETH/${addresses.MATIC.pBNB}"
+              >
+                Apeswap
+              </a>
+              and supply liquidity to the <b>BNB-MATIC</b> pair by depositing <b>BNB</b> and
+              <b>MATIC</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+    `,
+  },
 ]
