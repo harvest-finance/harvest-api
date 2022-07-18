@@ -1295,11 +1295,28 @@
 			"doHardwork": false
 		},
 		"notional_DAI": {
-			"Underlying": "0x6ebce2453398af200c688c7c4ebd479171231818",
-			"NewVault": "",
-			"NewStrategy": "",
-			"NewPool": "",
-			"doHardwork": false
+			"Underlying": "0x6EbcE2453398af200c688C7c4eBD479171231818",
+			"NewVault": "0x81Dd77E2a1d4E63A29343AF304d69b8b91395c54",
+			"NewStrategy": "0x67C6Dea057747019f5A8C1519A632d7cd6b890A7",
+			"NewPool": "0x8027847Df28493ac68d27B5fb30221533185d942"
+		},
+		"notional_ETH": {
+			"Underlying": "0xabc07BF91469C5450D6941dD0770E6E6761B90d6",
+			"NewVault": "0x248333eFdcD024165517953aC437259635a5a38f",
+			"NewStrategy": "0xE5bd028E8F5F96a2c38423F387bA18198e12581a",
+			"NewPool": "0x5A71096f39d02d29DdAF870A845017C421E69144"
+		},
+		"notional_USDC": {
+			"Underlying": "0x18b0Fc5A233acF1586Da7C199Ca9E3f486305A29",
+			"NewVault": "0xcec2936F04dF7E33015c4661C17d82e035D2C642",
+			"NewStrategy": "0x154d09523E12497147Aa406c95b47baF1F988694",
+			"NewPool": "0x83B70Dcea43772d2525C93619706715fD65d0966"
+		},
+		"notional_WBTC": {
+			"Underlying": "0x0Ace2DC3995aCD739aE5e0599E71A5524b93b886",
+			"NewVault": "0xf0edB7568fdF1F617e15f2F1a2B9696258D38547",
+			"NewStrategy": "0x2D01D09276E57a0f38B64C5f75F5ea00b59a9AEB",
+			"NewPool": "0x4C7b528E249544442F88745ecC9Df82031Ad8DDF"
 		}
 	},
 	"BSC": {
