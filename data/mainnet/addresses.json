@@ -2141,56 +2141,49 @@
 				"NewVault": "0x8B7EEb22B91D588d8e5564b44F256Df41ad89923",
 				"NewStrategy": "0xf79AC49370b0D62405b83E9903b3BcC106886972",
 				"NewPool": "0x1801c2a7BC1046BF13ABA72315fFa4f70071Ce59",
-				"ApePoolId": "0",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "0"
 			},
 			"ape_ETH_MATIC": {
 				"Underlying": "0x6Cf8654e85AB489cA7e70189046D507ebA233613",
 				"NewVault": "0x492af6444C3003097468789b72f09a6eD4fC5a6d",
 				"NewStrategy": "0x6A0ce488A9D5EA6B150a591D6B354c2BC895eCa9",
 				"NewPool": "0x53cDFc750c1C8E0bB1C18C670fB8f5da7f7c60fd",
-				"ApePoolId": "1",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "1"
 			},
 			"ape_DAI_MATIC": {
 				"Underlying": "0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2",
 				"NewVault": "0x68EaBFbaD552615ABe6d38E632184f88d6FFd201",
 				"NewStrategy": "0x7Aa2ef977Ef523b7d600b55EBFe46bBd96eDD467",
 				"NewPool": "0xE99C875D455DdEEC443Ba3f1c8eF073EDEd35794",
-				"ApePoolId": "2",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "2"
 			},
 			"ape_USDT_MATIC": {
 				"Underlying": "0x65D43B64E3B31965Cd5EA367D4c2b94c03084797",
 				"NewVault": "0x843EaDd613fF922CB2e7aE06aa810e0b147517A7",
 				"NewStrategy": "0x60591d798b334d1b28cB07Cbc76493F5De356ed0",
 				"NewPool": "0xca1216D54a50A89575C6481D53c6760E1C8aaF81",
-				"ApePoolId": "3",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "3"
 			},
 			"ape_BTC_MATIC": {
 				"Underlying": "0xe82635a105c520fd58e597181cBf754961d51E3e",
 				"NewVault": "0x56ABce9f4872c3bfb2c047a22c868Cfb24EAc8a1",
 				"NewStrategy": "0xF583E990CE79C5Ea11ED5eF2702681d2058C003E",
 				"NewPool": "0x37f33Ba01EF14d239484858959Ab683c07352e52",
-				"ApePoolId": "4",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "4"
 			},
 			"ape_DAI_USDC": {
 				"Underlying": "0x5b13B583D4317aB15186Ed660A1E4C65C10da659",
 				"NewVault": "0xF91d4D99032Bc4905b91BD08055D5a65d95Db58E",
 				"NewStrategy": "0x3F1b8d9B8B699c013Bc48047109a445fA135D8e3",
 				"NewPool": "0x8DC2bC8E52BE6931f02951546a35ce8dF7797DbD",
-				"ApePoolId": "5",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "5"
 			},
 			"ape_BNB_MATIC": {
 				"Underlying": "0x0359001070cF696D5993E0697335157a6f7dB289",
 				"NewVault": "0xaCEDABb7C31f862a47fd07F4D46a862987737F02",
 				"NewStrategy": "0x69Edd4c37f466A283Fe51BDB9A712C2E576A1B1a",
 				"NewPool": "0x8322dB352E63eDbBCcF4CB9d8370C1dC5C36Df49",
-				"ApePoolId": "6",
-				"doHardwork": "onlyProfit"
+				"ApePoolId": "6"
 			}
 		}
 	}

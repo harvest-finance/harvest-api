@@ -25,8 +25,7 @@ const getApy = async (poolId, firstToken, secondToken, reduction, chain) => {
     contract: { abi },
   } = tokenContractData
 
-  const selectedChain = chain
-  const selectedWeb3 = getWeb3(selectedChain)
+  const selectedWeb3 = getWeb3(chain)
 
   let apy,
     bananaPerSecond,
