@@ -45,6 +45,93 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  UniV3_USDC_ETH_1400_2400: {
+    isSingleAssetWithdrawalAllowed: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: USDC-ETH',
+    subLabel: 'ETH Range: 1.4K⟷2.4K',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    logoUrl: './icons/univ3-usdc-eth.png',
+    tokenAddress: addresses.V2.UniV3_USDC_ETH_1400_2400.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_USDC_ETH_1400_2400.NewVault,
+    pricesInfo: {
+      USDC: ['Min price: 0.00071 ETH per USDC', 'Max price: 0.00041 ETH per USDC'],
+      WETH: ['Min price: 1400 USDC per ETH', 'Max price: 2400 USDC per ETH'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_USDC_ETH_1400_2400.NewVault, 'USDC', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
+  },
+  UniV3_DAI_ETH_1400_2400: {
+    isSingleAssetWithdrawalAllowed: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: DAI-ETH',
+    subLabel: 'ETH Range: 1.4K⟷2.4K',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    logoUrl: './icons/univ3-dai-eth.png',
+    tokenAddress: addresses.V2.UniV3_DAI_ETH_1400_2400.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_DAI_ETH_1400_2400.NewVault,
+    pricesInfo: {
+      DAI: ['Min price: 0.00071 ETH per DAI', 'Max price: 0.00041 ETH per DAI'],
+      WETH: ['Min price: 1400 DAI per ETH', 'Max price: 2400 DAI per ETH'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_DAI_ETH_1400_2400.NewVault, 'DAI', 'WETH'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
+  },
+  UniV3_USDT_ETH_1400_2400: {
+    isSingleAssetWithdrawalAllowed: true,
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.UNIV3,
+    displayName: 'Uniswap V3: ETH-USDT',
+    subLabel: 'ETH Range: 1.4K⟷2.4K',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    logoUrl: './icons/univ3-eth-usdt.png',
+    tokenAddress: addresses.V2.UniV3_USDT_ETH_1400_2400.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.UniV3_USDT_ETH_1400_2400.NewVault,
+    pricesInfo: {
+      WETH: ['Min price: 1400 USDT per ETH', 'Max price: 2400 USDT per ETH'],
+      USDT: ['Min price: 0.00071 ETH per USDT', 'Max price: 0.00041 ETH per USDT'],
+    },
+    priceFunction: {
+      type: GET_PRICE_TYPES.LP_TOKEN,
+      params: [addresses.V2.UniV3_USDT_ETH_1400_2400.NewVault, 'WETH', 'USDT'],
+    },
+    estimateApyFunctions: [
+      {
+        extraDailyCompound: false,
+        type: ESTIMATED_APY_TYPES.MANUAL,
+        params: ['0.00'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'USDT', 'WETH'],
+  },
   fAURJUL22_WETH: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
@@ -2674,7 +2761,7 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
-  Univ3_BUSD_USDC: {
+  UniV3_BUSD_USDC: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -2682,16 +2769,16 @@ module.exports = {
     apyIconUrls: [],
     apyTokenSymbols: [],
     logoUrl: './icons/univ3-busd-usdc.png',
-    tokenAddress: addresses.V2.Univ3_BUSD_USDC.Underlying,
+    tokenAddress: addresses.V2.UniV3_BUSD_USDC.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.Univ3_BUSD_USDC.NewVault,
+    vaultAddress: addresses.V2.UniV3_BUSD_USDC.NewVault,
     pricesInfo: {
       BUSD: ['Min price: 0.999 BUSD per USDC', 'Max price: 1.000 BUSD per USDC'],
       USDC: ['Min price: 1.000 USDC per BUSD', 'Max price: 0.999 USDC per BUSD'],
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_BUSD_USDC.NewVault, 'BUSD', 'USDC'],
+      params: [addresses.V2.UniV3_BUSD_USDC.NewVault, 'BUSD', 'USDC'],
     },
     estimateApyFunctions: [
       {
@@ -2702,7 +2789,7 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'BUSD', 'USDC'],
   },
-  Univ3_renBTC_wBTC: {
+  UniV3_renBTC_wBTC: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
     inactive: true,
@@ -2710,16 +2797,16 @@ module.exports = {
     apyIconUrls: [],
     apyTokenSymbols: [],
     logoUrl: './icons/univ3-renbtc-wbtc.png',
-    tokenAddress: addresses.V2.Univ3_renBTC_wBTC.Underlying,
+    tokenAddress: addresses.V2.UniV3_renBTC_wBTC.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.Univ3_renBTC_wBTC.NewVault,
+    vaultAddress: addresses.V2.UniV3_renBTC_wBTC.NewVault,
     pricesInfo: {
       RENBTC: ['Min price: 0.999 RENBTC per WBTC', 'Max price: 1.001 RENBTC per WBTC'],
       WBTC: ['Min price: 0.999 WBTC per RENBTC', 'Max price: 1.001 WBTC per RENBTC'],
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_renBTC_wBTC.NewVault, 'RENBTC', 'WBTC'],
+      params: [addresses.V2.UniV3_renBTC_wBTC.NewVault, 'RENBTC', 'WBTC'],
     },
     estimateApyFunctions: [
       {
@@ -5396,65 +5483,6 @@ module.exports = {
       params: [addresses.COMFI],
     },
   },
-  Univ3_USDT_ETH_1400_2400: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
-    inactive: true,
-    displayName: 'Uniswap V3: ETH-USDT',
-    subLabel: 'ETH Range: 1.4K⟷2.4K',
-    apyIconUrls: [],
-    apyTokenSymbols: [],
-    logoUrl: './icons/univ3-eth-usdt.png',
-    tokenAddress: addresses.V2.Univ3_USDT_ETH_1400_2400.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.Univ3_USDT_ETH_1400_2400.NewVault,
-    pricesInfo: {
-      WETH: ['Min price: 1400 USDT per ETH', 'Max price: 2400 USDT per ETH'],
-      USDT: ['Min price: 0.00071 ETH per USDT', 'Max price: 0.00041 ETH per USDT'],
-    },
-    priceFunction: {
-      type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_USDT_ETH_1400_2400.NewVault, 'WETH', 'USDT'],
-    },
-    estimateApyFunctions: [
-      {
-        extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'USDT', 'WETH'],
-  },
-  Univ3_USDC_ETH_1400_2400: {
-    isSingleAssetWithdrawalAllowed: true,
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
-    inactive: true,
-    displayName: 'Uniswap V3: USDC-ETH',
-    subLabel: 'ETH Range: 1.4K⟷2.4K',
-    apyIconUrls: [],
-    apyTokenSymbols: [],
-    logoUrl: './icons/univ3-usdc-eth.png',
-    tokenAddress: addresses.V2.Univ3_USDC_ETH_1400_2400.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.Univ3_USDC_ETH_1400_2400.NewVault,
-    pricesInfo: {
-      USDC: ['Min price: 0.00071 ETH per USDC', 'Max price: 0.00041 ETH per USDC'],
-      WETH: ['Min price: 1400 USDC per ETH', 'Max price: 2400 USDC per ETH'],
-    },
-    priceFunction: {
-      type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_USDC_ETH_1400_2400.NewVault, 'USDC', 'WETH'],
-    },
-    estimateApyFunctions: [
-      {
-        extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'USDC', 'WETH'],
-  },
   'ETH-DPI': {
     chain: CHAINS_ID.ETH_MAINNET,
     category: VAULT_CATEGORIES_IDS.INACTIVE,
@@ -6293,7 +6321,7 @@ module.exports = {
       params: ['FCASH', 'USDC'],
     },
   },
-  Univ3_DPI_ETH: {
+  UniV3_DPI_ETH: {
     disableAutoSwap: true,
     testInactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
@@ -6302,9 +6330,9 @@ module.exports = {
     apyIconUrls: [],
     apyTokenSymbols: [''],
     logoUrl: './icons/univ3-dpi-eth.png',
-    tokenAddress: addresses.V2.Univ3_DPI_ETH.Underlying,
+    tokenAddress: addresses.V2.UniV3_DPI_ETH.Underlying,
     decimals: '18',
-    vaultAddress: addresses.V2.Univ3_DPI_ETH.NewVault,
+    vaultAddress: addresses.V2.UniV3_DPI_ETH.NewVault,
     pricesInfo: { DPI: ['Testing', 'Testing'], ETH: ['Testing', 'Testing'] },
     migrationInfo: {
       lpTokenAddress: addresses.UNI_LP_WETH_DPI,
@@ -6313,7 +6341,7 @@ module.exports = {
     },
     priceFunction: {
       type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_DPI_ETH.NewVault, 'DPI', 'WETH'],
+      params: [addresses.V2.UniV3_DPI_ETH.NewVault, 'DPI', 'WETH'],
     },
     estimateApyFunctions: [
       {
@@ -7154,35 +7182,5 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'REI', 'WBTC'],
     rowTooltip: 'Out of Range',
     disableAutoSwap: true,
-  },
-  Univ3_DAI_ETH_1400_2400: {
-    isSingleAssetWithdrawalAllowed: true,
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
-    inactive: true,
-    displayName: 'Uniswap V3: DAI-ETH',
-    subLabel: 'ETH Range: 1.4K⟷2.4K',
-    apyIconUrls: [],
-    apyTokenSymbols: [],
-    logoUrl: './icons/univ3-dai-eth.png',
-    tokenAddress: addresses.V2.Univ3_DAI_ETH_1400_2400.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.Univ3_DAI_ETH_1400_2400.NewVault,
-    pricesInfo: {
-      DAI: ['Min price: 0.00071 ETH per DAI', 'Max price: 0.00041 ETH per DAI'],
-      WETH: ['Min price: 1400 DAI per ETH', 'Max price: 2400 DAI per ETH'],
-    },
-    priceFunction: {
-      type: GET_PRICE_TYPES.LP_TOKEN,
-      params: [addresses.V2.Univ3_DAI_ETH_1400_2400.NewVault, 'DAI', 'WETH'],
-    },
-    estimateApyFunctions: [
-      {
-        extraDailyCompound: false,
-        type: ESTIMATED_APY_TYPES.MANUAL,
-        params: ['0.00'],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
   },
 }
