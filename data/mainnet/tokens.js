@@ -45,6 +45,26 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  convex_cvxCRV: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
+    displayName: 'cvxCRV',
+    subLabel: 'Convex Finance',
+    apyIconUrls: ['./icons/curve.png', './icons/cvx.png', './icons/3crv.png'],
+    apyTokenSymbols: ['CRV', 'CVX', '3CRV'],
+    logoUrl: './icons/cvxCRV.png',
+    tokenAddress: addresses.V2.convex_cvxCRV.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.convex_cvxCRV.NewVault,
+    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.cvxCRV] },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.CONVEX,
+        params: ['convex_cvxCRV', strat30PercentFactor],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
+  },
   fAURJUL22_WETH: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '', // unused
@@ -7184,24 +7204,5 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'DAI', 'WETH'],
-  },
-  convex_cvxCRV: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE,
-    displayName: 'Convex CRV',
-    apyIconUrls: [],
-    apyTokenSymbols: [],
-    logoUrl: './icons/curve-cvxcrv.png',
-    tokenAddress: addresses.V2.convex_cvxCRV.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.convex_cvxCRV.NewVault,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.cvxCRV] },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.CONVEX,
-        params: ['convex_cvxCRV', strat30PercentFactor],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'CVX', 'CRV'],
   },
 }
