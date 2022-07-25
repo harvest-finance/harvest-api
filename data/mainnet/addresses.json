@@ -939,7 +939,7 @@
 			"NewPool": "0xC02f8fE55Aa542038a619e17ED42002EB7A5D247",
 			"doHardwork": false
 		},
-		"Univ3_USDT_ETH_1400_2400": {
+		"UniV3_USDT_ETH_1400_2400": {
 			"Underlying": [
 				"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
 				"0xdAC17F958D2ee523a2206206994597C13D831ec7"
@@ -948,7 +948,7 @@
 			"NewPool": "0x31a69b3d430a08c711FacA9c2C0b4A50f593626b",
 			"doHardwork": false
 		},
-		"Univ3_USDC_ETH_1400_2400": {
+		"UniV3_USDC_ETH_1400_2400": {
 			"Underlying": [
 				"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
 				"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
@@ -957,7 +957,7 @@
 			"NewPool": "0xf8CBFE8817d7A7986B6F1C67e29262B8D2496102",
 			"doHardwork": false
 		},
-		"Univ3_DAI_ETH_1400_2400": {
+		"UniV3_DAI_ETH_1400_2400": {
 			"Underlying": [
 				"0x6B175474E89094C44Da98b954EedeAC495271d0F",
 				"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
@@ -966,7 +966,7 @@
 			"NewPool": "0xBa20df1C78eD7CE835035e49Dc0389fF11224a76",
 			"doHardwork": false
 		},
-		"Univ3_DPI_ETH": {
+		"UniV3_DPI_ETH": {
 			"Underlying": [
 				"0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b",
 				"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
@@ -975,7 +975,7 @@
 			"NewPool": "0xf435E8E3D48C972EF536b4862b2Cfec4d0a8C5f1",
 			"doHardwork": false
 		},
-		"Univ3_BUSD_USDC": {
+		"UniV3_BUSD_USDC": {
 			"Underlying": [
 				"0x4Fabb145d64652a948d72533023f6E7A623C7C53",
 				"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
@@ -984,7 +984,7 @@
 			"NewPool": "0xDC1873C8E58e925D530b94FF14b0Aa4121b04d1F",
 			"doHardwork": false
 		},
-		"Univ3_renBTC_wBTC": {
+		"UniV3_renBTC_wBTC": {
 			"Underlying": [
 				"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
 				"0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D"
