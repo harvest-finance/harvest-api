@@ -15,6 +15,9 @@ const getApy = async (poolId, rewardPool, underlying, hodlVaultId, reduction) =>
   )
   let hodlApy = estimatedApy
   let hodlApr = new BigNumber((Math.pow(hodlApy / 100 + 1, 1 / 365) - 1) * 36500)
+  if (nativeApr.toString() === '0') {
+    return '0'
+  }
   let yearlyApr = nativeApr.times(hodlApy).div(2).div(hodlApr.div(2)).toFixed(2, 1)
   return yearlyApr
 }

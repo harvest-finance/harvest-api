@@ -27,7 +27,9 @@ const convexAPRWithPrice = async (poolName, crvPrice, cvxPrice) => {
 
   //get virtual price
   virtualPrice = 1
-  if (pool.isV2 == undefined || pool.isV2 == false) {
+  if (pool.isCrvDepositor) {
+    virtualPrice = await getPrice(pool.token, pool.currency)
+  } else if (pool.isV2 == undefined || pool.isV2 == false) {
     virtualPrice = await curveLpValue(1, curveSwap)
   } else {
     virtualPrice = await curveV2LpValue(pool, pool.currency)
