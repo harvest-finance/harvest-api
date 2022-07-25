@@ -101,8 +101,8 @@ const getTokenPriceByAddress = async (
   return result[0]
 }
 
-const getTokenPriceById = async (id, currency = 'usd') => {
-  const tokenPrice = cache.get(`tokenPrice${id}${CHAIN_TYPES.ETH}${currency}`)
+const getTokenPriceById = async (id, currency = 'usd', ourChainId = CHAIN_TYPES.ETH) => {
+  const tokenPrice = cache.get(`tokenPrice${id}${ourChainId}${currency}`)
 
   if (tokenPrice) {
     return tokenPrice
