@@ -57,7 +57,8 @@ module.exports = {
     },
   },
   notional_DAI: {
-    category: VAULT_CATEGORIES_IDS.NOTIONAL,
+    isNew: true,
+    category: [VAULT_CATEGORIES_IDS.NOTIONAL, VAULT_CATEGORIES_IDS.STABLECOINS],
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/note-dai.png',
     apyIconUrls: ['./icons/note.png'],
@@ -80,6 +81,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'NOTE'],
   },
   notional_ETH: {
+    isNew: true,
     category: VAULT_CATEGORIES_IDS.NOTIONAL,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/note-eth.png',
@@ -103,7 +105,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'NOTE'],
   },
   notional_USDC: {
-    category: VAULT_CATEGORIES_IDS.NOTIONAL,
+    isNew: true,
+    category: [VAULT_CATEGORIES_IDS.NOTIONAL, VAULT_CATEGORIES_IDS.STABLECOINS],
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/note-usdc.png',
     apyIconUrls: ['./icons/note.png'],
@@ -126,6 +129,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'NOTE'],
   },
   notional_WBTC: {
+    isNew: true,
     category: VAULT_CATEGORIES_IDS.NOTIONAL,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/note-wbtc.png',
