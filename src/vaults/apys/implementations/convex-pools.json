@@ -954,5 +954,20 @@
         ],
         "currency": "ETH",
         "name": "cvxeth"
+    },
+    {
+        "isCrvDepositor": true,
+        "token": "0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7",
+        "crvRewards": "0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e",
+        "id": 65,
+        "extras": [
+            {
+                "contract": "0x7091dbb7fcbA54569eF1387Ac89Eb2a5C9F6d2EA",
+                "token": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
+                "name": "3Crv"
+            }
+        ],
+        "currency": "USD",
+        "name": "convex_cvxCRV"
     }
 ]
