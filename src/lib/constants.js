@@ -181,6 +181,7 @@ const ELLIPSIS_API_URL = 'https://api.ellipsis.finance/api/'
 const SWIRL_API_URL = 'https://api.swirl.cash/'
 const BELT_API_URL = 'https://s.belt.fi/info/all.json'
 const MSTABLE_API_URL = 'https://api.mstable.org/pools'
+const APE_API_URL = 'https://ape-swap-api.herokuapp.com'
 
 const BALANCER_SUBGRAPH_URLS = {
   ETH: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2',
