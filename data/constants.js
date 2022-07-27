@@ -35,6 +35,7 @@ const VAULT_CATEGORIES_IDS = {
   YEL: 'YEL',
   CURVE: 'CURVE',
   APE: 'APE',
+  STABLE_POLYGON: 'STABLE_POLYGON',
 }
 
 const VAULT_CATEGORIES_NAMES = {
@@ -74,6 +75,7 @@ const VAULT_CATEGORIES_NAMES = {
   YEL: 'YEL',
   CURVE: 'Curve',
   APE: 'Apeswap',
+  STABLE_POLYGON: 'Stablecoins',
 }
 
 const CHAINS_ID = {
