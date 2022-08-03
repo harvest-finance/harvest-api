@@ -151,6 +151,7 @@ module.exports = {
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'NOTE'],
+  },
   ape_BANANA_MATIC: {
     isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
