@@ -6486,8 +6486,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_BANANA_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6524,8 +6524,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_ETH_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6562,8 +6562,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_DAI_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6600,8 +6600,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_USDT_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6638,8 +6638,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_BTC_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6676,8 +6676,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_DAI_USDC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
@@ -6714,8 +6714,8 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.ape_BNB_MATIC.NewVault,
     rewardAPY: [],
     rewardAPR: null,
-    rewardTokens: [addresses.MATIC.miFARM, addresses.MATIC.BANANA],
-    rewardTokenSymbols: ['miFARM', 'BANANA'],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
       <div class="help-message">
         <b>Deposit and stake:</b>
