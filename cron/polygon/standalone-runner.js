@@ -217,6 +217,7 @@ async function formulateTxSenderInfo(sender) {
   )
 
   const txSenderInfo = {
+    chainid: 137,
     type: 2,
     maxFeePerGas: submitGasPrice.maxFeePerGas,
     maxPriorityFeePerGas: submitGasPrice.maxPriorityFeePerGas,
