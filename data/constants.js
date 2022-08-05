@@ -77,6 +77,7 @@ const VAULT_CATEGORIES_NAMES = {
   CURVE: 'Curve',
   APE: 'Apeswap',
   STABLE_POLYGON: 'Stablecoins',
+  NOTIONAL: 'Notional',
 }
 
 const CHAINS_ID = {
