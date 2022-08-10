@@ -6,6 +6,254 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'notional_DAI',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.notional_DAI.NewPool,
+    collateralAddress: addresses.V2.notional_DAI.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://notional.finance/provide/DAI"
+            >
+             Notional Finance
+            </a>
+            and mint <b>nDAI</b> by providing <b>DAI</b> liquidity and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'notional_ETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.notional_ETH.NewPool,
+    collateralAddress: addresses.V2.notional_ETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://notional.finance/provide/ETH"
+            >
+             Notional Finance
+            </a>
+            and mint <b>nETH</b> by providing <b>ETH</b> liquidity and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'notional_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.notional_USDC.NewPool,
+    collateralAddress: addresses.V2.notional_USDC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://notional.finance/provide/USDC"
+            >
+             Notional Finance
+            </a>
+            and mint <b>nUSDC</b> by providing <b>USDC</b> liquidity and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'notional_WBTC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.notional_WBTC.NewPool,
+    collateralAddress: addresses.V2.notional_WBTC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://notional.finance/provide/WBTC"
+            >
+             Notional Finance
+            </a>
+            and mint <b>nWBTC</b> by providing <b>WBTC</b> liquidity and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_2EUR_EURT_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_2EUR_EURT_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2EUR_EURT_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTSEP22_USDC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/286/deposit">
+            Curve
+          </a>
+          and add liquidity for 2EUR (EURT)
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_2EUR_PAR_HODL',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMIMO_2EURPAR'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/285/deposit">
+            Curve
+          </a>
+          and add liquidity for 2EUR (PAR)
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JRTSEP22_USDC.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JRTSEP22_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_JRTSEP22_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JRTSEP22_USDC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/add/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174/0xcE0248f30d565555B793f42e46E58879F2cDCCa4/0x2623d9a6cceb732f9e86125e107a18e7832b27e5">
+            KyberDMM
+          </a>
+          and add liquidity for JRT(SEP22)-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JRTMIMO_2EURPAR.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JRTMIMO_2EURPAR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_JRTMIMO_2EURPAR.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JRTMIMO_2EURPAR.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/add/0x0f110c55EfE62c16D553A3d3464B77e1853d0e97/0xAFC780bb79E308990c7387AB8338160bA8071B67/0x181650dde0a3a457f9e82b00052184ac3feaadf3">
+            KyberDMM
+          </a>
+          and add liquidity for JRT_MIMO_SEP22-2EUR_PAR
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'convex_cvxCRV',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.convex_cvxCRV.NewPool,
@@ -204,7 +452,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2NZD_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTJUL22_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTJUL22_USDC', 'fJRTSEP22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -264,7 +512,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2EUR_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fagDENJUL22_2EUR'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fagDENJUL22_2EUR', 'fJRTANGLE_2EURagEUR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -275,6 +523,38 @@ module.exports = [
             Curve
           </a>
           and add liquidity for 2EUR
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.jarvis_JRTANGLE_2EURagEUR.Underlying, 'kyber_matic'],
+    },
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'jarvis_JRTANGLE_2EURagEUR',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.jarvis_JRTANGLE_2EURagEUR.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_JRTANGLE_2EURagEUR.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://kyberswap.com/add/0x2fFbCE9099cBed86984286A54e5932414aF4B717/0x6966D20E33A15baFde7E856147E4E5EaF418E145/0x8c2fe36e51657385d3091e92fbacb79263867f16">
+            KyberDMM
+          </a>
+          and add liquidity for JRT_ANGLE_SEP22-2EUR_agEUR
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -388,7 +668,7 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2SGD_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC', 'fJRTSEP22_USDC'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -518,7 +798,14 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2JPY_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fSES_2JPY', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
+    rewardTokenSymbols: [
+      'miFARM',
+      'WMATIC',
+      'fSES_2JPY',
+      'fJRTMAY22_USDC',
+      'fJRTJUL22_USDC',
+      'fJRTSEP22_USDC',
+    ],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
@@ -578,7 +865,14 @@ module.exports = [
     collateralAddress: addresses.MATIC.V2.jarvis_2CAD_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fQUI_2CAD', 'fJRTMAY22_USDC', 'fJRTJUL22_USDC'],
+    rewardTokenSymbols: [
+      'miFARM',
+      'WMATIC',
+      'fQUI_2CAD',
+      'fJRTMAY22_USDC',
+      'fJRTJUL22_USDC',
+      'fJRTSEP22_USDC',
+    ],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
