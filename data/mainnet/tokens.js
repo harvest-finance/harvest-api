@@ -1088,6 +1088,7 @@ module.exports = {
   },
   jarvis_AURJUL22_WETH: {
     category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/aur-weth.png',
     apyIconUrls: [],
