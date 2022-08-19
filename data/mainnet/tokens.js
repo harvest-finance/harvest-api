@@ -1088,6 +1088,7 @@ module.exports = {
   },
   jarvis_AURJUL22_WETH: {
     category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/aur-weth.png',
     apyIconUrls: [],
@@ -2062,9 +2063,8 @@ module.exports = {
     },
   },
   SUSHI_GENE_ETH: {
-    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    category: VAULT_CATEGORIES_IDS.GENOMES,
     logoUrl: './icons/sushi-gene-eth.png',
     subLabel: 'Genomes.io',
     apyIconUrls: [],
@@ -2086,9 +2086,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'pGNOME'],
   },
   SUSHI_GNOME_ETH: {
-    inactive: true,
     chain: CHAINS_ID.MATIC_MAINNET,
-    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    category: VAULT_CATEGORIES_IDS.GENOMES,
     logoUrl: './icons/sushi-gnome-eth.png',
     subLabel: 'Genomes.io',
     apyIconUrls: [],
