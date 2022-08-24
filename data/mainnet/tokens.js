@@ -45,6 +45,37 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  wstETH: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.IDLE,
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/wsteth.png',
+    apyIconUrls: ['./icons/idle.png', './icons/ldo.png'],
+    apyTokenSymbols: ['IDLE', 'LDO'],
+    displayName: 'wstETH',
+    subLabel: 'Idle Finance Tranche',
+    tokenAddress: addresses.V2.wstETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.wstETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
+      params: [addresses.WSTETH],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.IDLE_FINANCE_TRANCHE,
+        params: [
+          addresses.V2.wstETH.TrancheCDO,
+          addresses.V2.wstETH.LiquidityGauge,
+          [addresses.LDO],
+          addresses.WSTETH,
+          true,
+          '0.7',
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'IDLE', 'LDO'],
+  },
   USDD: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/usdd.png',
