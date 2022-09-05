@@ -33,23 +33,29 @@ const getxSushiAPY = async () => {
     sushiFactoryTimeTravelVolumeInUSD,
   )
 
-  const sushiBarStatsQueryReponse = await getSushiBarStats()
-  const sushiBarStats = get(sushiBarStatsQueryReponse, 'bar')
-
-  const sushiPriceInUsd = await getTokenPrice(tokenAddresses.SUSHI)
-
-  const apr = oneDayVolume
-    .times(0.05)
-    .times(0.01)
-    .div(sushiBarStats.totalSupply)
-    .times(365)
-    .div(new BigNumber(sushiBarStats.ratio).times(sushiPriceInUsd))
-    .div(365)
-    .plus(1)
-
-  const apy = apr.pow(365).minus(1)
-
-  return apy.isNaN() ? '0' : apy.times(100).toFixed(2)
+  let apy = 0
+    try {
+      const sushiBarStatsQueryReponse = await getSushiBarStats()
+      const sushiBarStats = get(sushiBarStatsQueryReponse, 'bar')
+    
+      const sushiPriceInUsd = await getTokenPrice(tokenAddresses.SUSHI)
+    
+      const apr = oneDayVolume
+        .times(0.05)
+        .times(0.01)
+        .div(sushiBarStats.totalSupply)
+        .times(365)
+        .div(new BigNumber(sushiBarStats.ratio).times(sushiPriceInUsd))
+        .div(365)
+        .plus(1)
+    
+      const apy = apr.pow(365).minus(1)
+    
+      return apy.isNaN() ? '0' : apy.times(100).toFixed(2)
+    } catch (e) {
+      console.log(e)
+      return '0'
+    }
 }
 
 const getAaveAPY = async tokenSymbol => {
