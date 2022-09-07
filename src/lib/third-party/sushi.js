@@ -26,19 +26,10 @@ const executeSushiCall = (type, query, variables) =>
 
 const getSushiBarStats = async variables => {
   const query = `
-  query barQuery($id: String! = "0x8798249c2e607446efb7ad49ec89dd1865ff4272") {
-    bar(id: $id) {
-      id
-      totalSupply
-      ratio
-      xSushiMinted
-      xSushiBurned
-      sushiStaked
-      sushiStakedUSD
-      sushiHarvested
-      sushiHarvestedUSD
-      xSushiAge
-      xSushiAgeDestroyed
+  query xsushiQuery($id: String! = "0x8798249c2e607446efb7ad49ec89dd1865ff4272") {
+    xsushis(id: $id) {
+      xSushiSupply
+      sushiXsushiRatio
     }
   }  
   `

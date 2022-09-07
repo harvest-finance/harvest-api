@@ -159,8 +159,8 @@ const SUSHI_GRAPHQL_ENDPOINTS_TYPES = {
 }
 
 const SUSHI_GRAPHQL_ENDPOINTS = {
-  BAR: 'https://api.thegraph.com/subgraphs/name/matthewlilley/bar',
-  EXCHANGE: 'https://api.thegraph.com/subgraphs/name/matthewlilley/exchange',
+  BAR: 'https://api.thegraph.com/subgraphs/name/sushi-labs/xsushi',
+  EXCHANGE: 'https://api.thegraph.com/subgraphs/name/sushiswap/exchange',
   ETH: 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks',
 }
 
