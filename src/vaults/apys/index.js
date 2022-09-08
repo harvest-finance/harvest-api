@@ -3,6 +3,8 @@ const BigNumber = require('bignumber.js')
 const { forEach } = require('promised-loops')
 const { cache } = require('../../lib/cache')
 const { getDailyCompound } = require('../../lib/utils')
+const { UI_DATA_FILES } = require('../../lib/constants')
+const { getUIData } = require('../../lib/data')
 
 const getYearlyAPR = async (type, params, share) => {
   let implementation
@@ -48,10 +50,16 @@ const executeEstimateApyFunctions = async (vaultSymbol, apyFunctions) => {
   let estimatedApy = new BigNumber(0)
   const estimatedApyBreakdown = []
 
+  const tokens = await getUIData(UI_DATA_FILES.TOKENS)
+
   await forEach(apyFunctions, async apyFunction => {
     const { type, params, share, extraDailyCompound } = apyFunction
 
-    const apy = await getEstimatedApy(type, params, share, extraDailyCompound)
+    const inactive = tokens[vaultSymbol].inactive ? tokens[vaultSymbol].inactive : false
+
+    let apy
+    if (inactive) apy = 0
+    else apy = await getEstimatedApy(type, params, share, extraDailyCompound)
 
     estimatedApy = estimatedApy.plus(apy)
     estimatedApyBreakdown.push(apy)

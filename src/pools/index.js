@@ -13,6 +13,7 @@ const {
   DEBUG_MODE,
   PROFIT_SHARING_POOL_ID,
   POOL_TYPES,
+  UI_DATA_FILES,
 } = require('../lib/constants')
 const { cache } = require('../lib/cache')
 const addresses = require('../lib/data/addresses.json')
@@ -21,11 +22,16 @@ const { getTradingApy } = require('../vaults/trading-apys')
 const { Cache } = require('../lib/db/models/cache')
 const { getPoolStatsPerType, getIncentivePoolStats } = require('./utils')
 const { getTokenPrice } = require('../prices')
+const { getUIData } = require('../lib/data')
 
 const fetchAndExpandPool = async pool => {
   if (DEBUG_MODE) {
     resetCallCount()
   }
+
+  const tokens = await getUIData(UI_DATA_FILES.TOKENS)
+  const poolVault = find(tokens, token => token.vaultAddress === pool.collateralAddress, {})
+  const inactive = poolVault ? (poolVault.inactive ? poolVault.inactive : false) : false
 
   const web3Instance = getWeb3(pool.chain)
 
@@ -62,7 +68,12 @@ const fetchAndExpandPool = async pool => {
       )
     }
 
-    const tradingApy = pool.tradingApyOveride || (await getTradingApy(pool))
+    let tradingApy
+    if (inactive) {
+      tradingApy = 0
+    } else {
+      tradingApy = pool.tradingApyOveride || (await getTradingApy(pool))
+    }
 
     if (pool.rewardAPYOveride) {
       poolStats = {
@@ -81,8 +92,8 @@ const fetchAndExpandPool = async pool => {
         lpTokenData,
       )
 
-      const hasIFarmReward = pool.rewardTokens.includes(addresses.iFARM)
-      const hasAmpliFARMReward = pool.rewardTokens.includes(addresses.ampliFARM)
+      const hasIFarmReward = pool.rewardTokens.includes(addresses.iFARM) && !inactive
+      const hasAmpliFARMReward = pool.rewardTokens.includes(addresses.ampliFARM) && !inactive
 
       if (hasIFarmReward) {
         boostedRewardAPY = new BigNumber(get(poolStats, 'apy[0]', 0))
