@@ -13,44 +13,42 @@ const { getAaveV2Market } = require('../../../lib/third-party/aave')
 const { getTokenPrice } = require('../../../prices')
 
 const getxSushiAPY = async () => {
-  const oneDayBlockQueryReponse = await getOneDayBlock()
-  const oneDayBlock = Number(get(oneDayBlockQueryReponse, 'blocks[0].number', 0))
-
-  const sushiFactoryTimeTravelQueryReponse = await getSushiFactoryTimeTravel({
-    block: {
-      number: oneDayBlock,
-    },
-  })
-  const sushiFactoryStatsQueryResponse = await getSushiFactoryStats()
-  const sushiFactoryVolumeInUsd = get(sushiFactoryStatsQueryResponse, 'factory.volumeUSD', 0)
-
-  const sushiFactoryTimeTravelVolumeInUSD = get(
-    sushiFactoryTimeTravelQueryReponse,
-    'factory.volumeUSD',
-    0,
-  )
-  const oneDayVolume = new BigNumber(sushiFactoryVolumeInUsd).minus(
-    sushiFactoryTimeTravelVolumeInUSD,
-  )
-
-  let apy = 0
   try {
+    const oneDayBlockQueryReponse = await getOneDayBlock()
+    const oneDayBlock = Number(get(oneDayBlockQueryReponse, 'blocks[0].number', 0))
+
+    const sushiFactoryTimeTravelQueryReponse = await getSushiFactoryTimeTravel({
+      block: {
+        number: oneDayBlock,
+      },
+    })
+    const sushiFactoryStatsQueryResponse = await getSushiFactoryStats()
+    const sushiFactoryVolumeInUsd = get(sushiFactoryStatsQueryResponse, 'factory.volumeUSD', 0)
+
+    const sushiFactoryTimeTravelVolumeInUSD = get(
+      sushiFactoryTimeTravelQueryReponse,
+      'factory.volumeUSD',
+      0,
+    )
+    const oneDayVolume = new BigNumber(sushiFactoryVolumeInUsd).minus(
+      sushiFactoryTimeTravelVolumeInUSD,
+    )
+
     const sushiBarStatsQueryReponse = await getSushiBarStats()
-    const sushiBarStats = get(sushiBarStatsQueryReponse, 'bar')
-  
+    const sushiBarStats = get(sushiBarStatsQueryReponse, 'xsushis')
     const sushiPriceInUsd = await getTokenPrice(tokenAddresses.SUSHI)
-  
+
     const apr = oneDayVolume
       .times(0.05)
       .times(0.01)
-      .div(sushiBarStats.totalSupply)
+      .div(sushiBarStats.xSushiSupply)
       .times(365)
-      .div(new BigNumber(sushiBarStats.ratio).times(sushiPriceInUsd))
+      .div(new BigNumber(sushiBarStats.sushiXsushiRatio).times(sushiPriceInUsd))
       .div(365)
       .plus(1)
-  
+
     const apy = apr.pow(365).minus(1)
-  
+
     return apy.isNaN() ? '0' : apy.times(100).toFixed(2)
   } catch (e) {
     console.log(e)
