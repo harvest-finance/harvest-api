@@ -833,7 +833,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT-SEP22'],
   },
   ape_BANANA_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/banana-matic.png',
@@ -862,7 +861,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_ETH_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/eth-matic.png',
@@ -891,7 +889,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_DAI_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/dai-matic.png',
@@ -920,7 +917,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_USDT_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/usdt-matic.png',
@@ -949,7 +945,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_BTC_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/btc-matic.png',
@@ -978,7 +973,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_DAI_USDC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: [VAULT_CATEGORIES_IDS.APE, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
     logoUrl: './icons/dai-usdc.png',
@@ -1007,7 +1001,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['miFARM', 'BANANA'],
   },
   ape_BNB_MATIC: {
-    isNew: true,
     chain: CHAINS_ID.MATIC_MAINNET,
     category: VAULT_CATEGORIES_IDS.APE,
     logoUrl: './icons/bnb-matic.png',
@@ -1343,11 +1336,12 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'AUR-JUL22'],
   },
   bal_MaticX: {
-    category: VAULT_CATEGORIES_IDS.BALANCER,
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/balancer-maticx.png',
-    apyIconUrls: ['./icons/balancer.png'],
-    apyTokenSymbols: ['BAL'],
+    apyIconUrls: [],
+    apyTokenSymbols: [],
     displayName: 'Balancer: MaticX',
     subLabel: 'WMATIC, MaticX',
     tokenAddress: addresses.MATIC.V2.bal_MaticX.Underlying,
