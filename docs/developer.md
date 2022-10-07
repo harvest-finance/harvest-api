@@ -53,7 +53,8 @@ All source is located in the `src` folder.
 
 Name | Description | Example (or default value)
 --- | --- | ---
-PORT | The port on which to run the API  | 3000
+HTTP_PORT | The port on which to run the API w/o SSL | 3000
+HTTPS_PORT | The port on which to run the API w/ SSL | 443
 INFURA_KEY | Infura access key |
 API_KEY | The authentication token that needs to be appended to all queries on this API | 'harvest-key'
 UPDATE_LOOP_INTERVAL_MS | Interval for polling to update the data (refresh caches) | Default: 1 Hour
