@@ -41,7 +41,7 @@ module.exports = function () {
         })
         res.end()
       })
-      .listen(httpPort)
+      .listen(httpPort, () => console.log(`HTTP->HTTPS Redirect is ready on port ${httpPort}`))
   } else {
     server = http.createServer(app)
     port = httpPort
