@@ -10,7 +10,7 @@ const { Cache, clearAllDataTestOnly } = require('../../src/lib/db/models/cache')
 const app = require('../../src/runtime/app')
 const { sleep, assertValidPositiveNumber, assertArraySize, assertIsDate } = require('./utils')
 const harvestKey = 'harvest-key'
-const testPort = 3030
+const testPort = 3000
 const { tokens: tokensJson, pools: poolsJson } = require('../../data/index.js')
 
 describe('Happy Paths', function () {
@@ -32,7 +32,7 @@ describe('Happy Paths', function () {
         ),
     )
 
-    appServer = app(testPort)
+    appServer = app()
 
     let response = {
       data: {},

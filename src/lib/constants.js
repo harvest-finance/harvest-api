@@ -1,5 +1,4 @@
 require('dotenv').config()
-const PORT = process.env.PORT || 3000
 const INFURA_URL =
   process.env.MAINNET_RPC_URL || `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`
 const INFURA_WS_URL =
@@ -229,7 +228,6 @@ module.exports = {
   VENUS_API_URL,
   BSC_RPC_URL,
   CHAIN_TYPES,
-  PORT,
   INFURA_URL,
   INFURA_WS_URL,
   COINGECKO_PRICE_API_ENDPOINT_CONTRACT,
