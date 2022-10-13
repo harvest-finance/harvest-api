@@ -53,7 +53,7 @@ All source is located in the `src` folder.
 
 Name | Description | Example (or default value)
 --- | --- | ---
-HTTP_PORT | The port on which to run the API w/o SSL | 3000
+HTTP_PORT | The port on which to run the API w/o SSL | 80
 HTTPS_PORT | The port on which to run the API w/ SSL | 443
 INFURA_KEY | Infura access key |
 API_KEY | The authentication token that needs to be appended to all queries on this API | 'harvest-key'
