@@ -37,6 +37,7 @@ const VAULT_CATEGORIES_IDS = {
   NOTIONAL: 'NOTIONAL',
   APE: 'APE',
   STABLE_POLYGON: 'STABLE_POLYGON',
+  CONVEX: 'CONVEX',
 }
 
 const VAULT_CATEGORIES_NAMES = {
@@ -78,6 +79,7 @@ const VAULT_CATEGORIES_NAMES = {
   APE: 'Apeswap',
   STABLE_POLYGON: 'Stablecoins',
   NOTIONAL: 'Notional',
+  CONVEX: 'Convex',
 }
 
 const CHAINS_ID = {

@@ -16,12 +16,17 @@ const getPrice = async (minerAddress, crvTokenAddress, crvTokenDecimals, assets,
   let poolValueUSD = new BigNumber(0)
 
   await forEach(assets, async asset => {
-    const assetInstance = new web3.eth.Contract(tokenContract.abi, tokens[asset].tokenAddress)
-
-    const assetPoolBalance = new BigNumber(
-      await tokenMethods.getBalance(minerAddress, assetInstance),
-    ).dividedBy(new BigNumber(10).pow(tokens[asset].decimals))
-    const assetPriceUSD = await getTokenPrice(tokens[asset].tokenAddress, network)
+    let assetPoolBalance, assetPriceUSD
+    if (asset == 'ETH') {
+      assetPoolBalance = new BigNumber(await web3.eth.getBalance(minerAddress)).dividedBy(1e18)
+      assetPriceUSD = await getTokenPrice('WETH')
+    } else {
+      const assetInstance = new web3.eth.Contract(tokenContract.abi, tokens[asset].tokenAddress)
+      assetPoolBalance = new BigNumber(
+        await tokenMethods.getBalance(minerAddress, assetInstance),
+      ).dividedBy(new BigNumber(10).pow(tokens[asset].decimals))
+      assetPriceUSD = await getTokenPrice(tokens[asset].tokenAddress, network)
+    }
 
     poolValueUSD = poolValueUSD.plus(assetPoolBalance.times(assetPriceUSD))
   })
