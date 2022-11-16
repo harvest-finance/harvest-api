@@ -5,6 +5,202 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_MESH_oMOOI',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_MESH_oMOOI.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_MESH_oMOOI.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x5b1e475933c802117212ce2a4240a4e7999a52a2">
+            MeshSwap
+          </a>
+          and add liquidity for MESH-oMOOI
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_MESH_oZEMIT',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_MESH_oZEMIT.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_MESH_oZEMIT.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x6fc01d72960af0de3dd97d544fe785b751d752e2">
+            MeshSwap
+          </a>
+          and add liquidity for MESH-oZEMIT
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_USDC_oUSDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_USDC_oUSDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_USDC_oUSDC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x111d7a73b40aa5ee52bf651e8f07aa26f8e9efe8">
+            MeshSwap
+          </a>
+          and add liquidity for USDC-oUSDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_USDT_oUSDT',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_USDT_oUSDT.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_USDT_oUSDT.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x58a7aac84560f994d191e78aeb690855eb2d5b88">
+            MeshSwap
+          </a>
+          and add liquidity for USDT-oUSDT
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_WMATIC_MESH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_WMATIC_MESH.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_WMATIC_MESH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x07a7ab21b582058b71d2aee1b1719926e3451adf">
+            MeshSwap
+          </a>
+          and add liquidity for MATIC-MESH
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_WMATIC_USDC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_WMATIC_USDC.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_WMATIC_USDC.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x6ffe747579ed4e807dec9b40dba18d15226c32dc">
+            MeshSwap
+          </a>
+          and add liquidity for MATIC-USDC
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'meshswap_WMATIC_USDT',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.MATIC.V2.meshswap_WMATIC_USDT.NewPool,
+    collateralAddress: addresses.MATIC.V2.meshswap_WMATIC_USDT.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://meshswap.fi/exchange/pool/detail/0x24af68ff6e3501eaf8b52a9f7935225e524fe617">
+            MeshSwap
+          </a>
+          and add liquidity for MATIC-USDT
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_JRTNOV22_USDC.Underlying, 'kyber_matic'],
