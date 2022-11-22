@@ -1,0 +1,67 @@
+{
+  "address": {
+    "ropsten": "",
+    "mainnet": "0xF61e4ede9128A9FA9a128cB7D161F4e73bd464Da"
+  },
+  "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "lp",
+            "type": "address"
+          }
+        ],
+        "name": "getPoolData",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "miningRate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rateDecimals",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "token0",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "reserveA",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "token1",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "reserveB",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "airdropCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address[]",
+            "name": "airdropTokens",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "airdropSettings",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+}
