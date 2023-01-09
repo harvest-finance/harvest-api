@@ -405,7 +405,8 @@ module.exports = {
     },
   },
   jarvis_2EUR_agEUR_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2eur_ageur.png',
     apyIconUrls: ['./icons/den.png'],
@@ -444,7 +445,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_ANGLE_NOV22'],
   },
   jarvis_JRTANGLENOV22_2EURagEUR: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
@@ -506,7 +508,8 @@ module.exports = {
     },
   },
   jarvis_2EUR_PAR_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2eur_par.png',
     apyIconUrls: ['./icons/den.png'],
@@ -545,7 +548,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_MIMO_NOV22'],
   },
   jarvis_JRTMIMONOV22_2EURPAR: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/den-4eur.png',
     apyIconUrls: ['./icons/den.png'],
@@ -614,7 +618,8 @@ module.exports = {
     },
   },
   jarvis_2JPY_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2jpy.png',
     apyIconUrls: ['./icons/den.png'],
@@ -653,7 +658,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_NOV22'],
   },
   jarvis_2CAD_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2cad.png',
     apyIconUrls: ['./icons/den.png'],
@@ -692,7 +698,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_NOV22'],
   },
   jarvis_2SGD_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2sgd.png',
     apyIconUrls: ['./icons/den.png'],
@@ -731,8 +738,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_NOV22'],
   },
   jarvis_2EUR_EURe_HODL: {
-    isNew: true,
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2eur_eure.png',
     apyIconUrls: ['./icons/den.png'],
@@ -771,7 +778,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_NOV22'],
   },
   jarvis_2EUR_EURT_HODL: {
-    category: [VAULT_CATEGORIES_IDS.JARVIS, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2eur_eurt.png',
     apyIconUrls: ['./icons/den.png'],
@@ -810,7 +818,8 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'JRT_NOV22'],
   },
   jarvis_JRTNOV22_USDC: {
-    category: VAULT_CATEGORIES_IDS.JARVIS,
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/jrtmay22-usdc.png',
     apyIconUrls: ['./icons/den.png'],
@@ -5083,10 +5092,11 @@ module.exports = {
     ],
   },
   'MUSE-ETH': {
+    inactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
     isDegen: true,
     isNFT: true,
-    category: VAULT_CATEGORIES_IDS.NFT,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     displayName: 'MUSE-ETH',
     apyIconUrls: ['./icons/muse.png'],
     apyTokenSymbols: ['MUSE'],
@@ -5322,6 +5332,7 @@ module.exports = {
     },
   },
   FARMSteadUSDC: {
+    inactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/farmstead-usdc.png',
     tokenAddress: addresses.FARMSteadUSDC,
