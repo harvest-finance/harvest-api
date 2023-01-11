@@ -732,7 +732,8 @@
 			"NewStrategy": "",
 			"PoolId": "0",
 			"NewPool": "0x743BD82331CAe227Fa2c8c97f345A6846f8383b1",
-			"MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52"
+			"MasterChef": "0x193b775aF4BF9E11656cA48724A710359446BF52",
+			"doHardwork": false
 		},
 		"nft20_Dudes": {
 			"Underlying": "0x04914cb01eeC94E320e3A88b3c7A7e9B1609d13C",
