@@ -5333,6 +5333,7 @@ module.exports = {
   },
   FARMSteadUSDC: {
     inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/farmstead-usdc.png',
     tokenAddress: addresses.FARMSteadUSDC,
