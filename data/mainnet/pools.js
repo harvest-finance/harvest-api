@@ -5,6 +5,191 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_DOLA_FRAXBP',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_DOLA_FRAXBP.NewPool,
+    collateralAddress: addresses.V2.convex_DOLA_FRAXBP.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['factory-v2-176'],
+    },
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://curve.fi/factory-v2-176/deposit"
+            >
+              curve.fi
+            </a>
+            and deposit <b>USD stablecoins</b>
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_USDD',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_USDD.NewPool,
+    collateralAddress: addresses.V2.convex_USDD.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['factory-v2-116'],
+    },
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://curve.fi/factory-v2-116/deposit"
+          >
+            curve.fi
+          </a>
+          and deposit <b>USD stablecoins</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_pETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_pETH.NewPool,
+    collateralAddress: addresses.V2.convex_pETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['factory-v2-194'],
+    },
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://curve.fi/factory-v2-194/deposit"
+          >
+            curve.fi
+          </a>
+          and deposit <b>pETH and/or ETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_pBTC',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_pBTC.NewPool,
+    collateralAddress: addresses.V2.convex_pBTC.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['factory-v2-99'],
+    },
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://curve.fi/pbtc/deposit"
+          >
+            curve.fi
+          </a>
+          and deposit <b>BTC assets</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
+    id: 'convex_CVX_ETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.convex_CVX_ETH.NewPool,
+    collateralAddress: addresses.V2.convex_CVX_ETH.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.CONVEX,
+      params: ['crypto-4'],
+    },
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://curve.fi/cvxeth/deposit"
+          >
+            curve.fi
+          </a>
+          and deposit <b>CVX and/or ETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.MATIC_MAINNET,
     id: 'meshswap_MESH_oMOOI',
     type: POOL_TYPES.INCENTIVE,
@@ -1272,7 +1457,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['crveth'],
+      params: ['crypto-3'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -1283,7 +1468,7 @@ module.exports = [
             <a target="_blank" rel="noopener noreferrer" href="https://curve.fi/crveth/deposit">
               curve.fi
             </a>
-            and deposit <b>CRV and/or cvxCRV</b>
+            and deposit <b>CRV and/or ETH</b>
           </li>
           <li>
             Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
@@ -2617,7 +2802,7 @@ module.exports = [
     rewardTokenSymbols: ['FARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['usdn'],
+      params: ['25'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -4076,7 +4261,7 @@ module.exports = [
     rewardTokenSymbols: ['FARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['steth'],
+      params: ['14'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">
@@ -6211,7 +6396,7 @@ module.exports = [
     rewardTokenSymbols: ['iFARM'],
     tradingApyFunction: {
       type: TRADING_APY_TYPES.CONVEX,
-      params: ['tricrypto2'],
+      params: ['crypto-0'],
     },
     stakeAndDepositHelpMessage: `
       <div class="help-message">

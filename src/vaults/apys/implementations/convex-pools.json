@@ -953,6 +953,15 @@
             }
         ],
         "currency": "ETH",
+        "isV2": true,
+        "coins": [
+            "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+            "0x0000000000000000000000000000000000000000"
+        ],
+        "coinDecimals": [
+            18,
+            18
+        ],
         "name": "cvxeth"
     },
     {
@@ -969,5 +978,48 @@
         ],
         "currency": "USD",
         "name": "convex_cvxCRV"
+    },
+    {
+        "lptoken": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
+        "token": " 0xf7eCC27CC9DB5d28110AF2d89b176A6623c7E351",
+        "crvRewards": "0x0404d05F3992347d2f0dC3a97bdd147D77C85c1c",
+        "swap": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
+        "id": 115,
+        "currency": "USD",
+        "name": "dola-fraxbp"
+    },
+    {
+        "lptoken": "0xe6b5CC1B4b47305c58392CE3D359B10282FC36Ea",
+        "token": " 0x6Ca954aD83701ba78aD8ef591776EeE67Cc3E6B8",
+        "crvRewards": "0x7D475cc8A5E0416f0e63042547aDB94ca7045A5b",
+        "swap": "0xe6b5CC1B4b47305c58392CE3D359B10282FC36Ea",
+        "id": 96,
+        "currency": "USD",
+        "name": "usdd"
+    },
+    {
+        "lptoken": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
+        "token": " 0xE59AD9c135227452FE5DeAEbad953022C0Dc6b4f",
+        "crvRewards": "0xb235205E1096E0Ad221Fb7621a2E2cbaB875bE75",
+        "swap": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
+        "id": 122,
+        "currency": "ETH",
+        "name": "peth"
+    },
+    {
+        "lptoken": "0xC9467E453620f16b57a34a770C6bceBECe002587",
+        "token": " 0x518AbdbEe7B2e1D62d3C7435B8FEE56AED7dcE53",
+        "crvRewards": "0x589761B61D8d1C8ecc36F3cFE35932670749015a",
+        "swap": "0xC9467E453620f16b57a34a770C6bceBECe002587",
+        "id": 77,
+        "extras": [
+            {
+                "contract": "0x640eBdA6C4f8D70A484C170106478ffb289a47DA",
+                "token": "0x89Ab32156e46F46D02ade3FEcbe5Fc4243B9AAeD",
+                "name": "PNT"
+            }
+        ],
+        "currency": "BTC",
+        "name": "pbtc2"
     }
 ]
