@@ -5,6 +5,15 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    id: 'apeStake',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.apeStake.NewPool,
+    collateralAddress: addresses.V2.apeStake.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+  },
+  {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'convex_DOLA_FRAXBP',
     type: POOL_TYPES.INCENTIVE,
