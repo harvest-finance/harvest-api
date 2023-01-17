@@ -18,13 +18,13 @@ const getApy = async reduction => {
   const rewardInfo = await getRewardsBy(
     APE_POOL_ID,
     currentTimeStamp,
-    currentTimeStamp + ONE_YEAR,
+    currentTimeStamp + 1,
     apeCoinStakingInstance,
   )
-  const rewardPerYear = new BigNumber(rewardInfo[0])
+  const rewardPerSec = new BigNumber(rewardInfo[0])
   const totalStaked = new BigNumber(apePool.stakedAmount)
 
-  let apy = rewardPerYear.dividedBy(totalStaked)
+  let apy = rewardPerSec.multipliedBy(ONE_YEAR).dividedBy(totalStaked)
   if (reduction) {
     apy = apy.multipliedBy(reduction)
   }
