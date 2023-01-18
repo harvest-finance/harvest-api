@@ -6,6 +6,42 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     chain: CHAINS_ID.ETH_MAINNET,
+    id: 'wstETH',
+    type: POOL_TYPES.INCENTIVE,
+    contractAddress: addresses.V2.wstETH.NewPool,
+    collateralAddress: addresses.V2.wstETH.NewVault,
+    rewardAPY: [],
+    rewardTokens: [addresses.iFARM],
+    rewardTokenSymbols: ['iFARM'],
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.IDLE_FINANCE_TRANCHE,
+      params: [addresses.V2.wstETH.TrancheCDO],
+    },
+    stakeAndDepositHelpMessage: `
+      <div class="help-message">
+        <b>Deposit and stake:</b>
+        <ol class="numeric-list">
+          <li>
+            Go to&nbsp;
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://stake.lido.fi/wrap"
+            >
+             Lido
+            </a>
+            and wrap <b>stETH</b> into <b>wstETH</b> and
+          </li>
+          <li>
+            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+            &quot;Stake for rewards&quot; checked for staking
+          </li>
+        </ol>
+      </div>
+   `,
+  },
+  {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'convex_DOLA_FRAXBP',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.convex_DOLA_FRAXBP.NewPool,
