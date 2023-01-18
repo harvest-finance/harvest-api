@@ -4,13 +4,13 @@ const trancheCDOContract = require('../../../lib/web3/contracts/idle-cdo/contrac
 const { getApr, AATranche } = require('../../../lib/web3/contracts/idle-cdo/methods')
 
 const getTradingApy = async trancheCDO => {
-  let apy
   const trancheCDOInstance = new web3.eth.Contract(trancheCDOContract.abi, trancheCDO)
   const tranche = await AATranche(trancheCDOInstance)
-  apy = new BigNumber(await getApr(tranche, trancheCDOInstance))
-  apy = apy.dividedBy(new BigNumber(1e18))
+  let apr = new BigNumber(await getApr(tranche, trancheCDOInstance))
+  apr = apr.dividedBy(new BigNumber(1e18)).dividedBy(100)
+  const apy = apr.dividedBy(12).plus(1).exponentiatedBy(12).minus(1)
 
-  return apy.toFixed(2, 1)
+  return apy.multipliedBy(100).toFixed(2, 1)
 }
 
 module.exports = {
