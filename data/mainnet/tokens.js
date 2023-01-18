@@ -45,6 +45,40 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  APE: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/apecoin.png',
+    tokenAddress: addresses.APE,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['apecoin'],
+    },
+  },
+  apeStake: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.APESTAKE,
+    chain: CHAINS_ID.ETH_MAINNET,
+    logoUrl: './icons/apecoin.png',
+    apyIconUrls: ['./icons/apecoin.png'],
+    apyTokenSymbols: ['APE'],
+    displayName: 'APE',
+    tokenAddress: addresses.V2.apeStake.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.apeStake.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
+      params: ['apecoin'],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.APE_STAKE,
+        params: ['0.7'],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'APE'],
+  },
   USDD: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/usdd.png',
