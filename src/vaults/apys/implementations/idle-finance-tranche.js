@@ -86,6 +86,7 @@ const getApy = async (
     .multipliedBy(trancheBalancePerUnderlying)
     .dividedBy(trancheSupply)
     .dividedBy(underlyingPrice)
+  apy = apy.multipliedBy(new BigNumber(90)).dividedBy(new BigNumber(100)) //10% performance fee
 
   if (reduction) {
     apy = apy.multipliedBy(reduction)

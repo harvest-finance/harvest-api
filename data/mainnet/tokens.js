@@ -70,7 +70,7 @@ module.exports = {
           [addresses.LDO],
           addresses.WSTETH,
           true,
-          '0.7',
+          '0.85',
         ],
       },
     ],
