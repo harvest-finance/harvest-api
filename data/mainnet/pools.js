@@ -5,6 +5,7 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.ETH_MAINNET,
     id: 'apeStake',
     type: POOL_TYPES.INCENTIVE,
     contractAddress: addresses.V2.apeStake.NewPool,
