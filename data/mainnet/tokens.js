@@ -68,7 +68,7 @@ module.exports = {
     decimals: '18',
     vaultAddress: addresses.V2.apeStake.NewVault,
     priceFunction: {
-      type: GET_PRICE_TYPES.COINGECKO_CONTRACT,
+      type: GET_PRICE_TYPES.COINGECKO_ID,
       params: ['apecoin'],
     },
     estimateApyFunctions: [
