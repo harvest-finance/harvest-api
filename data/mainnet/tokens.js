@@ -8591,4 +8591,186 @@ module.exports = {
     rowTooltip: 'Out of Range',
     disableAutoSwap: true,
   },
+  auraBAL: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [
+      VAULT_CATEGORIES_IDS.AURA,
+      VAULT_CATEGORIES_IDS.BALANCER,
+      VAULT_CATEGORIES_IDS.ETH20,
+    ],
+    displayName: 'auraBAL',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png', './icons/bbausd.png'],
+    apyTokenSymbols: ['BAL', 'AURA', 'bbaUSD'],
+    logoUrl: './icons/aura-auraBAL.png',
+    tokenAddress: addresses.V2.aura_auraBAL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_auraBAL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_auraBAL.Underlying,
+        addresses.V2.aura_auraBAL.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['auraBAL', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
+  },
+  aura_auraBAL_lp: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [VAULT_CATEGORIES_IDS.AURA, VAULT_CATEGORIES_IDS.BALANCER],
+    displayName: 'B80BAL20WETH-auraBAL',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png'],
+    apyTokenSymbols: ['BAL', 'AURA'],
+    logoUrl: './icons/balancer-auraBALlp.png',
+    tokenAddress: addresses.V2.aura_auraBAL_lp.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_auraBAL_lp.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_auraBAL_lp.Underlying,
+        addresses.V2.aura_auraBAL_lp.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['auraBAL_lp', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA'],
+  },
+  aura_bbaUSD: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [
+      VAULT_CATEGORIES_IDS.AURA,
+      VAULT_CATEGORIES_IDS.BALANCER,
+      VAULT_CATEGORIES_IDS.STABLECOINS,
+    ],
+    displayName: 'bb-a-USD',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png', './icons/bbausd.png'],
+    apyTokenSymbols: ['BAL', 'AURA', 'bbaUSD'],
+    logoUrl: './icons/balancer-bbaUSD.png',
+    tokenAddress: addresses.V2.aura_bbaUSD.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_bbaUSD.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_bbaUSD.Underlying,
+        addresses.V2.aura_bbaUSD.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['bbaUSD', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
+  },
+  aura_rETH: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [
+      VAULT_CATEGORIES_IDS.AURA,
+      VAULT_CATEGORIES_IDS.BALANCER,
+      VAULT_CATEGORIES_IDS.ETH20,
+    ],
+    displayName: 'rETH-WETH',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png'],
+    apyTokenSymbols: ['BAL', 'AURA'],
+    logoUrl: './icons/balancer-rETH.png',
+    tokenAddress: addresses.V2.aura_rETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_rETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_rETH.Underlying,
+        addresses.V2.aura_rETH.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['rETH', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA'],
+  },
+  aura_wstETH: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [
+      VAULT_CATEGORIES_IDS.AURA,
+      VAULT_CATEGORIES_IDS.BALANCER,
+      VAULT_CATEGORIES_IDS.ETH20,
+    ],
+    displayName: 'wstETH-WETH',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png', './icons/ldo.png'],
+    apyTokenSymbols: ['BAL', 'AURA', 'LDO'],
+    logoUrl: './icons/balancer-wstETH.png',
+    tokenAddress: addresses.V2.aura_wstETH.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_wstETH.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_wstETH.Underlying,
+        addresses.V2.aura_wstETH.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['wstETH', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'LDO'],
+  },
+  aura_wstETH_bbaUSD: {
+    chain: CHAINS_ID.ETH_MAINNET,
+    category: [
+      VAULT_CATEGORIES_IDS.AURA,
+      VAULT_CATEGORIES_IDS.BALANCER,
+      VAULT_CATEGORIES_IDS.ETH20,
+    ],
+    displayName: 'wstETH-bbaUSD',
+    subLabel: 'Aura Finance',
+    apyIconUrls: ['./icons/balancer.png', './icons/aura.png', './icons/bbausd.png'],
+    apyTokenSymbols: ['BAL', 'AURA', 'bbaUSD'],
+    logoUrl: './icons/balancer-wstETHbbaUSD.png',
+    tokenAddress: addresses.V2.aura_wstETH_bbaUSD.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.V2.aura_wstETH_bbaUSD.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.V2.aura_wstETH_bbaUSD.Underlying,
+        addresses.V2.aura_wstETH_bbaUSD.PoolId,
+        CHAINS_ID.ETH_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.AURA,
+        params: ['wstETH_bbaUSD', profitSharingCut30Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
+  },
 }
