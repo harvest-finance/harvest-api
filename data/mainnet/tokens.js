@@ -113,7 +113,7 @@ module.exports = {
   },
   'bb-amDAI': {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/am-dai.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.bbamDAI,
     decimals: '18',
     vaultAddress: null,
@@ -128,7 +128,7 @@ module.exports = {
   },
   'bb-amUSDC': {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/am-usdc.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.bbamUSDC,
     decimals: '18',
     vaultAddress: null,
@@ -143,7 +143,7 @@ module.exports = {
   },
   'bb-amUSDT': {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/am-usdt.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.bbamUSDT,
     decimals: '18',
     vaultAddress: null,
@@ -190,7 +190,7 @@ module.exports = {
   },
   '80BAL-20WETH': {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/balweth.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.balWeth,
     decimals: '18',
     vaultAddress: null,
@@ -205,7 +205,7 @@ module.exports = {
   },
   tetuBal: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/tetubal.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.tetuBal,
     decimals: '18',
     vaultAddress: null,
@@ -284,7 +284,7 @@ module.exports = {
   },
   jBRL: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/jbrl.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.jBRL,
     decimals: '18',
     vaultAddress: null,
@@ -295,7 +295,7 @@ module.exports = {
   },
   BRZ: {
     chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/brz.png',
+    logoUrl: '',
     tokenAddress: addresses.MATIC.BRZ,
     decimals: '4',
     vaultAddress: null,
