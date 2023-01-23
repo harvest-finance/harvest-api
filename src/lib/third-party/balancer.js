@@ -48,7 +48,7 @@ const getPoolInfoSubgraph = (poolId, networkId) => {
 
 const getPoolInfoOnChain = async (poolId, networkId) => {
   const {
-    methods: { getPoolTokens },
+    methods: { getPoolTokens, getLpToken },
     contract: {
       abi,
       address: { mainnet },
@@ -59,9 +59,13 @@ const getPoolInfoOnChain = async (poolId, networkId) => {
   const balancerVaultInstance = new web3Instance.eth.Contract(abi, mainnet)
 
   const tokenInfo = await getPoolTokens(poolId, balancerVaultInstance)
+  const lpToken = await getLpToken(poolId, balancerVaultInstance)
   let totalValue = new BigNumber(0)
   for (let i = 0; i < tokenInfo.tokens.length; i++) {
     const token = tokenInfo.tokens[i]
+    if (token == lpToken[0]) {
+      continue
+    }
     const tokenInstance = new web3Instance.eth.Contract(tokenContract.contract.abi, token)
     const tokenDecimals = await tokenContract.methods.getDecimals(tokenInstance)
     const amount = new BigNumber(tokenInfo.balances[i]).div(10 ** tokenDecimals)

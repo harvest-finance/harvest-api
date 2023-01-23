@@ -54,6 +54,12 @@ const uniNonFungibleManagerContract = require('../contracts/uni-non-fungible-man
 const balTokenAdminMethods = require('../contracts/bal-token-admin/methods')
 const balTokenAdminContract = require('../contracts/bal-token-admin/contract.json')
 
+const balLpTokenMethods = require('../contracts/bal-lp-token/methods')
+const balLpTokenContract = require('../contracts/bal-lp-token/contract.json')
+
+const balBoostLpTokenMethods = require('../contracts/bal-boost-lp-token/methods')
+const balBoostLpTokenContract = require('../contracts/bal-boost-lp-token/contract.json')
+
 module.exports = {
   vault: {
     methods: vaultMethods,
@@ -129,5 +135,13 @@ module.exports = {
   balTokenAdmin: {
     contract: balTokenAdminContract,
     methods: balTokenAdminMethods,
+  },
+  balLpToken: {
+    contract: balLpTokenContract,
+    methods: balLpTokenMethods,
+  },
+  balBoostLpToken: {
+    contract: balBoostLpTokenContract,
+    methods: balBoostLpTokenMethods,
   },
 }
