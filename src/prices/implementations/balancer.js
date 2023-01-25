@@ -2,13 +2,25 @@ const BigNumber = require('bignumber.js')
 const { get } = require('lodash')
 const { web3, web3MATIC } = require('../../lib/web3')
 const { getPoolInfo } = require('../../lib/third-party/balancer')
-const { token: tokenContractData } = require('../../lib/web3/contracts')
+const {
+  balLpToken,
+  balBoostLpToken,
+  token: tokenContractData,
+} = require('../../lib/web3/contracts')
 const { CHAIN_TYPES } = require('../../lib/constants')
 
 const getPrice = async (contractAddress, poolId, networkId) => {
   const {
+    methods: { getActualSupply },
+    contract: { abi: lpTokenAbi },
+  } = balLpToken
+  const {
+    methods: { getVirtualSupply },
+    contract: { abi: lpBoostTokenAbi },
+  } = balBoostLpToken
+  const {
     methods: { getTotalSupply },
-    contract: { abi },
+    contract: { abi: tokenAbi },
   } = tokenContractData
 
   let provider
@@ -19,10 +31,26 @@ const getPrice = async (contractAddress, poolId, networkId) => {
   }
 
   const poolInfo = await getPoolInfo(poolId, networkId)
-  const tokenInstance = new provider.eth.Contract(abi, contractAddress)
-  const totalSupply = new BigNumber(await getTotalSupply(tokenInstance)).dividedBy(
-    new BigNumber(10).pow(18),
-  )
+
+  let lpTokenInstance, totalSupply
+  try {
+    lpTokenInstance = new provider.eth.Contract(lpTokenAbi, contractAddress)
+    totalSupply = new BigNumber(await getActualSupply(lpTokenInstance)).dividedBy(
+      new BigNumber(1e18),
+    )
+  } catch (error) {
+    try {
+      lpTokenInstance = new provider.eth.Contract(lpBoostTokenAbi, contractAddress)
+      totalSupply = new BigNumber(await getVirtualSupply(lpTokenInstance)).dividedBy(
+        new BigNumber(1e18),
+      )
+    } catch (error) {
+      lpTokenInstance = new provider.eth.Contract(tokenAbi, contractAddress)
+      totalSupply = new BigNumber(await getTotalSupply(lpTokenInstance)).dividedBy(
+        new BigNumber(1e18),
+      )
+    }
+  }
 
   if (!get(poolInfo, 'totalLiquidity')) {
     console.error('Something went wrong with balancer api. totalLiquidity field is not avaiilable')

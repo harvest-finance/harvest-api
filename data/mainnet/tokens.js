@@ -45,6 +45,324 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  amDAI: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amDAI,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['aave-polygon-dai'],
+    },
+  },
+  amUSDC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amUSDC,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['aave-polygon-usdc'],
+    },
+  },
+  amUSDT: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.amUSDT,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['aave-polygon-usdt'],
+    },
+  },
+  wamDAI: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.wamDAI,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.WRAPPED_TOKEN,
+      params: [addresses.MATIC.wamDAI, addresses.MATIC.amDAI, CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  wamUSDC: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.wamUSDC,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.WRAPPED_TOKEN,
+      params: [addresses.MATIC.wamUSDC, addresses.MATIC.amUSDC, CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  wamUSDT: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.wamUSDT,
+    decimals: '6',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.WRAPPED_TOKEN,
+      params: [addresses.MATIC.wamUSDT, addresses.MATIC.amUSDT, CHAINS_ID.MATIC_MAINNET],
+    },
+  },
+  'bb-amDAI': {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.bbamDAI,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.bbamDAI,
+        '0x178e029173417b1f9c8bc16dcec6f697bc323746000000000000000000000758',
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  'bb-amUSDC': {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.bbamUSDC,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.bbamUSDC,
+        '0xf93579002dbe8046c43fefe86ec78b1112247bb8000000000000000000000759',
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  'bb-amUSDT': {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.bbamUSDT,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.bbamUSDT,
+        '0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea600000000000000000000075a',
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  balancer_bbamusd: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/bb-am-usd.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'amDAI-amUSDC-amUSDT',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_bbamusd.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_bbamusd.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_bbamusd.Underlying,
+        addresses.MATIC.V2.balancer_bbamusd.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'balancer_bbamusd',
+          addresses.MATIC.V2.balancer_bbamusd.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
+  '80BAL-20WETH': {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.balWeth,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.balWeth,
+        '0x3d468ab2329f296e1b9d8476bb54dd77d8c2320f000200000000000000000426',
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  tetuBal: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.tetuBal,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.balWeth,
+        '0x3d468ab2329f296e1b9d8476bb54dd77d8c2320f000200000000000000000426',
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+  },
+  balancer_tetuBal: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/bal-tetubal.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'tetuBal - 80BAL-20WETH',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_tetuBal.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_tetuBal.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_tetuBal.Underlying,
+        addresses.MATIC.V2.balancer_tetuBal.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'balancer_tetuBal',
+          addresses.MATIC.V2.balancer_tetuBal.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
+  balancer_2BRLUSD: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2brl-usd.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: '2BRL - bb-amUSD',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_2BRLUSD.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_2BRLUSD.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_2BRLUSD.Underlying,
+        addresses.MATIC.V2.balancer_2BRLUSD.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'balancer_2BRLUSD',
+          addresses.MATIC.V2.balancer_2BRLUSD.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
+  jBRL: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.jBRL,
+    decimals: '18',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['brz'],
+    },
+  },
+  BRZ: {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: '',
+    tokenAddress: addresses.MATIC.BRZ,
+    decimals: '4',
+    vaultAddress: null,
+    priceFunction: {
+      type: GET_PRICE_TYPES.COINGECKO_ID,
+      params: ['brz'],
+    },
+  },
+  balancer_2BRL: {
+    isNew: true,
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2brl.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'jBRL-BRZ',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_2BRL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_2BRL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_2BRL.Underlying,
+        addresses.MATIC.V2.balancer_2BRL.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: ['balancer_2BRL', addresses.MATIC.V2.balancer_2BRL.Gauge, profitSharingCut8Percent],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
+  bal_POLYBASE: {
+    category: VAULT_CATEGORIES_IDS.BALANCER,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/balancer-polybase.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'wMATIC-USDC-wETH-BAL',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_POLYBASE.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_POLYBASE.Underlying,
+        addresses.MATIC.V2.balancer_POLYBASE.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'bal_POLYBASE',
+          addresses.MATIC.V2.balancer_POLYBASE.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
   APE: {
     chain: CHAINS_ID.ETH_MAINNET,
     logoUrl: './icons/apecoin.png',
@@ -509,7 +827,6 @@ module.exports = {
     },
   },
   meshswap_MESH_oMOOI: {
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.MESHSWAP,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-mesh-omooi.png',
@@ -533,7 +850,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'oMOOI'],
   },
   meshswap_MESH_oZEMIT: {
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.MESHSWAP,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-mesh-ozemit.png',
@@ -557,7 +873,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'oZEMIT'],
   },
   meshswap_USDC_oUSDC: {
-    isNew: true,
     category: [VAULT_CATEGORIES_IDS.MESHSWAP, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-usdc-ousdc.png',
@@ -581,7 +896,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'MESH'],
   },
   meshswap_USDT_oUSDT: {
-    isNew: true,
     category: [VAULT_CATEGORIES_IDS.MESHSWAP, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-usdt-ousdt.png',
@@ -605,7 +919,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'MESH'],
   },
   meshswap_WMATIC_MESH: {
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.MESHSWAP,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-wmatic-mesh.png',
@@ -629,7 +942,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'MESH'],
   },
   meshswap_WMATIC_USDC: {
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.MESHSWAP,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-wmatic-usdc.png',
@@ -653,7 +965,6 @@ module.exports = {
     cmcRewardTokenSymbols: ['iFARM', 'MESH'],
   },
   meshswap_WMATIC_USDT: {
-    isNew: true,
     category: VAULT_CATEGORIES_IDS.MESHSWAP,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/mesh-wmatic-usdt.png',
@@ -1986,14 +2297,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'bal_MaticX',
-          addresses.MATIC.V2.bal_MaticX.Gauge,
-          addresses.MATIC.V2.bal_MaticX.Underlying,
-          profitSharingCut8Percent,
-          CHAINS_ID.MATIC_MAINNET,
-          addresses.MATIC.V2.bal_MaticX.RootChainGauge,
-        ],
+        params: ['bal_MaticX', addresses.MATIC.V2.bal_MaticX.Gauge, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'BAL'],
@@ -2021,14 +2325,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'bal_stMatic',
-          addresses.MATIC.V2.bal_stMatic.Gauge,
-          addresses.MATIC.V2.bal_stMatic.Underlying,
-          profitSharingCut8Percent,
-          CHAINS_ID.MATIC_MAINNET,
-          addresses.MATIC.V2.bal_stMatic.RootChainGauge,
-        ],
+        params: ['bal_stMatic', addresses.MATIC.V2.bal_stMatic.Gauge, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'BAL'],
@@ -2239,30 +2536,6 @@ module.exports = {
         CHAINS_ID.MATIC_MAINNET,
       ],
     },
-  },
-  amDAI: {
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '',
-    tokenAddress: addresses.MATIC.amDAI,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.DAI] },
-  },
-  amUSDC: {
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '',
-    tokenAddress: addresses.MATIC.amUSDC,
-    decimals: '6',
-    vaultAddress: null,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.USDC] },
-  },
-  amUSDT: {
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '',
-    tokenAddress: addresses.MATIC.amUSDT,
-    decimals: '6',
-    vaultAddress: null,
-    priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.USDT] },
   },
   crvTriCrypto3_polygon: {
     inactive: true,
@@ -2639,10 +2912,7 @@ module.exports = {
         params: [
           'bal_USDC_WETH_polygon',
           addresses.MATIC.V2.bal_USDC_WETH_polygon.Gauge,
-          addresses.MATIC.V2.bal_USDC_WETH_polygon.Underlying,
           profitSharingCut8Percent,
-          CHAINS_ID.MATIC_MAINNET,
-          addresses.MATIC.V2.bal_USDC_WETH_polygon.RootChainGauge,
         ],
       },
     ],
@@ -8460,40 +8730,6 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['iFARM', 'BAL'],
   },
-  bal_POLYBASE: {
-    category: VAULT_CATEGORIES_IDS.BALANCER,
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/balancer-polybase.png',
-    apyIconUrls: ['./icons/balancer.png'],
-    apyTokenSymbols: ['BAL'],
-    displayName: 'Balancer: Polybase',
-    subLabel: 'WMATIC: 25%, USDC: 25%, WETH: 25%, BAL: 25%',
-    tokenAddress: addresses.MATIC.V2.balancer_POLYBASE.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.MATIC.V2.balancer_POLYBASE.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.BALANCER,
-      params: [
-        addresses.MATIC.V2.balancer_POLYBASE.Underlying,
-        addresses.MATIC.V2.balancer_POLYBASE.PoolId,
-        CHAINS_ID.MATIC_MAINNET,
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'bal_POLYBASE',
-          addresses.MATIC.V2.balancer_POLYBASE.Gauge,
-          addresses.MATIC.V2.balancer_POLYBASE.Underlying,
-          profitSharingCut8Percent,
-          CHAINS_ID.MATIC_MAINNET,
-          addresses.MATIC.V2.balancer_POLYBASE.RootChainGauge,
-        ],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
-  },
   bal_TRICRYPTO: {
     category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
     inactive: true,
@@ -8551,14 +8787,7 @@ module.exports = {
     estimateApyFunctions: [
       {
         type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'bal_STABLE',
-          addresses.MATIC.V2.balancer_STABLE.Gauge,
-          addresses.MATIC.V2.balancer_STABLE.Underlying,
-          profitSharingCut8Percent,
-          CHAINS_ID.MATIC_MAINNET,
-          addresses.MATIC.V2.balancer_STABLE.RootChainGauge,
-        ],
+        params: ['bal_STABLE', addresses.MATIC.V2.balancer_STABLE.Gauge, profitSharingCut8Percent],
       },
     ],
     cmcRewardTokenSymbols: ['iFARM', 'BAL'],

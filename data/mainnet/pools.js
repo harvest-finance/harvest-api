@@ -5,6 +5,138 @@ const strat30PercentFactor = '0.7'
 
 module.exports = [
   {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'balancer_bbamusd',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_bbamusd.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_bbamusd.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_bbamusd.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_bbamusd.PoolId}">
+            balancer
+          </a>
+          and invest <b>stable coins</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'balancer_tetuBal',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_tetuBal.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_tetuBal.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_tetuBal.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_tetuBal.PoolId}">
+            balancer
+          </a>
+          and invest <b>tetuBal</b> and/or <b>80BAL-20WETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'balancer_2BRLUSD',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_2BRLUSD.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_2BRLUSD.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_2BRLUSD.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_2BRLUSD.PoolId}">
+            balancer
+          </a>
+          and invest <b>USD</b> or <b>BRL</b> stable coins
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'balancer_2BRL',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.LP,
+      params: [addresses.MATIC.V2.balancer_2BRL.Underlying, 'balancerv2_matic'],
+    },
+    contractAddress: addresses.MATIC.V2.balancer_2BRL.NewPool,
+    collateralAddress: addresses.MATIC.V2.balancer_2BRL.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM', 'WMATIC'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_2BRL.PoolId}">
+            balancer
+          </a>
+          and invest <b>BRL</b> stable coins
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'apeStake',
     type: POOL_TYPES.INCENTIVE,
