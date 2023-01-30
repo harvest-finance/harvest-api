@@ -38,5 +38,23 @@
          "balLP"
       ],
       "poolId": "0x4a0b73f0d13ff6d43e304a174697e3d5cfd310a400020000000000000000091c"
+   },
+   "0x8159462d255C1D24915CB51ec361F700174cD994":{
+      "boostedUnderlyings":[
+         "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4"
+      ],
+      "boostTypes":[
+         "stakedMatic"
+      ],
+      "poolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d"
+   },
+   "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0":{
+      "boostedUnderlyings":[
+         "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6"
+      ],
+      "boostTypes":[
+        "stakedMatic"
+      ],
+      "poolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c"
    }
 }
