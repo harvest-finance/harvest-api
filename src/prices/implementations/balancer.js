@@ -1,13 +1,12 @@
 const BigNumber = require('bignumber.js')
 const { get } = require('lodash')
-const { web3, web3MATIC } = require('../../lib/web3')
+const { getWeb3 } = require('../../lib/web3')
 const { getPoolInfo } = require('../../lib/third-party/balancer')
 const {
   balLpToken,
   balBoostLpToken,
   token: tokenContractData,
 } = require('../../lib/web3/contracts')
-const { CHAIN_TYPES } = require('../../lib/constants')
 
 const getPrice = async (contractAddress, poolId, networkId) => {
   const {
@@ -23,12 +22,7 @@ const getPrice = async (contractAddress, poolId, networkId) => {
     contract: { abi: tokenAbi },
   } = tokenContractData
 
-  let provider
-  if (networkId == CHAIN_TYPES.ETH) {
-    provider = web3
-  } else if (networkId == CHAIN_TYPES.MATIC) {
-    provider = web3MATIC
-  }
+  const provider = getWeb3(networkId)
 
   const poolInfo = await getPoolInfo(poolId, networkId)
 
