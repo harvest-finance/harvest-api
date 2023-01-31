@@ -10,7 +10,12 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_bbamusd.Underlying, 'balancerv2_matic'],
+      params: [
+        addresses.MATIC.V2.balancer_bbamusd.Underlying,
+        'balancerv2_matic',
+        true,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
     },
     contractAddress: addresses.MATIC.V2.balancer_bbamusd.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_bbamusd.NewVault,
@@ -43,7 +48,12 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_tetuBal.Underlying, 'balancerv2_matic'],
+      params: [
+        addresses.MATIC.V2.balancer_tetuBal.Underlying,
+        'balancerv2_matic',
+        true,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
     },
     contractAddress: addresses.MATIC.V2.balancer_tetuBal.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_tetuBal.NewVault,
@@ -76,7 +86,12 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_2BRLUSD.Underlying, 'balancerv2_matic'],
+      params: [
+        addresses.MATIC.V2.balancer_2BRLUSD.Underlying,
+        'balancerv2_matic',
+        true,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
     },
     contractAddress: addresses.MATIC.V2.balancer_2BRLUSD.NewPool,
     collateralAddress: addresses.MATIC.V2.balancer_2BRLUSD.NewVault,
@@ -1029,7 +1044,12 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.bal_MaticX.Underlying, 'balancerv2_matic'],
+      params: [
+        addresses.MATIC.V2.bal_MaticX.Underlying,
+        'balancerv2_matic',
+        true,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
     },
     contractAddress: addresses.MATIC.V2.bal_MaticX.NewPool,
     collateralAddress: addresses.MATIC.V2.bal_MaticX.NewVault,
@@ -1063,7 +1083,12 @@ module.exports = [
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.bal_stMatic.Underlying, 'balancerv2_matic'],
+      params: [
+        addresses.MATIC.V2.bal_stMatic.Underlying,
+        'balancerv2_matic',
+        true,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
     },
     contractAddress: addresses.MATIC.V2.bal_stMatic.NewPool,
     collateralAddress: addresses.MATIC.V2.bal_stMatic.NewVault,

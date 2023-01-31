@@ -1,9 +1,10 @@
 const axios = require('axios')
 const { get } = require('lodash')
+const { getBoostAPY } = require('./balancer-boost.js')
 
 const { APY_VISION_API_URL, APY_VISION_TOKEN } = require('../../../lib/constants')
 
-const getTradingApy = async (address, providerKey) => {
+const getTradingApy = async (address, providerKey, balancerBoost = false, networkId = '1') => {
   let response, apy
 
   try {
@@ -15,7 +16,13 @@ const getTradingApy = async (address, providerKey) => {
     console.error('APY.vision API error: ', err)
     apy = 0
   }
-  return apy.toFixed(2)
+
+  if (balancerBoost) {
+    const boost = await getBoostAPY(address, networkId)
+    apy += boost
+  }
+
+  return apy.toFixed(2, 1)
 }
 
 module.exports = {
