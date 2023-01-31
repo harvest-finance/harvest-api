@@ -578,12 +578,53 @@ const getNanolyData = async () => {
           reward,
           rewards,
           url: 'https://app.harvest.finance/',
-          tvl: Number(tvl),
+          tvl,
           active: true,
         }
         results.push(result)
       }
     }
+  }
+
+  //For special vaults
+  const farmWethPool = pools.eth.find(pool => pool.id === 'farm-weth')
+  if (farmWethPool) {
+    const reward = Number(farmWethPool.rewardAPY[0]) / 100
+    const rewards = {
+      FARM: reward,
+    }
+    const tvl = Number(farmWethPool.totalValueLocked).toFixed(2)
+    results.push({
+      chain: 'eth',
+      tokens: 'FARM-ETH',
+      address: farmWethPool.contractAddress,
+      base: Number(farmWethPool.tradingApy) / 100,
+      reward,
+      rewards,
+      url: 'https://app.harvest.finance/',
+      tvl,
+      active: true,
+    })
+  }
+
+  const farmGrainPool = pools.eth.find(pool => pool.id === 'farm-grain')
+  if (farmGrainPool) {
+    const reward = Number(farmGrainPool.rewardAPY[0]) / 100
+    const rewards = {
+      FARM: reward,
+    }
+    const tvl = Number(farmGrainPool.totalValueLocked).toFixed(2)
+    results.push({
+      chain: 'eth',
+      tokens: 'FARM-GRAIN',
+      address: farmGrainPool.contractAddress,
+      base: Number(farmGrainPool.tradingApy) / 100,
+      reward,
+      rewards,
+      url: 'https://app.harvest.finance/',
+      tvl,
+      active: true,
+    })
   }
   await storeData(
     Cache,
