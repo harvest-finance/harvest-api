@@ -195,6 +195,16 @@ const initRouter = app => {
         })
       }),
     )
+
+    app.get(
+      '/nanoly',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.nanolyEndPointData'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
   }
 
   if (ACTIVE_ENDPOINTS === ENDPOINT_TYPES.ALL || ACTIVE_ENDPOINTS === ENDPOINT_TYPES.INTERNAL) {
@@ -225,63 +235,6 @@ const initRouter = app => {
           },
           ...get(allVaults, 'data', {}),
         })
-      }),
-    )
-    
-    app.get(
-      '/nanoly',
-      asyncWrap(async (req, res) => {
-        let results = []
-
-        const allVaults = await Cache.findOne({ type: DB_CACHE_IDS.VAULTS })
-        const allPools = await Cache.findOne({ type: DB_CACHE_IDS.POOLS })
-        const dbField = 'data.tokenStats'
-        const token_stats = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
-        for (let chainName of Object.keys(allVaults.data)) {
-          Object.keys(allVaults.data[chainName]).map(name => {
-            const vault = allVaults.data[chainName][name]
-            let reward = 0
-            let rewards = {}
-            if (!vault['inactive']) {
-              const pool = allPools.data[chainName].find(e => e.id === vault.id)
-              const address = vault.tokenAddress
-              const tokens = vault.displayName
-              const base = Number(vault.estimatedApy) / 100
-              if (pool && vault.id != 'IFARM') {
-                pool.rewardTokenSymbols.forEach((e, i) => {
-                  e = e === 'miFARM' ? 'iFARM' : e
-                  rewards[e] = Number(pool.rewardAPY[i]) / 100
-                  reward = reward + Number(pool.rewardAPY[i]) / 100
-                })
-              } else {
-                reward =
-                  Number(token_stats.data.tokenStats['historicalAverageProfitSharingAPY']) / 100
-                rewards = {
-                  FARM: reward,
-                }
-              }
-              const tvl = new BigNumber(vault.underlyingBalanceWithInvestment)
-                .dividedBy(new BigNumber(10).pow(18))
-                .times(vault.usdPrice)
-                .toFixed(2)
-
-              let result = {
-                chain: chainName,
-                tokens,
-                address,
-                base,
-                reward,
-                rewards,
-                url: 'https://app.harvest.finance/',
-                tvl: Number(tvl),
-                active: true,
-              }
-              results.push(result)
-            }
-          })
-        }
-
-        res.send(results)
       }),
     )
   }
