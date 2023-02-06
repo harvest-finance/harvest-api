@@ -4,8 +4,8 @@ const BigNumber = require('bignumber.js')
 
 const { web3 } = require('../../../lib/web3')
 const { token, pool } = require('../../../lib/web3/contracts')
-const { getTokenPriceByAddress } = require('../../../prices/coingecko.js')
-const getBalancerTokenPrice = require('../../../prices/implementations/balancer.js').getPrice
+const { getTokenPrice } = require('../../../prices/index')
+//const getBalancerTokenPrice = require('../../../prices/implementations/balancer.js').getPrice
 
 //** Constants */
 const BAL_ADDRESS = '0xba100000625a3754423978a60c9317c58a424e3D'
@@ -42,7 +42,7 @@ const auraAPRWithPrice = async (poolName, networkId, balPrice, auraPrice) => {
 
   // Get Virtual Price.
   // The current price of the pool LP token relative to the underlying pool assets.
-  const lpPrice = await getBalancerTokenPrice(pool.lptoken, pool.balancerPoolId, networkId)
+  const virtualPrice = await getTokenPrice(pool.lptoken, pool.currency)
 
   // Get Supply of Underlying Tokens(BPT).
   // The supply of all underlying tokens from corresponding Aura Pool.
@@ -51,18 +51,18 @@ const auraAPRWithPrice = async (poolName, networkId, balPrice, auraPrice) => {
   // Calculate Pool Total Value Locked.
   // The total value locked of a pool.
   // Total Supply of Pool Underlying Tokens * Price of Underlying Tokens(BPT).
-  const tvl = supply * lpPrice
+  const tvl = supply * virtualPrice
 
   // BAL per underlying per second.
   const balPerUnderlying = rate / tvl
 
   // BAL per year.
   const balPerYear = balPerUnderlying * 86400 * 365
-  if (balPrice <= 0) balPrice = await getPrice(BAL_ADDRESS, pool.currency)
+  if (balPrice <= 0) balPrice = await getTokenPrice(BAL_ADDRESS)
 
   // AURA per year.
   const auraPerYear = await getAuraMintAmount(balPerYear)
-  if (auraPrice <= 0) auraPrice = await getPrice(AURA_ADDRESS, pool.currency)
+  if (auraPrice <= 0) auraPrice = await getTokenPrice(AURA_ADDRESS)
 
   let apr = balPerYear * balPrice
   apr += auraPerYear * auraPrice
@@ -73,7 +73,7 @@ const auraAPRWithPrice = async (poolName, networkId, balPrice, auraPrice) => {
       const exRate = await rewardRate(ex.contract)
       const perUnderlying = exRate / tvl
       const perYear = perUnderlying * 86400 * 365
-      let price = await getPrice(ex.token, pool.currency)
+      let price = await getTokenPrice(ex.token)
       apr += perYear * price
     }
   }
@@ -152,22 +152,6 @@ const getAuraMintAmount = async balEarned => {
   }
 
   return 0
-}
-
-/**
- * Fetch the token price on Coingecko
- * @param {string} contractAddress
- * @param {string=} currency
- * @returns {number}
- */
-const getPrice = async (contractAddress, currency = 'usd') => {
-  const price = await getTokenPriceByAddress(
-    contractAddress.toLowerCase(),
-    undefined, // network
-    currency.toLowerCase(), // currency
-  )
-
-  return Number(price)
 }
 
 module.exports = { auraAPR }
