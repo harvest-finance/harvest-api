@@ -38,4 +38,5 @@ const getTradingApy = async pool => {
 
 module.exports = {
   getTradingApy,
+  executeTradingApyFunction,
 }

@@ -1,0 +1,60 @@
+{
+   "0x48e6B98ef6329f8f0A30eBB8c7C960330d648085":{
+      "boostedUnderlyings":[
+         "0x178E029173417b1F9C8bC16DCeC6f697bC323746",
+         "0xF93579002DBE8046c43FEfE86ec78b1112247BB8",
+         "0xFf4ce5AAAb5a627bf82f4A571AB1cE94Aa365eA6"
+      ],
+      "boostTypes":[
+         "Aave",
+         "Aave",
+         "Aave"
+      ],
+      "aaveTags":[
+         "AMDAI",
+         "AMUSDC",
+         "AMUSDT"
+      ],
+      "poolId": "0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b"
+   },
+   "0xB797AdfB7b268faeaA90CAdBfEd464C76ee599Cd":{
+      "boostedUnderlyings":[
+         "0x3d468AB2329F296e1b9d8476Bb54Dd77D8c2320f",
+         "0x7fC9E0Aa043787BFad28e29632AdA302C790Ce33"
+      ],
+      "boostTypes":[
+         "balLP",
+         "balLP"
+      ],
+      "poolId": "0xb797adfb7b268faeaa90cadbfed464c76ee599cd0002000000000000000005ba"
+   },
+   "0x4A0b73f0D13fF6d43e304a174697e3d5CFd310a4":{
+      "boostedUnderlyings":[
+         "0x48e6B98ef6329f8f0A30eBB8c7C960330d648085",
+         "0xE22483774bd8611bE2Ad2F4194078DaC9159F4bA"
+      ],
+      "boostTypes":[
+         "balLP",
+         "balLP"
+      ],
+      "poolId": "0x4a0b73f0d13ff6d43e304a174697e3d5cfd310a400020000000000000000091c"
+   },
+   "0x8159462d255C1D24915CB51ec361F700174cD994":{
+      "boostedUnderlyings":[
+         "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4"
+      ],
+      "boostTypes":[
+         "stakedMatic"
+      ],
+      "poolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d"
+   },
+   "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0":{
+      "boostedUnderlyings":[
+         "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6"
+      ],
+      "boostTypes":[
+        "stakedMatic"
+      ],
+      "poolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c"
+   }
+}
