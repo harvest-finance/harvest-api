@@ -2447,6 +2447,48 @@
 			  "NewPool": "0xCacF3d04C7C31782fdbc66FFD9D7519B3124ed66",
 				"Gauge": "0xAA59736b80cf77d1E7D56B7bbA5A8050805F5064",
 				"PoolId": "0xb797adfb7b268faeaa90cadbfed464c76ee599cd0002000000000000000005ba"
+			},
+			"quickGamma_MATIC_ETH_narrow": {
+				"Underlying": "0x02203f2351E7aC6aB5051205172D3f772db7D814",
+				"NewVault": "0x506337cc631726A21788B9fDFb6BE6292bA7A835",
+				"NewStrategy": "0x20D5A2a81a2b23EE3D4ac94EB356f962f037e65A",
+				"NewPool": "0x55740C3a15394EBb635bdAfcbD7Fa8E285122606",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
+			},
+			"quickGamma_MATIC_ETH_wide": {
+				"Underlying": "0x81Cec323BF8C4164c66ec066F53cc053A535f03D",
+				"NewVault": "0x2eD9699441CE48F2AA9C03Af66510D6d72750591",
+				"NewStrategy": "0xC17581fd31140313e634d47c4b001E9926a06087",
+				"NewPool": "0xdC331E735f820a306ae74ED10F6FFDdC210D0497",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
+			},
+			"quickGamma_MATIC_USDC_narrow": {
+				"Underlying": "0x04d521E2c414E6d898c6F2599FdD863Edf49e247",
+				"NewVault": "0xa5422F737F24b10A0928D5E7f6cf404D077e1CD1",
+				"NewStrategy": "0x713613550CA9dbE91fAc20fB0e8fa33F1fb5822e",
+				"NewPool": "0xe0F5000e14367930A4781d2cEDa450888C7de163",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
+			},
+			"quickGamma_MATIC_USDC_wide": {
+				"Underlying": "0x4A83253e88e77E8d518638974530d0cBbbF3b675",
+				"NewVault": "0xd76BC58b95acAC968Fe0Cf9fa210Bf4bE95cd249",
+				"NewStrategy": "0x20EB0769422c932ad34800A0211Fa136274c4B45",
+				"NewPool": "0x291e6768aA66Aa2c91D6aeaA917b1E79999D92f9",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
+			},
+			"quickGamma_USDC_ETH_narrow": {
+				"Underlying": "0x3Cc20A6795c4b57d9817399F68E83e71C8626580",
+				"NewVault": "0x548E84517b2891E0316f604f4f5326a306F1830e",
+				"NewStrategy": "0xD5F0e427aeD0eB51077BA4b078e6431058526Dcb",
+				"NewPool": "0xD94c25aD1C9F6E39a20E7Ec598B4a88062bCa268",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
+			},
+			"quickGamma_USDC_ETH_wide": {
+				"Underlying": "0x6077177d4c41E114780D9901C9b5c784841C523f",
+				"NewVault": "0x0eFe7d1E2C286833e592e887aA48a6A65F21Ee7B",
+				"NewStrategy": "0x84f6AA524c74D565d5A01E0e6ad388E4246E0378",
+				"NewPool": "0xFcC9682E08E3B001e9516683cbAAf573aFFc6415",
+				"MasterChef": "0x20ec0d06f447d550fc6edee42121bc8c1817b97d"
 			}
 		}
 	}
