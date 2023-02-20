@@ -193,7 +193,7 @@ const STAKEWISE_API_URLS = {
   STAKING: 'https://api.stakewise.io/pool-stats/',
 }
 
-const QUICKSWAP_GAMMA_ENDPOINT = 'https://wire.gamma.xyz/quickswap/polygon/'
+const QUICKSWAP_GAMMA_ENDPOINT = 'https://wire2.gamma.xyz/quickswap/polygon/'
 
 const DEBUG_MODE = process.env.DEBUG_MODE
 
