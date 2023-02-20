@@ -12,7 +12,7 @@ const getPrice = async poolAddress => {
         let totalSupply = get(response, `data.${poolAddress.toLowerCase()}.totalSupply`, 0)
         totalSupply = new BigNumber(totalSupply).dividedBy(new BigNumber(10).pow(18))
         if (totalSupply && totalSupply > 0) {
-            price = parseFloat(tvlUSD) / totalSupply.toFixed(2)
+            price = parseFloat(tvlUSD) / totalSupply.toFixed()
         }
     } catch (e) {
         console.error('Gamma API error: ', e)
