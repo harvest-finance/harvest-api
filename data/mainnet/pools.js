@@ -17,14 +17,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.WMATIC}&currency1=${addresses.MATIC.pWETH}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-WETH-0-Narrow">
             gamma
           </a>
           and invest <b>WMATIC</b> and/or <b>WETH</b>
@@ -50,14 +50,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.WMATIC}&currency1=${addresses.MATIC.pWETH}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-WETH-0-Wide">
             gamma
           </a>
           and invest <b>WMATIC</b> and/or <b>WETH</b>
@@ -83,14 +83,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.WMATIC}&currency1=${addresses.MATIC.pUSDC}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-USDC-0-Narrow">
             gamma
           </a>
           and invest <b>WMATIC</b> and/or <b>USDC</b>
@@ -116,14 +116,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.WMATIC}&currency1=${addresses.MATIC.pUSDC}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-USDC-0-Wide">
             gamma
           </a>
           and invest <b>WMATIC</b> and/or <b>USDC</b>
@@ -149,14 +149,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.pUSDC}&currency1=${addresses.MATIC.pWETH}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/USDC-WETH-0-Narrow">
             gamma
           </a>
           and invest <b>USDC</b> and/or <b>WETH</b>
@@ -182,14 +182,14 @@ module.exports = [
     rewardAPY: [],
     rewardAPR: null,
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM', 'WMATIC', 'dQUICK'],
+    rewardTokenSymbols: ['miFARM'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.exchange/#/pools?currency0=${addresses.MATIC.pUSDC}&currency1=${addresses.MATIC.pWETH}">
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/USDC-WETH-0-Wide">
             gamma
           </a>
           and invest <b>USDC</b> and/or <b>WETH</b>
