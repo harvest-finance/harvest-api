@@ -8854,7 +8854,7 @@ module.exports = {
     rowTooltip: 'Out of Range',
     disableAutoSwap: true,
   },
-  auraBAL: {
+  aura_auraBAL: {
     chain: CHAINS_ID.ETH_MAINNET,
     category: [
       VAULT_CATEGORIES_IDS.AURA,
