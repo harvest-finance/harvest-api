@@ -1103,38 +1103,6 @@ module.exports = [
    `,
   },
   {
-    chain: CHAINS_ID.ETH_MAINNET,
-    id: 'aura_wstETH_bbaUSD',
-    type: POOL_TYPES.INCENTIVE,
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.aura_wstETH_bbaUSD.Underlying, 'balancerv2_eth', true],
-    },
-    contractAddress: addresses.V2.aura_wstETH_bbaUSD.NewPool,
-    collateralAddress: addresses.V2.aura_wstETH_bbaUSD.NewVault,
-    rewardAPY: [],
-    rewardTokens: [addresses.iFARM],
-    rewardTokenSymbols: ['iFARM'],
-    stakeAndDepositHelpMessage: `
-      <div class="help-message">
-        <b>Deposit and stake:</b>
-        <ol class="numeric-list">
-          <li>
-            Go to&nbsp;
-            <a target="_blank" rel="noopener noreferrer" href="https://app.balancer.fi/#/ethereum/pool/0x25accb7943fd73dda5e23ba6329085a3c24bfb6a000200000000000000000387">
-              Balancer
-            </a>
-            and add liquidity with <b>wstETH</b> or <b>USD Stablecoins</b>
-          </li>
-          <li>
-            Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
-            &quot;Stake for rewards&quot; checked for staking
-          </li>
-        </ol>
-    </div>
-   `,
-  },
-  {
     tradingApyFunction: {
       type: TRADING_APY_TYPES.LP,
       params: [addresses.MATIC.V2.jarvis_jEUR_WETH_HODL.Underlying, 'quickswap_matic'],

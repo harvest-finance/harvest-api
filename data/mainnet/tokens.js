@@ -9001,35 +9001,4 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'LDO'],
   },
-  aura_wstETH_bbaUSD: {
-    chain: CHAINS_ID.ETH_MAINNET,
-    category: [
-      VAULT_CATEGORIES_IDS.AURA,
-      VAULT_CATEGORIES_IDS.BALANCER,
-      VAULT_CATEGORIES_IDS.ETH20,
-    ],
-    displayName: 'wstETH - bb-a-USD',
-    subLabel: 'Aura Finance',
-    apyIconUrls: ['./icons/balancer.png', './icons/aura.png', './icons/bbausd.png'],
-    apyTokenSymbols: ['BAL', 'AURA', 'bbaUSD'],
-    logoUrl: './icons/balancer-wstETHbbaUSD.png',
-    tokenAddress: addresses.V2.aura_wstETH_bbaUSD.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.V2.aura_wstETH_bbaUSD.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.BALANCER,
-      params: [
-        addresses.V2.aura_wstETH_bbaUSD.Underlying,
-        addresses.V2.aura_wstETH_bbaUSD.PoolId,
-        CHAINS_ID.ETH_MAINNET,
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.AURA,
-        params: ['wstETH_bbaUSD', profitSharingCut15Percent],
-      },
-    ],
-    cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
-  },
 }
