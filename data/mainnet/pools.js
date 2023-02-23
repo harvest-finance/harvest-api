@@ -6,6 +6,204 @@ const strat30PercentFactor = '0.7'
 module.exports = [
   {
     chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_MATIC_ETH_narrow',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_MATIC_ETH_narrow.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_MATIC_ETH_narrow.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_MATIC_ETH_narrow.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-WETH-0-Narrow">
+            gamma
+          </a>
+          and invest <b>WMATIC</b> and/or <b>WETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_MATIC_ETH_wide',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_MATIC_ETH_wide.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_MATIC_ETH_wide.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_MATIC_ETH_wide.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-WETH-0-Wide">
+            gamma
+          </a>
+          and invest <b>WMATIC</b> and/or <b>WETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_MATIC_USDC_narrow',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_MATIC_USDC_narrow.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_MATIC_USDC_narrow.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_MATIC_USDC_narrow.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-USDC-0-Narrow">
+            gamma
+          </a>
+          and invest <b>WMATIC</b> and/or <b>USDC</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_MATIC_USDC_wide',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_MATIC_USDC_wide.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_MATIC_USDC_wide.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_MATIC_USDC_wide.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/WMATIC-USDC-0-Wide">
+            gamma
+          </a>
+          and invest <b>WMATIC</b> and/or <b>USDC</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_USDC_ETH_narrow',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_USDC_ETH_narrow.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_USDC_ETH_narrow.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_USDC_ETH_narrow.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/USDC-WETH-0-Narrow">
+            gamma
+          </a>
+          and invest <b>USDC</b> and/or <b>WETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
+    id: 'quickGamma_USDC_ETH_wide',
+    type: POOL_TYPES.INCENTIVE,
+    tradingApyFunction: {
+      type: TRADING_APY_TYPES.QUICKSWAP_GAMMA,
+      params: [addresses.MATIC.V2.quickGamma_USDC_ETH_wide.Underlying],
+    },
+    contractAddress: addresses.MATIC.V2.quickGamma_USDC_ETH_wide.NewPool,
+    collateralAddress: addresses.MATIC.V2.quickGamma_USDC_ETH_wide.NewVault,
+    rewardAPY: [],
+    rewardAPR: null,
+    rewardTokens: [addresses.MATIC.miFARM],
+    rewardTokenSymbols: ['miFARM'],
+    stakeAndDepositHelpMessage: `
+    <div class="help-message">
+      <b>Deposit and stake:</b>
+      <ol class="numeric-list">
+        <li>
+          Go to&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://quickswap.gamma.xyz/vault-detail/USDC-WETH-0-Wide">
+            gamma
+          </a>
+          and invest <b>USDC</b> and/or <b>WETH</b>
+        </li>
+        <li>
+          Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
+          &quot;Stake for rewards&quot; checked for staking
+        </li>
+      </ol>
+    </div>
+ `,
+  },
+  {
+    chain: CHAINS_ID.MATIC_MAINNET,
     id: 'balancer_bbamusd',
     type: POOL_TYPES.INCENTIVE,
     tradingApyFunction: {
