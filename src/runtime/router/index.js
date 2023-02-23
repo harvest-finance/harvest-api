@@ -195,6 +195,16 @@ const initRouter = app => {
         })
       }),
     )
+
+    app.get(
+      '/nanoly',
+      asyncWrap(async (req, res) => {
+        const dbField = 'data.nanolyEndPointData'
+        const queryResponse = await Cache.findOne({ type: DB_CACHE_IDS.STATS }, { [dbField]: 1 })
+
+        res.send(get(queryResponse, dbField, {}))
+      }),
+    )
   }
 
   if (ACTIVE_ENDPOINTS === ENDPOINT_TYPES.ALL || ACTIVE_ENDPOINTS === ENDPOINT_TYPES.INTERNAL) {
