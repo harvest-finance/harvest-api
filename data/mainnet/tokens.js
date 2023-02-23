@@ -45,6 +45,70 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
+  balancer_2EUR_agEUR: {
+    isNew: true,
+    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2eur_ageur.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'jEUR-agEUR',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_2EUR_agEUR.Underlying,
+        addresses.MATIC.V2.balancer_2EUR_agEUR.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'balancer_2EUR_agEUR',
+          addresses.MATIC.V2.balancer_2EUR_agEUR.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
+  balancer_2EUR_PAR: {
+    isNew: true,
+    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2eur_par.png',
+    apyIconUrls: ['./icons/balancer.png'],
+    apyTokenSymbols: ['BAL'],
+    displayName: 'jEUR-PAR',
+    subLabel: 'Balancer',
+    tokenAddress: addresses.MATIC.V2.balancer_2EUR_PAR.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.balancer_2EUR_PAR.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.BALANCER,
+      params: [
+        addresses.MATIC.V2.balancer_2EUR_PAR.Underlying,
+        addresses.MATIC.V2.balancer_2EUR_PAR.PoolId,
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
+        params: [
+          'balancer_2EUR_PAR',
+          addresses.MATIC.V2.balancer_2EUR_PAR.Gauge,
+          profitSharingCut8Percent,
+        ],
+      },
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
+  },
   quickGamma_MATIC_ETH_narrow: {
     isNew: true,
     category: VAULT_CATEGORIES_IDS.QUICKSWAP,
