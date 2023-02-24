@@ -866,7 +866,8 @@
 				"0xFe2e637202056d30016725477c5da089Ab0A043A"
 			],
 			"NewVault": "0x65383Abd40f9f831018dF243287F7AE3612c62AC",
-			"NewPool": "0x11301B7C82Cd953734440aaF0D5Dd0B36E2aB1d8"
+			"NewPool": "0x11301B7C82Cd953734440aaF0D5Dd0B36E2aB1d8",
+			"doHardwork": "onlyProfit"
 		},
 		"UniV3_UST_USDT": {
 			"Underlying": [
@@ -910,7 +911,8 @@
 				"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
 			],
 			"NewVault": "0x2357685B07469eE80A389819C7A41edCD70cd88C",
-			"NewPool": "0xd18F256b380b30d7Aa24c504b39f7320dF1b2dbE"
+			"NewPool": "0xd18F256b380b30d7Aa24c504b39f7320dF1b2dbE",
+			"doHardwork": "onlyProfit"
 		},
 		"UniV3_ETH_USDT": {
 			"Underlying": [
@@ -1368,8 +1370,7 @@
 		  "Underlying": "0xC9467E453620f16b57a34a770C6bceBECe002587",
 		  "NewVault": "0xc7fc2E6fd1d28fA86993F2d8707898c609535A4f",
 		  "NewStrategy": "0x223f134f63723f366e6355Fa3FfbC02E6580E216",
-		  "NewPool": "0xcEb6985B78D0f2d69274f1c37e192E82bA81CDad",
-      "doHardwork": false
+		  "NewPool": "0xcEb6985B78D0f2d69274f1c37e192E82bA81CDad"
 		},
 		"convex_CVX_ETH": {
 		  "Underlying": "0x3A283D9c08E8b55966afb64C515f5143cf907611",
