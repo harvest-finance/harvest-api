@@ -521,122 +521,6 @@ const getTotalRevenue = async () => {
   console.log('-- Done getting total revenue --\n')
 }
 
-const getNanolyData = async () => {
-  console.log('\n-- Getting Nanoly endpoint data --')
-
-  const vaults = await loadData(Cache, DB_CACHE_IDS.VAULTS)
-  const pools = await loadData(Cache, DB_CACHE_IDS.POOLS)
-  const token_stats = await loadData(Cache, DB_CACHE_IDS.STATS)
-  if (!vaults) {
-    console.log(`Error getting Nanoly endpoint data due to missing data. Vaults: ${vaults}`)
-    return
-  } else if (!pools) {
-    console.log(`Error getting Nanoly endpoint data due to missing data. Pools: ${pools}`)
-    return
-  }
-  let results = [],
-    hasErrors
-  for (let networkId in vaults) {
-    for (let symbol in vaults[networkId]) {
-      const vault = vaults[networkId][symbol]
-      let reward = 0
-      let rewards = {}
-      if (!vault.inactive) {
-        const pool = pools[networkId].find(
-          pool =>
-            pool.id === symbol ||
-            (pool.collateralAddress &&
-              pool.collateralAddress.toLowerCase() === vault.vaultAddress.toLowerCase()),
-        )
-        const address = vault.tokenAddress
-        const tokens = vault.displayName
-        let base
-        if (pool && pool.tradingApy) {
-          base = (Number(vault.estimatedApy) + Number(pool.tradingApy)) / 100
-        } else {
-          base = Number(vault.estimatedApy) / 100
-        }
-        if (pool && vault.id != 'IFARM') {
-          pool.rewardTokenSymbols.forEach((e, i) => {
-            e = e === 'miFARM' ? 'iFARM' : e
-            rewards[e] = Number(pool.rewardAPY[i]) / 100
-            reward = reward + Number(pool.rewardAPY[i]) / 100
-          })
-        } else {
-          reward = Number(token_stats.tokenStats['historicalAverageProfitSharingAPY']) / 100
-          rewards = {
-            FARM: reward,
-          }
-        }
-        const tvl = Number(vault.totalValueLocked).toFixed(2)
-
-        let result = {
-          chain: networkId,
-          tokens,
-          address,
-          base,
-          reward,
-          rewards,
-          url: 'https://app.harvest.finance/',
-          tvl,
-          active: true,
-        }
-        results.push(result)
-      }
-    }
-  }
-
-  //For special vaults
-  const farmWethPool = pools.eth.find(pool => pool.id === 'farm-weth')
-  if (farmWethPool) {
-    const reward = Number(farmWethPool.rewardAPY[0]) / 100
-    const rewards = {
-      FARM: reward,
-    }
-    const tvl = Number(farmWethPool.totalValueLocked).toFixed(2)
-    results.push({
-      chain: 'eth',
-      tokens: 'FARM-ETH',
-      address: farmWethPool.contractAddress,
-      base: Number(farmWethPool.tradingApy) / 100,
-      reward,
-      rewards,
-      url: 'https://app.harvest.finance/',
-      tvl,
-      active: true,
-    })
-  }
-
-  const farmGrainPool = pools.eth.find(pool => pool.id === 'farm-grain')
-  if (farmGrainPool) {
-    const reward = Number(farmGrainPool.rewardAPY[0]) / 100
-    const rewards = {
-      FARM: reward,
-    }
-    const tvl = Number(farmGrainPool.totalValueLocked).toFixed(2)
-    results.push({
-      chain: 'eth',
-      tokens: 'FARM-GRAIN',
-      address: farmGrainPool.contractAddress,
-      base: Number(farmGrainPool.tradingApy) / 100,
-      reward,
-      rewards,
-      url: 'https://app.harvest.finance/',
-      tvl,
-      active: true,
-    })
-  }
-  await storeData(
-    Cache,
-    DB_CACHE_IDS.STATS,
-    {
-      nanolyEndPointData: results,
-    },
-    hasErrors,
-  )
-  console.log('-- Done getting Nanoly endpoint data --\n')
-}
-
 const getCmc = async () => {
   console.log('\n-- Getting CMC data --')
   const pools = await loadData(Cache, DB_CACHE_IDS.POOLS)
@@ -896,12 +780,6 @@ const runUpdateLoop = async () => {
     }
 
     await getCmc()
-    if (DEBUG_MODE) {
-      updateCallCountCache('cmc')
-      resetCallCount()
-    }
-
-    await getNanolyData()
     if (DEBUG_MODE) {
       updateCallCountCache('cmc')
       resetCallCount()

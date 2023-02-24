@@ -88,16 +88,6 @@ describe('Happy Paths', function () {
   })
 
   describe('External ACTIVE_ENDPOINTS', () => {
-    it('queries /nanoly', () => {
-      return request(`http://localhost:${testPort}`)
-        .get(`/nanoly?key=${harvestKey}`)
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .then(res => {
-          assert.equal(Object.keys(res.body).length, activeVaultsJsonArray.length + 3) // response must contain all active vaults + 3 special pools: iFARM, FARM/ETH, FARM/GRAIN
-        })
-    })
-
     it('queries /token-stats', () => {
       return request(`http://localhost:${testPort}`)
         .get(`/token-stats?key=${harvestKey}`)
