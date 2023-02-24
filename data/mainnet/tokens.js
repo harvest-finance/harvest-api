@@ -45,70 +45,6 @@ module.exports = {
     ],
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
-  balancer_2EUR_agEUR: {
-    isNew: true,
-    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/2eur_ageur.png',
-    apyIconUrls: ['./icons/balancer.png'],
-    apyTokenSymbols: ['BAL'],
-    displayName: 'jEUR-agEUR',
-    subLabel: 'Balancer',
-    tokenAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.BALANCER,
-      params: [
-        addresses.MATIC.V2.balancer_2EUR_agEUR.Underlying,
-        addresses.MATIC.V2.balancer_2EUR_agEUR.PoolId,
-        CHAINS_ID.MATIC_MAINNET,
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'balancer_2EUR_agEUR',
-          addresses.MATIC.V2.balancer_2EUR_agEUR.Gauge,
-          profitSharingCut8Percent,
-        ],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
-  },
-  balancer_2EUR_PAR: {
-    isNew: true,
-    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: './icons/2eur_par.png',
-    apyIconUrls: ['./icons/balancer.png'],
-    apyTokenSymbols: ['BAL'],
-    displayName: 'jEUR-PAR',
-    subLabel: 'Balancer',
-    tokenAddress: addresses.MATIC.V2.balancer_2EUR_PAR.Underlying,
-    decimals: '18',
-    vaultAddress: addresses.MATIC.V2.balancer_2EUR_PAR.NewVault,
-    priceFunction: {
-      type: GET_PRICE_TYPES.BALANCER,
-      params: [
-        addresses.MATIC.V2.balancer_2EUR_PAR.Underlying,
-        addresses.MATIC.V2.balancer_2EUR_PAR.PoolId,
-        CHAINS_ID.MATIC_MAINNET,
-      ],
-    },
-    estimateApyFunctions: [
-      {
-        type: ESTIMATED_APY_TYPES.BALANCER_GAUGE_POLYGON,
-        params: [
-          'balancer_2EUR_PAR',
-          addresses.MATIC.V2.balancer_2EUR_PAR.Gauge,
-          profitSharingCut8Percent,
-        ],
-      },
-    ],
-    cmcRewardTokenSymbols: ['iFARM', 'BAL'],
-  },
   amDAI: {
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: '',
@@ -222,7 +158,7 @@ module.exports = {
   },
   balancer_bbamusd: {
     isNew: true,
-    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/bb-am-usd.png',
     apyIconUrls: ['./icons/balancer.png'],
@@ -316,7 +252,7 @@ module.exports = {
   },
   balancer_2BRLUSD: {
     isNew: true,
-    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2brl-usd.png',
     apyIconUrls: ['./icons/balancer.png'],
@@ -370,7 +306,7 @@ module.exports = {
   },
   balancer_2BRL: {
     isNew: true,
-    category: [VAULT_CATEGORIES_IDS.BALANCER, VAULT_CATEGORIES_IDS.STABLE_POLYGON],
+    category: VAULT_CATEGORIES_IDS.BALANCER,
     chain: CHAINS_ID.MATIC_MAINNET,
     logoUrl: './icons/2brl.png',
     apyIconUrls: ['./icons/balancer.png'],
@@ -1243,10 +1179,50 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.JRT_ANGLE_NOV22,
-        addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
+        addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_JRTANGLENOV22_2EURagEUR.Underlying,
       ],
     },
+  },
+  jarvis_2EUR_agEUR_HODL: {
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2eur_ageur.png',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    displayName: 'Jarvis: 2EUR (agEUR)',
+    subLabel: 'HODL',
+    tokenAddress: addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
+        18,
+        ['JEUR', 'agEUR'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_HODL_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.RewardPool,
+          addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
+          'jarvis_JRTANGLENOV22_2EURagEUR',
+          profitSharingCut8Percent,
+        ],
+        extraDailyCompound: false,
+      },
+    ],
+    apyDescriptionOverride: [
+      'Auto harvested <b>JRT_ANGLE_NOV22</b> deposited into <b>JRT_ANGLE_NOV22-2EUR_agEUR</b> for more APY',
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'JRT_ANGLE_NOV22'],
   },
   jarvis_JRTANGLENOV22_2EURagEUR: {
     inactive: true,
@@ -1306,10 +1282,50 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.JRT_MIMO_NOV22,
-        addresses.MATIC.V2.balancer_2EUR_PAR.OldUnderlying,
+        addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_JRTMIMONOV22_2EURPAR.Underlying,
       ],
     },
+  },
+  jarvis_2EUR_PAR_HODL: {
+    inactive: true,
+    category: VAULT_CATEGORIES_IDS.INACTIVE_POLYGON,
+    chain: CHAINS_ID.MATIC_MAINNET,
+    logoUrl: './icons/2eur_par.png',
+    apyIconUrls: [],
+    apyTokenSymbols: [],
+    displayName: 'Jarvis: 2EUR (PAR)',
+    subLabel: 'HODL',
+    tokenAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
+    decimals: '18',
+    vaultAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.NewVault,
+    priceFunction: {
+      type: GET_PRICE_TYPES.CURVE_POOL,
+      params: [
+        addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
+        addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
+        18,
+        ['JEUR', 'PAR'],
+        CHAINS_ID.MATIC_MAINNET,
+      ],
+    },
+    estimateApyFunctions: [
+      {
+        type: 'JARVIS_HODL_V2',
+        params: [
+          0,
+          addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.RewardPool,
+          addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
+          'jarvis_JRTMIMONOV22_2EURPAR',
+          profitSharingCut8Percent,
+        ],
+        extraDailyCompound: false,
+      },
+    ],
+    apyDescriptionOverride: [
+      'Auto harvested <b>JRT_MIMO_NOV22</b> deposited into <b>JRT_MIMO_NOV22-2EUR_PAR</b> for more APY',
+    ],
+    cmcRewardTokenSymbols: ['iFARM', 'JRT_MIMO_NOV22'],
   },
   jarvis_JRTMIMONOV22_2EURPAR: {
     inactive: true,
@@ -1635,42 +1651,8 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.JRT_ANGLE_SEP22,
-        addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
+        addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_JRTANGLE_2EURagEUR.Underlying,
-      ],
-    },
-  },
-  jarvis_2EUR_agEUR_HODL: {
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '',
-    tokenAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.CURVE_POOL,
-      params: [
-        addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
-        addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
-        18,
-        ['JEUR', 'agEUR'],
-        CHAINS_ID.MATIC_MAINNET,
-      ],
-    },
-  },
-  jarvis_2EUR_PAR_HODL: {
-    chain: CHAINS_ID.MATIC_MAINNET,
-    logoUrl: '',
-    tokenAddress: addresses.MATIC.V2.balancer_2EUR_PAR.OldUnderlying,
-    decimals: '18',
-    vaultAddress: null,
-    priceFunction: {
-      type: GET_PRICE_TYPES.CURVE_POOL,
-      params: [
-        addresses.MATIC.V2.balancer_2EUR_PAR.OldUnderlying,
-        addresses.MATIC.V2.balancer_2EUR_PAR.OldUnderlying,
-        18,
-        ['JEUR', 'PAR'],
-        CHAINS_ID.MATIC_MAINNET,
       ],
     },
   },
@@ -1728,7 +1710,7 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.JRT_MIMO_SEP22,
-        addresses.MATIC.V2.balancer_2EUR_PAR.OldUnderlying,
+        addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_JRTMIMO_2EURPAR.Underlying,
       ],
     },
@@ -2451,7 +2433,7 @@ module.exports = {
       type: GET_PRICE_TYPES.KYBER_PAIR,
       params: [
         addresses.MATIC.agDEN_JUL22,
-        addresses.MATIC.V2.balancer_2EUR_agEUR.OldUnderlying,
+        addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.Underlying,
         addresses.MATIC.V2.jarvis_agDENJUL22_2EUR.Underlying,
       ],
     },

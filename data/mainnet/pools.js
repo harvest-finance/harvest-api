@@ -823,25 +823,21 @@ module.exports = [
  `,
   },
   {
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_2EUR_PAR.Underlying, 'balancerv2_matic'],
-    },
     chain: CHAINS_ID.MATIC_MAINNET,
-    id: 'balancer_2EUR_PAR',
+    id: 'jarvis_2EUR_PAR_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.V2.balancer_2EUR_PAR.NewPool,
-    collateralAddress: addresses.MATIC.V2.balancer_2EUR_PAR.NewVault,
+    contractAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2EUR_PAR_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM'],
+    rewardTokenSymbols: ['miFARM', 'WMATIC', 'fJRTMIMO_2EURPAR', 'fJRTMIMONOV22_2EURPAR'],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_2EUR_PAR.PoolId}">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/285/deposit">
             Curve
           </a>
           and add liquidity for 2EUR (PAR)
@@ -1181,28 +1177,30 @@ module.exports = [
  `,
   },
   {
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.MATIC.V2.balancer_2EUR_agEUR.Underlying, 'balancerv2_matic'],
-    },
     chain: CHAINS_ID.MATIC_MAINNET,
-    id: 'balancer_2EUR_agEUR',
+    id: 'jarvis_2EUR_agEUR_HODL',
     type: POOL_TYPES.INCENTIVE,
-    contractAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.NewPool,
-    collateralAddress: addresses.MATIC.V2.balancer_2EUR_agEUR.NewVault,
+    contractAddress: addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.NewPool,
+    collateralAddress: addresses.MATIC.V2.jarvis_2EUR_agEUR_HODL.NewVault,
     rewardAPY: [],
     rewardTokens: [addresses.MATIC.miFARM],
-    rewardTokenSymbols: ['miFARM'],
+    rewardTokenSymbols: [
+      'miFARM',
+      'WMATIC',
+      'fagDENJUL22_2EUR',
+      'fJRTANGLE_2EURagEUR',
+      'fJRTANGLENOV22_2EURagEUR',
+    ],
     stakeAndDepositHelpMessage: `
     <div class="help-message">
       <b>Deposit and stake:</b>
       <ol class="numeric-list">
         <li>
           Go to&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://polygon.balancer.fi/#/pool/${addresses.MATIC.V2.balancer_2EUR_agEUR.PoolId}">
+          <a target="_blank" rel="noopener noreferrer" href="https://polygon.curve.fi/factory/209/deposit">
             Curve
           </a>
-          and add liquidity for 2EUR (agEUR)
+          and add liquidity for 2EUR
         </li>
         <li>
           Go back to this vault, hit &quot;MAX&quot; and then &quot;Deposit&quot;. Leave
