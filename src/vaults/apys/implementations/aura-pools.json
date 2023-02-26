@@ -18,7 +18,14 @@
     "lptoken": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd",
     "rewardPool": "0xacada51c320947e7ed1a0d0f6b939b0ff465e4c2",
     "balancerPoolId": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd000200000000000000000249",
-    "name": "auraBAL_lp"
+    "name": "auraBAL_lp",
+    "extras": [
+      {
+        "contract": "0xb1BCdf4bce3d5786eb10533D07E4595D1f1BC9c8",
+        "token": "0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF",
+        "name": "AURA"
+      }
+    ]
   },
   {
     "id": 2,

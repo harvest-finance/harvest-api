@@ -26,7 +26,6 @@ const getBoostAPY = async (poolAddress, networkId) => {
     let partApy
     if (types[i] == 'Aave') {
       partApy = await getAaveApy(poolBoostInfo.aaveTags[i])
-      partApy = networkId == '1' ? partApy.div(2) : partApy
     } else if (types[i] == 'balLP') {
       partApy = await getLPApy(token, networkId)
     } else if (types[i] == 'stakedMatic') {

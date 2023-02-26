@@ -85,6 +85,7 @@ const VAULT_CATEGORIES_NAMES = {
   CONVEX: 'Convex',
   MESHSWAP: 'MeshSwap',
   APESTAKE: 'ApeStake',
+  AURA: 'Aura',
 }
 
 const CHAINS_ID = {

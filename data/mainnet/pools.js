@@ -946,10 +946,6 @@ module.exports = [
     chain: CHAINS_ID.ETH_MAINNET,
     id: 'aura_auraBAL',
     type: POOL_TYPES.INCENTIVE,
-    tradingApyFunction: {
-      type: TRADING_APY_TYPES.LP,
-      params: [addresses.V2.aura_auraBAL.Underlying, 'balancerv2_eth', true],
-    },
     contractAddress: addresses.V2.aura_auraBAL.NewPool,
     collateralAddress: addresses.V2.aura_auraBAL.NewVault,
     rewardAPY: [],

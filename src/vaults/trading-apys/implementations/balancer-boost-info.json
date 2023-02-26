@@ -35,16 +35,6 @@
     "boostTypes": ["stakedMatic"],
     "poolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c"
   },
-  "0x616e8BfA43F920657B3497DBf40D6b1A02D4608d": {
-    "boostedUnderlyings": [
-      "0x2F4eb100552ef93840d5aDC30560E5513DFfFACb",
-      "0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83",
-      "0xae37D54Ae477268B9997d4161B96b8200755935c"
-    ],
-    "boostTypes": ["Aave", "Aave", "Aave"],
-    "aaveTags": ["AUSDT", "AUSDC", "ADAI"],
-    "poolId": "0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d"
-  },
   "0x3dd0843A028C86e0b760b1A76929d1C5Ef93a2dd": {
     "boostedUnderlyings": ["0x616e8BfA43F920657B3497DBf40D6b1A02D4608d"],
     "boostTypes": ["balLP"],
