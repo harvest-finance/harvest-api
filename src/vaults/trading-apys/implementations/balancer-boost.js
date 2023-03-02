@@ -5,6 +5,7 @@ const boostInfo = require('./balancer-boost-info.json')
 const { executeTradingApyFunction } = require('../index.js')
 const { get7MAAPRs } = require('../../../lib/third-party/lido')
 const { getYearlyAPR } = require('../../../lib/third-party/rocket-pool')
+const { getApy: getIdleApy } = require('../../apys/implementations/idle-finance')
 
 const getBoostAPY = async (poolAddress, networkId) => {
   const poolBoostInfo = boostInfo[poolAddress]
@@ -26,6 +27,8 @@ const getBoostAPY = async (poolAddress, networkId) => {
     let partApy
     if (types[i] == 'Aave') {
       partApy = await getAaveApy(poolBoostInfo.aaveTags[i])
+    } else if (types[i] == 'Idle') {
+      partApy = await getIdleApy(poolBoostInfo.symbols[i], poolBoostInfo.idleTokens[i], 1)
     } else if (types[i] == 'balLP') {
       partApy = await getLPApy(token, networkId)
     } else if (types[i] == 'stakedMatic') {

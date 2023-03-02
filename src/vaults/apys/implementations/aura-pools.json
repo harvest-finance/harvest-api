@@ -61,5 +61,12 @@
     "rewardPool": "0x8c9e4a04adb0d543b33cab644135bfca523c40c8",
     "balancerPoolId": "0x25accb7943fd73dda5e23ba6329085a3c24bfb6a000200000000000000000387",
     "name": "wstETH_bbaUSD"
+  },
+  {
+    "id": 72,
+    "lptoken": "0x60683B05e9a39E3509D8fdb9C959f23170f8A0fa",
+    "rewardPool": "0x4d585a29dF0a8E18c26f662C6586ded6703062a8",
+    "balancerPoolId": "0x60683b05e9a39e3509d8fdb9c959f23170f8a0fa000000000000000000000489",
+    "name": "bbiUSD"
   }
 ]

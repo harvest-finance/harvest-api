@@ -59,5 +59,20 @@
     "boostedUnderlyings": ["0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"],
     "boostTypes": ["stakedEth"],
     "poolId": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080"
+  },
+  "0x60683B05e9a39E3509D8fdb9C959f23170f8A0fa": {
+    "boostedUnderlyings": [
+      "0x2FF1A9Dbdacd55297452cFD8a4d94724Bc22a5F7",
+      "0xbc0F2372008005471874e426e86CCFae7B4De79d",
+      "0xDbA274B4D04097b90A72b62467d828cEFD708037"
+    ],
+    "boostTypes": ["Idle", "Idle", "Idle"],
+    "symbols": ["USDT", "USDC", "DAI"],
+    "idleTokens": [
+      "0xF34842d05A1c888Ca02769A633DF37177415C2f8",
+      "0x5274891bEC421B39D23760c04A6755eCB444797C",
+      "0x3fe7940616e5bc47b0775a0dccf6237893353bb4"
+    ],
+    "poolId": "0x60683b05e9a39e3509d8fdb9c959f23170f8a0fa000000000000000000000489"
   }
 }
