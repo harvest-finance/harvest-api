@@ -197,6 +197,8 @@ const STAKEWISE_API_URLS = {
   STAKING: 'https://api.stakewise.io/pool-stats/',
 }
 
+const QUICKSWAP_GAMMA_ENDPOINT = 'https://wire2.gamma.xyz/quickswap/polygon/'
+
 const DEBUG_MODE = process.env.DEBUG_MODE
 
 const WEB3_CALL_COUNT_STATS_KEY = 'web3CallCountStats'
@@ -280,4 +282,5 @@ module.exports = {
   ROCKETPOOL_API_URLS,
   STAKEWISE_API_URLS,
   APE_API_URL,
+  QUICKSWAP_GAMMA_ENDPOINT,
 }
