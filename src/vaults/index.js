@@ -73,7 +73,6 @@ const fetchAndExpandVault = async symbol => {
     underlyingBalanceWithInvestment = totalSupply
     pricePerFullShare = 1
   }
-  
 
   const { estimatedApy, estimatedApyBreakdown } = await executeEstimateApyFunctions(
     symbol,
