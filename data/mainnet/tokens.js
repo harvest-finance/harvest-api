@@ -46,6 +46,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
   aura_auraBAL: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.AURA, VAULT_CATEGORIES_IDS.BALANCER],
     displayName: 'auraBAL',
@@ -69,6 +70,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
   },
   aura_auraBAL_lp: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.AURA, VAULT_CATEGORIES_IDS.BALANCER],
     displayName: '80BAL-20WETH - auraBAL',
@@ -96,6 +98,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA'],
   },
   aura_bbaUSD: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [
       VAULT_CATEGORIES_IDS.AURA,
@@ -127,6 +130,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA', 'bbaUSD'],
   },
   aura_rETH: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.AURA, VAULT_CATEGORIES_IDS.BALANCER],
     displayName: 'rETH - WETH',
@@ -154,6 +158,7 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'BAL', 'AURA'],
   },
   aura_wstETH: {
+    isNew: true,
     chain: CHAINS_ID.ETH_MAINNET,
     category: [VAULT_CATEGORIES_IDS.AURA, VAULT_CATEGORIES_IDS.BALANCER],
     displayName: 'wstETH - WETH',
