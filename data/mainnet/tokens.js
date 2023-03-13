@@ -26,7 +26,7 @@ module.exports = {
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.FARM] },
   },
   WETH: {
-    chain: CHAINS_ID.INACTIVE,
+    chain: CHAINS_ID.ETH_MAINNET,
     inactive: true,
     logoUrl: './icons/eth.png',
     apyIconUrls: [],
