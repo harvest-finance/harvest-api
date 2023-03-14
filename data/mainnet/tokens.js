@@ -35,7 +35,7 @@ module.exports = {
     tokenAddress: addresses.WETH,
     decimals: '18',
     vaultAddress: addresses.V2.WETH.NewVault,
-    category: VAULT_CATEGORIES_IDS.GENERAL,
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     priceFunction: { type: GET_PRICE_TYPES.COINGECKO_CONTRACT, params: [addresses.WETH] },
     estimateApyFunctions: [
       {
@@ -47,17 +47,13 @@ module.exports = {
     cmcRewardTokenSymbols: ['FARM', 'WETH'],
   },
   aura_bbiUSD: {
-    isNew: true,
+    inactive: true,
     chain: CHAINS_ID.ETH_MAINNET,
-    category: [
-      VAULT_CATEGORIES_IDS.AURA,
-      VAULT_CATEGORIES_IDS.BALANCER,
-      VAULT_CATEGORIES_IDS.STABLECOINS,
-    ],
+    category: VAULT_CATEGORIES_IDS.INACTIVE,
     displayName: 'iDAI-iUSDC-iUSDT',
     subLabel: 'Idle - Aura Finance',
-    apyIconUrls: ['./icons/balancer.png', './icons/aura.png'],
-    apyTokenSymbols: ['BAL', 'AURA'],
+    apyIconUrls: [],
+    apyTokenSymbols: [],
     logoUrl: './icons/balancer-bbaUSD.png',
     tokenAddress: addresses.V2.aura_bbiUSD.Underlying,
     decimals: '18',
