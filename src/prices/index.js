@@ -54,6 +54,15 @@ const getTokenPrice = async (selectedToken, ourChainId = CHAIN_TYPES.ETH) => {
     }
   }
 
+  //Hotfix for fWETH, fUSDC, fUSDT price
+  if (selectedToken == '0xFE09e53A81Fe2808bc493ea64319109B5bAa573e') {
+    return await getTokenPriceById('ethereum')
+  } else if (selectedToken == '0xf0358e8c3CD5Fa238a29301d0bEa3D63A17bEdBE') {
+    return await getTokenPriceById('usd-coin')
+  } else if (selectedToken == '0x053c80eA73Dc6941F518a68E2FC52Ac45BDE7c9C') {
+    return await getTokenPriceById('tether')
+  }
+
   // next, checking if the staking token is a regular token
   const tokenData =
     tokens[selectedToken] ||
