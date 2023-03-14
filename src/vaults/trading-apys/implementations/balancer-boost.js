@@ -3,6 +3,9 @@ const { getPoolInfo } = require('../../../lib/third-party/balancer')
 const { getAaveV2Market } = require('../../../lib/third-party/aave')
 const boostInfo = require('./balancer-boost-info.json')
 const { executeTradingApyFunction } = require('../index.js')
+const { get7MAAPRs } = require('../../../lib/third-party/lido')
+const { getYearlyAPR } = require('../../../lib/third-party/rocket-pool')
+const { getApy: getIdleApy } = require('../../apys/implementations/idle-finance')
 
 const getBoostAPY = async (poolAddress, networkId) => {
   const poolBoostInfo = boostInfo[poolAddress]
@@ -17,15 +20,21 @@ const getBoostAPY = async (poolAddress, networkId) => {
   let apy = new BigNumber(0)
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i]
-    const tokenWeight = tokenValues[token].div(tvl)
+    const tokenWeight = tokenValues[token]
+      ? tokenValues[token].div(tvl)
+      : tokenValues[token.toLowerCase()].div(tvl)
 
     let partApy
     if (types[i] == 'Aave') {
       partApy = await getAaveApy(poolBoostInfo.aaveTags[i])
+    } else if (types[i] == 'Idle') {
+      partApy = await getIdleApy(poolBoostInfo.symbols[i], poolBoostInfo.idleTokens[i], 1)
     } else if (types[i] == 'balLP') {
       partApy = await getLPApy(token, networkId)
     } else if (types[i] == 'stakedMatic') {
       partApy = await getStakedMaticApy(token)
+    } else if (types[i] == 'stakedEth') {
+      partApy = (await getStakedEthApy(token, networkId)) / 2
     } else {
       console.error(`Balancer boost type: ${types[i]} not recognized`)
       continue
@@ -55,6 +64,14 @@ const getAaveApy = async tokenId => {
     ({ symbol }) => symbol === tokenId,
   )
   return new BigNumber(aavePool[0].liquidityRate).times(100)
+}
+
+const getStakedEthApy = async (token, networkId) => {
+  if (token == '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0') {
+    return await get7MAAPRs(networkId)
+  } else if (token == '0xae78736Cd615f374D3085123A210448E74Fc6393') {
+    return await getYearlyAPR(networkId)
+  }
 }
 
 const getStakedMaticApy = async token => {
