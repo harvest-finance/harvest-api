@@ -66,6 +66,7 @@ const ESTIMATED_APY_TYPES = {
   MSTABLE: 'MSTABLE',
   LOOKSRARE_SINGLE_ASSET: 'LOOKSRARE_SINGLE_ASSET',
   STAKEWISE: 'STAKEWISE',
+  AURA: 'AURA',
 }
 
 const TRADING_APY_TYPES = {
@@ -188,6 +189,9 @@ const BALANCER_SUBGRAPH_URLS = {
   MATIC: 'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2',
 }
 
+const LIDO_API_URLS = { ETH: 'https://eth-api.lido.fi/v1/protocol/steth/apr/sma' }
+const ROCKETPOOL_API_URLS = { ETH: 'https://api.rocketpool.net/api/apr' }
+
 const STAKEWISE_API_URLS = {
   LIQUIDITY: 'https://api.stakewise.io/uniswap-pools/',
   STAKING: 'https://api.stakewise.io/pool-stats/',
@@ -272,6 +276,8 @@ module.exports = {
   MATIC_RPC_URL,
   TRADING_APY_TYPES,
   BALANCER_SUBGRAPH_URLS,
+  LIDO_API_URLS,
+  ROCKETPOOL_API_URLS,
   STAKEWISE_API_URLS,
   APE_API_URL,
 }
